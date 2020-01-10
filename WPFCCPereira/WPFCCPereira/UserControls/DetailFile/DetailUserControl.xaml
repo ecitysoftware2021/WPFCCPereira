@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="WPFCCPereira.UserControls.DetailFile.DetailUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCCPereira.UserControls.DetailFile"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+            gif:ImageBehavior.AnimateInDesignMode="True"
+            mc:Ignorable="d"
+            Height="1000" 
+            Width="1080">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-detail.png" Stretch="Uniform"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="{Binding Tittle}"
+                       FontSize="60"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Margin="0,50,0,0"
+                       Foreground="#FF0B6EAC"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center" FontWeight="Bold" FontFamily="Arial Narrow"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid Grid.Row="3">
+                <ListView x:Name="lv_information" 
+                    Margin="0,20,0,0"
+                    Background="Red"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Top"
+                    ItemsSource="{Binding}" >
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="1"
+                                 HorizontalAlignment="Center"
+                                     VerticalAlignment="Top"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="0,0,0,0"
+                            Width="1030"
+                            Height="120" >
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-file.png"/>
+                                </Grid.Background>
+
+                                <TextBlock Text="{Binding Item1}"
+                                       FontSize="30"
+                                       FontFamily="Myriad Pro"
+                                       TextAlignment="Justify"
+                                       TextWrapping="Wrap"
+                                       Margin="50,0,0,0"
+                                       Foreground="#606060"
+                                       FontWeight="Bold"
+                                       Height="70"
+                                       VerticalAlignment="Top"
+                                       HorizontalAlignment="Left"
+                                       Grid.Column="0" />
+
+                                <TextBlock Text="{Binding Item2}"
+                                       FontSize="30"
+                                       FontFamily="Myriad Pro"
+                                       TextAlignment="Justify"
+                                       TextWrapping="Wrap"
+                                       Margin="50,0,0,20"
+                                       Foreground="#606060"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Left"
+                                       Grid.Column="0" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
