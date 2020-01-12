@@ -220,7 +220,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                var typeConsul = int.Parse(((Image)sender).Tag.ToString());
+                var typeConsul = int.Parse(((Button)sender).Tag.ToString());
 
                 if (typeConsul != (int)viewModel.TypeConsult)
                 {
@@ -232,9 +232,10 @@ namespace WPFCCPereira.UserControls
 
                         text_id.Text = "";
                         text_name.Text = "";
+                        lbl_tittle.Visibility = Visibility.Visible;
 
                         viewModel.SourceCheckId = ImagesUrlResource.ImageCheckId;
-                        viewModel.Tittle = MessageResource.EnterId;
+                        viewModel.Message = MessageResource.EnterId;
                     }
                     else
                     {
@@ -244,9 +245,10 @@ namespace WPFCCPereira.UserControls
 
                         text_id.Text = "";
                         text_name.Text = "";
+                        lbl_tittle.Visibility = Visibility.Hidden;
 
                         viewModel.SourceCheckId = ImagesUrlResource.ImageCheckName;
-                        viewModel.Tittle = MessageResource.EnterName;
+                        viewModel.Message = MessageResource.EnterName;
                     }
                 }
             }

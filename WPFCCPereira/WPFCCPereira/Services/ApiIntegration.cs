@@ -29,7 +29,7 @@ namespace WPFCCPereira.Services
 
         public ApiIntegration()
         {
-            basseAddress = Utilities.GetConfiguration("basseAddressIntegration", true);
+            basseAddress = Utilities.GetConfiguration("basseAddressIntegration");
 
             user = Utilities.GetConfiguration("UserAPI");
 

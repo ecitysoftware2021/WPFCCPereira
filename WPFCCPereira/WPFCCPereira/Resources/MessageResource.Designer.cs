@@ -115,7 +115,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ingrese un nombre válido para buscar.
+        ///   Looks up a localized string similar to Ingrese el nombre de la empresa.
         /// </summary>
         internal static string EnterName {
             get {

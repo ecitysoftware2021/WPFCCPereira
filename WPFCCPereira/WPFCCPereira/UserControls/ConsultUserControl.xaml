@@ -66,30 +66,26 @@
         </Grid>
 
         <Grid Grid.Row="2" >
-            <Grid.Background>
-                <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-search.png"/>
-            </Grid.Background>
             <TextBox x:Name="text_name" 
                      VerticalAlignment="Top" 
                      HorizontalAlignment="Left" 
                      TextAlignment="Center"
                      Margin="100,0,0,0" 
-                     Width="680"
+                     Width="710"
                      Height="160" 
                      TextWrapping="Wrap"
                      TabIndex="0"
                      FontSize="48" 
                      Foreground="#FF56C5C8"
                      FontWeight="Medium"
-                     k:TouchScreenKeyboard.TouchScreenKeyboard="True"
                      md:HintAssist.FloatingScale="0.4"
                      md:HintAssist.IsFloating="True"
                      md:HintAssist.Hint="{Binding Message}"
-                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                      Visibility="{Binding VisibilityName}"
-                     TextChanged="txt_TextChanged" 
-                     TouchDown="Text_TouchDown"
-                      FontFamily="Arial" 
+                     k:TouchScreenKeyboard.TouchScreenKeyboard="True"
+                     TextChanged="txt_TextChanged"
+                     TouchDown="Text_TouchDown" 
+                     FontFamily="Arial" 
                      BorderBrush="{x:Null}"
                      CaretBrush="{x:Null}" 
                      SelectionBrush="{x:Null}" 
@@ -100,7 +96,7 @@
                      HorizontalAlignment="Left" 
                      TextAlignment="Center"
                      Margin="100,0,0,0" 
-                     Width="680"
+                     Width="710"
                      Height="160" 
                      TextWrapping="Wrap"
                      TabIndex="0"
@@ -153,7 +149,7 @@
                     FontSize="30" 
                     FontFamily="Arial"
                     FontWeight="Medium" 
-                    Margin="0,0,200,20"/>
+                    Margin="0,0,200,30"/>
         </Grid>
 
         <Grid Grid.Row="3">

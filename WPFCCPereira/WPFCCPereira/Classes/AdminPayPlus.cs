@@ -110,7 +110,7 @@ namespace WPFCCPereira.Classes
 
         public async void Start()
         {
-            if (await LoginPaypad())
+            if (await LoginPaypad() && await ApiIntegration.SecurityToken())
             {
                 if (await ValidatePaypad())
                 {
@@ -213,30 +213,31 @@ namespace WPFCCPereira.Classes
         {
             try
             {
-                if (_controlPeripherals == null)
-                {
-                    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("PortBills"),
-                        Utilities.GetConfiguration("PortCoins"), Utilities.GetConfiguration("ValuesDispenser"));
-                }
+                //if (_controlPeripherals == null)
+                //{
+                //    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("PortBills"),
+                //        Utilities.GetConfiguration("PortCoins"), Utilities.GetConfiguration("ValuesDispenser"));
+                //}
 
-                _controlPeripherals.callbackError = error =>
-                {
-                    SaveLog(new RequestLogDevice
-                    {
-                        Code = "",
-                        Date = DateTime.Now,
-                        Description = error.Item2,
-                        Level = ELevelError.Strong
-                    }, ELogType.Device);
-                    Finish(false);
-                };
+                //_controlPeripherals.callbackError = error =>
+                //{
+                //    SaveLog(new RequestLogDevice
+                //    {
+                //        Code = "",
+                //        Date = DateTime.Now,
+                //        Description = error.Item2,
+                //        Level = ELevelError.Strong
+                //    }, ELogType.Device);
+                //    Finish(false);
+                //};
 
-                _controlPeripherals.callbackToken = isSucces =>
-                {
-                    _controlPeripherals.callbackError = null;
-                    Finish(isSucces);
-                };
-                _controlPeripherals.Start();
+                //_controlPeripherals.callbackToken = isSucces =>
+                //{
+                //    _controlPeripherals.callbackError = null;
+                //    Finish(isSucces);
+                //};
+                //_controlPeripherals.Start();
+                Finish(true);
 
             }
             catch (Exception ex)
@@ -248,7 +249,7 @@ namespace WPFCCPereira.Classes
 
         private void Finish(bool isSucces)
         {
-            _controlPeripherals.callbackToken = null;
+            //_controlPeripherals.callbackToken = null;
             callbackResult?.Invoke(isSucces);
         }
 
