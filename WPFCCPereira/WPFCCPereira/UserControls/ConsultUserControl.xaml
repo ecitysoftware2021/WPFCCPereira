@@ -4,19 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:k="clr-namespace:WPFCCPereira.Keyboard" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WPFCCPereira.UserControls"
              mc:Ignorable="d"
              Height="1920" 
              Width="1080" >
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-consult.jpg"/>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-consult.png"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
-            <RowDefinition Height="690" />
-            <RowDefinition Height="300" />
+            <RowDefinition Height="550" />
+            <RowDefinition Height="240" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -25,7 +26,6 @@
                    Name="btn_exit"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
-                   Grid.Column="4"
                    Width="550"
                    Margin="80,0,0,0"
                    TouchDown="Btn_exit_TouchDown" />
@@ -34,29 +34,35 @@
         <Grid Grid.Row="1">
             <Image  x:Name="check_option"
                     Source="{Binding SourceCheckId}"
-                    Width="900"
-                    Height="90"
+                    Width="800"
+                    Height="80"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,0,50" />
+                    Margin="0,0,0,20" />
 
-            <Image  x:Name="check_identification"
+            <Button  x:Name="check_identification"
                     Tag="2"
                     Width="450"
-                    Height="90"
+                    Height="80"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Margin="100,0,0,50"
-                    TouchDown="Select_TouchDown" />
+                    Margin="100,0,0,20"
+                    TouchDown="Select_TouchDown"
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="{x:Null}"/>
 
-            <Image  x:Name="check_name"
+            <Button  x:Name="check_name"
                     Width="420"
-                    Height="90"
+                    Height="80"
                     Tag="1"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,100,50" 
-                    TouchDown="Select_TouchDown"/>
+                    Margin="0,0,100,20" 
+                    TouchDown="Select_TouchDown"
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="{x:Null}"/>
         </Grid>
 
         <Grid Grid.Row="2" >
@@ -64,36 +70,55 @@
                 <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-search.png"/>
             </Grid.Background>
             <TextBox x:Name="text_name" 
-                     VerticalAlignment="Center" 
+                     VerticalAlignment="Top" 
                      HorizontalAlignment="Left" 
                      TextAlignment="Center"
                      Margin="100,0,0,0" 
-                     Width="600"
-                     Height="120" 
+                     Width="680"
+                     Height="160" 
                      TextWrapping="Wrap"
                      TabIndex="0"
-                     FontSize="45" 
-                     Foreground="Black"
-                     FontWeight="Bold"
+                     FontSize="48" 
+                     Foreground="#FF56C5C8"
+                     FontWeight="Medium"
+                     k:TouchScreenKeyboard.TouchScreenKeyboard="True"
+                     md:HintAssist.FloatingScale="0.4"
+                     md:HintAssist.IsFloating="True"
+                     md:HintAssist.Hint="{Binding Message}"
+                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                      Visibility="{Binding VisibilityName}"
                      TextChanged="txt_TextChanged" 
-                     TouchDown="Text_TouchDown"/>
+                     TouchDown="Text_TouchDown"
+                      FontFamily="Arial" 
+                     BorderBrush="{x:Null}"
+                     CaretBrush="{x:Null}" 
+                     SelectionBrush="{x:Null}" 
+                     Background="{x:Null}"/>
 
             <TextBox x:Name="text_id"
-                     VerticalAlignment="Center" 
+                     VerticalAlignment="Top" 
                      HorizontalAlignment="Left" 
                      TextAlignment="Center"
                      Margin="100,0,0,0" 
-                     Width="600"
-                     Height="120" 
+                     Width="680"
+                     Height="160" 
                      TextWrapping="Wrap"
                      TabIndex="0"
-                     FontSize="45" 
-                     Foreground="Black"
-                     FontWeight="Bold"
+                     FontSize="48" 
+                     Foreground="#FF56C5C8"
+                     FontWeight="Medium"
+                     md:HintAssist.FloatingScale="0.4"
+                     md:HintAssist.IsFloating="True"
+                     md:HintAssist.Hint="{Binding Message}"
                      Visibility="{Binding VisibilityId}"
+                     k:TouchScreenKeyNumeric.TouchScreenKeyNumeric="True"
                      TextChanged="txt_TextChanged"
-                     TouchDown="Text_TouchDown"/>
+                     TouchDown="Text_TouchDown" 
+                     FontFamily="Arial" 
+                     BorderBrush="{x:Null}"
+                     CaretBrush="{x:Null}" 
+                     SelectionBrush="{x:Null}" 
+                     Background="{x:Null}"/>
 
             <TextBox TabIndex="1" Height="0" Width="0" />
 
@@ -107,24 +132,28 @@
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Left"  />
 
-            <Image x:Name="btn_consult"
+            <Button x:Name="btn_consult"
                    HorizontalAlignment="Right" 
                    VerticalAlignment="Bottom" 
-                   Width="250"
-                   Height="250" 
-                   Margin="0,0,20,20" 
-                   TouchDown="BtnConsult_TouchDown" />
+                   Width="240"
+                   Height="240" 
+                   Margin="0,0,20,0" 
+                   TouchDown="BtnConsult_TouchDown" 
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}" />
 
             <TextBlock x:Name="lbl_tittle"
                     TextWrapping="WrapWithOverflow" 
                     HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
                     TextAlignment="Center"
-                    Text="sin dígito de verificacíon" 
-                    Foreground="#FF11496C" 
+                    Text="Sin dígito de verificacíon" 
+                    Foreground="Black" 
                     FontSize="30" 
-                    FontWeight="Bold" 
-                    Margin="0,160,300,0"/>
+                    FontFamily="Arial"
+                    FontWeight="Medium" 
+                    Margin="0,0,200,20"/>
         </Grid>
 
         <Grid Grid.Row="3">

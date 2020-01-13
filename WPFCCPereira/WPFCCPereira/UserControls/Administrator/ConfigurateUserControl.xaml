@@ -53,11 +53,11 @@
                     gif:ImageBehavior.AutoStart="True"
                     x:Name="GifLoadder" 
                     Stretch="Fill"
-                    Margin="0,150,0,0" 
+                    Margin="0,180,0,0" 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
-                    Width="500" 
-                    Height="370"/>
+                    Width="660" 
+                    Height="490"/>
         </Grid>
     </Grid>
 </UserControl>

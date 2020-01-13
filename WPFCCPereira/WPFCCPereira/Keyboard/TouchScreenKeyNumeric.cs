@@ -268,12 +268,12 @@ namespace WPFCCPereira.Keyboard
                 isRun = true;
                 Control host = sender as Control;
 
-                _PreviousTextBoxBackgroundBrush = host.Background;
-                _PreviousTextBoxBorderBrush = host.BorderBrush;
-                _PreviousTextBoxBorderThickness = host.BorderThickness;
+                //_PreviousTextBoxBackgroundBrush = host.Background;
+                //_PreviousTextBoxBorderBrush = host.BorderBrush;
+                //_PreviousTextBoxBorderThickness = host.BorderThickness;
 
                 //host.Background = Brushes.Transparent;
-                host.BorderBrush = Brushes.Transparent;
+                //host.BorderBrush = Brushes.Transparent;
                 //host.BorderThickness = new Thickness(4);
 
                 _CurrentControl = host;

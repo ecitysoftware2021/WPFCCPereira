@@ -247,7 +247,7 @@
     <value>El dispositivo no puede imprimir el comprobante en este momento, desea con tinuar</value>
   </data>
   <data name="EnterId" xml:space="preserve">
-    <value>Ingrese NIT/Cédula sin dígito de verificación</value>
+    <value>Ingrese el NIT de la empresa</value>
   </data>
   <data name="ErrorId" xml:space="preserve">
     <value>Debe ingresar un nit valido.</value>

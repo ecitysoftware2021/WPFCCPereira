@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\DLLO\source\repos\WPFCCPereira\WPFCCPereira\obj\Debug\
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 WPFCCPereira
 none
 false
 DEBUG;TRACE
-C:\Users\DLLO\source\repos\WPFCCPereira\WPFCCPereira\App.xaml
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
 161823920909
 4-1623646597
-74-336750249
-25-2080556758
+71392571284
+251104562523
 Themes\Generic.xaml;UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUserControl.xaml;UserControls\PayerUserControl.xaml;UserControls\PrintFileUserControl.xaml;UserControls\ReturnMonyUserControl.xaml;UserControls\ConsultUserControl.xaml;UserControls\MainUserControl.xaml;UserControls\PaymentUserControl.xaml;UserControls\SussesUserControl.xaml;Windows\MasterWindow.xaml;Windows\ModalWindow.xaml;
 
-False
+True
 
