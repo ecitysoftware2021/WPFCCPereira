@@ -121,7 +121,7 @@
             <TextBlock Name="txt_error"
                     FontSize="25"
                     TextAlignment="Center"
-                    Margin="100,0,0,30"
+                    Margin="100,0,0,60"
                     FontFamily="Arial"
                     FontWeight="Bold"
                     Foreground="Red"
@@ -176,72 +176,68 @@
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
                             Width="1030"
-                            Height="120" >
+                            Height="250" >
                             <Grid.Background>
                                 <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-file.png"/>
                             </Grid.Background>
 
                             <TextBlock Text="{Binding Item1}"
-                                       FontSize="30"
-                                       FontFamily="Myriad Pro"
+                                       FontSize="45"
+                                       FontFamily="Arial"
                                        TextAlignment="Justify"
                                        TextWrapping="Wrap"
-                                       Margin="50,0,0,0"
-                                       Foreground="#606060"
-                                       FontWeight="Bold"
-                                       Height="70"
+                                       Margin="50,50,0,0"
+                                       Foreground="#FF104B6D"
+                                       Height="60"
+                                       Width="700"
                                        VerticalAlignment="Top"
                                        HorizontalAlignment="Left"
                                        Grid.Column="0" />
 
                             <TextBlock Text="{Binding Item2}"
                                        FontSize="30"
-                                       FontFamily="Myriad Pro"
+                                       FontFamily="Arial"
                                        TextAlignment="Justify"
                                        TextWrapping="Wrap"
-                                       Margin="50,0,0,20"
-                                       Foreground="#606060"
-                                       VerticalAlignment="Bottom"
+                                       Margin="50,0,0,10"
+                                       Foreground="#FF104B6D"
+                                       VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
                                        Grid.Column="0" />
 
                             <TextBlock Text="{Binding Item3}"
                                        FontSize="30"
-                                       FontFamily="Myriad Pro"
+                                       FontFamily="Arial"
                                        TextAlignment="Center"
                                        TextWrapping="Wrap"
-                                       Margin="0,0,0,0"
-                                       Foreground="#606060"
+                                       Margin="50,50,0,0"
+                                       Foreground="#FF104B6D"
                                        VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       Grid.Column="1" />
+                                       HorizontalAlignment="Left" />
 
                             <TextBlock Text="{Binding Item4}"
-                                       FontSize="32"
-                                       FontFamily="Myriad Pro"
+                                       FontSize="28"
+                                       FontFamily="Arial"
                                        TextAlignment="Center"
                                        TextWrapping="Wrap"
-                                       Margin="0,0,0,0"
+                                       Margin="50,0,0,50"
                                        Foreground="#606060"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       Grid.Column="2" />
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Left" />
 
                             <Image  Source="/WPFCCPereira;component/Images/Others/img-select.png"
-                                        Width="50"
-                                        Height="50"
-                                        Grid.Column="3"
-                                        Margin="0,0,0,0"
-                                        HorizontalAlignment="Left"
+                                        Width="90"
+                                        Height="90"
+                                        Margin="0,40,70,0"
+                                        HorizontalAlignment="Right"
                                         VerticalAlignment="Center"/>
 
                             <Image  Source="{Binding ImageSourse}"
-                                        Width="50"
+                                        Width="200"
                                         Height="50"
-                                        Grid.Column="3"
-                                        Margin="0,0,0,0"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"/>
+                                        Margin="0,50,30,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

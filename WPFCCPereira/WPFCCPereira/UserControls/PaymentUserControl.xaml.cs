@@ -35,17 +35,17 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                InitTimer();
+                //InitTimer();
 
                 this.paymentViewModel = new PaymentViewModel
                 {
                     PayValue = transaction.Amount,
-                    ValorFaltante = 0,
+                    ValorFaltante = transaction.Amount,
                     ImgContinue = Visibility.Hidden,
                     ImgCancel = Visibility.Visible,
                     ImgCambio = Visibility.Hidden,
                     ValorSobrante = 0,
-                    ValorIngresado = transaction.Amount,
+                    ValorIngresado = 0,
                     viewList = new CollectionViewSource(),
                     Denominations = new List<DenominationMoney>(),
                     ValorDispensado = 0
@@ -53,9 +53,9 @@ namespace WPFCCPereira.UserControls
 
                 this.DataContext = this.paymentViewModel;
 
-                //ActivateWallet();
+                ActivateWallet();
 
-                SavePay();
+                //SavePay();
             }
             catch (Exception ex)
             {
@@ -256,6 +256,7 @@ namespace WPFCCPereira.UserControls
                         {
                             transaction = await AdminPayPlus.ApiIntegration.NotifycTransaction(transaction);
                             Utilities.CloseModal();
+                            transaction.State = ETransactionState.Success;
 
                             if (transaction.State == ETransactionState.Success)
                             {

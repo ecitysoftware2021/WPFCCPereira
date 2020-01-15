@@ -50,6 +50,7 @@ namespace WPFCCPereira.UserControls.DetailFile
                         { new ItemList {Item1 = "último año renovado", Item2 = file.ultanorenovado }},
                         { new ItemList {Item1 = "Matrícula afiliada", Item2 = file.afiliadotextual }},
                     },
+                    
                 };
 
                 this.DataContext = viewModel;

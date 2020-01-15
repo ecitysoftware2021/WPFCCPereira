@@ -206,6 +206,7 @@ namespace WPFCCPereira.UserControls
                     {
                         File = (Noun)item.Data,
                         State = ETransactionState.Initial,
+                        Type = ETransactionType.PaymentFile
                     });
                 }
             }
@@ -293,6 +294,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
+                viewModel.DataList.Clear();
                 ConfigureViewList();
             }
             catch (Exception ex)

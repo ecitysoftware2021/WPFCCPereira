@@ -31,14 +31,14 @@
                 TextAlignment="Center"
                 TextWrapping="Wrap"
                 Width="800"
-                FontFamily="Myriad Pro Cond" 
+                FontFamily="Arial" 
                 Text="Configuración del dispositivo"
                 FontWeight="Bold" />
         </Grid>
 
         <Grid Grid.Row="2">
             <TextBlock Text="Espere mientras se configura el dispositivo para iniciar"
-                       FontFamily="Myriad Pro Cond"
+                       FontFamily="Arial"
                        FontSize="60"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center"
@@ -56,8 +56,8 @@
                     Margin="0,180,0,0" 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
-                    Width="660" 
-                    Height="490"/>
+                    Width="450" 
+                    Height="520"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -213,30 +213,30 @@ namespace WPFCCPereira.Classes
         {
             try
             {
-                //if (_controlPeripherals == null)
-                //{
-                //    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("PortBills"),
-                //        Utilities.GetConfiguration("PortCoins"), Utilities.GetConfiguration("ValuesDispenser"));
-                //}
+                if (_controlPeripherals == null)
+                {
+                    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("PortBills"),
+                        Utilities.GetConfiguration("PortCoins"), Utilities.GetConfiguration("ValuesDispenser"));
+                }
 
-                //_controlPeripherals.callbackError = error =>
-                //{
-                //    SaveLog(new RequestLogDevice
-                //    {
-                //        Code = "",
-                //        Date = DateTime.Now,
-                //        Description = error.Item2,
-                //        Level = ELevelError.Strong
-                //    }, ELogType.Device);
-                //    Finish(false);
-                //};
+                _controlPeripherals.callbackError = error =>
+                {
+                    SaveLog(new RequestLogDevice
+                    {
+                        Code = "",
+                        Date = DateTime.Now,
+                        Description = error.Item2,
+                        Level = ELevelError.Strong
+                    }, ELogType.Device);
+                    Finish(false);
+                };
 
-                //_controlPeripherals.callbackToken = isSucces =>
-                //{
-                //    _controlPeripherals.callbackError = null;
-                //    Finish(isSucces);
-                //};
-                //_controlPeripherals.Start();
+                _controlPeripherals.callbackToken = isSucces =>
+                {
+                    _controlPeripherals.callbackError = null;
+                    Finish(isSucces);
+                };
+                _controlPeripherals.Start();
                 Finish(true);
 
             }
@@ -249,7 +249,7 @@ namespace WPFCCPereira.Classes
 
         private void Finish(bool isSucces)
         {
-            //_controlPeripherals.callbackToken = null;
+            _controlPeripherals.callbackToken = null;
             callbackResult?.Invoke(isSucces);
         }
 
@@ -439,15 +439,16 @@ namespace WPFCCPereira.Classes
                                 DATE_BEGIN = DateTime.Now,
                                 STATE_NOTIFICATION = 0,
                                 STATE = false,
-                                DESCRIPTION = "Transaccion iniciada"
+                                DESCRIPTION = "Transaccion iniciada",
+                                TRANSACTION_REFERENCE = transaction.consecutive
                             };
 
                             data.TRANSACTION_DESCRIPTION.Add(new TRANSACTION_DESCRIPTION
                             {
                                 AMOUNT = transaction.Amount,
                                 TRANSACTION_ID = data.ID,
-                                REFERENCE = string.Concat("Matricula: ", transaction.Products[0].matricula ?? string.Empty),
-                                OBSERVATION = transaction.Enrollment.ToString(),
+                                REFERENCE = string.Concat("Matricula: ", transaction.File.matricula ?? string.Empty),
+                                OBSERVATION = string.Concat("Numero de recuperacion: ", transaction.reference),
                                 TRANSACTION_DESCRIPTION_ID = 0,
                                 STATE = true
                             });

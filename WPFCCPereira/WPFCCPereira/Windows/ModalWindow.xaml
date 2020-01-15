@@ -36,7 +36,7 @@
                        VerticalAlignment="Top" 
                        HorizontalAlignment="Center" 
                        Grid.Row="1"
-                       Width="210" 
+                       Width="180" 
                        Height="210"
                        Margin="0,80,0,0"
                        Visibility="Hidden"
@@ -72,29 +72,29 @@
                 <Image x:Name="BtnOk" 
                         VerticalAlignment="Top"
                         HorizontalAlignment="Center"
-                        Width="400"
-                        Height="120"
+                        Width="300"
+                        Height="65"
                         Margin="0,100,0,0"
                         TouchDown="BtnOk_TouchDown"
-                        Source="../Images/Buttons/btn-acept.png" Stretch="Fill" />
+                        Source="../Images/Buttons/btn-continue.png" Stretch="Fill" />
 
                 <Image x:Name="BtnNo" 
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Width="400"
-                        Height="120"
-                        Margin="50,100,0,0"
+                        Width="300"
+                        Height="80"
+                        Margin="150,92,0,0"
                         TouchDown="BtnNo_TouchDown"
-                        Source="../Images/Buttons/btn-cancel.png" Stretch="Fill" />
+                        Source="../Images/Buttons/btn-cancel-alert.png" Stretch="Fill" />
 
                 <Image x:Name="BtnYes" 
                         VerticalAlignment="Top"
                         HorizontalAlignment="Right"
-                        Width="400"
-                        Height="120"
-                        Margin="0,100,50,0"
+                        Width="300"
+                        Height="60"
+                        Margin="0,105,150,0"
                         TouchDown="BtnYes_TouchDown"
-                        Source="../Images/Buttons/btn-acept.png" Stretch="Fill" />
+                        Source="../Images/Buttons/btn-continue.png" Stretch="Fill" />
             </Grid>
         </Grid>
     </Grid>

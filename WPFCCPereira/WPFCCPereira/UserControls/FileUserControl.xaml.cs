@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.UserControls.DetailFile;
 
@@ -29,6 +30,8 @@ namespace WPFCCPereira.UserControls
             InitializeComponent();
 
             this.transaction = transaction;
+
+            LoadView();
         }
 
         private void LoadView()
@@ -39,7 +42,7 @@ namespace WPFCCPereira.UserControls
                 cc_details.Content = detailView;
 
                 var certificateView = new CertificatesUserControl(transaction);
-                cc_certificates = certificateView;
+                cc_certificates.Content = certificateView;
             }
             catch (Exception ex)
             {
@@ -51,7 +54,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-
+                Utilities.navigator.Navigate(UserControlView.Consult);
             }
             catch (Exception ex)
             {

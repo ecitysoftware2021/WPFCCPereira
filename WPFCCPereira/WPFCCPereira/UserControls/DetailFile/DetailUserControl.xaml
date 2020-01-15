@@ -6,12 +6,11 @@
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.DetailFile"
              xmlns:gif="http://wpfanimatedgif.codeplex.com"
             gif:ImageBehavior.AnimateInDesignMode="True"
-            mc:Ignorable="d"
-            Height="1000" 
-            Width="1080">
+            mc:Ignorable="d" 
+            Width="1020">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-detail.png" Stretch="Uniform"/>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-detail.png" Stretch="Fill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
@@ -20,7 +19,7 @@
 
         <Grid Grid.Row="0">
             <TextBlock Text="{Binding Tittle}"
-                       FontSize="60"
+                       FontSize="55"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Margin="0,50,0,0"
@@ -30,62 +29,67 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Grid Grid.Row="3">
-                <ListView x:Name="lv_information" 
-                    Margin="0,20,0,0"
+            <Image  Source="/WPFCCPereira;component/Images/Others/img-split.png"
+                                        Margin="100,0,110,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"/>
+            <ListView x:Name="lv_information" 
+                    Margin="0,0,0,80"
                     Background="Red"
                     BorderBrush="Transparent"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top"
                     ItemsSource="{Binding}" >
 
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="1"
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="1"
                                  HorizontalAlignment="Center"
                                      VerticalAlignment="Top"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid HorizontalAlignment="Center"
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Center"
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
-                            Width="1030"
-                            Height="120" >
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-file.png"/>
-                                </Grid.Background>
+                            Width="880"
+                            Height="80" >
 
-                                <TextBlock Text="{Binding Item1}"
-                                       FontSize="30"
-                                       FontFamily="Myriad Pro"
+                            <TextBlock Text="{Binding Item1}"
+                                       FontSize="32"
+                                       FontFamily="Arial"
                                        TextAlignment="Justify"
                                        TextWrapping="Wrap"
                                        Margin="50,0,0,0"
                                        Foreground="#606060"
-                                       FontWeight="Bold"
                                        Height="70"
                                        VerticalAlignment="Top"
                                        HorizontalAlignment="Left"
                                        Grid.Column="0" />
 
-                                <TextBlock Text="{Binding Item2}"
-                                       FontSize="30"
-                                       FontFamily="Myriad Pro"
+                            <TextBlock Text="{Binding Item2}"
+                                       FontSize="35"
+                                       FontFamily="Arial"
                                        TextAlignment="Justify"
                                        TextWrapping="Wrap"
-                                       Margin="50,0,0,20"
-                                       Foreground="#606060"
+                                       FontWeight="Medium"
+                                       Margin="50,0,0,0"
+                                       Foreground="#FF104B6D"
                                        VerticalAlignment="Bottom"
                                        HorizontalAlignment="Left"
                                        Grid.Column="0" />
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
+
+                            <Image  Source="/WPFCCPereira;component/Images/Others/img-split.png"
+                                        Margin="38,0,38,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Bottom"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 </UserControl>

@@ -53,13 +53,10 @@ namespace WPFCCPereira.UserControls
                 }
                 else
                 {
-                    if (transaction.Payment != null)
-                    {
-                        viewModel = transaction.Payment;
-                        viewModel.StatePay = false;
-                        viewModel.ValorSobrante = transaction.Payment.ValorIngresado - transaction.Payment.ValorDispensado;
-                        viewModel.Message = MessageResource.TransactionCancel;
-                    }
+                    viewModel = transaction.Payment;
+                    viewModel.StatePay = false;
+                    viewModel.ValorSobrante = transaction.Payment.ValorIngresado - transaction.Payment.ValorDispensado;
+                    viewModel.Message = MessageResource.TransactionCancel;
                 }
 
                 this.DataContext = this.viewModel;

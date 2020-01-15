@@ -47,7 +47,7 @@
                        Margin="0,280,0,0" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Top"
-                       FontFamily="Myriad Pro" 
+                       FontFamily="Arial Unicode MS" 
                        FontSize="70"
                        Foreground="#FF606060" />
 

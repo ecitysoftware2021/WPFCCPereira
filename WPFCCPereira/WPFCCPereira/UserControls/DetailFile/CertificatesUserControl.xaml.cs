@@ -35,14 +35,17 @@ namespace WPFCCPereira.UserControls.DetailFile
             {
                 viewModel = new DataListViewModel
                 {
-                    Tittle = "",
+                    Tittle = "CERTIFICADOS DISPONIBLES",
                     ViewList = new CollectionViewSource(),
                     DataList = new List<ItemList>()
                 };
 
                 foreach (var certificate in transaction.File.certificados)
                 {
-                    viewModel.DataList.Add(new ItemList {Item1 = certificate.descripcioncertificado, Item6 = 0});
+                    viewModel.DataList.Add(new ItemList {
+                        Item1 = string.Concat(certificate.descripcioncertificado, " (costo ", string.Format("{0:C0}", certificate.valor), ")"), 
+                        Item6 = 0,
+                        Data = certificate });
                 }
 
                 this.DataContext = viewModel;
@@ -59,7 +62,7 @@ namespace WPFCCPereira.UserControls.DetailFile
         {
             try
             {
-
+                LoadFiles();
             }
             catch (Exception ex)
             {
@@ -76,8 +79,6 @@ namespace WPFCCPereira.UserControls.DetailFile
                     transaction = viewModel.GetListFiles(transaction);
                     if (transaction.Products != null && transaction.Products.Count > 0)
                     {
-                        transaction.Amount = viewModel.Amount;
-
                         Utilities.navigator.Navigate(UserControlView.Payer, true, transaction);
                     }
                     else

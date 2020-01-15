@@ -368,23 +368,23 @@ namespace WPFCCPereira.ViewModel
         {
             try
             {
+                _dataList.Clear();
                 var response = await AdminPayPlus.ApiIntegration.SearchFiles(reference, type);
 
-                if (response.Count > 0)
+                if (response != null && response.Count > 0)
                 {
                     foreach (var item in response)
                     {
                         _dataList.Add(new ItemList
                         {
                             Item1 = item.nombre,
-                            Item2 = string.Concat("Nit: ", item.nit),
-                            Item3 = item.matricula,
-                            Item4 = item.estadomatricula,
+                            Item2 = string.Concat("NIT"),
+                            Item3 = item.identificacion,
+                            Item4 = string.Concat("Matrícula: ", item.matricula),
                             ImageSourse = ImagesUrlResource.ImgSelect,
                             Data = item
                         });
                     }
-
                     return true;
                 }
             }
@@ -423,6 +423,7 @@ namespace WPFCCPereira.ViewModel
                                 basse = certificate.valor,
                                 porcentaje = 0//
                             });
+                            transaction.Amount += (certificate.valor * item.Item6);
                         }
                     }
                 }

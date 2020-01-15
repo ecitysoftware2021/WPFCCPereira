@@ -119,6 +119,10 @@ namespace WPFCCPereira.Services
 
                 if (responseApi.CodeError == 200)
                 {
+                    if (responseApi.Data == null)
+                    {
+                        return "OK";
+                    }
                     return responseApi.Data;
                 }
             }
