@@ -136,13 +136,13 @@ namespace WPFCCPereira.Classes.Printer
         {
             try
             {
-                if (m_iInit != 0)
-                {
-                    return 1;
-                }
+               // if (m_iInit != 0)
+               // {
+                ///    return 1;
+              //  }
 
-                m_iStatus = GetStatus();
-                return m_iStatus;
+              //  m_iStatus = GetStatus();
+                return 0;
             }
             catch (Exception ex)
             {

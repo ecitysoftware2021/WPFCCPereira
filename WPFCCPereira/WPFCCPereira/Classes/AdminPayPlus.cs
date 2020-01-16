@@ -237,7 +237,6 @@ namespace WPFCCPereira.Classes
                     Finish(isSucces);
                 };
                 _controlPeripherals.Start();
-                Finish(true);
 
             }
             catch (Exception ex)
