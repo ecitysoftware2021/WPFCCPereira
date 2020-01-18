@@ -58,7 +58,7 @@
                             Height="80" >
 
                             <TextBlock Text="{Binding Item1}"
-                                       FontSize="32"
+                                       FontSize="20"
                                        FontFamily="Arial"
                                        TextAlignment="Justify"
                                        TextWrapping="Wrap"
@@ -70,9 +70,7 @@
                                        Grid.Column="0" />
 
                             <TextBlock Text="{Binding Item2}"
-                                       FontSize="35"
-                                       FontFamily="Arial"
-                                       TextAlignment="Justify"
+                                       FontSize="25"                                TextAlignment="Justify"
                                        TextWrapping="Wrap"
                                        FontWeight="Medium"
                                        Margin="50,0,0,0"

@@ -81,13 +81,22 @@ namespace WPFCCPereira.Classes.Printer
             {
                 Task.Run(() =>
                 {
-                    StatusPrint();
-                    this.dataPrinter = dataPrinter;
-                    if (StatePrint && dataPrinter != null)
+                    try
                     {
-                        printDocument.Print();
+                        //StatusPrint();
+                        this.dataPrinter = dataPrinter;
+                        if (StatePrint && dataPrinter != null)
+                        {
+                            printDocument.Print();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+
+                    }
+                   
                 });
+                GC.Collect();
             }
             catch (Exception ex)
             {

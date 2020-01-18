@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WPFCCPereira.Classes;
@@ -52,34 +53,44 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                int countCertificates = 1;
+                int countCertificates = 0;
 
                 if (paths != null && paths.Count > 0)
                 {
                     AdminPayPlus.PrinterFile.callbackOut = response =>
                     {
-                        if (response && countCertificates < paths.Count)
+                        countCertificates++;
+                        if (response && countCertificates < (paths.Count))
                         {
+                            
                             AdminPayPlus.PrinterFile.Start(paths[countCertificates]);
-                            countCertificates++;
                         }
-
-                        if (countCertificates == paths.Count)
+                        else if (countCertificates == paths.Count)
                         {
+                            AdminPayPlus.PrinterFile.callbackOut = null;
+                            AdminPayPlus.PrinterFile.callbackError = null;
                             FinishTransaction(true);
-
                         }
                     };
 
                     AdminPayPlus.PrinterFile.callbackError = error =>
                     {
+
                         if (countCertificates > 1)
                         {
-                            Utilities.ShowModal("", EModalType.Error);
-                            FinishTransaction(true);
+                            AdminPayPlus.PrinterFile.callbackOut = null;
+                            AdminPayPlus.PrinterFile.callbackError = null;
+                            Utilities.ShowModal(MessageResource.ErrorPrintCertificate, EModalType.Error);
+                            if (countCertificates == paths.Count)
+                            {
+                                FinishTransaction(true);
+                            }
                         }
                         else
                         {
+                            AdminPayPlus.PrinterFile.callbackOut = null;
+                            AdminPayPlus.PrinterFile.callbackError = null;
+                            Utilities.ShowModal(MessageResource.ErrorCertificatesPrint, EModalType.Error);
                             FinishTransaction(false);
                         }
                     };

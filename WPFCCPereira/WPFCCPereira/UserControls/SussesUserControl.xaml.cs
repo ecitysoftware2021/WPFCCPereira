@@ -7,13 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
@@ -58,9 +51,14 @@ namespace WPFCCPereira.UserControls
                     }, ELogType.General);
                 }
 
+                GC.Collect();
+
                 Task.Run(() =>
                 {
                     AdminPayPlus.UpdateTransaction(this.transaction);
+
+                    Thread.Sleep(2000);
+
                     Utilities.PrintVoucher(this.transaction);
 
                     Thread.Sleep(6000);

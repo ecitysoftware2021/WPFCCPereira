@@ -106,7 +106,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ingrese los billetes y monedas que se indican contención, en los dispositivos dispensador de billetes y dispensador de monedas.
+        ///   Looks up a localized string similar to Ingrese los billetes y monedas que se indican a continuación en los dispositivos dispensador de billetes y dispensador de monedas.
         /// </summary>
         internal static string EnterMonyDispenser {
             get {
@@ -142,6 +142,15 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error imprimiendo los certificados. se cancelara la transacción y devolverá el dinero ingresado.
+        /// </summary>
+        internal static string ErrorCertificatesPrint {
+            get {
+                return ResourceManager.GetString("ErrorCertificatesPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Señor usuario, no se encontraron coincidencias, vuelva a intentarlo.
         /// </summary>
         internal static string ErrorCoincidences {
@@ -169,7 +178,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debe ingresar un nit valido..
+        ///   Looks up a localized string similar to Debe ingresar un nit válido..
         /// </summary>
         internal static string ErrorId {
             get {
@@ -178,7 +187,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debe ingresar un nombre valido..
+        ///   Looks up a localized string similar to Debe ingresar un nombre válido..
         /// </summary>
         internal static string ErrorName {
             get {
@@ -187,7 +196,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El dispositivo no puede imprimir el comprobante en este momento, desea con tinuar.
+        ///   Looks up a localized string similar to El dispositivo no puede imprimir el comprobante en este momento, desea continuar.
         /// </summary>
         internal static string ErrorNoPaper {
             get {
@@ -201,6 +210,15 @@ namespace WPFCCPereira.Resources {
         internal static string ErrorPayment {
             get {
                 return ResourceManager.GetString("ErrorPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se pudo completar la impresión de todos los certificatos. Por favor diríjase a las taquillas..
+        /// </summary>
+        internal static string ErrorPrintCertificate {
+            get {
+                return ResourceManager.GetString("ErrorPrintCertificate", resourceCulture);
             }
         }
         
@@ -223,7 +241,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Se a producido un error, No se pudo completar la transacción.
+        ///   Looks up a localized string similar to Se ha producido un error, No se pudo completar la transacción.
         /// </summary>
         internal static string ErrorTransaction {
             get {
@@ -250,7 +268,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Se ha ingresado informacion incorrecta, por fabor validar la infomacion y volver a intentarlo.
+        ///   Looks up a localized string similar to Se ha ingresado información incorrecta, por favor validar la información y volver a intentarlo.
         /// </summary>
         internal static string InfoIncorrect {
             get {
@@ -259,7 +277,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El error se precento al inicio del cajero.
+        ///   Looks up a localized string similar to El error se presentó al inicio del cajero.
         /// </summary>
         internal static string InformationError {
             get {
@@ -331,7 +349,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se logro incertar el pagador con id.
+        ///   Looks up a localized string similar to No se logro insertar el pagador con id.
         /// </summary>
         internal static string NoInsertPayment {
             get {
@@ -340,7 +358,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se logro insertar la transaccion.
+        ///   Looks up a localized string similar to No se logro insertar la transacción.
         /// </summary>
         internal static string NoInsertTransaction {
             get {
@@ -358,7 +376,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaccion finaliso con novedad.
+        ///   Looks up a localized string similar to La transacción finalizó con novedad.
         /// </summary>
         internal static string NoveltyTransation {
             get {
@@ -493,7 +511,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocurrio un error inesperado.
+        ///   Looks up a localized string similar to Ocurrió un error inesperado.
         /// </summary>
         internal static string StandarError {
             get {
@@ -502,7 +520,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaccion exitosa.
+        ///   Looks up a localized string similar to Transacción exitosa.
         /// </summary>
         internal static string SussesTransaction {
             get {
@@ -520,7 +538,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La Transacción a finalizado correctamente, La aplicación se reiniciara....
+        ///   Looks up a localized string similar to La Transacción ha finalizado correctamente, La aplicación se reiniciara....
         /// </summary>
         internal static string TransactionFinish {
             get {
@@ -529,7 +547,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaccion finalizada correctamente.
+        ///   Looks up a localized string similar to Transacción finalizada correctamente.
         /// </summary>
         internal static string TransactionFinishSucces {
             get {

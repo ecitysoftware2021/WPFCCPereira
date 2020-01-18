@@ -30,8 +30,8 @@
                        VerticalAlignment="Bottom" 
                        HorizontalAlignment="Center" 
                        Grid.Row="1"
-                       Width="500" 
-                       Height="370"
+                        Width="350" 
+                        Height="420"
                        Margin="0,0,0,0"
                        Opacity="1"/>
         </Grid>

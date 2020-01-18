@@ -138,10 +138,6 @@ namespace WPFCCPereira.Classes
             {
                 if (transaction != null)
                 {
-                    var statePrint = AdminPayPlus.PrintService.StatusPrint();
-
-                    if (statePrint == 0 || statePrint == 8)
-                    {
                         SolidBrush color = new SolidBrush(Color.Black);
                         Font fontKey = new Font("Arial", 9, System.Drawing.FontStyle.Bold);
                         Font fontValue = new Font("Arial", 9, System.Drawing.FontStyle.Regular);
@@ -195,7 +191,6 @@ namespace WPFCCPereira.Classes
                         data.Add(new DataPrinter { brush = color, font = fontValue, value = "E-city Software", x = 100, y = y += sum });
 
                         AdminPayPlus.PrintService.Start(data);
-                    }
                 }
             }
             catch (Exception ex)

@@ -175,12 +175,14 @@ namespace WPFCCPereira.UserControls
                         }
                         else
                         {
+                            Utilities.CloseModal();
                             Utilities.ShowModal(MessageResource.ErrorTransaction, EModalType.Error);
                             Utilities.navigator.Navigate(UserControlView.Main);
                         }
                     }
                     catch (Exception ex)
                     {
+                        Utilities.CloseModal();
                         Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
                     }
                 });

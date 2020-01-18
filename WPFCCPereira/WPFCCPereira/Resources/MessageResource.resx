@@ -127,7 +127,7 @@
     <value>Debe ingresar {0}.</value>
   </data>
   <data name="EnterMonyDispenser" xml:space="preserve">
-    <value>Ingrese los billetes y monedas que se indican contención, en los dispositivos dispensador de billetes y dispensador de monedas</value>
+    <value>Ingrese los billetes y monedas que se indican a continuación en los dispositivos dispensador de billetes y dispensador de monedas</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Ha ocurrido un error! Por favor intentelo más tarde</value>
@@ -142,7 +142,7 @@
     <value>Error con el servicio de Login</value>
   </data>
   <data name="ErrorTransaction" xml:space="preserve">
-    <value>Se a producido un error, No se pudo completar la transacción</value>
+    <value>Se ha producido un error, No se pudo completar la transacción</value>
   </data>
   <data name="FinishTransaction" xml:space="preserve">
     <value>Señor usuario estamos Finalizando la transacción. Espere un momento.</value>
@@ -151,7 +151,7 @@
     <value>No se entrego completamente el dinero \n</value>
   </data>
   <data name="InformationError" xml:space="preserve">
-    <value>El error se precento al inicio del cajero</value>
+    <value>El error se presentó al inicio del cajero</value>
   </data>
   <data name="LoadInformation" xml:space="preserve">
     <value>Se esta validando y almacenando la información, espere un momento</value>
@@ -169,16 +169,16 @@
     <value>Sin información para mostrar</value>
   </data>
   <data name="NoInsertPayment" xml:space="preserve">
-    <value>No se logro incertar el pagador con id</value>
+    <value>No se logro insertar el pagador con id</value>
   </data>
   <data name="NoInsertTransaction" xml:space="preserve">
-    <value>No se logro insertar la transaccion</value>
+    <value>No se logro insertar la transacción</value>
   </data>
   <data name="NoService" xml:space="preserve">
     <value>El cajero está fuera de servicio en este momento, por favor intente más tarde</value>
   </data>
   <data name="NoveltyTransation" xml:space="preserve">
-    <value>Transaccion finaliso con novedad</value>
+    <value>La transacción finalizó con novedad</value>
   </data>
   <data name="OutService" xml:space="preserve">
     <value>El cajero está fuera de servicio en este momento, por favor intente más tarde</value>
@@ -223,16 +223,16 @@
     <value>Retire los billetes y monedas que se indican a continuación de los dispositivos dispensador de billetes y dispensador de monedas</value>
   </data>
   <data name="StandarError" xml:space="preserve">
-    <value>Ocurrio un error inesperado</value>
+    <value>Ocurrió un error inesperado</value>
   </data>
   <data name="SussesTransaction" xml:space="preserve">
-    <value>Transaccion exitosa</value>
+    <value>Transacción exitosa</value>
   </data>
   <data name="TransactionFinish" xml:space="preserve">
-    <value>La Transacción a finalizado correctamente, La aplicación se reiniciara...</value>
+    <value>La Transacción ha finalizado correctamente, La aplicación se reiniciara...</value>
   </data>
   <data name="TransactionFinishSucces" xml:space="preserve">
-    <value>Transaccion finalizada correctamente</value>
+    <value>Transacción finalizada correctamente</value>
   </data>
   <data name="WaitConfigurate" xml:space="preserve">
     <value>Espere mientras se configura el dispositivo para iniciar</value>
@@ -244,16 +244,16 @@
     <value>Transacción cancelada</value>
   </data>
   <data name="ErrorNoPaper" xml:space="preserve">
-    <value>El dispositivo no puede imprimir el comprobante en este momento, desea con tinuar</value>
+    <value>El dispositivo no puede imprimir el comprobante en este momento, desea continuar</value>
   </data>
   <data name="EnterId" xml:space="preserve">
     <value>Ingrese el NIT de la empresa</value>
   </data>
   <data name="ErrorId" xml:space="preserve">
-    <value>Debe ingresar un nit valido.</value>
+    <value>Debe ingresar un nit válido.</value>
   </data>
   <data name="ErrorName" xml:space="preserve">
-    <value>Debe ingresar un nombre valido.</value>
+    <value>Debe ingresar un nombre válido.</value>
   </data>
   <data name="ConsultingConinsidences" xml:space="preserve">
     <value>Estamos consultando las coincidencias. Regálenos unos segundos</value>
@@ -271,12 +271,18 @@
     <value>Ingrese el nombre de la empresa</value>
   </data>
   <data name="InfoIncorrect" xml:space="preserve">
-    <value>Se ha ingresado informacion incorrecta, por fabor validar la infomacion y volver a intentarlo</value>
+    <value>Se ha ingresado información incorrecta, por favor validar la información y volver a intentarlo</value>
   </data>
   <data name="ErrorCertificate" xml:space="preserve">
     <value>Por favor seleccione los certificados que desea comprar</value>
   </data>
   <data name="ErrorPrinter" xml:space="preserve">
     <value>En este momento no se pueden imprimir certificados.</value>
+  </data>
+  <data name="ErrorCertificatesPrint" xml:space="preserve">
+    <value>Error imprimiendo los certificados. se cancelara la transacción y devolverá el dinero ingresado</value>
+  </data>
+  <data name="ErrorPrintCertificate" xml:space="preserve">
+    <value>No se pudo completar la impresión de todos los certificatos. Por favor diríjase a las taquillas.</value>
   </data>
 </root>
