@@ -62,7 +62,6 @@ namespace WPFCCPereira.UserControls
                         countCertificates++;
                         if (response && countCertificates < (paths.Count))
                         {
-                            
                             AdminPayPlus.PrinterFile.Start(paths[countCertificates]);
                         }
                         else if (countCertificates == paths.Count)

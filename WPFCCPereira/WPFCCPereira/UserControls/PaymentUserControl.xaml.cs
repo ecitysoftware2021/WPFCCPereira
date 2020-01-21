@@ -208,6 +208,7 @@ namespace WPFCCPereira.UserControls
                         else
                         {
                             transaction.Observation += MessageResource.IncompleteMony;
+                            Utilities.ShowModal(MessageResource.IncompleteMony, EModalType.Error);
                             SavePay(ETransactionState.Error);
                         }
                     }
@@ -250,41 +251,25 @@ namespace WPFCCPereira.UserControls
                     transaction.State = statePay;
 
                     AdminPayPlus.ControlPeripherals.ClearValues();
-                    Task.Run(async () =>
-                    {
-                        if (transaction.IdTransactionAPi > 0)
-                        {
-                            transaction = await AdminPayPlus.ApiIntegration.NotifycTransaction(transaction);
-                            Utilities.CloseModal();
-                            transaction.State = ETransactionState.Success;
 
-                            if (transaction.State == ETransactionState.Success)
-                            {
-                                Utilities.navigator.Navigate(UserControlView.PrintFile, false, this.transaction);
-                            }
-                            else
-                            {
-                                Utilities.ShowModal(MessageResource.ErrorPayment, EModalType.Error);
-                                Utilities.navigator.Navigate(UserControlView.ReturnMony, false, this.transaction);
-                            }
+                    if (transaction.IdTransactionAPi > 0)
+                    {
+                            Utilities.navigator.Navigate(UserControlView.PrintFile, false, this.transaction);
+                    }
+                    else
+                    {
+                        AdminPayPlus.SaveErrorControl(MessageResource.NoInsertTransaction, this.transaction.TransactionId.ToString(), EError.Api, ELevelError.Strong);
+                        Utilities.ShowModal(MessageResource.NoInsertTransaction, EModalType.Error);
+
+                        if (this.paymentViewModel.ValorIngresado > 0)
+                        {
+                            Utilities.navigator.Navigate(UserControlView.ReturnMony, false, this.transaction);
                         }
                         else
                         {
-                            AdminPayPlus.SaveErrorControl(MessageResource.NoInsertTransaction, this.transaction.TransactionId.ToString(), EError.Api, ELevelError.Strong);
-                            Utilities.ShowModal(MessageResource.NoInsertTransaction, EModalType.Error);
-
-                            if (this.paymentViewModel.ValorIngresado > 0)
-                            {
-                                Utilities.navigator.Navigate(UserControlView.ReturnMony, false, this.transaction);
-                            }
-                            else
-                            {
-                                Utilities.navigator.Navigate(UserControlView.Main);
-                            }
+                            Utilities.navigator.Navigate(UserControlView.Main);
                         }
-                    });
-
-                    Utilities.ShowModal(MessageResource.FinishTransaction, EModalType.Preload);
+                    }
                 }
             }
             catch (Exception ex)
