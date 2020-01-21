@@ -157,7 +157,7 @@ namespace WPFCCPereira.Classes
                                 value = GetConfiguration("ProductName") ?? string.Empty, x = x, y = y },
                             new DataPrinter{ brush = color, font = fontKey, value = "Estado:", x = xKey, y = y+=sum },
                             new DataPrinter{ brush = color, font = fontValue,
-                                value = (transaction.State == ETransactionState.Success || transaction.State == ETransactionState.ErrorService)
+                                value = (transaction.State == ETransactionState.Success || transaction.State == ETransactionState.Error)
                                 ? "Aprobada" : "Cancelada", x = x, y = y },
                             new DataPrinter{ brush = color, font = fontKey, value = "Fecha de pago:", x = xKey, y = y+=sum },
                             new DataPrinter{ brush = color, font = fontValue,
