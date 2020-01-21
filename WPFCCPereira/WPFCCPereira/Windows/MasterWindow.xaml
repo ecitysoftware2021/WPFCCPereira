@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MasterWindow" 
         WindowStyle="None"
-        Topmost="False"
+        Topmost="true"
         WindowState="Maximized"
         Height="1920" 
         Width="1080"
