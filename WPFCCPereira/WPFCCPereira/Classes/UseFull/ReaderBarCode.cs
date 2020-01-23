@@ -36,7 +36,6 @@ namespace WPFCCPereira.Classes.UseFull
             catch (Exception ex)
             {
 
-                throw;
             }
         }
 
@@ -125,7 +124,7 @@ namespace WPFCCPereira.Classes.UseFull
 
                     foreach (var item in fullName.Split(' '))
                     {
-                        if (!string.IsNullOrEmpty(item))
+                        if (!string.IsNullOrEmpty(item) && item.Length > 1)
                         {
                             dataReader.FullName += string.Concat(item, " ");
                         }
@@ -155,7 +154,25 @@ namespace WPFCCPereira.Classes.UseFull
                 callbackError?.Invoke(ex.ToString());
             }
         }
+
+
+        public void Stop()
+        {
+            try
+            {
+                if (_serialBarCodeReader.IsOpen)
+                {
+                    _serialBarCodeReader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                callbackError?.Invoke(ex.ToString());
+            }
+        }
     }
+
+
 
     public class DataDocument
     {

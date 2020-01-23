@@ -220,7 +220,6 @@ namespace WPFCCPereira.Services
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
-            transaction.State = ETransactionState.ErrorService;
             return transaction;
         }
 

@@ -109,6 +109,11 @@ namespace WPFCCPereira.UserControls
             {
                 if (statePrint)
                 {
+                    if (transaction.State == ETransactionState.Initial)
+                    {
+                        transaction.State = ETransactionState.Success;
+                    }
+
                     Utilities.navigator.Navigate(UserControlView.PaySuccess, false, transaction);
                 }
                 else

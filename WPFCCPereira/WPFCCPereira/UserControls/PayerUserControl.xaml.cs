@@ -74,7 +74,7 @@ namespace WPFCCPereira.UserControls
                     if (data != null && viewModel.TypePayer == ETypePayer.Person)
                     {
                         viewModel.Value1 = data.Document;
-                        viewModel.Value2 = string.Concat(data.FirstName, " ", data.LastName);
+                        viewModel.Value2 = string.Concat(data.FirstName, " ", data.LastName, " ", data.SecondLastName);
                         viewModel.Value3 = string.Empty;
                     }
                 };
@@ -156,12 +156,13 @@ namespace WPFCCPereira.UserControls
                         };
 
                         var response = await AdminPayPlus.ApiIntegration.NotifycTransaction(this.transaction);
-
+                        
                         if (response != null && !string.IsNullOrEmpty(response.consecutive) && !string.IsNullOrEmpty(response.reference))
                         {
                             await AdminPayPlus.SaveTransactions(this.transaction, false);
 
                             Utilities.CloseModal();
+                            readerBarCode.Stop();
 
                             if (this.transaction.IdTransactionAPi == 0)
                             {
@@ -176,6 +177,7 @@ namespace WPFCCPereira.UserControls
                         else
                         {
                             Utilities.CloseModal();
+                            readerBarCode.Stop();
                             Utilities.ShowModal(MessageResource.ErrorTransaction, EModalType.Error);
                             Utilities.navigator.Navigate(UserControlView.Main);
                         }
@@ -198,6 +200,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
+                readerBarCode.Stop();
                 Utilities.navigator.Navigate(UserControlView.Main);
             }
             catch (Exception ex)

@@ -148,7 +148,7 @@
     <value>Señor usuario estamos Finalizando la transacción. Espere un momento.</value>
   </data>
   <data name="IncompleteMony" xml:space="preserve">
-    <value>No se entrego completamente el dinero \n</value>
+    <value>No se entrego completamente el dinero</value>
   </data>
   <data name="InformationError" xml:space="preserve">
     <value>El error se presentó al inicio del cajero</value>
@@ -157,7 +157,7 @@
     <value>Se esta validando y almacenando la información, espere un momento</value>
   </data>
   <data name="NoContinue" xml:space="preserve">
-    <value>No se pudo continuar entregando el dinero \n</value>
+    <value>No se pudo continuar entregando el dineroç</value>
   </data>
   <data name="NoContinueTransaction" xml:space="preserve">
     <value>No se puede continuar con la transacción. Intentelo más tarde</value>

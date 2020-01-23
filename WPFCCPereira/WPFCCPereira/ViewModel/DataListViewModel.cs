@@ -381,7 +381,7 @@ namespace WPFCCPereira.ViewModel
                             Item2 = string.Concat("NIT"),
                             Item3 = item.identificacion,
                             Item4 = string.Concat("Matrícula: ", item.matricula),
-                            ImageSourse = ImagesUrlResource.ImgSelect,
+                            ImageSourse = item.estadomatricula.ToLower().Equals("mc")?ImagesUrlResource.ImgCancel : ImagesUrlResource.ImgSelect,
                             Data = item
                         });
                     }
