@@ -185,6 +185,7 @@ namespace WPFCCPereira.UserControls
                     catch (Exception ex)
                     {
                         Utilities.CloseModal();
+                        readerBarCode.Stop();
                         Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
                     }
                 });

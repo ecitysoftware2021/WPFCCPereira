@@ -687,6 +687,7 @@ namespace WPFCCPereira.Classes
             {
                 Task.Run(async () =>
                 {
+                    ApiIntegration.SecurityToken();
                     var transactions = DBManagment.GetTransactionPending();
                     if (transactions.Count > 0)
                     {
