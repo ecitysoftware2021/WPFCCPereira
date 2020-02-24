@@ -146,7 +146,7 @@ namespace WPFCCPereira.UserControls
                 else
                 {
                     _imageSleader.Stop();
-                    Utilities.ShowModal(MessageResource.OutService, EModalType.Error, false);
+                    Utilities.ShowModal(string.Concat(MessageResource.StatePayPlusFail, "  ", MessageResource.OutService), EModalType.Error, false);
                     Utilities.RestartApp();
                 }
             }

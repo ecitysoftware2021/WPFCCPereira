@@ -175,13 +175,13 @@
     <value>No se logro insertar la transacción</value>
   </data>
   <data name="NoService" xml:space="preserve">
-    <value>El cajero está fuera de servicio en este momento, por favor intente más tarde</value>
+    <value>Payplus fuera de servicio, por favor intente más tarde</value>
   </data>
   <data name="NoveltyTransation" xml:space="preserve">
     <value>La transacción finalizó con novedad</value>
   </data>
   <data name="OutService" xml:space="preserve">
-    <value>El cajero está fuera de servicio en este momento, por favor intente más tarde</value>
+    <value>Payplus fuera de servicio, por favor intente más tarde</value>
   </data>
   <data name="PaypadGoAdmin" xml:space="preserve">
     <value>Dispositivo entra en modo administrativo</value>
@@ -284,5 +284,23 @@
   </data>
   <data name="ErrorPrintCertificate" xml:space="preserve">
     <value>No se pudo completar la impresión de todos los certificatos. Por favor diríjase a las taquillas.</value>
+  </data>
+  <data name="ComunicationServer" xml:space="preserve">
+    <value>Estableciendo comunicación...</value>
+  </data>
+  <data name="ComunicationServerFail" xml:space="preserve">
+    <value>¡No se pudo establecer comunicación con el servidor!</value>
+  </data>
+  <data name="StatePayPlus" xml:space="preserve">
+    <value>Comprobando estado del PayPlus...</value>
+  </data>
+  <data name="StatePayPlusFail" xml:space="preserve">
+    <value>¡El dispositivo no cuenta con suficiente dinero!.</value>
+  </data>
+  <data name="ValidatePeripherals" xml:space="preserve">
+    <value>Validando perifericos...</value>
+  </data>
+  <data name="ValidatePeripheralsFail" xml:space="preserve">
+    <value>¡No se lograrón iniciar los dispositivos!</value>
   </data>
 </root>

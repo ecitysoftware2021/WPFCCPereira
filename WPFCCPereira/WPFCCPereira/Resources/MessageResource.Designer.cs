@@ -70,6 +70,24 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Estableciendo comunicación....
+        /// </summary>
+        internal static string ComunicationServer {
+            get {
+                return ResourceManager.GetString("ComunicationServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡No se pudo establecer comunicación con el servidor!.
+        /// </summary>
+        internal static string ComunicationServerFail {
+            get {
+                return ResourceManager.GetString("ComunicationServerFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Desea consignar el monto ingresado?.
         /// </summary>
         internal static string ConsignAmount {
@@ -367,7 +385,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El cajero está fuera de servicio en este momento, por favor intente más tarde.
+        ///   Busca una cadena traducida similar a Payplus fuera de servicio, por favor intente más tarde.
         /// </summary>
         internal static string NoService {
             get {
@@ -385,7 +403,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El cajero está fuera de servicio en este momento, por favor intente más tarde.
+        ///   Busca una cadena traducida similar a Payplus fuera de servicio, por favor intente más tarde.
         /// </summary>
         internal static string OutService {
             get {
@@ -520,6 +538,24 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Comprobando estado del PayPlus....
+        /// </summary>
+        internal static string StatePayPlus {
+            get {
+                return ResourceManager.GetString("StatePayPlus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡El dispositivo no cuenta con suficiente dinero!..
+        /// </summary>
+        internal static string StatePayPlusFail {
+            get {
+                return ResourceManager.GetString("StatePayPlusFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Transacción exitosa.
         /// </summary>
         internal static string SussesTransaction {
@@ -552,6 +588,24 @@ namespace WPFCCPereira.Resources {
         internal static string TransactionFinishSucces {
             get {
                 return ResourceManager.GetString("TransactionFinishSucces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Validando perifericos....
+        /// </summary>
+        internal static string ValidatePeripherals {
+            get {
+                return ResourceManager.GetString("ValidatePeripherals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡No se lograrón iniciar los dispositivos!.
+        /// </summary>
+        internal static string ValidatePeripheralsFail {
+            get {
+                return ResourceManager.GetString("ValidatePeripheralsFail", resourceCulture);
             }
         }
         

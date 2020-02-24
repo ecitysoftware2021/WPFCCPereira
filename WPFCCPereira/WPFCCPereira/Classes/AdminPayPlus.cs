@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using WPFCCPereira.Services.Object;
 
 namespace WPFCCPereira.Classes
 {
-    public class AdminPayPlus
+    public class AdminPayPlus : INotifyPropertyChanged
     {
         #region "Referencias"
 
@@ -70,6 +71,22 @@ namespace WPFCCPereira.Classes
             get { return _apiIntegration; }
         }
 
+        private string _descriptionStatusPayPlus;
+
+        public string DescriptionStatusPayPlus
+        {
+            get { return _descriptionStatusPayPlus; }
+            set
+            {
+                _descriptionStatusPayPlus = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DescriptionStatusPayPlus)));
+            }
+        }
+
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
         #endregion
 
         #region "Constructor"
@@ -110,19 +127,28 @@ namespace WPFCCPereira.Classes
 
         public async void Start()
         {
+
+            DescriptionStatusPayPlus = MessageResource.ComunicationServer;
+
             if (await LoginPaypad() && await ApiIntegration.SecurityToken())
             {
+                DescriptionStatusPayPlus = MessageResource.StatePayPlus;
+
                 if (await ValidatePaypad())
                 {
+                    DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
+
                     ValidatePeripherals();
                 }
                 else
                 {
+                    DescriptionStatusPayPlus = MessageResource.StatePayPlusFail;
                     callbackResult?.Invoke(false);
                 }
             }
             else
             {
+                DescriptionStatusPayPlus = MessageResource.ComunicationServerFail;
                 callbackResult?.Invoke(false);
             }
         }

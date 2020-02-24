@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Resources;
@@ -20,6 +22,8 @@ namespace WPFCCPereira.UserControls.Administrator
             {
                 init = new AdminPayPlus();
             }
+
+            txt_description.DataContext = init;
 
             Initial();
         }
@@ -54,18 +58,7 @@ namespace WPFCCPereira.UserControls.Administrator
                 }
                 else
                 {
-                    if (result)
-                    {
-                        if (!AdminPayPlus.DataPayPlus.StateBalanece && !AdminPayPlus.DataPayPlus.StateUpload)
-                        {
-                            Utilities.navigator.Navigate(UserControlView.Main);
-                        }
-                    }
-                    else
-                    {
-                        Utilities.ShowModal(MessageResource.NoService, EModalType.Error, false);
-                        Initial();
-                    }
+                    Finish(result);
                 }
             }
             catch (Exception ex)
@@ -73,6 +66,23 @@ namespace WPFCCPereira.UserControls.Administrator
                 Utilities.ShowModal(MessageResource.NoService, EModalType.Error, false);
                 Initial();
             }
+        }
+
+        private void Finish(bool state)
+        {
+            Task.Run(() =>
+            {
+                Thread.Sleep(5000);
+                if (state)
+                {
+                    Utilities.navigator.Navigate(UserControlView.Main);
+                }
+                else
+                {
+                    Utilities.ShowModal(string.Concat(init.DescriptionStatusPayPlus, "  ", MessageResource.NoService), EModalType.Error, false);
+                    Initial();
+                }
+            });
         }
     }
 }
