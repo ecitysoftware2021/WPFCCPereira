@@ -31,7 +31,7 @@ namespace WPFCCPereira.KeyboardNew
             }
         }
 
-        public static void InitKeyboard(TextBox control, UserControl userControl, EType eType)
+        public static void InitKeyboard(TextBox control, UserControl userControl, EType eType, bool bourned = false)
         {
             try
             {
@@ -67,6 +67,12 @@ namespace WPFCCPereira.KeyboardNew
 
                 board._WindowTop = relativePoint.Y + control.ActualHeight;
                 board._WindowLeft = relativePoint.X;
+
+                if (bourned)
+                {
+                    board._WindowTop = 1480;
+                }
+
                 board.Show();
             }
             catch { }

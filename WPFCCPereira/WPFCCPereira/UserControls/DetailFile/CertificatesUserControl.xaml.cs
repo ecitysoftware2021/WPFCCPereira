@@ -102,7 +102,7 @@ namespace WPFCCPereira.UserControls.DetailFile
         {
             try
             {
-                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric, true);
             }
             catch (Exception ex)
             {

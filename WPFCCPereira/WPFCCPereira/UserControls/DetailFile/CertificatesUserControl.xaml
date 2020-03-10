@@ -68,7 +68,7 @@
                                        VerticalAlignment="Top"
                                        HorizontalAlignment="Left" />
 
-                            <TextBox Text="{Binding Item6}"
+                            <TextBox Text="{Binding Item6, UpdateSourceTrigger= PropertyChanged}"
                                        FontSize="36"
                                        FontFamily="Arial"
                                        TextAlignment="Justify"
