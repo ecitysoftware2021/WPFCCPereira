@@ -4,7 +4,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:WPFCCPereira.UserControls"
-        xmlns:k="clr-namespace:WPFCCPereira.Keyboard"
         mc:Ignorable="d"
         Height="1920" 
         Width="1080" >
@@ -83,7 +82,7 @@
                        Width="885"
                        Foreground="#FF104B6D"
                        TabIndex="1"
-                       k:TouchScreenKeyNumeric.TouchScreenKeyNumeric="True"
+                         TouchDown="TbxIdentification_TouchDown"
                        TextWrapping="Wrap"
                        Text="{Binding Value1}" />
             </Grid>
@@ -113,7 +112,7 @@
                    Foreground="#FF104B6D"
                    TabIndex="2"
                    TextWrapping="Wrap" 
-                   k:TouchScreenKeyboard.TouchScreenKeyboard="True"
+                   TouchDown="TbxData1_TouchDown"
                    Text="{Binding Value2}" />
             </Grid>
 
@@ -141,7 +140,7 @@
                     FontWeight="Medium"
                     Foreground="#FF104B6D"
                     TextWrapping="Wrap"
-                    k:TouchScreenKeyNumeric.TouchScreenKeyNumeric="True"
+                    TouchDown="TbxData2_TouchDown"
                     Text="{Binding Value3}" />
 
                 <TextBox TabIndex="5" Height="0" Width="0" />

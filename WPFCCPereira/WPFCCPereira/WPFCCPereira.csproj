@@ -157,8 +157,10 @@
     <Compile Include="DataModel\TRANSACTION_ERROR_SERVICE.cs">
       <DependentUpon>PayPlusLocalADO.tt</DependentUpon>
     </Compile>
-    <Compile Include="Keyboard\TouchScreenKeyboard.cs" />
-    <Compile Include="Keyboard\TouchScreenKeyNumeric.cs" />
+    <Compile Include="KeyboardNew\keyboard2.cs" />
+    <Compile Include="KeyboardNew\WKeyboard.xaml.cs">
+      <DependentUpon>WKeyboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\DenominationMoney.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ModalModel.cs" />
@@ -293,7 +295,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Keyboard\" />
     <Folder Include="Images\Publish\" />
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +336,15 @@
       <DependentUpon>PayPlusLocalADO.edmx</DependentUpon>
       <LastGenOutput>PayPlusLocalADO.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Keyboard\Amarillo.png" />
+    <Resource Include="Images\Keyboard\Azul.png" />
+    <Resource Include="Images\Keyboard\BACKSPACE.png" />
+    <Resource Include="Images\Keyboard\DELETE.png" />
+    <Resource Include="Images\Keyboard\Gris.png" />
+    <Resource Include="Images\Keyboard\Gris2.png" />
+    <Resource Include="Images\Keyboard\OK.png" />
+    <Resource Include="Images\Keyboard\Rojo.png" />
+    <Resource Include="Images\Keyboard\Verde.png" />
     <Resource Include="Images\Others\img-cancel.png" />
     <Resource Include="Images\Buttons\btn-cancel-alert.png" />
     <Resource Include="Images\Backgrounds\bg-consult.png" />
@@ -366,7 +376,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Themes\Generic.xaml">
+    <Page Include="KeyboardNew\WKeyboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

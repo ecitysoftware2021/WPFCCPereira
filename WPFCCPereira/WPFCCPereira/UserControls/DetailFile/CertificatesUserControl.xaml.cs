@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Data;
 using WPFCCPereira.Classes;
+using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
@@ -90,6 +91,18 @@ namespace WPFCCPereira.UserControls.DetailFile
                 {
                     Utilities.ShowModal(MessageResource.ErrorPrinter, EModalType.Error);
                 }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void TextBox_TouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            try
+            {
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
             }
             catch (Exception ex)
             {

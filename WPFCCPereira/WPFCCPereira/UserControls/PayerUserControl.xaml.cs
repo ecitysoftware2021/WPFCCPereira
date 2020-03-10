@@ -7,6 +7,7 @@ using System.Windows.Data;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Classes.UseFull;
 using WPFCCPereira.DataModel;
+using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.ViewModel;
@@ -233,6 +234,42 @@ namespace WPFCCPereira.UserControls
                     viewModel.Value2 = string.Empty;
                     viewModel.Value3 = string.Empty;
                 }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void TbxData1_TouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            try
+            {
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Standar);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void TbxData2_TouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            try
+            {
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void TbxIdentification_TouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            try
+            {
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
             }
             catch (Exception ex)
             {

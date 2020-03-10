@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using WPFCCPereira.Classes;
+using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
@@ -290,12 +291,27 @@ namespace WPFCCPereira.UserControls
             }
         }
 
-        private void Text_TouchDown(object sender, TouchEventArgs e)
+        private void Text_name_TouchDown(object sender, TouchEventArgs e)
         {
             try
             {
                 viewModel.DataList.Clear();
                 ConfigureViewList();
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Standar);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void Text_id_TouchDown(object sender, TouchEventArgs e)
+        {
+            try
+            {
+                viewModel.DataList.Clear();
+                ConfigureViewList();
+                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
             }
             catch (Exception ex)
             {

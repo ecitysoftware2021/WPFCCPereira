@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WPFCCPereira.Classes;
+using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.UserControls.Administrator
@@ -22,6 +23,8 @@ namespace WPFCCPereira.UserControls.Administrator
             {
                 init = new AdminPayPlus();
             }
+
+            Keyboard2.ConsttrucKeyyboard(Keyboard2.EColor.Azul);
 
             txt_description.DataContext = init;
 
