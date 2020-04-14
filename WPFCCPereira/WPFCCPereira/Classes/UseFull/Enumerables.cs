@@ -45,6 +45,7 @@ namespace WPFCCPereira.Classes
     public enum UserControlView
     {
         Main,
+        Menu,
         Consult,
         PaySuccess,
         Pay,

@@ -33,6 +33,7 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
+                   Tag="1"
                    Margin="0,0,0,0"
                    TouchDown="btn_search_TouchDown" />
 
@@ -41,16 +42,18 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
+                   Tag="2"
                    Margin="0,0,0,700"
-                   TouchDown="Btn_exit_TouchDown" />
+                   TouchDown="btn_search_TouchDown" />
 
             <Image Source="/Images/Buttons/btn-pay-certificate.png"
                    Name="btn_search_"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
+                   Tag="19"
                    Margin="0,700,0,0"
-                   TouchDown="Btn_exit_TouchDown" />
+                   TouchDown="btn_search_TouchDown" />
         </Grid>
     </Grid>
 </UserControl>

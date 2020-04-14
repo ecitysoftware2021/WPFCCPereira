@@ -40,6 +40,9 @@ namespace WPFCCPereira.Models
                     case UserControlView.Main:
                         View = data != null ? new MainUserControl((bool)data) : new MainUserControl();
                         break;
+                    case UserControlView.Menu:
+                        View = new MenuUserControl();
+                        break;
                     case UserControlView.Consult:
                         View = new ConsultUserControl((ETransactionType)data);
                         break;
