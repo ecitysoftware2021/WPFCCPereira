@@ -27,37 +27,29 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
             <Image Source="/Images/Buttons/btn-pay-certificate.png"
                    Name="btn_pay_certificate"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
-                   Margin="50,0,0,30"
+                   Margin="0,0,0,0"
                    TouchDown="Btn_exit_TouchDown" />
 
             <Image Source="/Images/Buttons/btn-pay-certificate.png"
                    Name="btn_search_name"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
                    Width="250"
-                   Margin="50,0,0,30"
+                   Margin="0,0,0,700"
                    TouchDown="Btn_exit_TouchDown" />
 
             <Image Source="/Images/Buttons/btn-pay-certificate.png"
                    Name="btn_search_"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
                    Width="250"
-                   Margin="50,0,0,30"
+                   Margin="0,700,0,0"
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>
     </Grid>
