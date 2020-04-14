@@ -34,7 +34,7 @@
                    VerticalAlignment="Center"
                    Width="250"
                    Margin="0,0,0,0"
-                   TouchDown="Btn_exit_TouchDown" />
+                   TouchDown="btn_search_TouchDown" />
 
             <Image Source="/Images/Buttons/btn-pay-certificate.png"
                    Name="btn_search_name"

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCCPereira.Classes;
+using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.UserControls
 {
@@ -23,6 +26,25 @@ namespace WPFCCPereira.UserControls
         public MenuUserControl()
         {
             InitializeComponent();
+        }
+
+        private void btn_search_TouchDown(object sender, TouchEventArgs e)
+        {
+            try
+            {
+                var tag = int.Parse(((Image)sender).Tag.ToString());
+                if (tag > 0 )
+                {
+                    Utilities.navigator.Navigate(UserControlView.Consult, true,
+                        tag == (int)ETransactionType.PaymentFile ?
+                        ETransactionType.PaymentFile : tag == (int)ETransactionType.ConsultName ?
+                        ETransactionType.ConsultName : ETransactionType.ConsultTransact);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
     }
 }
