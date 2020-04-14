@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="WPFCCPereira.UserControls.MenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCCPereira.UserControls"
+             mc:Ignorable="d"
+             Height="1920" 
+             Width="1080">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Image Source="/Images/Buttons/btn-menu.png"
+                   Name="btn_exit"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Margin="50,0,0,30"
+                   TouchDown="Btn_exit_TouchDown" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Images/Buttons/btn-pay-certificate.png"
+                   Name="btn_pay_certificate"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Margin="50,0,0,30"
+                   TouchDown="Btn_exit_TouchDown" />
+
+            <Image Source="/Images/Buttons/btn-pay-certificate.png"
+                   Name="btn_search_name"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Margin="50,0,0,30"
+                   TouchDown="Btn_exit_TouchDown" />
+
+            <Image Source="/Images/Buttons/btn-pay-certificate.png"
+                   Name="btn_search_"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Margin="50,0,0,30"
+                   TouchDown="Btn_exit_TouchDown" />
+        </Grid>
+    </Grid>
+</UserControl>

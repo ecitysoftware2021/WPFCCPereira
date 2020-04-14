@@ -25,14 +25,16 @@ namespace WPFCCPereira.UserControls
 
         private DataListViewModel viewModel;
 
-        public ConsultUserControl()
+        private ETransactionType type;
+
+        public ConsultUserControl(ETransactionType type)
         {
             InitializeComponent();
 
-            ConfigurateView();
+            ConfigurateView(type);
         }
 
-        private void ConfigurateView()
+        private void ConfigurateView(ETransactionType type)
         {
             try
             {
@@ -44,8 +46,23 @@ namespace WPFCCPereira.UserControls
                     Message = MessageResource.EnterId,
                     VisibilityId = Visibility.Visible,
                     VisibilityName = Visibility.Hidden,
+                    VisibleTab = Visibility.Visible,
                     TypeConsult = EtypeConsult.Id,
+                    TypeTransaction = type
                 };
+
+                if (viewModel.TypeTransaction == ETransactionType.ConsultName)
+                {
+                    viewModel.VisibleTab = Visibility.Hidden;
+                    viewModel.TypeConsult = EtypeConsult.Name;
+                    viewModel.VisibilityId = Visibility.Hidden;
+                    viewModel.VisibilityName = Visibility.Visible;
+                }
+
+                if (viewModel.TypeTransaction == ETransactionType.ConsultTransact)
+                {
+                    viewModel.TypeConsult = EtypeConsult.Settled;
+                }
 
                 this.DataContext = viewModel;
 
@@ -81,13 +98,13 @@ namespace WPFCCPereira.UserControls
             {
                 if (ValidateDocument())
                 {
-                    if (viewModel.TypeConsult == EtypeConsult.Id)
+                    if (viewModel.TypeConsult == EtypeConsult.Name)
                     {
-                        SearchData(text_id.Text);
+                        SearchData(text_name.Text);
                     }
                     else
                     {
-                        SearchData(text_name.Text);
+                        SearchData(text_id.Text);
                     }
                 }
             }
@@ -117,14 +134,9 @@ namespace WPFCCPereira.UserControls
                         {
                             Application.Current.Dispatcher.Invoke(delegate
                             {
-                                if (viewModel.TypeConsult == EtypeConsult.Id)
-                                {
-                                    text_id.Text = string.Empty;
-                                }
-                                else
-                                {
-                                    text_name.Text = string.Empty;
-                                }
+                                text_id.Text = string.Empty;
+
+                                text_name.Text = string.Empty;
                             });
 
                             Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
@@ -203,11 +215,12 @@ namespace WPFCCPereira.UserControls
                     ValidateListView(false);
                     lv_data_list.SelectedItem = null;
 
+                   
                     Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
                     {
                         File = (Noun)item.Data,
                         State = ETransactionState.Initial,
-                        Type = ETransactionType.PaymentFile
+                        Type = viewModel.TypeTransaction
                     });
                 }
             }

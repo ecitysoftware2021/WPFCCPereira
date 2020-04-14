@@ -120,6 +120,96 @@ namespace WPFCCPereira.Services
             return null;
         }
 
+        public async Task<object> ConsultThrough(string reference, EtypeConsult type)
+        {
+            try { 
+                RequestSearch request = new RequestSearch
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token
+                };
+
+                object response = null;
+
+                if (type == EtypeConsult.Settled)
+                {
+                    request.radicado = reference;
+                    response = await GetData(request, "ConsultSettled");
+                    if (response != null)
+                    {
+                        var requestresponse = JsonConvert.DeserializeObject<ResponseSettled>(response.ToString());
+
+                        if (requestresponse != null && requestresponse.codigoerror == "0000")
+                        {
+                            return response;
+                        }
+                    }
+                }
+                else
+                {
+                    request.recibo = reference;
+                    response = await GetData(request, "consultarRecibo");
+                    if (response != null)
+                    {
+                        var requestresponse = JsonConvert.DeserializeObject<ResponseReceipt>(response.ToString());
+
+                        if (requestresponse != null && requestresponse.codigoerror == "0000")
+                        {
+                            return response;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "GetData", ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<Transaction> Renewal(Transaction transaction, EtypeConsult type)
+        {
+            try
+            {
+                RequestLiquidateRenewal request = new RequestLiquidateRenewal
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idusuario = Utilities.GetConfiguration("OperadorControl"),
+                    emailcontrol = Utilities.GetConfiguration("EmailControl"),
+                    identificacioncontrol = Utilities.GetConfiguration("IdControl"),
+                    nombrecontrol = Utilities.GetConfiguration("NameControl"),
+                    celularcontrol = Utilities.GetConfiguration("PhoneControl"),
+                    matrucula = transaction.Products
+                };
+
+
+                var response = await GetData(request, "LiquidateNormalRenewal");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<ResponseLiquidateRenewal>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000" && !string.IsNullOrEmpty(requestresponse.idliquidacion) && !string.IsNullOrEmpty(requestresponse.numerorecuperacion))
+                    {
+                        transaction.consecutive = requestresponse.idliquidacion;
+                        transaction.reference = requestresponse.numerorecuperacion;
+                        transaction.Amount = requestresponse.valortotal;
+                        return transaction;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "GetData", ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
         public async Task<List<Noun>> SearchFiles(string reference, EtypeConsult type)
         {
             try

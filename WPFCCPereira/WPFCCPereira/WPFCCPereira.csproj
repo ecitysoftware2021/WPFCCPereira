@@ -198,6 +198,9 @@
     <Compile Include="UserControls\FileUserControl.xaml.cs">
       <DependentUpon>FileUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MenuUserControl.xaml.cs">
+      <DependentUpon>MenuUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PayerUserControl.xaml.cs">
       <DependentUpon>PayerUserControl.xaml</DependentUpon>
     </Compile>
@@ -336,6 +339,8 @@
       <DependentUpon>PayPlusLocalADO.edmx</DependentUpon>
       <LastGenOutput>PayPlusLocalADO.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Buttons\btn-pay-certificate.png" />
+    <Resource Include="Images\Buttons\btn-menu.png" />
     <Resource Include="Images\Keyboard\Amarillo.png" />
     <Resource Include="Images\Keyboard\Azul.png" />
     <Resource Include="Images\Keyboard\BACKSPACE.png" />
@@ -401,6 +406,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\FileUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MenuUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

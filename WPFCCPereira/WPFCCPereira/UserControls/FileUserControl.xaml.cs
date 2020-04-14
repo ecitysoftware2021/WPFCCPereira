@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Reflection;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
+using WPFCCPereira.Resources;
 using WPFCCPereira.UserControls.DetailFile;
 
 namespace WPFCCPereira.UserControls
@@ -41,12 +32,15 @@ namespace WPFCCPereira.UserControls
                 var detailView = new DetailUserControl(transaction.File);
                 cc_details.Content = detailView;
 
-                var certificateView = new CertificatesUserControl(transaction);
-                cc_certificates.Content = certificateView;
+                if (transaction.Type != ETransactionType.ConsultName)
+                {
+                    var certificateView = new CertificatesUserControl(transaction);
+                    cc_certificates.Content = certificateView;
+                }
             }
             catch (Exception ex)
             {
-
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
 
@@ -58,7 +52,7 @@ namespace WPFCCPereira.UserControls
             }
             catch (Exception ex)
             {
-
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
     }

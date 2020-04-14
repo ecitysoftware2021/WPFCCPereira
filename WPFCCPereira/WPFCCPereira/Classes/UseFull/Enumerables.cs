@@ -70,7 +70,10 @@ namespace WPFCCPereira.Classes
     public enum ETransactionType
     {
         Withdrawal = 15,
-        PaymentFile = 19
+        PaymentFile = 19,
+        ConsultName = 1,
+        ConsultTransact = 2,
+        Renewal = 3,
     }
 
     public enum ETypeAdministrator
@@ -84,7 +87,9 @@ namespace WPFCCPereira.Classes
     public enum EtypeConsult
     {
         Id = 2,
-        Name = 1
+        Name = 1,
+        Settled = 3,
+        Receipt = 4
     }
 
     public enum EtypeOperation

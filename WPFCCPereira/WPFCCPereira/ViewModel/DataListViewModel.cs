@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using WPFCCPereira.Classes;
-using WPFCCPereira.DataModel;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
-using WPFCCPereira.Services;
 using WPFCCPereira.Services.Object;
 
 namespace WPFCCPereira.ViewModel
@@ -124,6 +122,21 @@ namespace WPFCCPereira.ViewModel
             {
                 _sourceCheckId = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SourceCheckId)));
+            }
+        }
+
+        private string _background;
+
+        public string Background
+        {
+            get
+            {
+                return _background;
+            }
+            set
+            {
+                _background = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Background)));
             }
         }
 
@@ -252,6 +265,21 @@ namespace WPFCCPereira.ViewModel
             }
         }
 
+        private Visibility _visibleTab;
+
+        public Visibility VisibleTab
+        {
+            get
+            {
+                return _visibleTab;
+            }
+            set
+            {
+                _visibleTab = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VisibleTab)));
+            }
+        }
+
         private Visibility _visibilityPrevius;
 
         public Visibility VisibilityPrevius
@@ -309,6 +337,21 @@ namespace WPFCCPereira.ViewModel
             {
                 _typeCertificates = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TypeCertificates)));
+            }
+        }
+
+        private ETransactionType _typeTransaction;
+
+        public ETransactionType TypeTransaction
+        {
+            get
+            {
+                return _typeTransaction;
+            }
+            set
+            {
+                _typeTransaction = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TypeTransaction)));
             }
         }
 

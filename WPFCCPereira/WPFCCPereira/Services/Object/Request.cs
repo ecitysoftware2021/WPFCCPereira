@@ -4,25 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WPFCCPereira.Models;
+using WPFCCPereira.Services.Object;
 
 namespace WPFCCPereira.Services
 {
     public class Request
     {
         public string codigoempresa { get; set; }
+
         public string usuariows { get; set; }
+
         public string clavews { get; set; }
     }
 
     public class RequestSearch
     {
         public string codigoempresa { get; set; }
+
         public string usuariows { get; set; }
+
         public string token { get; set; }
+
         public string identificacion { get; set; }
+
         public int matriculainicial { get; set; }
+
         public string nombreinicial { get; set; }
+
         public string semilla { get; set; }
+
+        public string radicado { get; set; }
+
+        public string recibo { get; set; }
     }
 
     public class RequestTransaction
@@ -62,22 +75,68 @@ namespace WPFCCPereira.Services
     public class RequestPayment
     {
         public string codigoempresa { get; set; }
+
         public string usuariows { get; set; }
+
         public string token { get; set; }
+
         public string operador { get; set; }
+
         public string identificacioncontrol { get; set; }
+
         public string nombrecontrol { get; set; }
+
         public string emailcontrol { get; set; }
+
         public string celularcontrol { get; set; }
+
         public string idliquidacion { get; set; }
+
         public string numerorecuperacion { get; set; }
+
         public string valorpagado { get; set; }
+
         public string fechapago { get; set; }
+
         public string horapago { get; set; }
+
         public string formapago { get; set; }
+
         public string numeroautorizacion { get; set; }
+
         public string idbanco { get; set; }
+
         public string idfranquicia { get; set; }
+
         public string codigofirmapdf { get; set; }
+    }
+
+
+    public class RequestLiquidateRenewal
+    {
+        public string codigoempresa { get; set; }
+
+        public string usuariows { get; set; }
+
+        public string token { get; set; }
+
+        public string idusuario { get; set; }
+
+        public string identificacioncontrol { get; set; }
+
+        public string nombrecontrol { get; set; }
+
+        public string emailcontrol { get; set; }
+
+        public string celularcontrol { get; set; }
+
+        public List<Product> matrucula { get; set; }
+
+        public int personal { get; set; }
+
+        public string incluirafiliacion { get; set; }
+
+        public string incluircertificado { get; set; }
+
     }
 }

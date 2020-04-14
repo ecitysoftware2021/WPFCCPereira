@@ -10,7 +10,7 @@
              Width="1080" >
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-consult.png"/>
+            <ImageBrush ImageSource="{Binding Background}"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Visibility="{Binding VisibleTab}">
             <Image  x:Name="check_option"
                     Source="{Binding SourceCheckId}"
                     Width="800"

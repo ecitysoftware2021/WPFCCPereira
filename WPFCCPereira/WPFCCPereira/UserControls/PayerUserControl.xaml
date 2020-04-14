@@ -84,7 +84,7 @@
                        TabIndex="1"
                          TouchDown="TbxIdentification_TouchDown"
                        TextWrapping="Wrap"
-                       Text="{Binding Value1}" />
+                       Text="{Binding Value1, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
 
             <Grid Grid.Row="3">
@@ -113,7 +113,7 @@
                    TabIndex="2"
                    TextWrapping="Wrap" 
                    TouchDown="TbxData1_TouchDown"
-                   Text="{Binding Value2}" />
+                   Text="{Binding Value2, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
 
             <Grid Grid.Row="4">
@@ -141,7 +141,7 @@
                     Foreground="#FF104B6D"
                     TextWrapping="Wrap"
                     TouchDown="TbxData2_TouchDown"
-                    Text="{Binding Value3}" />
+                    Text="{Binding Value3, UpdateSourceTrigger=PropertyChanged}" />
 
                 <TextBox TabIndex="5" Height="0" Width="0" />
             </Grid>
