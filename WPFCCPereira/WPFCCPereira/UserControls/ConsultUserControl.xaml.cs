@@ -53,6 +53,7 @@ namespace WPFCCPereira.UserControls
 
                 if (viewModel.TypeTransaction == ETransactionType.ConsultName)
                 {
+                    viewModel.Message = MessageResource.EnterName;
                     viewModel.VisibleTab = Visibility.Hidden;
                     viewModel.TypeConsult = EtypeConsult.Name;
                     viewModel.VisibilityId = Visibility.Hidden;
