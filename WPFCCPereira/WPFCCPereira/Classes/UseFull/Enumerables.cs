@@ -54,7 +54,8 @@ namespace WPFCCPereira.Classes
         Config,
         Admin,
         Certificates,
-        PrintFile
+        PrintFile,
+        Menu
     }
 
     public enum ETransactionState

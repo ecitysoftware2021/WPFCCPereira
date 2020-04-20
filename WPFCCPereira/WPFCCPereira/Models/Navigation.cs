@@ -70,6 +70,9 @@ namespace WPFCCPereira.Models
                     case UserControlView.PrintFile:
                         View = new PrintFileUserControl((Transaction)data);
                         break;
+                    case UserControlView.Menu:
+                        View = new MenuUserControl();
+                        break;
                 }
 
                 if (initTimer)

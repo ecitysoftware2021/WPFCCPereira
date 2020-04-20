@@ -20,7 +20,7 @@
             <Image Source="/Images/Buttons/btn-menu.png"
                    Name="btn_exit"
                    HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
+                   VerticalAlignment="Center"
                    Width="250"
                    Margin="50,0,0,30"
                    TouchDown="Btn_exit_TouchDown" />
