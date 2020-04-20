@@ -48,7 +48,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Utilities.navigator.Navigate(UserControlView.Consult);
+                Utilities.navigator.Navigate(UserControlView.Consult, true, transaction.Type);
             }
             catch (Exception ex)
             {

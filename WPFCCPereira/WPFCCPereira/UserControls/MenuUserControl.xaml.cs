@@ -21,7 +21,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                var tag = int.Parse(((Image)sender).Tag.ToString());
+                var tag = int.Parse(((Button)sender).Tag.ToString());
                 if (tag > 0 )
                 {
                     Utilities.navigator.Navigate(UserControlView.Consult, true,

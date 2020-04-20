@@ -60,19 +60,22 @@ namespace WPFCCPereira.UserControls
                     viewModel.TypeConsult = EtypeConsult.Name;
                     viewModel.VisibilityId = Visibility.Hidden;
                     viewModel.VisibilityName = Visibility.Visible;
-                    viewModel.OptionCheck = EtypeConsult.Receipt;
-                    viewModel.OptionChecktwo = EtypeConsult.Settled;
+                    viewModel.SourceCheckId = "";
+                    lbl_tittle.Visibility = Visibility.Hidden;
                     viewModel.Background = ImagesUrlResource.BackgroundConsultName;
-                    viewModel.SourceCheckId = ImagesUrlResource.ImageCheckRadicate;
-                    viewModel.Message = MessageResource.EnterConsecutive;
+                    viewModel.Message = MessageResource.EnterNameConsult;
                 }
 
                 if (viewModel.TypeTransaction == ETransactionType.ConsultTransact)
                 {
+                    viewModel.VisibleTab = Visibility.Visible;
                     viewModel.TypeConsult = EtypeConsult.Settled;
                     viewModel.Background = ImagesUrlResource.BackgroundConsultTransact;
-                    viewModel.SourceCheckId = "";
-                    viewModel.Message = MessageResource.EnterNameConsult;
+                    viewModel.OptionCheck = EtypeConsult.Receipt;
+                    lbl_tittle.Visibility = Visibility.Hidden;
+                    viewModel.OptionChecktwo = EtypeConsult.Settled;
+                    viewModel.SourceCheckId = ImagesUrlResource.ImageCheckRadicate;
+                    viewModel.Message = MessageResource.EnterConsecutive;
                 }
 
                 this.DataContext = viewModel;

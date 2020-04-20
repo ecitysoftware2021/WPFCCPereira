@@ -28,34 +28,41 @@
 
         <Grid Grid.Row="1">
 
-            <Image 
-                   Name="btn_pay_certificate"
+            <Button Name="btn_pay_certificate"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
                    Tag = "19"
                    Height="300"
-                   Margin="0,0,700,350"
+                   Margin="0,0,450,60"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
                    TouchDown="btn_search_TouchDown" />
 
-            <Image 
-                   Name="btn_search_name"
+            <Button Name="btn_search_name"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Tag ="1"
                    Width="250"
                    Height="300"
-                   Margin="230,0,0,350"
+                   Margin="450,0,0,60"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
                    TouchDown="btn_search_TouchDown" />
 
-            <Image 
+            <Button 
                    Name="btn_search_consecutive"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+                   VerticalAlignment="Bottom"
                    Width="250"
                    Tag ="2"
                    Height="300"
-                   Margin="0,630,220,0"
+                   Margin="0,0,0,180"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
                    TouchDown="btn_search_TouchDown" />
         </Grid>
     </Grid>
