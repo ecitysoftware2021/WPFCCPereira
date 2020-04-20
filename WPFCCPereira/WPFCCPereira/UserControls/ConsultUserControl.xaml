@@ -40,7 +40,7 @@
                     Margin="0,0,0,20" />
 
             <Button  x:Name="check_identification"
-                    Tag="2"
+                    Tag="{Binding OptionCheck}"
                     Width="450"
                     Height="80"
                     HorizontalAlignment="Left"
@@ -54,7 +54,7 @@
             <Button  x:Name="check_name"
                     Width="420"
                     Height="80"
-                    Tag="1"
+                    Tag="{Binding OptionChecktwo}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Margin="0,0,100,20" 

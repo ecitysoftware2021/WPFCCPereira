@@ -48,7 +48,10 @@ namespace WPFCCPereira.UserControls
                     VisibilityName = Visibility.Hidden,
                     VisibleTab = Visibility.Visible,
                     TypeConsult = EtypeConsult.Id,
-                    TypeTransaction = type
+                    TypeTransaction = type,
+                    OptionCheck = EtypeConsult.Id,
+                    OptionChecktwo = EtypeConsult.Name,
+                    Background = ImagesUrlResource.BackgroundConsult
                 };
 
                 if (viewModel.TypeTransaction == ETransactionType.ConsultName)
@@ -57,11 +60,19 @@ namespace WPFCCPereira.UserControls
                     viewModel.TypeConsult = EtypeConsult.Name;
                     viewModel.VisibilityId = Visibility.Hidden;
                     viewModel.VisibilityName = Visibility.Visible;
+                    viewModel.OptionCheck = EtypeConsult.Receipt;
+                    viewModel.OptionChecktwo = EtypeConsult.Settled;
+                    viewModel.Background = ImagesUrlResource.BackgroundConsultName;
+                    viewModel.SourceCheckId = ImagesUrlResource.ImageCheckRadicate;
+                    viewModel.Message = MessageResource.EnterConsecutive;
                 }
 
                 if (viewModel.TypeTransaction == ETransactionType.ConsultTransact)
                 {
                     viewModel.TypeConsult = EtypeConsult.Settled;
+                    viewModel.Background = ImagesUrlResource.BackgroundConsultTransact;
+                    viewModel.SourceCheckId = "";
+                    viewModel.Message = MessageResource.EnterNameConsult;
                 }
 
                 this.DataContext = viewModel;
@@ -235,35 +246,53 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                var typeConsul = int.Parse(((Button)sender).Tag.ToString());
+                var typeConsul = (EtypeConsult)((Button)sender).Tag;
 
-                if (typeConsul != (int)viewModel.TypeConsult)
+                if (typeConsul != viewModel.TypeConsult)
                 {
-                    if (typeConsul == (int)EtypeConsult.Id)
+                    if (typeConsul == EtypeConsult.Id)
                     {
                         viewModel.TypeConsult = EtypeConsult.Id;
                         viewModel.VisibilityId = Visibility.Visible;
                         viewModel.VisibilityName = Visibility.Hidden;
-
                         text_id.Text = "";
                         text_name.Text = "";
                         lbl_tittle.Visibility = Visibility.Visible;
-
                         viewModel.SourceCheckId = ImagesUrlResource.ImageCheckId;
                         viewModel.Message = MessageResource.EnterId;
                     }
-                    else
+                    else if (typeConsul == EtypeConsult.Name)
                     {
                         viewModel.TypeConsult = EtypeConsult.Name;
                         viewModel.VisibilityId = Visibility.Hidden;
                         viewModel.VisibilityName = Visibility.Visible;
-
                         text_id.Text = "";
                         text_name.Text = "";
                         lbl_tittle.Visibility = Visibility.Hidden;
-
                         viewModel.SourceCheckId = ImagesUrlResource.ImageCheckName;
                         viewModel.Message = MessageResource.EnterName;
+                    }
+                    else if (typeConsul == EtypeConsult.Settled)
+                    {
+                        viewModel.TypeConsult = EtypeConsult.Settled;
+                        viewModel.VisibilityId = Visibility.Hidden;
+                        viewModel.VisibilityName = Visibility.Visible;
+                        text_id.Text = "";
+                        text_name.Text = "";
+                        lbl_tittle.Visibility = Visibility.Hidden;
+                        viewModel.SourceCheckId = ImagesUrlResource.ImageCheckRadicate;
+                        viewModel.Message = MessageResource.EnterConsecutive;
+                    }
+                    else
+                    {
+                        viewModel.TypeConsult = EtypeConsult.Receipt;
+                        viewModel.VisibilityId = Visibility.Hidden;
+                        viewModel.VisibilityName = Visibility.Visible;
+                        text_id.Text = "";
+                        text_name.Text = "";
+                        lbl_tittle.Visibility = Visibility.Hidden;
+                        viewModel.SourceCheckId = ImagesUrlResource.ImageCheckReceipt;
+                        viewModel.Message = MessageResource.EnterConsecutive;
                     }
                 }
             }

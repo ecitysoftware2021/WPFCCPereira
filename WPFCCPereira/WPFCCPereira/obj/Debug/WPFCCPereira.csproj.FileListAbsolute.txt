@@ -270,3 +270,4 @@ C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 C:\Users\DLLO\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.g.cs
 C:\Users\DLLO\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.baml
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\MenuUserControl.g.cs
+C:\Users\DLLO\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\MenuUserControl.g.cs

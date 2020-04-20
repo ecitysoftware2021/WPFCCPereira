@@ -126,6 +126,15 @@
   <data name="AlertInfo" xml:space="preserve">
     <value>Images/Backgrounds/bg-alert-info.png</value>
   </data>
+  <data name="BackgroundConsult" xml:space="preserve">
+    <value>/images/Backgrounds/bg-consult.jpg</value>
+  </data>
+  <data name="BackgroundConsultName" xml:space="preserve">
+    <value>/images/Backgrounds/bg-consult-name.jpg</value>
+  </data>
+  <data name="BackgroundConsultTransact" xml:space="preserve">
+    <value>/images/Backgrounds/bg-consult-transact.jpg</value>
+  </data>
   <data name="BackgroundSubmenuPayment" xml:space="preserve">
     <value>/images/Backgrounds/bg-menu-payment.jpg</value>
   </data>
@@ -146,6 +155,12 @@
   </data>
   <data name="ImageCheckName" xml:space="preserve">
     <value>/Images/Others/rbtn-name.png</value>
+  </data>
+  <data name="ImageCheckRadicate" xml:space="preserve">
+    <value>/Images/Others/rbtn-radicate.png</value>
+  </data>
+  <data name="ImageCheckReceipt" xml:space="preserve">
+    <value>/Images/Others/rbtn-receipt.png</value>
   </data>
   <data name="ImageOnSelectOption" xml:space="preserve">
     <value>/Images/Others/no-check.png</value>

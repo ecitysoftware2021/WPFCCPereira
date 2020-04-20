@@ -303,4 +303,10 @@
   <data name="ValidatePeripheralsFail" xml:space="preserve">
     <value>¡No se lograrón iniciar los dispositivos!</value>
   </data>
+  <data name="EnterConsecutive" xml:space="preserve">
+    <value>Ingrese el consecutivo a consultar</value>
+  </data>
+  <data name="EnterNameConsult" xml:space="preserve">
+    <value>Ingrese el nombre a consultar</value>
+  </data>
 </root>

@@ -9,7 +9,7 @@
              Width="1080">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-menu.jpg" Stretch="Uniform"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="180" />
@@ -28,29 +28,35 @@
 
         <Grid Grid.Row="1">
 
-            <Image Source="/Images/Buttons/btn-pay-certificate.png"
+            <Image 
                    Name="btn_pay_certificate"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
-                   Margin="0,0,0,0"
+                   Tag = "19"
+                   Height="300"
+                   Margin="0,0,700,350"
                    TouchDown="btn_search_TouchDown" />
 
-            <Image Source="/Images/Buttons/btn-pay-certificate.png"
+            <Image 
                    Name="btn_search_name"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
+                   Tag ="1"
                    Width="250"
-                   Margin="0,0,0,700"
-                   TouchDown="Btn_exit_TouchDown" />
+                   Height="300"
+                   Margin="230,0,0,350"
+                   TouchDown="btn_search_TouchDown" />
 
-            <Image Source="/Images/Buttons/btn-pay-certificate.png"
-                   Name="btn_search_"
+            <Image 
+                   Name="btn_search_consecutive"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
-                   Margin="0,700,0,0"
-                   TouchDown="Btn_exit_TouchDown" />
+                   Tag ="2"
+                   Height="300"
+                   Margin="0,630,220,0"
+                   TouchDown="btn_search_TouchDown" />
         </Grid>
     </Grid>
 </UserControl>

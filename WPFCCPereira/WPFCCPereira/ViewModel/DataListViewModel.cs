@@ -355,6 +355,36 @@ namespace WPFCCPereira.ViewModel
             }
         }
 
+        private EtypeConsult _optionCheck;
+
+        public EtypeConsult OptionCheck
+        {
+            get
+            {
+                return _optionCheck;
+            }
+            set
+            {
+                _optionCheck = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TypeTransaction)));
+            }
+        }
+
+        private EtypeConsult _optionChecktwo;
+
+        public EtypeConsult OptionChecktwo
+        {
+            get
+            {
+                return _optionChecktwo;
+            }
+            set
+            {
+                _optionChecktwo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TypeTransaction)));
+            }
+        }
+
         private CollectionViewSource _viewList;
 
         public CollectionViewSource ViewList

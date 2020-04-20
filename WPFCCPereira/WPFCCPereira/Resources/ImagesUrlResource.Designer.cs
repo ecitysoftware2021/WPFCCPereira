@@ -19,7 +19,7 @@ namespace WPFCCPereira.Resources {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ImagesUrlResource {
@@ -88,6 +88,33 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a /images/Backgrounds/bg-consult.jpg.
+        /// </summary>
+        internal static string BackgroundConsult {
+            get {
+                return ResourceManager.GetString("BackgroundConsult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a /images/Backgrounds/bg-consult-name.jpg.
+        /// </summary>
+        internal static string BackgroundConsultName {
+            get {
+                return ResourceManager.GetString("BackgroundConsultName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a /images/Backgrounds/bg-consult-transact.jpg.
+        /// </summary>
+        internal static string BackgroundConsultTransact {
+            get {
+                return ResourceManager.GetString("BackgroundConsultTransact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a /images/Backgrounds/bg-menu-payment.jpg.
         /// </summary>
         internal static string BackgroundSubmenuPayment {
@@ -147,6 +174,24 @@ namespace WPFCCPereira.Resources {
         internal static string ImageCheckName {
             get {
                 return ResourceManager.GetString("ImageCheckName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a /Images/Others/rbtn-radicate.png.
+        /// </summary>
+        internal static string ImageCheckRadicate {
+            get {
+                return ResourceManager.GetString("ImageCheckRadicate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a /Images/Others/rbtn-receipt.png.
+        /// </summary>
+        internal static string ImageCheckReceipt {
+            get {
+                return ResourceManager.GetString("ImageCheckReceipt", resourceCulture);
             }
         }
         
