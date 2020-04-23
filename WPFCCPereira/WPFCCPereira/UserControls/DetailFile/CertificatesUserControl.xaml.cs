@@ -41,7 +41,7 @@ namespace WPFCCPereira.UserControls.DetailFile
                     DataList = new List<ItemList>()
                 };
 
-                foreach (var certificate in transaction.File.certificados)
+                foreach (var certificate in ((Noun)transaction.File).certificados)
                 {
                     viewModel.DataList.Add(new ItemList {
                         Item1 = string.Concat(certificate.descripcioncertificado, " (costo ", string.Format("{0:C0}", certificate.valor), ")"), 

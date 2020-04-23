@@ -132,12 +132,10 @@ namespace WPFCCPereira.Services.Object
 
         public string fecharenovacion { get; set; }
 
-        public decimal valorestablecimiento { 
-
- get; set; }
+        public decimal valorestablecimiento { get; set; }
     }
 
-    public class ResponseSettled
+    public class ResponseTransact
     {
         public string codigoerror { get; set; }
 
@@ -174,35 +172,31 @@ namespace WPFCCPereira.Services.Object
         public string sucursalfinal { get; set; }
 
         public string actoreparto { get; set; }
-    }
 
-    public class ResponseReceipt
-    {
-        public string codigoerror { get; set; }
+        public string tipodoc { get; set; }
 
-        public string mensajeerror { get; set; }
+        public string numerodoc { get; set; }
 
-        public string recibo { get; set; }
+        public string origendoc { get; set; }
+
+        public string fechadoc { get; set; }
+
+        public string municipiodoc { get; set; }
+
+        public List<TransactState> estados { get; set; }
+
 
         public string fecha { get; set; }
 
         public string hora { get; set; }
 
-        public string operacion { get; set; }
-
         public string factura { get; set; }
-
-        public string radicado { get; set; }
 
         public string rutasii { get; set; }
 
         public string usuario { get; set; }
 
         public string tipogasto { get; set; }
-
-        public string idclase { get; set; }
-
-        public string identificacion { get; set; }
 
         public string nombre { get; set; }
 
@@ -214,16 +208,23 @@ namespace WPFCCPereira.Services.Object
 
         public string email { get; set; }
 
-        public string tipotramite { get; set; }
-
         public string tiporegistro { get; set; }
 
         public int valorneto { get; set; }
 
-        public string tipodoc { get; set; }
-
-        public string numerodoc { get; set; }
     }
+
+    public class TransactState 
+    {
+        public string fecha { get; set; }
+
+        public string hora { get; set; }
+
+        public string estado { get; set; }
+
+        public string usuariofinal { get; set; }
+    }
+
 
     public class ResponseLiquidateRenewal
     {

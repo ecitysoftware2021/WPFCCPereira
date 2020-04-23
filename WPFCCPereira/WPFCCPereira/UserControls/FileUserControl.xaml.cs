@@ -5,6 +5,7 @@ using System.Windows.Input;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.Object;
 using WPFCCPereira.UserControls.DetailFile;
 
 namespace WPFCCPereira.UserControls
@@ -29,10 +30,15 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                var detailView = new DetailUserControl(transaction.File);
+                var detailView = new DetailUserControl(transaction.File, transaction.Type);
                 cc_details.Content = detailView;
 
-                if (transaction.Type != ETransactionType.ConsultName)
+                if (transaction.Type == ETransactionType.ConsultTransact)
+                {
+                    var certificateView = new DescriptionUserControl((ResponseTransact)transaction.File);
+                    cc_certificates.Content = certificateView;
+                }
+                else if (transaction.Type == ETransactionType.PaymentFile)
                 {
                     var certificateView = new CertificatesUserControl(transaction);
                     cc_certificates.Content = certificateView;

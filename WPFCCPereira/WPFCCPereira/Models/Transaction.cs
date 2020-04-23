@@ -43,7 +43,7 @@ namespace WPFCCPereira.Models
 
         public List<Product> Products { get; set; }
 
-        public Noun File { get; set; }
+        public object File { get; set; }
 
         private decimal _Amount;
 

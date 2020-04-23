@@ -425,40 +425,37 @@ namespace WPFCCPereira.ViewModel
         }
         #endregion
 
-        internal void ConfigurateDataList(object data, ETransactionType type)
-        {
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
-
-        public async Task<bool> ConsultConcidences(string reference, EtypeConsult type)
+        public async Task<object> ConsultConcidences(string reference, EtypeConsult type)
         {
             try
             {
                 _dataList.Clear();
-                var response = await AdminPayPlus.ApiIntegration.SearchFiles(reference, type);
 
-                if (response != null && response.Count > 0)
+                if (type == EtypeConsult.Receipt || type == EtypeConsult.Settled)
                 {
-                    foreach (var item in response)
+                    var response = await AdminPayPlus.ApiIntegration.ConsultThrough(reference, type);
+                }
+                else
+                {
+                    var response = await AdminPayPlus.ApiIntegration.SearchFiles(reference, type);
+
+                    if (response != null && response.Count > 0)
                     {
-                        _dataList.Add(new ItemList
+                        foreach (var item in response)
                         {
-                            Item1 = item.nombre,
-                            Item2 = string.Concat("NIT"),
-                            Item3 = item.identificacion,
-                            Item4 = string.Concat("Matrícula: ", item.matricula),
-                            ImageSourse = item.estadomatricula.ToLower().Equals("mc")?ImagesUrlResource.ImgCancel : ImagesUrlResource.ImgSelect,
-                            Data = item
-                        });
+                            _dataList.Add(new ItemList
+                            {
+                                Item1 = item.nombre,
+                                Item2 = string.Concat("NIT"),
+                                Item3 = item.identificacion,
+                                Item4 = string.Concat("Matrícula: ", item.matricula),
+                                ImageSourse = item.estadomatricula.ToLower().Equals("mc") ? ImagesUrlResource.ImgCancel : ImagesUrlResource.ImgSelect,
+                                Data = item
+                            });
+                        }
+                        return true;
                     }
-                    return true;
                 }
             }
             catch (Exception ex)
@@ -492,7 +489,7 @@ namespace WPFCCPereira.ViewModel
                                 valorservicio = certificate.valor * item.Item6,
                                 valor = certificate.valor,
                                 proponente = "m",//this.file.proponente,
-                                matricula = transaction.File.matricula,
+                                matricula = ((Noun)transaction.File).matricula,
                                 basse = certificate.valor,
                                 porcentaje = 0//
                             });

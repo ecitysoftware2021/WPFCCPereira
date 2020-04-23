@@ -192,6 +192,9 @@
     <Compile Include="UserControls\DetailFile\CertificatesUserControl.xaml.cs">
       <DependentUpon>CertificatesUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DetailFile\DescriptionUserControl.xaml.cs">
+      <DependentUpon>DescriptionUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DetailFile\DetailUserControl.xaml.cs">
       <DependentUpon>DetailUserControl.xaml</DependentUpon>
     </Compile>
@@ -401,6 +404,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\DetailFile\CertificatesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DetailFile\DescriptionUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

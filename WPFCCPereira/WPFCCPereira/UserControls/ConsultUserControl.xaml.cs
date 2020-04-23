@@ -140,9 +140,21 @@ namespace WPFCCPereira.UserControls
 
                         Utilities.CloseModal();
 
-                        if (response)
+                        if (response != null)
                         {
-                            ConfigureViewList();
+                            if (viewModel.TypeConsult == EtypeConsult.Receipt || viewModel.TypeConsult == EtypeConsult.Settled)
+                            {
+                                Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
+                                {
+                                    File = response,
+                                    State = ETransactionState.Initial,
+                                    Type = viewModel.TypeTransaction
+                                });
+                            }
+                            else
+                            {
+                                ConfigureViewList();
+                            }
                         }
                         else
                         {
@@ -229,7 +241,6 @@ namespace WPFCCPereira.UserControls
                     ValidateListView(false);
                     lv_data_list.SelectedItem = null;
 
-                   
                     Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
                     {
                         File = (Noun)item.Data,

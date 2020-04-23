@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
@@ -123,13 +122,14 @@ namespace WPFCCPereira.Services
         public async Task<object> ConsultThrough(string reference, EtypeConsult type)
         {
             try { 
+
                 RequestSearch request = new RequestSearch
                 {
                     codigoempresa = code,
                     usuariows = user,
                     token = token
                 };
-
+                
                 object response = null;
 
                 if (type == EtypeConsult.Settled)
@@ -138,25 +138,25 @@ namespace WPFCCPereira.Services
                     response = await GetData(request, "ConsultSettled");
                     if (response != null)
                     {
-                        var requestresponse = JsonConvert.DeserializeObject<ResponseSettled>(response.ToString());
+                        var requestresponse = JsonConvert.DeserializeObject<ResponseTransact>(response.ToString());
 
                         if (requestresponse != null && requestresponse.codigoerror == "0000")
                         {
-                            return response;
+                            return requestresponse;
                         }
                     }
                 }
                 else
                 {
                     request.recibo = reference;
-                    response = await GetData(request, "consultarRecibo");
+                    response = await GetData(request, "ConsultReceipt");
                     if (response != null)
                     {
-                        var requestresponse = JsonConvert.DeserializeObject<ResponseReceipt>(response.ToString());
+                        var requestresponse = JsonConvert.DeserializeObject<ResponseTransact>(response.ToString());
 
                         if (requestresponse != null && requestresponse.codigoerror == "0000")
                         {
-                            return response;
+                            return await ConsultThrough(requestresponse.radicado, EtypeConsult.Settled);
                         }
                     }
                 }
@@ -185,7 +185,6 @@ namespace WPFCCPereira.Services
                     celularcontrol = Utilities.GetConfiguration("PhoneControl"),
                     matrucula = transaction.Products
                 };
-
 
                 var response = await GetData(request, "LiquidateNormalRenewal");
 
@@ -275,16 +274,16 @@ namespace WPFCCPereira.Services
                         codificacionservicios = Utilities.GetConfiguration("CodificationService"),
                         tipoidentificacioncliente = transaction.payer.TYPE_IDENTIFICATION,
                         identificacioncliente = transaction.payer.IDENTIFICATION,
-                        razonsocialcliente = transaction.payer.NAME ?? transaction.File.nombre,
-                        nombre1cliente = transaction.payer.NAME ?? transaction.File.nombre,
+                        razonsocialcliente = transaction.payer.NAME ?? ((Noun)transaction.File).nombre,
+                        nombre1cliente = transaction.payer.NAME ?? ((Noun)transaction.File).nombre,
                         nombre2cliente = transaction.payer.NAME ?? string.Empty,
                         apellido1cliente = transaction.payer.LAST_NAME ?? string.Empty,
                         apellido2cliente = transaction.payer.LAST_NAME ?? string.Empty,
                         emailcliente = transaction.payer.EMAIL?? Utilities.GetConfiguration("EmailControl"),
-                        direccioncliente = transaction.payer.ADDRESS ?? transaction.File.direccion,
+                        direccioncliente = transaction.payer.ADDRESS ?? ((Noun)transaction.File).direccion,
                         telefonocliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"),
                         celularcliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"), 
-                        municipiocliente = transaction.File.municipio,
+                        municipiocliente = ((Noun)transaction.File).municipio,
                         valorbruto = 0,
                         Valorbaseiva = 0,
                         Valoriva = 0,
