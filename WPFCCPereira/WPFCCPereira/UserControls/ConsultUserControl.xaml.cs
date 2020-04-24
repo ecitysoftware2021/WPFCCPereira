@@ -21,11 +21,8 @@ namespace WPFCCPereira.UserControls
     /// </summary>
     public partial class ConsultUserControl : UserControl
     {
-        private Transaction transaction;
 
         private DataListViewModel viewModel;
-
-        private ETransactionType type;
 
         public ConsultUserControl(ETransactionType type)
         {
@@ -112,7 +109,7 @@ namespace WPFCCPereira.UserControls
             {
                 if (ValidateDocument())
                 {
-                    if (viewModel.TypeConsult == EtypeConsult.Name)
+                    if (viewModel.TypeConsult == EtypeConsult.Name || viewModel.TypeConsult == EtypeConsult.Receipt)
                     {
                         SearchData(text_name.Text);
                     }
@@ -289,8 +286,8 @@ namespace WPFCCPereira.UserControls
                     else if (typeConsul == EtypeConsult.Settled)
                     {
                         viewModel.TypeConsult = EtypeConsult.Settled;
-                        viewModel.VisibilityId = Visibility.Hidden;
-                        viewModel.VisibilityName = Visibility.Visible;
+                        viewModel.VisibilityId = Visibility.Visible;
+                        viewModel.VisibilityName = Visibility.Hidden;
                         text_id.Text = "";
                         text_name.Text = "";
                         lbl_tittle.Visibility = Visibility.Hidden;

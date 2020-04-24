@@ -40,26 +40,19 @@ namespace WPFCCPereira.UserControls.DetailFile
             {
                 if (type == ETransactionType.ConsultTransact)
                 {
-                    if (string.IsNullOrEmpty(((ResponseTransact)file).radicado))
+                    viewModel = new DataListViewModel
                     {
-                        viewModel = new DataListViewModel
-                        {
-                            Tittle = "Detalle del Trámite",
-                            ViewList = new CollectionViewSource(),
-                            DataList = new List<ItemList> {
-                                { new ItemList {Item1 = "Fecha Estado Actual", Item2 = ((ResponseTransact)file).fechaestadofinal}},
-                                { new ItemList {Item1 = "Código de barras", Item2 = ((ResponseTransact)file).radicado }},
-                                { new ItemList {Item1 = "Operación", Item2 = ((ResponseTransact)file).operacion }},
-                                { new ItemList {Item1 = "Matrícula", Item2 = ((ResponseTransact)file).matricula }},
-                                { new ItemList {Item1 = "Nombre", Item2 = ((ResponseTransact)file).nombres }},
-                                { new ItemList {Item1 = "Operador actual", Item2 = ((ResponseTransact)file).actoreparto }},
-                            },
-                        };
-                    }
-                    else
-                    {
-
-                    }
+                        Tittle = "Detalle del Trámite",
+                        ViewList = new CollectionViewSource(),
+                        DataList = new List<ItemList> {
+                            { new ItemList {Item1 = "Fecha Estado Actual", Item2 = ((ResponseTransact)file).fechaestadofinal}},
+                            { new ItemList {Item1 = "Código de barras", Item2 = ((ResponseTransact)file).radicado }},
+                            { new ItemList {Item1 = "Operación", Item2 = ((ResponseTransact)file).operacion }},
+                            { new ItemList {Item1 = "Matrícula", Item2 = ((ResponseTransact)file).matricula }},
+                            { new ItemList {Item1 = "Nombre", Item2 = ((ResponseTransact)file).nombres }},
+                            { new ItemList {Item1 = "Operador actual", Item2 = ((ResponseTransact)file).actoreparto }},
+                        },
+                    };
                 }
                 else
                 {
