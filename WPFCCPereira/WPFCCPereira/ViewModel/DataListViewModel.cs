@@ -434,7 +434,7 @@ namespace WPFCCPereira.ViewModel
 
                 if (type == EtypeConsult.Receipt || type == EtypeConsult.Settled)
                 {
-                    var response = await AdminPayPlus.ApiIntegration.ConsultThrough(reference, type);
+                    return await AdminPayPlus.ApiIntegration.ConsultThrough(reference, type);
                 }
                 else
                 {

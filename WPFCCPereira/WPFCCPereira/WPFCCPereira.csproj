@@ -342,8 +342,10 @@
       <DependentUpon>PayPlusLocalADO.edmx</DependentUpon>
       <LastGenOutput>PayPlusLocalADO.cs</LastGenOutput>
     </Content>
-    <Resource Include="Images\Backgrounds\bg-consult-transact.jpg" />
-    <Resource Include="Images\Backgrounds\bg-consult-name.jpg" />
+    <Resource Include="Images\Others\rbtn-radicate.png" />
+    <Resource Include="Images\Others\rbtn-receipt.png" />
+    <Resource Include="Images\Backgrounds\bg-consult-name.png" />
+    <Resource Include="Images\Backgrounds\bg-consult-transact.png" />
     <Resource Include="Images\Backgrounds\bg-menu.jpg" />
     <Resource Include="Images\Buttons\btn-pay-certificate.png" />
     <Resource Include="Images\Buttons\btn-menu.png" />

@@ -36,8 +36,6 @@ namespace WPFCCPereira.UserControls.DetailFile
             //2232238-S000960759
             try
             {
-                if (string.IsNullOrEmpty(file.radicado))
-                {
                     viewModel = new DataListViewModel
                     {
                         Tittle = "Pasos del Trámite",
@@ -47,9 +45,12 @@ namespace WPFCCPereira.UserControls.DetailFile
 
                     foreach (var state in file.estados)
                     {
-                        viewModel.DataList.Add(new ItemList { Item1 = state.estado, Item2 = string.Concat("Operador: ", state.usuariofinal), Item3 = state.fecha });
+                        viewModel.DataList.Add(new ItemList { Item1 = state.estado,
+                            Item2 = string.Concat("Operador: ", state.usuariofinal),
+                            Item3 = string.Concat(DateTime.ParseExact(state.fecha, "yyyyMMdd", null).ToString("yyyy-MM-dd")," ", DateTime.ParseExact(state.hora, "HHmmss", null).ToString("HH:mm:ss"))
+                        });
                     }
-                }
+                
                 
                 this.DataContext = viewModel;
                 viewModel.ViewList.Source = viewModel.DataList;

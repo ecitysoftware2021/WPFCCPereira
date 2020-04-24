@@ -130,10 +130,10 @@
     <value>/images/Backgrounds/bg-consult.png</value>
   </data>
   <data name="BackgroundConsultName" xml:space="preserve">
-    <value>/images/Backgrounds/bg-consult-name.jpg</value>
+    <value>/images/Backgrounds/bg-consult-name.png</value>
   </data>
   <data name="BackgroundConsultTransact" xml:space="preserve">
-    <value>/images/Backgrounds/bg-consult-transact.jpg</value>
+    <value>/images/Backgrounds/bg-consult-transact.png</value>
   </data>
   <data name="BackgroundSubmenuPayment" xml:space="preserve">
     <value>/images/Backgrounds/bg-menu-payment.jpg</value>

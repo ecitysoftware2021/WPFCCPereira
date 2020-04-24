@@ -227,3 +227,5 @@ C:\Users\DLLO\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\MenuUserControl.baml
 C:\Users\DLLO\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.exe
 C:\Users\DLLO\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.pdb
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\DetailFile\DescriptionUserControl.g.cs
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\DetailFile\DescriptionUserControl.baml

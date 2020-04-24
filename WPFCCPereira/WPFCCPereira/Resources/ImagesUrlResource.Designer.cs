@@ -97,7 +97,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /images/Backgrounds/bg-consult-name.jpg.
+        ///   Looks up a localized string similar to /images/Backgrounds/bg-consult-name.png.
         /// </summary>
         internal static string BackgroundConsultName {
             get {
@@ -106,7 +106,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /images/Backgrounds/bg-consult-transact.jpg.
+        ///   Looks up a localized string similar to /images/Backgrounds/bg-consult-transact.png.
         /// </summary>
         internal static string BackgroundConsultTransact {
             get {

@@ -68,9 +68,9 @@ namespace WPFCCPereira.UserControls
                     viewModel.VisibleTab = Visibility.Visible;
                     viewModel.TypeConsult = EtypeConsult.Settled;
                     viewModel.Background = ImagesUrlResource.BackgroundConsultTransact;
-                    viewModel.OptionCheck = EtypeConsult.Receipt;
+                    viewModel.OptionCheck = EtypeConsult.Settled;
                     lbl_tittle.Visibility = Visibility.Hidden;
-                    viewModel.OptionChecktwo = EtypeConsult.Settled;
+                    viewModel.OptionChecktwo = EtypeConsult.Receipt;
                     viewModel.SourceCheckId = ImagesUrlResource.ImageCheckRadicate;
                     viewModel.Message = MessageResource.EnterConsecutive;
                 }
@@ -203,7 +203,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                if (viewModel.TypeConsult == EtypeConsult.Id)
+                if (viewModel.TypeConsult == EtypeConsult.Id || viewModel.TypeConsult == EtypeConsult.Settled)
                 {
                     if (string.IsNullOrEmpty(text_id.Text) || text_id.Text.Length <= 6 || text_id.Text.Length >= 12)
                     {
