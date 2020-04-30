@@ -32,7 +32,7 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Width="250"
-                   Tag = "19"
+                   Tag = "3"
                    Height="300"
                    Margin="0,0,450,60"
                    Background="{x:Null}" 

@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 using WPFCCPereira.Classes.Printer;
 using WPFCCPereira.Models;
@@ -369,6 +370,25 @@ namespace WPFCCPereira.Classes
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
+            }
+        }
+
+        public static void OpenKeyboard(bool keyBoard_Numeric, TextBox textBox, object thisView,int x = 0,int y = 0)
+        {
+            try
+            {
+                WPKeyboard.Keyboard.InitKeyboard(new WPKeyboard.Keyboard.DataKey
+                {
+                    control = textBox,
+                    userControl = thisView is UserControl ? thisView as UserControl : null,
+                    eType = (keyBoard_Numeric == true) ? WPKeyboard.Keyboard.EType.Numeric : WPKeyboard.Keyboard.EType.Standar,
+                    window = thisView is Window ? thisView as Window : null,
+                    X=x,
+                    Y=y,
+                });
+            }
+            catch (Exception ex)
+            {
             }
         }
     }

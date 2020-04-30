@@ -22,7 +22,25 @@ namespace WPFCCPereira.Classes.DB
             try
             {
                 var query = string.Concat("SELECT * FROM 'TRANSACTION' WHERE TRANSACTION_ID = ", idTransaction);
-                return Select<TRANSACTION>(query).FirstOrDefault();
+                 var transaction = Select<ITRANSACTION>(query).FirstOrDefault();
+
+                return new TRANSACTION
+                {
+                    TYPE_TRANSACTION_ID = transaction.TYPE_TRANSACTION_ID,
+                    PAYER_ID = transaction.PAYER_ID,
+                    STATE_TRANSACTION_ID = transaction.STATE_TRANSACTION_ID,
+                    TOTAL_AMOUNT = transaction.TOTAL_AMOUNT,
+                    DATE_END = DateTime.Parse(transaction.DATE_END),
+                    TRANSACTION_ID = transaction.TRANSACTION_ID,
+                    RETURN_AMOUNT = transaction.RETURN_AMOUNT,
+                    INCOME_AMOUNT = transaction.INCOME_AMOUNT,
+                    PAYPAD_ID = transaction.PAYER_ID,
+                    DATE_BEGIN = DateTime.Parse(transaction.DATE_BEGIN),
+                    STATE_NOTIFICATION = transaction.STATE_NOTIFICATION,
+                    STATE = transaction.STATE,
+                    DESCRIPTION = transaction.DESCRIPTION,
+                    TRANSACTION_REFERENCE = transaction.TRANSACTION_REFERENCE
+                };
             }
             catch (Exception ex)
             {
@@ -95,7 +113,7 @@ namespace WPFCCPereira.Classes.DB
                            "PAYER_ID, " +
                            "STATE_TRANSACTION_ID, " +
                            "STATE_NOTIFICATION, " +
-                           "STATE " +
+                           "STATE, " +
                            "TRANSACTION_REFERENCE) VALUES (" +
                            "@TRANSACTION_ID, " +
                            "@PAYPAD_ID, " +
@@ -109,20 +127,20 @@ namespace WPFCCPereira.Classes.DB
                            "@PAYER_ID, " +
                            "@STATE_TRANSACTION_ID, " +
                            "@STATE_NOTIFICATION, " +
-                           "@STATE " +
-                           "TRANSACTION_REFERENCE) ",
+                           "@STATE, " +
+                           "@TRANSACTION_REFERENCE) ",
                            new ITRANSACTION
                            {
                                TYPE_TRANSACTION_ID = transaction.TYPE_TRANSACTION_ID,
                                PAYER_ID = transaction.PAYER_ID,
                                STATE_TRANSACTION_ID = transaction.STATE_TRANSACTION_ID,
                                TOTAL_AMOUNT = transaction.TOTAL_AMOUNT,
-                               DATE_END = transaction.DATE_END,
+                               DATE_END = transaction.DATE_END.ToString(),
                                TRANSACTION_ID = transaction.TRANSACTION_ID,
                                RETURN_AMOUNT = transaction.RETURN_AMOUNT,
                                INCOME_AMOUNT = transaction.INCOME_AMOUNT,
                                PAYPAD_ID = transaction.PAYER_ID,
-                               DATE_BEGIN = transaction.DATE_BEGIN,
+                               DATE_BEGIN = transaction.DATE_BEGIN.ToString(),
                                STATE_NOTIFICATION = transaction.STATE_NOTIFICATION,
                                STATE = transaction.STATE,
                                DESCRIPTION = transaction.DESCRIPTION,
@@ -177,7 +195,7 @@ namespace WPFCCPereira.Classes.DB
                         data.RETURN_AMOUNT = transaction.Payment.ValorDispensado;
                         data.DESCRIPTION = "Transaccion finalizada correctamente";
                         data.STATE_TRANSACTION_ID = (int)transaction.State;
-                        data.DATE_END = DateTime.Now.ToString();
+                        data.DATE_END = DateTime.Now;
                         data.TRANSACTION_REFERENCE = transaction.consecutive;
                         data.STATE_NOTIFICATION = transaction.StateNotification;
 
@@ -191,10 +209,10 @@ namespace WPFCCPereira.Classes.DB
                                     "DESCRIPTION = @DESCRIPTION, " +
                                     "STATE_TRANSACTION_ID = @STATE_TRANSACTION_ID, " +
                                     "DATE_END = @DATE_END, " +
-                                    "STATE_NOTIFICATION = @STATE_NOTIFICATION " +
-                                    "TRANSACTION_REFERENCE = @TRANSACTION_REFERENCE" +
-                                    "STATE_NOTIFICATION = @STATE_NOTIFICATION" +
-                                    "WHERE TRANSACTION_ID = " + transaction.IdTransactionAPi, data);
+                                    "STATE_NOTIFICATION = @STATE_NOTIFICATION, " +
+                                    "TRANSACTION_REFERENCE = @TRANSACTION_REFERENCE," +
+                                    "STATE = @STATE " +
+                                    "WHERE ID = " + transaction.TransactionId, data);
 
                         return data;
                     }

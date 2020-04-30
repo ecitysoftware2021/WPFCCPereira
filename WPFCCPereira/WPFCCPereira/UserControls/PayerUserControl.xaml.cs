@@ -245,7 +245,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Standar);
+                Utilities.OpenKeyboard(false, sender as TextBox, this);
             }
             catch (Exception ex)
             {
@@ -257,7 +257,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
+                Utilities.OpenKeyboard(true, sender as TextBox, this);
             }
             catch (Exception ex)
             {
@@ -269,7 +269,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric);
+                Utilities.OpenKeyboard(true, sender as TextBox, this);
             }
             catch (Exception ex)
             {

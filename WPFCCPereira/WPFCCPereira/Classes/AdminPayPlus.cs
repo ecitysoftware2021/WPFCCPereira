@@ -130,7 +130,7 @@ namespace WPFCCPereira.Classes
         {
             DescriptionStatusPayPlus = MessageResource.ComunicationServer;
 
-            if (await LoginPaypad())
+            if (await LoginPaypad() && await ApiIntegration.SecurityToken())
             {
                 DescriptionStatusPayPlus = MessageResource.StatePayPlus;
 
@@ -463,12 +463,12 @@ namespace WPFCCPereira.Classes
                                 PAYER_ID = transaction.payer.PAYER_ID,
                                 STATE_TRANSACTION_ID = Convert.ToInt32(transaction.State),
                                 TOTAL_AMOUNT = transaction.Amount,
-                                DATE_END = DateTime.Now.ToString(),
+                                DATE_END = DateTime.Now,
                                 TRANSACTION_ID = 0,
                                 RETURN_AMOUNT = 0,
                                 INCOME_AMOUNT = 0,
                                 PAYPAD_ID = 0,
-                                DATE_BEGIN = DateTime.Now.ToString(),
+                                DATE_BEGIN = DateTime.Now,
                                 STATE_NOTIFICATION = 0,
                                 STATE = 0,
                                 DESCRIPTION = "Transaccion iniciada",
@@ -479,7 +479,7 @@ namespace WPFCCPereira.Classes
                             {
                                 AMOUNT = transaction.Amount,
                                 TRANSACTION_ID = data.ID,
-                                TRANSACTION_PRODUCT_ID = (int)ETypeProduct.Existence,
+                                TRANSACTION_PRODUCT_ID = (int)ETypeProduct.commercialRegister,
                                 DESCRIPTION = string.Concat("Matricula: ", ((Noun)transaction.File).matricula ?? string.Empty),
                                 EXTRA_DATA = string.Concat("Numero de recuperacion: ", transaction.reference),
                                 TRANSACTION_DESCRIPTION_ID = 0,

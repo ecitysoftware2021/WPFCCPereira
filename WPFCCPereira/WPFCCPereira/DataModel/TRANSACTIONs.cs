@@ -15,8 +15,8 @@ namespace WPFCCPereira.DataModel
         public Nullable<int> TRANSACTION_ID { get; set; }
         public int PAYPAD_ID { get; set; }
         public int TYPE_TRANSACTION_ID { get; set; }
-        public string DATE_BEGIN { get; set; }
-        public string DATE_END { get; set; }
+        public DateTime DATE_BEGIN { get; set; }
+        public DateTime DATE_END { get; set; }
         public decimal TOTAL_AMOUNT { get; set; }
         public Nullable<decimal> INCOME_AMOUNT { get; set; }
         public Nullable<decimal> RETURN_AMOUNT { get; set; }

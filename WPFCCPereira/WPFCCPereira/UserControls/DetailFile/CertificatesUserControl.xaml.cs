@@ -44,7 +44,7 @@ namespace WPFCCPereira.UserControls.DetailFile
                 foreach (var certificate in ((Noun)transaction.File).certificados)
                 {
                     viewModel.DataList.Add(new ItemList {
-                        Item1 = string.Concat(certificate.descripcioncertificado, " (costo ", string.Format("{0:C0}", certificate.valor), ")"), 
+                        Item1 = string.Concat(certificate.descripcioncertificado, " (costo ", string.Format("{0:C0}", certificate.valor), ")"),
                         Item6 = 0,
                         Data = certificate });
                 }
@@ -102,7 +102,8 @@ namespace WPFCCPereira.UserControls.DetailFile
         {
             try
             {
-                Keyboard2.InitKeyboard((sender as TextBox), this, Keyboard2.EType.Numeric, true);
+                var position = ((TextBox)sender).PointToScreen(new System.Windows.Point(0d, 0d));
+                Utilities.OpenKeyboard(true, sender as TextBox, this, y: Convert.ToInt32(position.Y + 50));
             }
             catch (Exception ex)
             {
