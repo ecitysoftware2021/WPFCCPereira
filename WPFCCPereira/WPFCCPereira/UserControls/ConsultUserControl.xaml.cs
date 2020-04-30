@@ -129,6 +129,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
+                TimerService.Stop();
                 Task.Run(async () =>
                 {
                     try
@@ -164,7 +165,7 @@ namespace WPFCCPereira.UserControls
 
                             Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
 
-                            //TimerService.Reset();
+                            TimerService.Reset();
                         }
                     }
                     catch (Exception ex)

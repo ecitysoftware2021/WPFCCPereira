@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -17,18 +18,23 @@ namespace WPFCCPereira.UserControls.Administrator
 
         public ConfigurateUserControl()
         {
-            InitializeComponent();
-
-            if (init == null)
+            try
             {
-                init = new AdminPayPlus();
+                InitializeComponent();
+
+                if (init == null)
+                {
+                    init = new AdminPayPlus();
+                }
+
+                txt_description.DataContext = init;
+
+                Initial();
             }
-
-            Keyboard2.ConsttrucKeyyboard(Keyboard2.EColor.Azul);
-
-            txt_description.DataContext = init;
-
-            Initial();
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
 
         private async void Initial()
@@ -44,6 +50,7 @@ namespace WPFCCPereira.UserControls.Administrator
             }
             catch (Exception ex)
             {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
 
@@ -51,22 +58,28 @@ namespace WPFCCPereira.UserControls.Administrator
         {
             try
             {
-                if (AdminPayPlus.DataPayPlus.StateBalanece)
+                if (AdminPayPlus.DataPayPlus.StateUpdate)
                 {
-                    Utilities.navigator.Navigate(UserControlView.Login, false, 1);
+                    Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, false);
+                    Utilities.UpdateApp();
+                }
+                else if (AdminPayPlus.DataPayPlus.StateBalanece)
+                {
+                    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Balancing);
                 }
                 else if (AdminPayPlus.DataPayPlus.StateUpload)
                 {
-                    Utilities.navigator.Navigate(UserControlView.Login, false, 2);
+                    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Upload);
                 }
                 else
                 {
+                    //Utilities.navigator.Navigate(UserControlView.Main);
                     Finish(result);
                 }
             }
             catch (Exception ex)
             {
-                Utilities.ShowModal(MessageResource.NoService, EModalType.Error, false);
+                Utilities.ShowModal(string.Concat(init.DescriptionStatusPayPlus, " ", MessageResource.NoService), EModalType.Error, false);
                 Initial();
             }
         }
@@ -82,7 +95,7 @@ namespace WPFCCPereira.UserControls.Administrator
                 }
                 else
                 {
-                    Utilities.ShowModal(string.Concat(init.DescriptionStatusPayPlus, "  ", MessageResource.NoService), EModalType.Error, false);
+                    Utilities.ShowModal(string.Concat(init.DescriptionStatusPayPlus, " ", MessageResource.NoService), EModalType.Error, false);
                     Initial();
                 }
             });

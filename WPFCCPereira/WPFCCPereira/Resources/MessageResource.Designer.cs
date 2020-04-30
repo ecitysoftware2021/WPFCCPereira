@@ -610,7 +610,16 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Validando perifericos....
+        ///   Busca una cadena traducida similar a Tiene una actualizacion pendiente por favor no manipule ni apague el PayPlus mientras termina la instalacion..
+        /// </summary>
+        internal static string UpdateAplication {
+            get {
+                return ResourceManager.GetString("UpdateAplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Validando dispositivos....
         /// </summary>
         internal static string ValidatePeripherals {
             get {

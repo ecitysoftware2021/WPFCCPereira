@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using WPFCCPereira.Classes.DB;
 using WPFCCPereira.Classes.Printer;
 using WPFCCPereira.Classes.UseFull;
 using WPFCCPereira.DataModel;
@@ -127,15 +128,15 @@ namespace WPFCCPereira.Classes
 
         public async void Start()
         {
-
             DescriptionStatusPayPlus = MessageResource.ComunicationServer;
 
-            if (await LoginPaypad() && await ApiIntegration.SecurityToken())
+            if (await LoginPaypad())
             {
                 DescriptionStatusPayPlus = MessageResource.StatePayPlus;
 
                 if (await ValidatePaypad())
                 {
+
                     DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
 
                     ValidatePeripherals();
@@ -169,7 +170,7 @@ namespace WPFCCPereira.Classes
                         config.ID_SESSION = Convert.ToInt32(result.Session);
                         config.TOKEN_API = result.Token;
 
-                        if (DBManagment.UpdateConfiguration(config))
+                        if (SqliteDataAccess.UpdateConfiguration(config))
                         {
                             _dataConfiguration = config;
                             return true;
@@ -203,17 +204,14 @@ namespace WPFCCPereira.Classes
                         SaveLog(new RequestLog
                         {
                             Reference = response.ToString(),
-                            Description = MessageResource.PaypadGoAdmin
+                            Description = MessageResource.PaypadGoAdmin,
+                            State = 4,
+                            Date = DateTime.Now
                         }, ELogType.General);
                         return true;
                     }
                     if (_dataPayPlus.State && _dataPayPlus.StateAceptance && _dataPayPlus.StateDispenser)
                     {
-                        SaveLog(new RequestLog
-                        {
-                            Reference = response.ToString(),
-                            Description = MessageResource.PaypadStarSusses
-                        }, ELogType.General);
                         return true;
                     }
                     else
@@ -221,7 +219,9 @@ namespace WPFCCPereira.Classes
                         SaveLog(new RequestLog
                         {
                             Reference = response.ToString(),
-                            Description = MessageResource.NoGoInitial + _dataPayPlus.Message
+                            Description = MessageResource.NoGoInitial + _dataPayPlus.Message,
+                            State = 6,
+                            Date = DateTime.Now
                         }, ELogType.General);
 
                         SaveErrorControl(MessageResource.NoGoInitial, _dataPayPlus.Message, EError.Aplication, ELevelError.Strong);
@@ -254,12 +254,16 @@ namespace WPFCCPereira.Classes
                         Description = error.Item2,
                         Level = ELevelError.Strong
                     }, ELogType.Device);
+
+                    DescriptionStatusPayPlus = MessageResource.ValidatePeripheralsFail;
+
                     Finish(false);
                 };
 
                 _controlPeripherals.callbackToken = isSucces =>
                 {
                     _controlPeripherals.callbackError = null;
+
                     Finish(isSucces);
                 };
                 _controlPeripherals.Start();
@@ -275,50 +279,41 @@ namespace WPFCCPereira.Classes
         private void Finish(bool isSucces)
         {
             _controlPeripherals.callbackToken = null;
+            _controlPeripherals.callbackError = null;
+
+            if (isSucces)
+            {
+                SaveLog(new RequestLog
+                {
+                    Reference = "",
+                    Description = MessageResource.PaypadStarSusses,
+                    State = 1,
+                    Date = DateTime.Now
+                }, ELogType.General);
+            }
+
             callbackResult?.Invoke(isSucces);
         }
-
         private CONFIGURATION_PAYDAD LoadInformation()
         {
             try
             {
-                string[] keys = ReadKeys();
+                string[] keys = Utilities.ReadFile(@"" + ConstantsResource.PathKeys);
 
-                return new CONFIGURATION_PAYDAD
+                if (keys.Length > 0)
                 {
-                    USER_API = Encryptor.Decrypt(keys[0]),
-                    PASSWORD_API = Encryptor.Decrypt(keys[1]),
-                    USER = Encryptor.Decrypt(keys[2]),
-                    PASSWORD = Encryptor.Decrypt(keys[3]),
-                    TYPE = Convert.ToInt32(keys[4])
-                };
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "InitPaypad", ex, MessageResource.StandarError);
-            }
-            return null;
-        }
+                    string[] server = keys[0].Split(';');
+                    string[] payplus = keys[1].Split(';');
 
-        private string[] ReadKeys()
-        {
-            try
-            {
-                string[] keys = new string[5];
-                string[] text = File.ReadAllLines(@".\keys.txt");
-
-                if (text.Length > 0)
-                {
-                    string[] line1 = text[0].Split(';');
-                    string[] line2 = text[1].Split(';');
-
-                    keys[0] = (line1[0].Split(':'))[1];
-                    keys[1] = line1[1].Split(':')[1];
-                    keys[2] = line2[0].Split(':')[1];
-                    keys[3] = line2[1].Split(':')[1];
-                    keys[4] = line2[2].Split(':')[1];
+                    return new CONFIGURATION_PAYDAD
+                    {
+                        USER_API = Encryptor.Decrypt(server[0].Split(':')[1]),
+                        PASSWORD_API = Encryptor.Decrypt(server[1].Split(':')[1]),
+                        USER = Encryptor.Decrypt(payplus[0].Split(':')[1]),
+                        PASSWORD = Encryptor.Decrypt(payplus[1].Split(':')[1]),
+                        TYPE = Convert.ToInt32(payplus[2].Split(':')[1])
+                    };
                 }
-                return keys;
             }
             catch (Exception ex)
             {
@@ -333,10 +328,10 @@ namespace WPFCCPereira.Classes
             {
                 Task.Run(async () =>
                 {
-                    var saveResult = DBManagment.SaveLog(log, type);
+                    var saveResult = SqliteDataAccess.SaveLog(log, type);
                     object result = "false";
 
-                    if (log != null && saveResult)
+                    if (log != null && saveResult != null)
                     {
                         if (type == ELogType.General)
                         {
@@ -351,6 +346,17 @@ namespace WPFCCPereira.Classes
                             var error = (RequestLogDevice)log;
                             result = await api.CallApi("SaveLogDevice", error);
                             SaveErrorControl(error.Description, "", EError.Device, error.Level);
+
+                            if (error.Level == ELevelError.Strong)
+                            {
+                                SaveLog(new RequestLog
+                                {
+                                    Reference = "",
+                                    Description = error.Description,
+                                    State = 2,
+                                    Date = DateTime.Now
+                                }, ELogType.General);
+                            }
                         }
                     }
                 });
@@ -361,7 +367,7 @@ namespace WPFCCPereira.Classes
             }
         }
 
-        public static void SaveErrorControl(string desciption, string observation, EError error, ELevelError level, int device = 0)
+        public static void SaveErrorControl(string desciption, string observation, EError error, ELevelError level, int device = 0, int idTrensaction = 0)
         {
             try
             {
@@ -388,10 +394,11 @@ namespace WPFCCPereira.Classes
                             DESCRIPTION = desciption,
                             OBSERVATION = observation,
                             ERROR_ID = (int)error,
-                            ERROR_LEVEL_ID = (int)level
+                            ERROR_LEVEL_ID = (int)level,
+                            REFERENCE = idTrensaction
                         };
 
-                        DBManagment.InsetConsoleError(consoleError);
+                        SqliteDataAccess.InsetConsoleError(consoleError);
                     }
                 });
             }
@@ -456,14 +463,14 @@ namespace WPFCCPereira.Classes
                                 PAYER_ID = transaction.payer.PAYER_ID,
                                 STATE_TRANSACTION_ID = Convert.ToInt32(transaction.State),
                                 TOTAL_AMOUNT = transaction.Amount,
-                                DATE_END = DateTime.Now,
+                                DATE_END = DateTime.Now.ToString(),
                                 TRANSACTION_ID = 0,
                                 RETURN_AMOUNT = 0,
                                 INCOME_AMOUNT = 0,
                                 PAYPAD_ID = 0,
-                                DATE_BEGIN = DateTime.Now,
+                                DATE_BEGIN = DateTime.Now.ToString(),
                                 STATE_NOTIFICATION = 0,
-                                STATE = false,
+                                STATE = 0,
                                 DESCRIPTION = "Transaccion iniciada",
                                 TRANSACTION_REFERENCE = transaction.consecutive
                             };
@@ -472,11 +479,13 @@ namespace WPFCCPereira.Classes
                             {
                                 AMOUNT = transaction.Amount,
                                 TRANSACTION_ID = data.ID,
-                                REFERENCE = string.Concat("Matricula: ", ((Noun)transaction.File).matricula ?? string.Empty),
-                                OBSERVATION = string.Concat("Numero de recuperacion: ", transaction.reference),
+                                TRANSACTION_PRODUCT_ID = (int)ETypeProduct.Existence,
+                                DESCRIPTION = string.Concat("Matricula: ", ((Noun)transaction.File).matricula ?? string.Empty),
+                                EXTRA_DATA = string.Concat("Numero de recuperacion: ", transaction.reference),
                                 TRANSACTION_DESCRIPTION_ID = 0,
                                 STATE = true
                             });
+
 
                             if (data != null)
                             {
@@ -488,6 +497,7 @@ namespace WPFCCPereira.Classes
                                     if (transaction.IdTransactionAPi > 0)
                                     {
                                         data.TRANSACTION_ID = transaction.IdTransactionAPi;
+                                        transaction.TransactionId = SqliteDataAccess.SaveTransaction(data);
                                     }
                                 }
                                 else
@@ -495,7 +505,9 @@ namespace WPFCCPereira.Classes
                                     SaveLog(new RequestLog
                                     {
                                         Reference = transaction.reference,
-                                        Description = string.Concat(MessageResource.NoInsertTransaction, " en su primer intente ")
+                                        Description = string.Concat(MessageResource.NoInsertTransaction, " en su primer intente "),
+                                        State = 1,
+                                        Date = DateTime.Now
                                     }, ELogType.General);
 
                                     responseTransaction = await api.CallApi("SaveTransaction", data);
@@ -506,6 +518,7 @@ namespace WPFCCPereira.Classes
                                         if (transaction.IdTransactionAPi > 0)
                                         {
                                             data.TRANSACTION_ID = transaction.IdTransactionAPi;
+                                            transaction.TransactionId = SqliteDataAccess.SaveTransaction(data);
                                         }
                                     }
                                     else
@@ -513,11 +526,12 @@ namespace WPFCCPereira.Classes
                                         SaveLog(new RequestLog
                                         {
                                             Reference = transaction.reference,
-                                            Description = string.Concat(MessageResource.NoInsertTransaction, " en su segundo intente ")
+                                            Description = string.Concat(MessageResource.NoInsertTransaction, " en su segundo intente "),
+                                            State = 1,
+                                            Date = DateTime.Now
                                         }, ELogType.General);
                                     }
                                 }
-                                transaction.TransactionId = DBManagment.SaveTransaction(data);
                             }
                         }
                         else
@@ -525,7 +539,9 @@ namespace WPFCCPereira.Classes
                             SaveLog(new RequestLog
                             {
                                 Reference = transaction.reference,
-                                Description = MessageResource.NoInsertPayment + transaction.payer.IDENTIFICATION
+                                Description = MessageResource.NoInsertPayment + transaction.payer.IDENTIFICATION,
+                                State = 1,
+                                Date = DateTime.Now
                             }, ELogType.General);
                         }
                     }
@@ -555,11 +571,11 @@ namespace WPFCCPereira.Classes
 
                 if (response != null)
                 {
-                    DBManagment.SaveTransactionDetail(details, true);
+                    SqliteDataAccess.SaveTransactionDetail(details, 1);
                 }
                 else
                 {
-                    DBManagment.SaveTransactionDetail(details, false);
+                    SqliteDataAccess.SaveTransactionDetail(details, 0);
                 }
             }
             catch (Exception ex)
@@ -568,48 +584,21 @@ namespace WPFCCPereira.Classes
             }
         }
 
-        public async static void UpdateTransaction(Transaction transaction, bool validatePaypad = false)
+        public async static void UpdateTransaction(Transaction transaction)
         {
             try
             {
                 if (transaction != null)
                 {
-                    TRANSACTION tRANSACTION = DBManagment.UpdateTransaction(transaction);
+                    TRANSACTION tRANSACTION = SqliteDataAccess.UpdateTransaction(transaction);
 
                     if (tRANSACTION != null)
                     {
                         var responseTransaction = await api.CallApi("UpdateTransaction", tRANSACTION);
                         if (responseTransaction != null)
                         {
-                            tRANSACTION.STATE = true;
-                            DBManagment.UpdateTransactionState(tRANSACTION, 2);
+                            SqliteDataAccess.UpdateTransactionState(1);
                         }
-                    }
-                }
-                if (validatePaypad)
-                {
-                    ValidatePaypad();
-                }
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "InitPaypad", ex, MessageResource.StandarError);
-            }
-        }
-
-        public async static void UpdateTransaction(TRANSACTION tRANSACTION)
-        {
-            try
-            {
-                if (tRANSACTION != null)
-                {
-                    tRANSACTION.TRANSACTION_DESCRIPTION = null;
-
-                    var responseTransaction = await api.CallApi("UpdateTransaction", tRANSACTION);
-                    if (responseTransaction != null)
-                    {
-                        tRANSACTION.STATE = true;
-                        DBManagment.UpdateTransactionState(tRANSACTION, 2);
                     }
                 }
             }
@@ -713,8 +702,7 @@ namespace WPFCCPereira.Classes
             {
                 Task.Run(async () =>
                 {
-                    ApiIntegration.SecurityToken();
-                    var transactions = DBManagment.GetTransactionPending();
+                    var transactions = SqliteDataAccess.GetTransactionNotific();
                     if (transactions.Count > 0)
                     {
                         foreach (var transaction in transactions)
@@ -722,21 +710,26 @@ namespace WPFCCPereira.Classes
                             var responseTransaction = await api.CallApi("UpdateTransaction", transaction);
                             if (responseTransaction != null)
                             {
-                                transaction.STATE = true;
-                                DBManagment.UpdateTransactionState(transaction, 2);
+                                SqliteDataAccess.UpdateTransactionState(1);
                             }
                         }
+                    }
 
-                        var detailTeansactions = DBManagment.GetDetailsTransaction();
-                        foreach (var detail in detailTeansactions)
+                    var detailTeansactions2 = SqliteDataAccess.GetDetailsTransaction();
+                    foreach (var detail in detailTeansactions2)
+                    {
+                        var response = await api.CallApi("SaveTransactionDetail", new RequestTransactionDetails
                         {
-                            var response = await api.CallApi("SaveTransactionDetail", detail);
-                            if (response != null)
-                            {
-                                detail.STATE = true;
-                                DBManagment.UpdateTransactionDetailState(detail);
-                            }
-                        }
+                            Code = detail.CODE,
+                            Denomination = Convert.ToInt32(detail.DENOMINATION),
+                            Operation = (int)detail.OPERATION,
+                            Quantity = (int)detail.QUANTITY,
+                            TransactionId = (int)detail.TRANSACTION_ID,
+                            Description = detail.DESCRIPTION
+                        });
+
+                        detail.STATE = 1;
+                        SqliteDataAccess.UpdateTransactionDetailState(detail);
                     }
                 });
             }

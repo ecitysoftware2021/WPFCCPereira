@@ -71,10 +71,10 @@ namespace WPFCCPereira.Classes
     public enum ETransactionType
     {
         Withdrawal = 15,
-        PaymentFile = 19,
+        PaymentFile = 3,
         ConsultName = 1,
         ConsultTransact = 2,
-        Renewal = 3,
+        Renewal = 4,
     }
 
     public enum ETypeAdministrator
@@ -109,5 +109,11 @@ namespace WPFCCPereira.Classes
     {
         Person = 1,
         Establishment = 2
+    }
+
+    public enum ETypeProduct
+    {
+        Existence = 11,
+        commercialRegister = 12,
     }
 }

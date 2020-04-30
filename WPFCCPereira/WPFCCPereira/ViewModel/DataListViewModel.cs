@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
@@ -463,7 +462,7 @@ namespace WPFCCPereira.ViewModel
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
 
-            return false;
+            return null;
         }
 
         public Transaction GetListFiles(Transaction transaction)

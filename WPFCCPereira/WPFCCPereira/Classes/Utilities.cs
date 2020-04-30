@@ -250,6 +250,22 @@ namespace WPFCCPereira.Classes
             }
         }
 
+        public static string[] ReadFile(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                {
+                    return File.ReadAllLines(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
+            }
+            return null;
+        }
+
         public static decimal RoundValue(decimal Total)
         {
             try
@@ -331,6 +347,29 @@ namespace WPFCCPereira.Classes
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
             }
             return string.Empty;
+        }
+
+        public static void UpdateApp()
+        {
+            try
+            {
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
+                {
+                    Process pc = new Process();
+                    Process pn = new Process();
+                    ProcessStartInfo si = new ProcessStartInfo();
+                    si.FileName = GetConfiguration("APLICATION_UPDATE");
+                    pn.StartInfo = si;
+                    pn.Start();
+                    pc = Process.GetCurrentProcess();
+                    pc.Kill();
+                }));
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
+            }
         }
     }
 }
