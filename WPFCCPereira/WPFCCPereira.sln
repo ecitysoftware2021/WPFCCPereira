@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCCPereira", "WPFCCPereira\WPFCCPereira.csproj", "{A9388BF3-AFB3-418C-AAED-51A06BDC1E25}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CCPereiraInstaller", "CCPereiraInstaller\CCPereiraInstaller.vdproj", "{289DEB1F-7A5E-4ED1-A41E-B560495F5426}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CCPereiraIntaller", "CCPereiraIntaller\CCPereiraIntaller.vdproj", "{3A0A7A35-B30B-418E-95F8-24C092A5A78C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{A9388BF3-AFB3-418C-AAED-51A06BDC1E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9388BF3-AFB3-418C-AAED-51A06BDC1E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9388BF3-AFB3-418C-AAED-51A06BDC1E25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{289DEB1F-7A5E-4ED1-A41E-B560495F5426}.Debug|Any CPU.ActiveCfg = Debug
-		{289DEB1F-7A5E-4ED1-A41E-B560495F5426}.Release|Any CPU.ActiveCfg = Release
+		{3A0A7A35-B30B-418E-95F8-24C092A5A78C}.Debug|Any CPU.ActiveCfg = Debug
+		{3A0A7A35-B30B-418E-95F8-24C092A5A78C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
