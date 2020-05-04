@@ -22,7 +22,7 @@ namespace WPFCCPereira.Classes.DB
             try
             {
                 var query = string.Concat("SELECT * FROM 'TRANSACTION' WHERE TRANSACTION_ID = ", idTransaction);
-                 var transaction = Select<ITRANSACTION>(query).FirstOrDefault();
+                var transaction = Select<ITRANSACTION>(query).FirstOrDefault();
 
                 return new TRANSACTION
                 {
@@ -39,7 +39,8 @@ namespace WPFCCPereira.Classes.DB
                     STATE_NOTIFICATION = transaction.STATE_NOTIFICATION,
                     STATE = transaction.STATE,
                     DESCRIPTION = transaction.DESCRIPTION,
-                    TRANSACTION_REFERENCE = transaction.TRANSACTION_REFERENCE
+                    TRANSACTION_REFERENCE = transaction.TRANSACTION_REFERENCE,
+                    ID = transaction.ID
                 };
             }
             catch (Exception ex)
@@ -225,11 +226,11 @@ namespace WPFCCPereira.Classes.DB
             return null;
         }
 
-        public static void UpdateTransactionState(int state)
+        public static void UpdateTransactionState(TRANSACTION tRANSACTION)
         {
             try
             {
-                Execute<TRANSACTION>(string.Concat("UPDATE 'TRANSACTION' SET STATE", state), null);
+                Execute<TRANSACTION>(string.Concat("UPDATE 'TRANSACTION' SET STATE = ", tRANSACTION.STATE, " WHERE ID = ", tRANSACTION.ID), null);
             }
             catch (Exception ex)
             {
@@ -408,23 +409,74 @@ namespace WPFCCPereira.Classes.DB
             try
             {
                 var query = string.Concat("SELECT * FROM 'TRANSACTION' WHERE STATE = 0");
-                return Select<TRANSACTION>(query);
+                var transactions = Select<ITRANSACTION>(query);
+
+                if (transactions != null && transactions.Count > 0)
+                {
+                    List<TRANSACTION> dataList = new List<TRANSACTION>();
+                    foreach (var transaction in transactions)
+                    {
+                        dataList.Add(new TRANSACTION
+                        {
+                            TYPE_TRANSACTION_ID = transaction.TYPE_TRANSACTION_ID,
+                            PAYER_ID = transaction.PAYER_ID,
+                            STATE_TRANSACTION_ID = transaction.STATE_TRANSACTION_ID,
+                            TOTAL_AMOUNT = transaction.TOTAL_AMOUNT,
+                            DATE_END = DateTime.Parse(transaction.DATE_END),
+                            TRANSACTION_ID = transaction.TRANSACTION_ID,
+                            RETURN_AMOUNT = transaction.RETURN_AMOUNT,
+                            INCOME_AMOUNT = transaction.INCOME_AMOUNT,
+                            PAYPAD_ID = transaction.PAYER_ID,
+                            DATE_BEGIN = DateTime.Parse(transaction.DATE_BEGIN),
+                            STATE_NOTIFICATION = transaction.STATE_NOTIFICATION,
+                            STATE = transaction.STATE,
+                            DESCRIPTION = transaction.DESCRIPTION,
+                            TRANSACTION_REFERENCE = transaction.TRANSACTION_REFERENCE,
+                            ID = transaction.ID
+                        });
+
+                    }
+                    return dataList;
+                }
             }
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "SqliteDataAccess", ex, MessageResource.StandarError);
-                return null;
             }
+            return null;
         }
 
         internal static List<TRANSACTION> GetTransactionErrror()
         {
             try
             {
-                var result = Select<TRANSACTION>(string.Concat("SELECT * FROM 'TRANSACTION' WHERE STATE_NOTIFICATION = 0 AND STATE_TRANSACTION_ID <> ", (int)ETransactionState.Initial));
-                if (result != null && result.Count > 0)
+                var transactions = Select<ITRANSACTION>(string.Concat("SELECT * FROM 'TRANSACTION' WHERE STATE_NOTIFICATION = 0 AND STATE_TRANSACTION_ID <> ", (int)ETransactionState.Initial));
+                if (transactions != null && transactions.Count > 0)
                 {
-                    return result;
+                    List<TRANSACTION> dataList = new List<TRANSACTION>();
+                    foreach (var transaction in transactions)
+                    {
+                        dataList.Add(new TRANSACTION
+                        {
+                            TYPE_TRANSACTION_ID = transaction.TYPE_TRANSACTION_ID,
+                            PAYER_ID = transaction.PAYER_ID,
+                            STATE_TRANSACTION_ID = transaction.STATE_TRANSACTION_ID,
+                            TOTAL_AMOUNT = transaction.TOTAL_AMOUNT,
+                            DATE_END = DateTime.Parse(transaction.DATE_END),
+                            TRANSACTION_ID = transaction.TRANSACTION_ID,
+                            RETURN_AMOUNT = transaction.RETURN_AMOUNT,
+                            INCOME_AMOUNT = transaction.INCOME_AMOUNT,
+                            PAYPAD_ID = transaction.PAYER_ID,
+                            DATE_BEGIN = DateTime.Parse(transaction.DATE_BEGIN),
+                            STATE_NOTIFICATION = transaction.STATE_NOTIFICATION,
+                            STATE = transaction.STATE,
+                            DESCRIPTION = transaction.DESCRIPTION,
+                            TRANSACTION_REFERENCE = transaction.TRANSACTION_REFERENCE,
+                            ID = transaction.ID
+                        });
+
+                    }
+                    return dataList;
                 }
             }
             catch (Exception ex)
@@ -443,7 +495,7 @@ namespace WPFCCPereira.Classes.DB
                     if (response)
                     {
                         Execute<TRANSACTION_ERROR_SERVICE>(string.Concat("DELETE FROM 'TRANSACTION_ERROR_SERVICE' WHERE TRANSACTION_ID = ", transaction.ID), null);
-                        Execute<TRANSACTION_ERROR_SERVICE>(string.Concat("UPDATE 'TRANSACTION' SET STATE_TRANSACTION_ID = ", (int)ETransactionState.Success, " AND STATE_NOTIFICATION = 1 AND STATE = 0 WHERE ID = ", transaction.ID), null);
+                        Execute<TRANSACTION>(string.Concat("UPDATE 'TRANSACTION' SET STATE_TRANSACTION_ID = ", (int)ETransactionState.Success, ", STATE_NOTIFICATION = 1, STATE = 0 WHERE ID = ", transaction.ID), null);
                     }
                     else
                     {
@@ -455,7 +507,7 @@ namespace WPFCCPereira.Classes.DB
                             if (transactionError.NOTIFICATION_INTENT <= 0)
                             {
                                 Execute<TRANSACTION_ERROR_SERVICE>(string.Concat("DELETE FROM 'TRANSACTION_ERROR_SERVICE' WHERE TRANSACTION_ID = ", transaction.ID), null);
-                                Execute<TRANSACTION_ERROR_SERVICE>(string.Concat("UPDATE 'TRANSACTION' SET STATE_TRANSACTION_ID = ", (int)ETransactionState.ErrorService, " AND STATE_NOTIFICATION = 2 WHERE ID = ", transaction.ID), null);
+                                Execute<TRANSACTION>(string.Concat("UPDATE 'TRANSACTION' SET STATE_TRANSACTION_ID = ", (int)ETransactionState.ErrorService, ", STATE_NOTIFICATION = 2 WHERE ID = ", transaction.ID), null);
                             }
                             else
                             {

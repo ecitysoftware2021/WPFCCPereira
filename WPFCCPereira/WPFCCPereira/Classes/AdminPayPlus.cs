@@ -486,7 +486,6 @@ namespace WPFCCPereira.Classes
                                 STATE = true
                             });
 
-
                             if (data != null)
                             {
                                 var responseTransaction = await api.CallApi("SaveTransaction", data);
@@ -597,7 +596,8 @@ namespace WPFCCPereira.Classes
                         var responseTransaction = await api.CallApi("UpdateTransaction", tRANSACTION);
                         if (responseTransaction != null)
                         {
-                            SqliteDataAccess.UpdateTransactionState(1);
+                            tRANSACTION.STATE = 1;
+                            SqliteDataAccess.UpdateTransactionState(tRANSACTION);
                         }
                     }
                 }
@@ -710,7 +710,8 @@ namespace WPFCCPereira.Classes
                             var responseTransaction = await api.CallApi("UpdateTransaction", transaction);
                             if (responseTransaction != null)
                             {
-                                SqliteDataAccess.UpdateTransactionState(1);
+                                transaction.STATE = 1;
+                                SqliteDataAccess.UpdateTransactionState(transaction);
                             }
                         }
                     }
