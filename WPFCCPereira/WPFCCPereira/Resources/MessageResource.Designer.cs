@@ -241,7 +241,7 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No se puede continuar con la transacción. Se consignara el valor ingresado.
+        ///   Busca una cadena traducida similar a No se puede continuar con la transacción. Se devolvera el valor ingresado.
         /// </summary>
         internal static string ErrorPayment {
             get {

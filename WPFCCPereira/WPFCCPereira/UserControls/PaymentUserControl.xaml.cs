@@ -155,8 +155,6 @@ namespace WPFCCPereira.UserControls
                         {
                             Utilities.ShowModal(MessageResource.ErrorPayment, EModalType.Error);
 
-                            this.paymentViewModel.PayValue = this.paymentViewModel.ValorIngresado;
-
                             AdminPayPlus.ControlPeripherals.StopAceptance();
 
                             transaction.Observation += MessageResource.NoContinue;

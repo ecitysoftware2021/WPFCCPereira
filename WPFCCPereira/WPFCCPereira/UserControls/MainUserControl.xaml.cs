@@ -82,7 +82,7 @@ namespace WPFCCPereira.UserControls
 
                     this.DataContext = _imageSleader.imageModel;
 
-                    _imageSleader.time = 3;
+                    _imageSleader.time = int.Parse(Utilities.GetConfiguration("TimerPublish"));
 
                     _imageSleader.isRotate = true;
 
