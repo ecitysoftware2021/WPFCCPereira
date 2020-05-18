@@ -248,7 +248,7 @@ namespace WPFCCPereira.UserControls
                     transaction.Payment = paymentViewModel;
                     transaction.State = statePay;
 
-                    AdminPayPlus.ControlPeripherals.ClearValues();
+                    AdminPayPlus.ControlPeripherals.ResetValues();
 
                     if (transaction.IdTransactionAPi > 0)
                     {
