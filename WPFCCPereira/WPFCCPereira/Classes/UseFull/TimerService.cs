@@ -50,7 +50,7 @@ namespace WPFCCPereira.Classes
             }
         }
 
-        public static void Stop(bool close = false)
+        public static void Stop()
         {
             try
             {

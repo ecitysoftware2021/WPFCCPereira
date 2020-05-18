@@ -49,7 +49,7 @@ namespace WPFCCPereira.Classes
             }
         }
 
-        public static bool ShowModal(string message, EModalType type, bool stopTimer = true, bool restarApp = false)
+        public static bool ShowModal(string message, EModalType type, bool timer = false)
         {
             bool response = false;
             try
@@ -64,6 +64,7 @@ namespace WPFCCPereira.Classes
 
                 if (type == EModalType.Error)
                 {
+                    timer = true;
                     model.ImageModal = ImagesUrlResource.AlertError;
                 }
                 else if (type == EModalType.Information)
@@ -73,6 +74,21 @@ namespace WPFCCPereira.Classes
                 else if (type == EModalType.NoPaper)
                 {
                     model.ImageModal = ImagesUrlResource.AlertInfo;
+                }
+
+                if (timer)
+                {
+                    TimerService.Close();
+
+                    if (timer)
+                    {
+                        TimerService.CallBackTimerOut = result =>
+                        {
+                            CloseModal();
+                        };
+
+                        TimerService.Start(int.Parse(Utilities.GetConfiguration("DurationView")));
+                    }
                 }
 
                 Application.Current.Dispatcher.Invoke(delegate
