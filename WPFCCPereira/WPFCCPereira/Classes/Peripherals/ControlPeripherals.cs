@@ -232,7 +232,7 @@ namespace WPFCCPereira.Classes
                 if (_serialPortBills.IsOpen)
                 {
                     Thread.Sleep(2000);
-                    callbackError?.Invoke(Tuple.Create("", string.Concat("Info, Se envio mensaje al billetero:  ", message)));
+                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Se envio mensaje al billetero:  ", message)));
                     _serialPortBills.Write(message);
                     return true;
                 }
@@ -256,7 +256,7 @@ namespace WPFCCPereira.Classes
                 if (_serialPortCoins.IsOpen)
                 {
                     Thread.Sleep(2000);
-                    callbackError?.Invoke(Tuple.Create("", string.Concat("Info, Se envio mensaje al monedero:  ", message)));
+                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Se envio mensaje al monedero:  ", message)));
                     _serialPortCoins.Write(message);
                 }
             }
@@ -282,7 +282,7 @@ namespace WPFCCPereira.Classes
                 string response = _serialPortBills.ReadLine();
                 if (!string.IsNullOrEmpty(response))
                 {
-                    callbackError?.Invoke(Tuple.Create("", string.Concat("Info, Respondio el billetero:  ", response)));
+                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Respondio el billetero:  ", response)));
                     ProcessResponseBills(response.Replace("\r", string.Empty));
                 }
             }
@@ -304,7 +304,7 @@ namespace WPFCCPereira.Classes
                 string response = _serialPortCoins.ReadLine();
                 if (!string.IsNullOrEmpty(response))
                 {
-                    callbackError?.Invoke(Tuple.Create("", string.Concat("Info, Respondio el monedero:  ", response)));
+                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Respondio el monedero:  ", response)));
                     ProcessResponseCoins(response.Replace("\r", string.Empty));
                 }
             }

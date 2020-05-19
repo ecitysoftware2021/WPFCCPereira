@@ -79,10 +79,15 @@ namespace WPFCCPereira.Models
 
                 if (initTimer)
                 {
-                    TimerService.CallBackTimerOut = response =>
-                    {
-                        View = new MainUserControl();
-                    };
+                    
+                        TimerService.CallBackTimerOut = response =>
+                        {
+                            Application.Current.Dispatcher.Invoke((Action)delegate
+                            {
+                                View = new MainUserControl();
+                            });
+                            GC.Collect();
+                        };
 
                     TimerService.Start(int.Parse(Utilities.GetConfiguration("DurationView")));
                 }

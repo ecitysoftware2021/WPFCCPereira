@@ -255,9 +255,12 @@ namespace WPFCCPereira.Classes
                         Level = ELevelError.Strong
                     }, ELogType.Device);
 
-                    DescriptionStatusPayPlus = MessageResource.ValidatePeripheralsFail;
+                    if (!error.Item1.Equals("Info"))
+                    {
+                        DescriptionStatusPayPlus = MessageResource.ValidatePeripheralsFail;
 
-                    Finish(false);
+                        Finish(false);
+                    }
                 };
 
                 _controlPeripherals.callbackToken = isSucces =>
