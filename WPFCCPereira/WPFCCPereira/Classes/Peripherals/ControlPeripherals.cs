@@ -406,7 +406,12 @@ namespace WPFCCPereira.Classes
         /// <param name="response">respuesta</param>
         private void ProcessER(string[] response)
         {
-            if (response[1] == "DP" || response[1] == "MD")
+            if (response[2] == "FATAL")
+            {
+                stateError = true;
+                callbackError?.Invoke(Tuple.Create(response[1], "Error, FATAL" + response[3]));
+            }
+            else if (response[1] == "DP" || response[1] == "MD")
             {
                 stateError = true;
                 callbackError?.Invoke(Tuple.Create(response[1], string.Concat("Error, se alcanzó a entregar: ", deliveryValue, " Error: ", response[2])));
@@ -416,14 +421,9 @@ namespace WPFCCPereira.Classes
                 //    ConfigDataDispenser(string.Concat(response[1], ":", response[2]));
                 //}
             }
-            if (response[1] == "AP")
+            else if (response[1] == "AP")
             {
-                stateError = true;
                 callbackError?.Invoke(Tuple.Create("AP", "Error, en el billetero Aceptador: " + response[2]));
-            }
-            else if (response[1] == "FATAL")
-            {
-                callbackError?.Invoke(Tuple.Create("FATAL", "Error, FATAL" + response[2]));
             }
         }
 

@@ -153,14 +153,17 @@ namespace WPFCCPereira.UserControls
 
                         if (error.Item2.Contains("FATAL"))
                         {
-                            Utilities.ShowModal(MessageResource.ErrorPayment, EModalType.Error);
-
-                            AdminPayPlus.ControlPeripherals.StopAceptance();
-
                             transaction.Observation += MessageResource.NoContinue;
-                            if (!this.paymentViewModel.StatePay)
+                            transaction.State = ETransactionState.Error;
+                            if (error.Item1.Equals("AP") )
                             {
-                                SavePay(ETransactionState.Error);
+                                Utilities.ShowModal(MessageResource.ErrorPayment, EModalType.Error);
+                                AdminPayPlus.ControlPeripherals.StopAceptance();
+                                if (paymentViewModel.ValorIngresado > 0)
+                                {
+                                    transaction.Payment = paymentViewModel;
+                                    Utilities.navigator.Navigate(UserControlView.ReturnMony, false, this.transaction);
+                                }
                             }
                         }
                     };
