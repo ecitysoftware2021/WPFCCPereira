@@ -247,19 +247,24 @@ namespace WPFCCPereira.Classes
 
                 _controlPeripherals.callbackError = error =>
                 {
-                    SaveLog(new RequestLogDevice
+                    var log = new RequestLogDevice
                     {
                         Code = "",
                         Date = DateTime.Now,
                         Description = error.Item2,
                         Level = ELevelError.Strong
-                    }, ELogType.Device);
+                    };
 
                     if (!error.Item1.Equals("Info"))
                     {
+                        SaveLog(log, ELogType.Device);
                         DescriptionStatusPayPlus = MessageResource.ValidatePeripheralsFail;
-
                         Finish(false);
+                    }
+                    else
+                    {
+                        log.Level = ELevelError.Mild;
+                        SaveLog(log, ELogType.Device);
                     }
                 };
 
