@@ -229,31 +229,6 @@ namespace WPFCCPereira.UserControls
             }
         }
 
-        private void Lv_data_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                var item = (ItemList)lv_data_list.SelectedItem;
-                if (item != null)
-                {
-                    ValidateListView(false);
-                    lv_data_list.SelectedItem = null;
-
-                    Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
-                    {
-                        File = (Noun)item.Data,
-                        State = ETransactionState.Initial,
-                        Type = viewModel.TypeTransaction
-                    });
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
-
         private void Select_TouchDown(object sender, TouchEventArgs e)
         {
             try
@@ -370,6 +345,20 @@ namespace WPFCCPereira.UserControls
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void Grid_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (((Grid)sender).Tag != null)
+            {
+
+                Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
+                {
+                    File = (Noun)((Grid)sender).Tag,
+                    State = ETransactionState.Initial,
+                    Type = viewModel.TypeTransaction
+                });
             }
         }
     }

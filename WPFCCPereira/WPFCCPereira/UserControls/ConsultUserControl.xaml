@@ -159,8 +159,7 @@
                     BorderBrush="Transparent"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top"
-                    ItemsSource="{Binding}" 
-                    SelectionChanged="Lv_data_list_SelectionChanged">
+                    ItemsSource="{Binding}" >
 
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -176,7 +175,9 @@
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
                             Width="1030"
-                            Height="250" >
+                            Height="250" 
+                            Tag="{Binding Data}"
+                            TouchDown="Grid_TouchDown">
                             <Grid.Background>
                                 <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-file.png"/>
                             </Grid.Background>

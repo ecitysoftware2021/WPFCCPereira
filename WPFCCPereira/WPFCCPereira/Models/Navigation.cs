@@ -76,6 +76,7 @@ namespace WPFCCPereira.Models
                 }
 
                 TimerService.Close();
+                WPKeyboard.Keyboard.CloseKeyboard(View);
 
                 if (initTimer)
                 {
@@ -84,6 +85,7 @@ namespace WPFCCPereira.Models
                         Application.Current.Dispatcher.Invoke((Action)delegate
                         {
                             View = new MainUserControl();
+                            WPKeyboard.Keyboard.CloseKeyboard(View);
                         });
                         GC.Collect();
                     };
