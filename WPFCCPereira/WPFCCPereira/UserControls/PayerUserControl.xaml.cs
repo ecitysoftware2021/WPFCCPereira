@@ -46,11 +46,13 @@ namespace WPFCCPereira.UserControls
                 viewModel = new DetailViewModel
                 {
                     Row1 = "Identificación *",
-                    Row2 = "Nombre *",
+                    Row2 = "Nombres *",
+                    Row4 = "Apellidos* ",
                     Row3 = "Celular * ",
                     OptionsEntries = new CollectionViewSource(),
                     OptionsList = new List<TypeDocument>(),
-                    TypePayer = ETypePayer.Person
+                    TypePayer = ETypePayer.Person,
+                    LastNameVisible = System.Windows.Visibility.Visible
                 };
 
                 viewModel.LoadList();
@@ -126,6 +128,12 @@ namespace WPFCCPereira.UserControls
                     return false;
                 }
 
+
+                if (string.IsNullOrEmpty(viewModel.Value4))
+                {
+                    return false;
+                }
+
                 if (viewModel.Value3.Length < 6)
                 {
                     return false;
@@ -151,6 +159,7 @@ namespace WPFCCPereira.UserControls
                         {
                             IDENTIFICATION = viewModel.Value1,
                             NAME = viewModel.Value2,
+                            LAST_NAME = viewModel.Value4,
                             PHONE = decimal.Parse(viewModel.Value3),
                             TYPE_PAYER = viewModel.TypePayer == ETypePayer.Person ? "Persona" : "Empresa",
                             TYPE_IDENTIFICATION = typeDocument
@@ -223,16 +232,19 @@ namespace WPFCCPereira.UserControls
                     {
                         viewModel.TypePayer = ETypePayer.Person;
                         viewModel.Row2 = "Nombre *";
+                        viewModel.LastNameVisible = System.Windows.Visibility.Visible;
                     }
                     else
                     {
                         viewModel.TypePayer = ETypePayer.Establishment;
                         viewModel.Row2 = "Razón Social*";
+                        viewModel.LastNameVisible = System.Windows.Visibility.Hidden;
                     }
 
                     viewModel.Value1 = string.Empty;
                     viewModel.Value2 = string.Empty;
                     viewModel.Value3 = string.Empty;
+                    viewModel.Value4 = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -270,6 +282,18 @@ namespace WPFCCPereira.UserControls
             try
             {
                 Utilities.OpenKeyboard(true, sender as TextBox, this);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void TbxData3_TouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            try
+            {
+                Utilities.OpenKeyboard(false, sender as TextBox, this);
             }
             catch (Exception ex)
             {

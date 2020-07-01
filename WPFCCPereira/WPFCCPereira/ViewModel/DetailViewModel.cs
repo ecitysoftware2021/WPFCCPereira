@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Windows;
 using System.Windows.Data;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
@@ -337,6 +338,7 @@ namespace WPFCCPereira.ViewModel
         }
 
         private ETypePayer _typePayer;
+
         public ETypePayer TypePayer
         {
             get
@@ -350,6 +352,17 @@ namespace WPFCCPereira.ViewModel
             }
         }
 
+
+        private Visibility _lastNameVisible;
+        public Visibility LastNameVisible
+        {
+            get { return _lastNameVisible; }
+            set
+            {
+                _lastNameVisible = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastNameVisible)));
+            }
+        }
 
         private string _sourceCheckName;
 
