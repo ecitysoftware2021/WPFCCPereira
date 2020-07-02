@@ -24,7 +24,7 @@
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="145"/>
-                <RowDefinition Height="124"/>
+                <RowDefinition Height="125"/>
                 <RowDefinition Height="124"/>
                 <RowDefinition Height="132"/>
                 <RowDefinition Height="130"/>
@@ -77,7 +77,7 @@
                        VerticalAlignment="Bottom"
                        FontFamily="Arial"
                        FontWeight="Medium"
-                       Margin="42,0,0,3"
+                       Margin="42,0,0,4"
                        TextAlignment="Left"
                        FontSize="48"
                        Width="885"
@@ -103,7 +103,7 @@
                 <TextBox Name="TbxData1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
-                   Margin="42,0,0,5"
+                   Margin="42,0,0,6"
                    FontFamily="Arial"
                    FontWeight="Medium"
                    TextAlignment="Left"
@@ -132,7 +132,7 @@
                 <TextBox Name="TbxData3"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
-                   Margin="42,0,0,4"
+                   Margin="42,0,0,5"
                    FontFamily="Arial"
                    FontWeight="Medium"
                    TextAlignment="Left"
@@ -161,7 +161,7 @@
                 <TextBox Name="TbxData2"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Margin="42,0,0,5"
+                    Margin="42,0,0,8"
                     FontFamily="Arial"
                     TextAlignment="Left"
                     FontSize="48"

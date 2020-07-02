@@ -129,7 +129,7 @@ namespace WPFCCPereira.UserControls
                 }
 
 
-                if (string.IsNullOrEmpty(viewModel.Value4))
+                if (string.IsNullOrEmpty(viewModel.Value4) && viewModel.TypePayer == ETypePayer.Person)
                 {
                     return false;
                 }
