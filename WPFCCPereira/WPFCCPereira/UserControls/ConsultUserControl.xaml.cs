@@ -134,27 +134,9 @@ namespace WPFCCPereira.UserControls
                 {
                     try
                     {
-                        var response = await viewModel.ConsultConcidences((string)reference, viewModel.TypeConsult);
+                        var token = await AdminPayPlus.ApiIntegration.SecurityToken();
 
-                        Utilities.CloseModal();
-
-                        if (response != null)
-                        {
-                            if (viewModel.TypeConsult == EtypeConsult.Receipt || viewModel.TypeConsult == EtypeConsult.Settled)
-                            {
-                                Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
-                                {
-                                    File = response,
-                                    State = ETransactionState.Initial,
-                                    Type = viewModel.TypeTransaction
-                                });
-                            }
-                            else
-                            {
-                                ConfigureViewList();
-                            }
-                        }
-                        else
+                        if (!token)
                         {
                             Application.Current.Dispatcher.Invoke(delegate
                             {
@@ -163,9 +145,47 @@ namespace WPFCCPereira.UserControls
                                 text_name.Text = string.Empty;
                             });
 
-                            Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
+                            Utilities.CloseModal();
+
+                            Utilities.ShowModal("No hay comunicación con el servicio. Por favor intenta de nuevo.", EModalType.Error);
 
                             TimerService.Reset();
+                        }
+                        else
+                        {
+                            var response = await viewModel.ConsultConcidences((string)reference, viewModel.TypeConsult);
+
+                            Utilities.CloseModal();
+
+                            if (response != null)
+                            {
+                                if (viewModel.TypeConsult == EtypeConsult.Receipt || viewModel.TypeConsult == EtypeConsult.Settled)
+                                {
+                                    Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
+                                    {
+                                        File = response,
+                                        State = ETransactionState.Initial,
+                                        Type = viewModel.TypeTransaction
+                                    });
+                                }
+                                else
+                                {
+                                    ConfigureViewList();
+                                }
+                            }
+                            else
+                            {
+                                Application.Current.Dispatcher.Invoke(delegate
+                                {
+                                    text_id.Text = string.Empty;
+
+                                    text_name.Text = string.Empty;
+                                });
+
+                                Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
+
+                                TimerService.Reset();
+                            }
                         }
                     }
                     catch (Exception ex)
