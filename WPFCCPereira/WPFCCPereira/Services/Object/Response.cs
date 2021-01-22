@@ -12,6 +12,8 @@ namespace WPFCCPereira.Services.Object
 
         public string mensajeerror { get; set; }
 
+        public decimal descuentoaplicado { get; set; }
+
         public string token { get; set; }
 
         public string idliquidacion { get; set; }

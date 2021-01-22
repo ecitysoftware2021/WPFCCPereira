@@ -166,6 +166,10 @@ namespace WPFCCPereira.UserControls
                         };
 
                         var response = await AdminPayPlus.ApiIntegration.NotifycTransaction(this.transaction);
+
+                        var response2 = await AdminPayPlus.ApiIntegration.GetDiscount(this.transaction);
+
+                        //TODO:validar aqui el descuento ya con el idliquidacion de transaction
                         
                         if (response != null && !string.IsNullOrEmpty(response.consecutive) && !string.IsNullOrEmpty(response.reference))
                         {

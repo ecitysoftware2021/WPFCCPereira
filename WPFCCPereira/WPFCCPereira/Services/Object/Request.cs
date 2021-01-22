@@ -17,6 +17,17 @@ namespace WPFCCPereira.Services
         public string clavews { get; set; }
     }
 
+    public class RequestDiscount
+    {
+        public string codigoempresa { get; set; }
+
+        public string usuariows { get; set; }
+
+        public string token { get; set; }
+
+        public string idliquidacion { get; set; }
+    }
+
     public class RequestSearch
     {
         public string codigoempresa { get; set; }

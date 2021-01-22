@@ -209,6 +209,37 @@ namespace WPFCCPereira.Services
             return null;
         }
 
+        public async Task<decimal> GetDiscount(Transaction transaction)
+        {
+            try
+            {
+                RequestDiscount request = new RequestDiscount
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idliquidacion = transaction.consecutive
+                };
+
+                var response = await GetData(request, "aplicar1756Liquidacion");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse.descuentoaplicado;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "GetData", ex, MessageResource.StandarError);
+            }
+            return 0;
+        }
+
         public async Task<List<Noun>> SearchFiles(string reference, EtypeConsult type)
         {
             try
@@ -422,5 +453,9 @@ namespace WPFCCPereira.Services
             }
             return string.Empty;
         }
+
+        //BEGIN RENOVACION 
+
+        //END RENOVACION 
     }
 }
