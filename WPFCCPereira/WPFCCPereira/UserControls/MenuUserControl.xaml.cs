@@ -27,7 +27,8 @@ namespace WPFCCPereira.UserControls
                     Utilities.navigator.Navigate(UserControlView.Consult, true,
                         tag == (int)ETransactionType.PaymentFile ?
                         ETransactionType.PaymentFile : tag == (int)ETransactionType.ConsultName ?
-                        ETransactionType.ConsultName : ETransactionType.ConsultTransact);
+                        ETransactionType.ConsultName : tag == (int)ETransactionType.ConsultTransact ?
+                        ETransactionType.ConsultTransact : ETransactionType.Renovacion);
                 }
             }
             catch (Exception ex)

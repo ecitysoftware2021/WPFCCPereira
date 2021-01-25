@@ -75,6 +75,7 @@ namespace WPFCCPereira.Classes
         ConsultName = 1,
         ConsultTransact = 2,
         Renewal = 4,
+        Renovacion = 31,
     }
 
     public enum ETypeAdministrator

@@ -9,7 +9,7 @@
              Width="1080">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-menu.jpg" Stretch="Uniform"/>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-menu2.jpg" Stretch="Uniform"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="180" />
@@ -54,12 +54,24 @@
 
             <Button 
                    Name="btn_search_consecutive"
-                   HorizontalAlignment="Center"
+                   HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
                    Width="250"
                    Tag ="2"
                    Height="300"
-                   Margin="0,0,0,180"
+                   Margin="200,0,0,180"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
+                   TouchDown="btn_search_TouchDown" />
+            <Button 
+                   Name="btn_search_renovacion"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Tag ="4"
+                   Height="300"
+                   Margin="0,0,200,180"
                    Background="{x:Null}" 
                    BorderBrush="{x:Null}" 
                    Foreground="{x:Null}"
