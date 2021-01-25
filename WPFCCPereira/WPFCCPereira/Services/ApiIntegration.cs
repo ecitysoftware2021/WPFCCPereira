@@ -221,7 +221,7 @@ namespace WPFCCPereira.Services
                     idliquidacion = transaction.consecutive
                 };
 
-                var response = await GetData(request, "aplicar1756Liquidacion");
+                var response = await GetData(request, "GetDiscount");
 
                 if (response != null)
                 {
