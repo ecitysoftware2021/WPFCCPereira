@@ -18,7 +18,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="240" />
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
             <Button Name="btn_exit"
                    HorizontalAlignment="Left"
@@ -33,7 +33,7 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            
+
             <ListView x:Name="lv_data_list" 
                     Margin="0,20,0,0"
                     Background="Red"
@@ -56,43 +56,169 @@
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
                             Width="1030"
-                            Height="550" 
+                            Height="800" 
                             Tag="{Binding Data}"
                             TouchDown="Grid_TouchDown">
                             <Grid.Background>
                                 <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/capture.png"/>
                             </Grid.Background>
-
                             <TextBlock 
-                                Text="Último año renovado:"
-                                FontSize="45"
-                                FontFamily="Arial"
-                                Margin="50,50,0,0"
-                                Foreground="#FF104B6D"
+                                Text="Matrícula: "
+                                FontSize="30"
+                                FontWeight="Light"
+                                FontFamily="Gotham"
+                                Margin="30,30,0,0"
+                                Foreground="White"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left" Background="{x:Null}"
+                                >
+                                <Run FontWeight="Bold" Text="123456789"/>
+                            </TextBlock>
+                            <TextBlock 
+                                Text="ROPA DONDE MILE"
+                                FontSize="40"                                                                                                                                                                                                                   
+                                FontFamily="Gotham"
+                                Margin="30,90,0,0"
+                                Foreground="Black"
+                                FontWeight="Bold"
                                 Height="60"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
+                            />
+                            <TextBlock 
+                                Text="Organización:"
+                                FontSize="30"
+                                FontFamily="Arial"
+                                Margin="30,160,0,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                            />
+                            <TextBlock 
+                                Text="Establecimiento de Comercio"
+                                FontSize="40"
+                                FontFamily="Cabri"
+                                Margin="0,150,30,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                            />
+                            <TextBlock 
+                                Text="Último año renovado:"
+                                FontSize="30"
+                                FontFamily="Arial"
+                                Margin="30,220,0,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                            />
+                            <TextBlock 
+                                Text="2019"
+                                FontWeight="Bold"
+                                FontSize="30"
+                                FontFamily="Arial"
+                                Margin="0,220,30,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
                             />
                             <TextBlock 
                                 Text="Última fecha renovación:"
-                                FontSize="45"
+                                FontSize="30"
                                 FontFamily="Arial"
-                                Margin="50,150,0,0"
-                                Foreground="#FF104B6D"
+                                Margin="30,280,0,0"
+                                Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
                             />
-                             <TextBlock 
+                            <TextBlock 
+                                Text="marzo 10, 2019"
+                                FontSize="40"
+                                FontFamily="Cabri"
+                                Margin="0,270,30,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                            />
+                            <TextBlock 
                                 Text="Últimos activos reportados:"
-                                FontSize="45"
+                                FontSize="30"
                                 FontFamily="Arial"
-                                Margin="50,250,0,0"
-                                Foreground="#FF104B6D"
+                                Margin="30,340,0,0"
+                                Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
-                             />  
+                             />
+                            <TextBlock 
+                                Text="$1.620.000"
+                                FontSize="40"
+                                FontFamily="Cabri"
+                                Margin="0,330,30,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                            />
+                            <TextBlock 
+                                FontSize="35"
+                                FontFamily="Arial"
+                                Margin="30,120,0,0"
+                                Foreground="#FF78AD3C"
+                                Height="60"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left">
+                                <Run FontWeight="Bold" Text="Nuevos Activos"/>
+                                <Run Text="por año pendientes"/>
+                            </TextBlock>
+                            <TextBlock 
+                                Text="2020"
+                                FontWeight="Bold"
+                                FontSize="35"
+                                FontFamily="Arial"
+                                Margin="30,280,0,0"
+                                Foreground="#FF78AD3C"
+                                Height="60"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                             />
+                            <TextBlock 
+                                Text="1.800.000"
+                                FontSize="40"
+                                FontFamily="Cabri"
+                                Margin="0,330,60,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                            />
+                            <TextBlock 
+                                Text="Personal a nivel nacional:"
+                                FontSize="30"
+                                FontFamily="Arial"
+                                Margin="30,0,0,80"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left" Background="{x:Null}"
+                             />
+                            <TextBlock 
+                                Text="5"
+                                FontSize="40"
+                                FontFamily="Cabri"
+                                Margin="0,630,60,0"
+                                Foreground="Black"
+                                Height="60"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                            />
 
                             <!--<TextBlock Text="{Binding Item1}"
                                        FontSize="45"
