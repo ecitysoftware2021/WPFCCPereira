@@ -135,6 +135,9 @@
   <data name="BackgroundConsultTransact" xml:space="preserve">
     <value>/images/Backgrounds/bg-consult-transact.png</value>
   </data>
+  <data name="BackgroundRenovacion" xml:space="preserve">
+    <value>/images/backgrounds/bg-consult2.png</value>
+  </data>
   <data name="BackgroundSubmenuPayment" xml:space="preserve">
     <value>/images/Backgrounds/bg-menu-payment.jpg</value>
   </data>

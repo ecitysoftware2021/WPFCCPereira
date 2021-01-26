@@ -115,6 +115,15 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /images/backgrounds/bg-consult2.png.
+        /// </summary>
+        internal static string BackgroundRenovacion {
+            get {
+                return ResourceManager.GetString("BackgroundRenovacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /images/Backgrounds/bg-menu-payment.jpg.
         /// </summary>
         internal static string BackgroundSubmenuPayment {

@@ -738,8 +738,11 @@ namespace WPFCCPereira.Classes
                             Description = detail.DESCRIPTION
                         });
 
-                        detail.STATE = 1;
-                        SqliteDataAccess.UpdateTransactionDetailState(detail);
+                        if (response != null)
+                        {
+                            detail.STATE = 1;
+                            SqliteDataAccess.UpdateTransactionDetailState(detail);
+                        }
                     }
                 });
             }

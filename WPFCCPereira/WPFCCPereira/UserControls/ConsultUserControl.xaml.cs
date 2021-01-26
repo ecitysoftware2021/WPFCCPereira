@@ -75,6 +75,11 @@ namespace WPFCCPereira.UserControls
                     viewModel.Message = MessageResource.EnterConsecutive;
                 }
 
+                if (viewModel.TypeTransaction == ETransactionType.Renovacion)
+                {
+                    viewModel.Background = ImagesUrlResource.BackgroundRenovacion;
+                }
+
                 this.DataContext = viewModel;
 
                 lv_data_list.DataContext = viewModel.ViewList;
@@ -170,7 +175,19 @@ namespace WPFCCPereira.UserControls
                                 }
                                 else
                                 {
-                                    ConfigureViewList();
+                                    if (viewModel.TypeTransaction == ETransactionType.Renovacion)
+                                    {
+                                        Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
+                                        {
+                                            File = viewModel,
+                                            State = ETransactionState.Initial,
+                                            Type = viewModel.TypeTransaction
+                                        });
+                                    }
+                                    else
+                                    {
+                                        ConfigureViewList();
+                                    }
                                 }
                             }
                             else
