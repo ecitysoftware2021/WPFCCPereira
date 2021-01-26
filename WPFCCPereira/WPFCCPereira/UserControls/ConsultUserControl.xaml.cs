@@ -177,7 +177,7 @@ namespace WPFCCPereira.UserControls
                                 {
                                     if (viewModel.TypeTransaction == ETransactionType.Renovacion)
                                     {
-                                        Utilities.navigator.Navigate(UserControlView.ActiveCertificate, true, new Transaction
+                                        Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, new Transaction
                                         {
                                             File = viewModel,
                                             State = ETransactionState.Initial,

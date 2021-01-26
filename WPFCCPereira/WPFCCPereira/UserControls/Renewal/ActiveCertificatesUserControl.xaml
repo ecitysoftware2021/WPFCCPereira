@@ -31,8 +31,9 @@
                    Foreground="{x:Null}"
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>
-        
+
         <Grid Grid.Row="2">
+            
             <ListView x:Name="lv_data_list" 
                     Margin="0,20,0,0"
                     Background="Red"
@@ -59,10 +60,41 @@
                             Tag="{Binding Data}"
                             TouchDown="Grid_TouchDown">
                             <Grid.Background>
-                                <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-file.png"/>
+                                <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/capture.png"/>
                             </Grid.Background>
 
-                            <TextBlock Text="{Binding Item1}"
+                            <TextBlock 
+                                Text="Último año renovado:"
+                                FontSize="45"
+                                FontFamily="Arial"
+                                Margin="50,50,0,0"
+                                Foreground="#FF104B6D"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                            />
+                            <TextBlock 
+                                Text="Última fecha renovación:"
+                                FontSize="45"
+                                FontFamily="Arial"
+                                Margin="50,150,0,0"
+                                Foreground="#FF104B6D"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                            />
+                             <TextBlock 
+                                Text="Últimos activos reportados:"
+                                FontSize="45"
+                                FontFamily="Arial"
+                                Margin="50,250,0,0"
+                                Foreground="#FF104B6D"
+                                Height="60"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                             />  
+
+                            <!--<TextBlock Text="{Binding Item1}"
                                        FontSize="45"
                                        FontFamily="Arial"
                                        TextAlignment="Justify"
@@ -118,7 +150,7 @@
                                         Height="50"
                                         Margin="0,50,30,0"
                                         HorizontalAlignment="Right"
-                                        VerticalAlignment="Top"/>
+                                        VerticalAlignment="Top"/>-->
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
