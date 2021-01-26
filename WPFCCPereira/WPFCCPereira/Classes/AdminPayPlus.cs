@@ -139,8 +139,9 @@ namespace WPFCCPereira.Classes
 
                     DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
 
-                    //callbackResult?.Invoke(true);
-                    ValidatePeripherals();
+                    callbackResult?.Invoke(true);
+                    //TODO:aqui
+                    //ValidatePeripherals();
                 }
                 else
                 {

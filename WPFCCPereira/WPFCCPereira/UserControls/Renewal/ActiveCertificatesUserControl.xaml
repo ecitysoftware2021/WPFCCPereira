@@ -55,7 +55,7 @@
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
                             Width="1030"
-                            Height="250" 
+                            Height="550" 
                             Tag="{Binding Data}"
                             TouchDown="Grid_TouchDown">
                             <Grid.Background>

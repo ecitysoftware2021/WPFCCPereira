@@ -7,6 +7,7 @@ using WPFCCPereira.Classes;
 using WPFCCPereira.Services.Object;
 using WPFCCPereira.UserControls;
 using WPFCCPereira.UserControls.Administrator;
+using WPFCCPereira.UserControls.Renewal;
 
 namespace WPFCCPereira.Models
 {
@@ -51,6 +52,9 @@ namespace WPFCCPereira.Models
                         break;
                     case UserControlView.ReturnMony:
                         View = new ReturnMonyUserControl((Transaction)data);
+                        break;
+                    case UserControlView.ActiveCertificate:
+                        View = new ActiveCertificatesUserControl((Transaction)data);
                         break;
                     case UserControlView.Login:
                         View = new LoginAdministratorUserControl((ETypeAdministrator)data);

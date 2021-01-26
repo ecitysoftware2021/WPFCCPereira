@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
@@ -25,7 +15,7 @@ namespace WPFCCPereira.UserControls.Renewal
     /// </summary>
     public partial class ActiveCertificatesUserControl : UserControl
     {
-        private DataListViewModel viewModel; 
+        private DataListViewModel viewModel;
         private Transaction transaction;
 
         public ActiveCertificatesUserControl(Transaction ts)
@@ -34,7 +24,13 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.transaction = ts;
 
+            this.viewModel = new DataListViewModel();
+
+            this.viewModel.ViewList = new CollectionViewSource();
+
             this.DataContext = viewModel;
+
+            lv_data_list.DataContext = viewModel.ViewList;
 
             ConfigureViewList();
         }
@@ -43,13 +39,9 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                Dispatcher.BeginInvoke((Action)delegate
-                {
-                    viewModel.ViewList.Source = (transaction.File as DataListViewModel).DataList;
-                    viewModel.ViewList.View.Refresh();
-                    lv_data_list.Items.Refresh();
-                });
-                GC.Collect();
+                viewModel.ViewList.Source = (transaction.File as DataListViewModel).DataList;
+                viewModel.ViewList.View.Refresh();
+                lv_data_list.Items.Refresh();
             }
             catch (Exception ex)
             {
