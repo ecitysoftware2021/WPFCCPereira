@@ -78,6 +78,7 @@ namespace WPFCCPereira.UserControls
                 if (viewModel.TypeTransaction == ETransactionType.Renovacion)
                 {
                     viewModel.Background = ImagesUrlResource.BackgroundRenovacion;
+                    txtTitleRenewal.Visibility = Visibility.Visible;
                 }
 
                 this.DataContext = viewModel;

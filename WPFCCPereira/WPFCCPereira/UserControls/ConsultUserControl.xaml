@@ -34,6 +34,20 @@
         </Grid>
 
         <Grid Grid.Row="1" Visibility="{Binding VisibleTab}">
+            <TextBlock
+                x:Name="txtTitleRenewal"
+                Visibility="Hidden"
+                TextWrapping="Wrap" 
+                Width="900"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                TextAlignment="Center"
+                Text="Ingresar datos del comerciante que desea renovar." 
+                Foreground="Black" 
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,0,0,20"
+            />
             <Image  x:Name="check_option"
                     Source="{Binding SourceCheckId}"
                     Width="800"

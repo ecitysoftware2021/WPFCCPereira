@@ -160,7 +160,6 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TypeDocument.cs" />
-    <Compile Include="Models\ValueModel.cs" />
     <Compile Include="Resources\ConstantsResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -18,7 +18,6 @@ namespace WPFCCPereira.UserControls.Renewal
         #region "Referencias"
         private DataListViewModel viewModel;
         private Transaction transaction;
-        private ValueModel Value;
         #endregion
 
         #region "Constructor"
@@ -35,13 +34,6 @@ namespace WPFCCPereira.UserControls.Renewal
             //this.DataContext = viewModel;
 
             lv_data_list.DataContext = viewModel.ViewList;
-
-            Value = new ValueModel
-            {
-                Val = 0
-            };
-
-            this.DataContext = Value;
 
             ConfigureViewList();
         }

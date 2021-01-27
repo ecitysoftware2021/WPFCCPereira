@@ -8,6 +8,17 @@ namespace WPFCCPereira.Models
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
+        private decimal _Val;
+        public decimal Val
+        {
+            get { return _Val; }
+            set
+            {
+                _Val = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Val)));
+            }
+        }
+
         private string _item1;
 
         public string Item1
