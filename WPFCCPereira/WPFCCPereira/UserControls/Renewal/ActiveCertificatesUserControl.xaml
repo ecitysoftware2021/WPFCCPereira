@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"    
              mc:Ignorable="d" 
              Height="1920" 
              Width="1080" >
@@ -14,26 +15,37 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
-            <RowDefinition Height="200" />
+            <RowDefinition Height="300" />
             <RowDefinition Height="*" />
             <RowDefinition Height="240" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Button Name="btn_exit"
+            <Image Source="/Images/Buttons/btn-menu.png"
+                   Name="btn_exit"
                    HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
-                   Width="550"
-                    Height="80"
-                   Margin="80,0,0,0"
-                   Background="{x:Null}" 
-                   BorderBrush="{x:Null}" 
-                   Foreground="{x:Null}"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Margin="50,0,0,30"
                    TouchDown="Btn_exit_TouchDown" />
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Bottom" 
+                TextAlignment="Center"
+                Text="A continuación podrá encontrar la matrícula que necesita renovar ingresando los activos de los años pendientes." 
+                Foreground="Black" 
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,0,0,20"
+            />
         </Grid>
 
         <Grid Grid.Row="2">
-
             <ListView x:Name="lv_data_list" 
                     Margin="0,20,0,0"
                     Background="Red"
@@ -189,8 +201,11 @@
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
                              />
-                            <TextBlock 
-                                Text="1.800.000"
+                            <TextBox 
+                                md:HintAssist.Hint="Nuevos Activos"
+                                md:HintAssist.IsFloating="True"
+                                md:HintAssist.FloatingScale="0.3"
+                                Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
                                 FontSize="40"
                                 FontFamily="Cabri"
                                 Margin="0,330,60,0"
@@ -198,7 +213,19 @@
                                 Height="60"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Right"
+                                TextChanged="NuevosActivos_TextChanged"
+                                TouchDown="NuevosActivos_TouchDown"
                             />
+                            <TextBlock
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Bottom" 
+                                TextAlignment="Center"
+                                Text="Nuevos activos es requerido" 
+                                Foreground="Red" 
+                                FontSize="30" 
+                                FontFamily="Arial"
+                                Margin="0,0,0,0"
+                            />  
                             <TextBlock 
                                 Text="Personal a nivel nacional:"
                                 FontSize="30"
@@ -209,8 +236,10 @@
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left" Background="{x:Null}"
                              />
-                            <TextBlock 
-                                Text="5"
+                            <TextBox 
+                                md:HintAssist.Hint="Número Empleados"
+                                md:HintAssist.IsFloating="True"
+                                md:HintAssist.FloatingScale="0.3"
                                 FontSize="40"
                                 FontFamily="Cabri"
                                 Margin="0,630,60,0"
@@ -218,6 +247,8 @@
                                 Height="60"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Right"
+                                TextChanged="NumEmpleados_TextChanged"
+                                TouchDown="NumEmpleados_TouchDown"
                             />
 
                             <!--<TextBlock Text="{Binding Item1}"

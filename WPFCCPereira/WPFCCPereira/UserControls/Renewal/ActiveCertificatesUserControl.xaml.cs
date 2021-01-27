@@ -15,9 +15,13 @@ namespace WPFCCPereira.UserControls.Renewal
     /// </summary>
     public partial class ActiveCertificatesUserControl : UserControl
     {
+        #region "Referencias"
         private DataListViewModel viewModel;
         private Transaction transaction;
+        private ValueModel Value;
+        #endregion
 
+        #region "Constructor"
         public ActiveCertificatesUserControl(Transaction ts)
         {
             InitializeComponent();
@@ -28,13 +32,22 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.viewModel.ViewList = new CollectionViewSource();
 
-            this.DataContext = viewModel;
+            //this.DataContext = viewModel;
 
             lv_data_list.DataContext = viewModel.ViewList;
 
+            Value = new ValueModel
+            {
+                Val = 0
+            };
+
+            this.DataContext = Value;
+
             ConfigureViewList();
         }
+        #endregion
 
+        #region "Métodos"
         private void ConfigureViewList()
         {
             try
@@ -48,6 +61,9 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+        #endregion
+
+        #region "Eventos"
 
         private void Grid_TouchDown(object sender, TouchEventArgs e)
         {
@@ -65,14 +81,56 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
+            Utilities.navigator.Navigate(UserControlView.Menu);
+        }
+
+        private void NuevosActivos_TextChanged(object sender, TextChangedEventArgs e)
+        {
             try
             {
-                Utilities.navigator.Navigate(UserControlView.Menu);
+                TextBox text = (TextBox)sender;
+
+                if (text.Text.Length > 13)
+                {
+                    text.Text = text.Text.Remove(text.Text.Length - 1);
+                }
+
+                //lblErrorIdentification.Content = string.Empty;
             }
             catch (Exception ex)
             {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
             }
         }
+
+        private void NuevosActivos_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.OpenKeyboard(true, sender as TextBox, this);
+        }
+
+        private void NumEmpleados_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.OpenKeyboard(true, sender as TextBox, this);
+        }
+
+        private void NumEmpleados_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                TextBox text = (TextBox)sender;
+
+                if (text.Text.Length > 4)
+                {
+                    text.Text = text.Text.Remove(text.Text.Length - 1);
+                }
+
+                //lblErrorIdentification.Content = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+        #endregion
     }
 }

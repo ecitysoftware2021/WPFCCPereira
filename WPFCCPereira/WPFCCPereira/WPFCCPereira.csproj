@@ -160,6 +160,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TypeDocument.cs" />
+    <Compile Include="Models\ValueModel.cs" />
     <Compile Include="Resources\ConstantsResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +209,9 @@
     </Compile>
     <Compile Include="UserControls\Renewal\ActiveCertificatesUserControl.xaml.cs">
       <DependentUpon>ActiveCertificatesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\MenuFormsUserControl.xaml.cs">
+      <DependentUpon>MenuFormsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ReturnMonyUserControl.xaml.cs">
       <DependentUpon>ReturnMonyUserControl.xaml</DependentUpon>
@@ -414,6 +418,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Renewal\ActiveCertificatesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Renewal\MenuFormsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
