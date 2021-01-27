@@ -84,10 +84,10 @@
                                 HorizontalAlignment="Left" Background="{x:Null}"
                                 >
                                 <Run FontSize="25" Text="Matrícula:"/>
-                                <Run FontWeight="Bold" Text="123456789"/>
+                                <Run FontWeight="Bold" Text="{Binding Data.matricula}"/>
                             </TextBlock>
                             <TextBlock 
-                                Text="ROPA DONDE MILE"
+                                Text="{Binding Data.nombre}"
                                 FontSize="40"                                                                                                                                                                                                                   
                                 FontFamily="Gotham"
                                 Margin="30,80,0,0"
@@ -108,7 +108,7 @@
                                 HorizontalAlignment="Left"
                             />
                             <TextBlock 
-                                Text="Establecimiento de Comercio"
+                                Text="{Binding Data.organizaciontextual}"
                                 FontSize="30"
                                 FontFamily="Arial"
                                 Margin="0,140,30,0"
@@ -128,7 +128,7 @@
                                 HorizontalAlignment="Left"
                             />
                             <TextBlock 
-                                Text="2019"
+                                Text="{Binding Data.ultanorenovado}"
                                 FontWeight="Bold"
                                 FontSize="30"
                                 FontFamily="Arial"
@@ -148,8 +148,8 @@
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
                             />
-                            <TextBlock 
-                                Text="marzo 10, 2019"
+                            <TextBlock
+                                Text="{Binding Data.fecharenovacion}"
                                 FontSize="30"
                                 FontFamily="Cabri"
                                 Margin="0,245,30,0"
@@ -157,7 +157,7 @@
                                 Height="60"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Right"
-                            />
+                            ></TextBlock>
                             <TextBlock 
                                 Text="Últimos activos reportados:"
                                 FontSize="25"
