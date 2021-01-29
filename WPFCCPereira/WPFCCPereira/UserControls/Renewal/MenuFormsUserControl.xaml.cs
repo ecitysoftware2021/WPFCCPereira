@@ -24,5 +24,10 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             InitializeComponent();
         }
+
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+
+        }
     }
 }
