@@ -50,22 +50,22 @@
                    <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/capture.png"/>
             </Grid.Background>
                 <TextBlock 
-                    FontSize="30"
+                    FontSize="25"
                     FontWeight="Light"
                     FontFamily="Gotham"
-                    Margin="30,10,0,0"
+                    Margin="30,13,0,0"
                     Foreground="White"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left" Background="{x:Null}"
                     >
-                    <Run FontSize="25" Text="Matrícula:"/>
+                    <Run Text="Matrícula:"/>
                     <Run FontWeight="Bold" Text="{Binding matricula}"/>
                 </TextBlock>
                 <TextBlock 
                     Text="{Binding nombre}"
-                    FontSize="40"                                                                                                                                                                                                                   
+                    FontSize="35"                                                                                                                                                                                                                   
                     FontFamily="Gotham"
-                    Margin="30,80,0,0"
+                    Margin="30,53,0,0"
                     Foreground="Black"
                     FontWeight="SemiBold"
                     Height="60"
@@ -76,7 +76,7 @@
                     Text="Organización:"
                     FontSize="25"
                     FontFamily="Arial"
-                    Margin="30,60,0,0"
+                    Margin="30,96,0,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -86,7 +86,7 @@
                     Text="{Binding organizacion}"
                     FontSize="30"
                     FontFamily="Arial"
-                    Margin="0,140,30,0"
+                    Margin="0,96,30,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -96,7 +96,7 @@
                     Text="Último año renovado:"
                     FontSize="25"
                     FontFamily="Arial"
-                    Margin="30,100,0,0"
+                    Margin="30,135,0,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -107,7 +107,7 @@
                     FontWeight="Bold"
                     FontSize="30"
                     FontFamily="Arial"
-                    Margin="0,195,30,0"
+                    Margin="0,135,30,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -117,7 +117,7 @@
                     Text="Última fecha renovación:"
                     FontSize="25"
                     FontFamily="Arial"
-                    Margin="30,137,0,0"
+                    Margin="30,175,0,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -127,7 +127,7 @@
                     Text="{Binding fecharenovacion}"
                     FontSize="30"
                     FontFamily="Cabri"
-                    Margin="0,245,30,0"
+                    Margin="0,175,30,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -137,7 +137,7 @@
                     Text="Últimos activos reportados:"
                     FontSize="25"
                     FontFamily="Arial"
-                    Margin="30,176,0,0"
+                    Margin="30,215,0,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Top"
@@ -147,7 +147,7 @@
                     Text="{Binding activos, StringFormat={}{0:C0}}"
                     FontSize="30"
                     FontFamily="Cabri"
-                    Margin="0,200,30,0"
+                    Margin="0,212,30,0"
                     Foreground="Black"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
@@ -159,15 +159,15 @@
                     Foreground="#FF78AD3C"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left">
-                    <Run FontWeight="SemiBold" Text="Nuevos Activos"/>
-                    <Run Text="por año pendientes"/>
+                    <Run FontWeight="SemiBold" Text="Nuevos activos"/>
+                    <Run Text="por años pendientes"/>
                 </TextBlock>
                 <TextBlock 
                     Text="2020"
                     FontWeight="Bold"
-                    FontSize="35"
+                    FontSize="30"
                     FontFamily="Arial"
-                    Margin="30,160,0,0"
+                    Margin="30,130,0,0"
                     Foreground="#FF78AD3C"
                     Height="60"
                     VerticalAlignment="Center"
@@ -178,9 +178,9 @@
                     md:HintAssist.IsFloating="True"
                     md:HintAssist.FloatingScale="0.3"
                     Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                    FontSize="40"
+                    FontSize="25"
                     FontFamily="Cabri"
-                    Margin="0,190,60,0"
+                    Margin="0,120,60,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Center"
@@ -194,15 +194,15 @@
                     TextAlignment="Center"
                     Text="Nuevos activos es requerido" 
                     Foreground="Red" 
-                    FontSize="20" 
+                    FontSize="15" 
                     FontFamily="Arial"
-                    Margin="0,330,190,0"
+                    Margin="0,190,190,0"
                 />
                 <TextBlock 
                     Text="Personal a nivel nacional:"
                     FontSize="25"
                     FontFamily="Arial"
-                    Margin="30,0,0,150"
+                    Margin="30,0,0,100"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Bottom"
@@ -212,9 +212,9 @@
                     md:HintAssist.Hint="Número Empleados"
                     md:HintAssist.IsFloating="True"
                     md:HintAssist.FloatingScale="0.3"
-                    FontSize="40"
+                    FontSize="25"
                     FontFamily="Cabri"
-                    Margin="0,450,60,0"
+                    Margin="0,310,60,0"
                     Foreground="Black"
                     Height="60"
                     VerticalAlignment="Center"
@@ -228,16 +228,16 @@
                     TextAlignment="Center"
                     Text="Número empleados es requerido" 
                     Foreground="Red" 
-                    FontSize="20" 
+                    FontSize="15" 
                     FontFamily="Arial"
-                    Margin="340,0,0,96"
+                    Margin="270,0,0,85"
                 />
                 <Image 
                     Source="/Images/Buttons/btn-continue.png"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     Width="250"
-                    Margin="30,0,0,20"
+                    Margin="30,0,0,10"
                 />
             
             <ListView x:Name="lv_data_list" 
