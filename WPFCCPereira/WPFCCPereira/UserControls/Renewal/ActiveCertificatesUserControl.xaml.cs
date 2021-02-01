@@ -11,6 +11,7 @@ using System.Linq;
 using System.Collections.Generic;
 using WPFCCPereira.Services.Object;
 using System.Globalization;
+using WPFCCPereira.Services.ObjectIntegration;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -22,6 +23,7 @@ namespace WPFCCPereira.UserControls.Renewal
         #region "Referencias"
         private DataListViewModel viewModel;
         private Transaction transaction;
+        private List<ListEstablecimientos> listEstablecimientos;
         #endregion
 
         #region "Constructor"
@@ -35,9 +37,11 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.viewModel.ViewList = new CollectionViewSource();
 
+            this.listEstablecimientos = new List<ListEstablecimientos>();
+
             this.DataContext = ts.ExpedientesMercantil;
 
-            //ConfigureViewList();
+            ConfigureViewList();
         }
         #endregion
 
@@ -46,10 +50,21 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                viewModel.ViewList.Source = (transaction.File as DataListViewModel).DataList;
-                viewModel.ViewList.View.Refresh();
-                lv_data_list.Items.Refresh();
-                lv_data_list.DataContext = viewModel.ViewList;
+                grvEstablecimientos.Visibility = System.Windows.Visibility.Hidden;
+
+                foreach (var item in transaction.ExpedientesMercantil.establecimientos)
+                {
+                    listEstablecimientos.Add(item);
+                }
+
+                if (listEstablecimientos.Count > 0)
+                {
+                    grvEstablecimientos.Visibility = System.Windows.Visibility.Visible;
+                    viewModel.ViewList.Source = listEstablecimientos;
+                    viewModel.ViewList.View.Refresh();
+                    lv_data_list.Items.Refresh();
+                    lv_data_list.DataContext = viewModel.ViewList;
+                }
             }
             catch (Exception ex)
             {

@@ -16,5 +16,5 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 29180198046
 KeyboardNew\WKeyboard.xaml;UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DescriptionUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUserControl.xaml;UserControls\MenuUserControl.xaml;UserControls\PayerUserControl.xaml;UserControls\PrintFileUserControl.xaml;UserControls\Renewal\ActiveCertificatesUserControl.xaml;UserControls\Renewal\ConsultUserControl.xaml;UserControls\Renewal\MenuFormsUserControl.xaml;UserControls\ReturnMonyUserControl.xaml;UserControls\ConsultUserControl.xaml;UserControls\MainUserControl.xaml;UserControls\PaymentUserControl.xaml;UserControls\SussesUserControl.xaml;Windows\MasterWindow.xaml;Windows\ModalWindow.xaml;
 
-False
+True
 
