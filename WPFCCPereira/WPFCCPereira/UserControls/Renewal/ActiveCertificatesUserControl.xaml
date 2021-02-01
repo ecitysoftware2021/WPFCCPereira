@@ -242,7 +242,7 @@
                 />
         </Grid>
 
-        <Grid Name="grvEstablecimientos" Margin="100,50,100,0" Grid.Row="3">
+        <Grid Name="grvEstablecimientos" Grid.Row="3">
             <TextBlock 
                 Text="Establecimientos"
                 FontSize="25"
@@ -275,8 +275,8 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
-                            Width="1030"
-                            Height="800" 
+                            Width="870"
+                            Height="580" 
                             Tag="{Binding Data}"
                             TouchDown="Grid_TouchDown">
                             <Grid.Background>
