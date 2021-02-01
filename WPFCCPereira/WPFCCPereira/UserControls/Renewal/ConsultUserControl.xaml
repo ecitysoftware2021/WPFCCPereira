@@ -101,7 +101,7 @@
                 Name="txt_error"
                 FontSize="25"
                 TextAlignment="Center"
-                Margin="100,0,0,60"
+                Margin="100,0,0,30"
                 FontFamily="Arial"
                 FontWeight="Bold"
                 Foreground="Red"

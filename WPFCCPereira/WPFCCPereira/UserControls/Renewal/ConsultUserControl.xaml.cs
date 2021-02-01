@@ -40,7 +40,8 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 viewModel = new DataListViewModel
                 {
-                    SourceCheckId = ImagesUrlResource.ImageCheckId,
+                    TypeConsult = EtypeConsult.Matricula,
+                    SourceCheckId = "/Images/Others/rbtn-checkmatricula.png",
                     OptionCheck = EtypeConsult.Matricula,
                     OptionChecktwo = EtypeConsult.Id,
                 };
@@ -116,7 +117,7 @@ namespace WPFCCPereira.UserControls.Renewal
                     else
                     {
                         reference = "18130990";
-                        var response = AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
+                        var response = await AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
 
                         Utilities.CloseModal();
 

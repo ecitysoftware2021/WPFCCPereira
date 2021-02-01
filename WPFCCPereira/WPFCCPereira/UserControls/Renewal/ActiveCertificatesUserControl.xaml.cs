@@ -37,7 +37,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
             lv_data_list.DataContext = viewModel.ViewList;
 
-            ConfigureViewList();
+            //ConfigureViewList();
         }
         #endregion
 
@@ -46,8 +46,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                
-
                 viewModel.ViewList.Source = (transaction.File as DataListViewModel).DataList;
                 viewModel.ViewList.View.Refresh();
                 lv_data_list.Items.Refresh();

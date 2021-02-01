@@ -15,7 +15,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
-            <RowDefinition Height="400" />
+            <RowDefinition Height="200" />
             <RowDefinition Height="*" />
             <RowDefinition Height="550" />
         </Grid.RowDefinitions>
@@ -26,7 +26,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    Width="250"
-                   Margin="50,0,0,30"
+                   Margin="50,0,0,0"
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>
         
@@ -39,119 +39,119 @@
                 TextAlignment="Center"
                 Text="A continuación podrá encontrar la matrícula que necesita renovar ingresando los activos de los años pendientes." 
                 Foreground="Black" 
-                FontSize="40" 
+                FontSize="35" 
                 FontFamily="Arial"
-                Margin="0,0,0,100"
+                Margin="0,0,0,0"
             />
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="100,50,100,400">
             <Grid.Background>
                    <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/capture.png"/>
             </Grid.Background>
                 <TextBlock 
-                                FontSize="30"
-                                FontWeight="Light"
-                                FontFamily="Gotham"
-                                Margin="30,20,0,0"
-                                Foreground="White"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left" Background="{x:Null}"
-                                >
-                                <Run FontSize="25" Text="Matrícula:"/>
-                                <Run FontWeight="Bold" Text="{Binding Data.matricula}"/>
+                    FontSize="30"
+                    FontWeight="Light"
+                    FontFamily="Gotham"
+                    Margin="30,10,0,0"
+                    Foreground="White"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left" Background="{x:Null}"
+                    >
+                    <Run FontSize="25" Text="Matrícula:"/>
+                    <Run FontWeight="Bold" Text="{Binding Data.matricula}"/>
                 </TextBlock>
                 <TextBlock 
-                                Text="{Binding Data.nombre}"
-                                FontSize="40"                                                                                                                                                                                                                   
-                                FontFamily="Gotham"
-                                Margin="30,80,0,0"
-                                Foreground="Black"
-                                FontWeight="SemiBold"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                            />
+                    Text="{Binding Data.nombre}"
+                    FontSize="40"                                                                                                                                                                                                                   
+                    FontFamily="Gotham"
+                    Margin="30,80,0,0"
+                    Foreground="Black"
+                    FontWeight="SemiBold"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                />
                 <TextBlock 
-                                Text="Organización:"
-                                FontSize="25"
-                                FontFamily="Arial"
-                                Margin="30,140,0,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                            />
+                    Text="Organización:"
+                    FontSize="25"
+                    FontFamily="Arial"
+                    Margin="30,60,0,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                />
                 <TextBlock 
-                                Text="{Binding Data.organizaciontextual}"
-                                FontSize="30"
-                                FontFamily="Arial"
-                                Margin="0,140,30,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Right"
-                            />
+                    Text="{Binding Data.organizaciontextual}"
+                    FontSize="30"
+                    FontFamily="Arial"
+                    Margin="0,140,30,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                />
                 <TextBlock 
-                                Text="Último año renovado:"
-                                FontSize="25"
-                                FontFamily="Arial"
-                                Margin="30,195,0,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                            />
+                    Text="Último año renovado:"
+                    FontSize="25"
+                    FontFamily="Arial"
+                    Margin="30,100,0,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                />
                 <TextBlock 
-                                Text="{Binding Data.ultanorenovado}"
-                                FontWeight="Bold"
-                                FontSize="30"
-                                FontFamily="Arial"
-                                Margin="0,195,30,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Right"
-                            />
+                    Text="{Binding Data.ultanorenovado}"
+                    FontWeight="Bold"
+                    FontSize="30"
+                    FontFamily="Arial"
+                    Margin="0,195,30,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                />
                 <TextBlock 
-                                Text="Última fecha renovación:"
-                                FontSize="25"
-                                FontFamily="Arial"
-                                Margin="30,250,0,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                            />
+                    Text="Última fecha renovación:"
+                    FontSize="25"
+                    FontFamily="Arial"
+                    Margin="30,137,0,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                />
                 <TextBlock
-                                Text="{Binding Data.fecharenovacion}"
-                                FontSize="30"
-                                FontFamily="Cabri"
-                                Margin="0,245,30,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Right"
-                            ></TextBlock>
+                    Text="{Binding Data.fecharenovacion}"
+                    FontSize="30"
+                    FontFamily="Cabri"
+                    Margin="0,245,30,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                />
                 <TextBlock 
-                                Text="Últimos activos reportados:"
-                                FontSize="25"
-                                FontFamily="Arial"
-                                Margin="30,300,0,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                             />
+                    Text="Últimos activos reportados:"
+                    FontSize="25"
+                    FontFamily="Arial"
+                    Margin="30,176,0,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    />
                 <TextBlock 
-                                Text="$1.620.000"
-                                FontSize="30"
-                                FontFamily="Cabri"
-                                Margin="0,300,30,0"
-                                Foreground="Black"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Right"
-                            />
+                    Text="$1.620.000"
+                    FontSize="30"
+                    FontFamily="Cabri"
+                    Margin="0,200,30,0"
+                    Foreground="Black"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                />
                 <TextBlock 
                                 FontSize="30"
                                 FontFamily="Arial"
