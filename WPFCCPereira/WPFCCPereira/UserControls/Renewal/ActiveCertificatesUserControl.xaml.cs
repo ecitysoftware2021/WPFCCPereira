@@ -30,19 +30,11 @@ namespace WPFCCPereira.UserControls.Renewal
             InitializeComponent();
 
             this.transaction = ts;
-            var data = (DataListViewModel)this.transaction.File;
-            foreach (var item in data.DataList)
-            {
-                    DateTime dtm;
-                    DateTime.TryParseExact((item.Data as Noun).fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-                    (item.Data as Noun).fecharenovacion = dtm.ToString("MMMM dd, yyyy");
-            }
-
+           
             this.viewModel = new DataListViewModel();
 
             this.viewModel.ViewList = new CollectionViewSource();
 
-            //this.DataContext = viewModel;
             lv_data_list.DataContext = viewModel.ViewList;
 
             ConfigureViewList();
@@ -54,6 +46,8 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
+                
+
                 viewModel.ViewList.Source = (transaction.File as DataListViewModel).DataList;
                 viewModel.ViewList.View.Refresh();
                 lv_data_list.Items.Refresh();
