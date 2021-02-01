@@ -56,7 +56,8 @@ namespace WPFCCPereira.Classes
         Certificates,
         PrintFile,
         Menu,
-        ActiveCertificate
+        ActiveCertificate,
+        Consult2
     }
 
     public enum ETransactionState
@@ -92,7 +93,8 @@ namespace WPFCCPereira.Classes
         Id = 2,
         Name = 1,
         Settled = 3,
-        Receipt = 4
+        Receipt = 4,
+        Matricula = 5
     }
 
     public enum EtypeOperation

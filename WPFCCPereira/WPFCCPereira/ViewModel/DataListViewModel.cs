@@ -424,7 +424,6 @@ namespace WPFCCPereira.ViewModel
         }
         #endregion
 
-
         public async Task<object> ConsultConcidences(string reference, EtypeConsult type)
         {
             try

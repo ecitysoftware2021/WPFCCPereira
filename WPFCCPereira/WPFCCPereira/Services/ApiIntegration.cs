@@ -10,6 +10,7 @@ using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
+using WPFCCPereira.Services.ObjectIntegration;
 
 namespace WPFCCPereira.Services
 {
@@ -68,7 +69,7 @@ namespace WPFCCPereira.Services
 
                 if (result != null)
                 {
-                    var requestresponse = JsonConvert.DeserializeObject<Response>(result);
+                    var requestresponse = JsonConvert.DeserializeObject<Object.Response>(result);
 
                     if (requestresponse != null && !string.IsNullOrEmpty(requestresponse.token))
                     {
@@ -225,7 +226,7 @@ namespace WPFCCPereira.Services
 
                 if (response != null)
                 {
-                    var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
+                    var requestresponse = JsonConvert.DeserializeObject<Object.Response>(response.ToString());
 
                     if (requestresponse != null && requestresponse.codigoerror == "0000")
                     {
@@ -266,7 +267,7 @@ namespace WPFCCPereira.Services
 
                 if (response != null)
                 {
-                    var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
+                    var requestresponse = JsonConvert.DeserializeObject<Object.Response>(response.ToString());
 
                     if (requestresponse != null && requestresponse.codigoerror == "0000" && requestresponse.expedientes != null)
                     {
@@ -327,7 +328,7 @@ namespace WPFCCPereira.Services
 
                     if (response != null)
                     {
-                        var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
+                        var requestresponse = JsonConvert.DeserializeObject<Object.Response>(response.ToString());
 
                         if (requestresponse != null && !string.IsNullOrEmpty(requestresponse.idliquidacion) && !string.IsNullOrEmpty(requestresponse.numerorecuperacion))
                         {
@@ -375,7 +376,7 @@ namespace WPFCCPereira.Services
 
                 if (response != null)
                 {
-                    var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
+                    var requestresponse = JsonConvert.DeserializeObject<Object.Response>(response.ToString());
 
                     if (requestresponse != null && requestresponse.certificados.Count > 0)
                     {
@@ -455,7 +456,39 @@ namespace WPFCCPereira.Services
         }
 
         //BEGIN RENOVACION 
+        public async Task<ResponseIntegration> ConsultarExpedienteMercantil(string reference, EtypeConsult etype)
+        {
+            try
+            {
+                RequestFileMercantil request = new RequestFileMercantil
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    identificacion = etype == EtypeConsult.Id ? reference : string.Empty,
+                    matricula = etype == EtypeConsult.Matricula ? reference : string.Empty,
+                    tipo = "T"
+                };
 
+                var response = await GetData(request, "ConsultFileMercantil");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<ResponseIntegration>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
         //END RENOVACION 
     }
 }

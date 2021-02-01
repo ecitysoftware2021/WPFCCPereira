@@ -24,11 +24,17 @@ namespace WPFCCPereira.UserControls
                 var tag = int.Parse(((Button)sender).Tag.ToString());
                 if (tag > 0 )
                 {
-                    Utilities.navigator.Navigate(UserControlView.Consult, true,
-                        tag == (int)ETransactionType.PaymentFile ?
-                        ETransactionType.PaymentFile : tag == (int)ETransactionType.ConsultName ?
-                        ETransactionType.ConsultName : tag == (int)ETransactionType.ConsultTransact ?
-                        ETransactionType.ConsultTransact : ETransactionType.Renovacion);
+                    if (tag == (int)ETransactionType.Renovacion)
+                    {
+                        Utilities.navigator.Navigate(UserControlView.Consult2, true, tag);
+                    }
+                    else
+                    {
+                        Utilities.navigator.Navigate(UserControlView.Consult, true,
+                            tag == (int)ETransactionType.PaymentFile ?
+                            ETransactionType.PaymentFile : tag == (int)ETransactionType.ConsultName ?
+                            ETransactionType.ConsultName : ETransactionType.ConsultTransact);
+                    }
                 }
             }
             catch (Exception ex)

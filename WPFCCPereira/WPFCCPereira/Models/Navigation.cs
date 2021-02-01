@@ -7,7 +7,6 @@ using WPFCCPereira.Classes;
 using WPFCCPereira.Services.Object;
 using WPFCCPereira.UserControls;
 using WPFCCPereira.UserControls.Administrator;
-using WPFCCPereira.UserControls.Renewal;
 
 namespace WPFCCPereira.Models
 {
@@ -44,6 +43,14 @@ namespace WPFCCPereira.Models
                     case UserControlView.Consult:
                         View = new ConsultUserControl((ETransactionType)data);
                         break;
+                        //BEGIN RENOVACION//
+                    case UserControlView.Consult2:
+                        View = new UserControls.Renewal.ConsultUserControl((ETransactionType)data);
+                        break;
+                    case UserControlView.ActiveCertificate:
+                        View = new UserControls.Renewal.ActiveCertificatesUserControl((Transaction)data);
+                        break;
+                        //END RENOVACION//
                     case UserControlView.PaySuccess:
                         View = new SussesUserControl((Transaction)data);
                         break;
@@ -52,9 +59,6 @@ namespace WPFCCPereira.Models
                         break;
                     case UserControlView.ReturnMony:
                         View = new ReturnMonyUserControl((Transaction)data);
-                        break;
-                    case UserControlView.ActiveCertificate:
-                        View = new ActiveCertificatesUserControl((Transaction)data);
                         break;
                     case UserControlView.Login:
                         View = new LoginAdministratorUserControl((ETypeAdministrator)data);

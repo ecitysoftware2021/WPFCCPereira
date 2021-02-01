@@ -171,6 +171,8 @@
       <DependentUpon>ImagesUrlResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ApiIntegration.cs" />
+    <Compile Include="Services\ObjectIntegration\RequestIntegration.cs" />
+    <Compile Include="Services\ObjectIntegration\ResponseIntegration.cs" />
     <Compile Include="Services\Object\DataPayPlus.cs" />
     <Compile Include="Services\Object\Log.cs" />
     <Compile Include="Services\Object\Response.cs" />
@@ -208,6 +210,9 @@
     </Compile>
     <Compile Include="UserControls\Renewal\ActiveCertificatesUserControl.xaml.cs">
       <DependentUpon>ActiveCertificatesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\ConsultUserControl.xaml.cs">
+      <DependentUpon>ConsultUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Renewal\MenuFormsUserControl.xaml.cs">
       <DependentUpon>MenuFormsUserControl.xaml</DependentUpon>
@@ -420,6 +425,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Renewal\ConsultUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Renewal\MenuFormsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -460,10 +469,6 @@
     <Resource Include="Images\Publish\publish1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Others\rbtn-id2.png" />
-    <Resource Include="Images\Others\rbtn-name2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Backgrounds\bg-consult2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -482,6 +487,10 @@
   <ItemGroup>
     <Resource Include="Images\Backgrounds\avisoDiligenciar.png" />
     <Resource Include="Images\Backgrounds\opcionesMatricula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Others\rbtn-checkId.png" />
+    <Resource Include="Images\Others\rbtn-checkMatricula.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />
