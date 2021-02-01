@@ -59,10 +59,10 @@
                     HorizontalAlignment="Left" Background="{x:Null}"
                     >
                     <Run FontSize="25" Text="Matrícula:"/>
-                    <Run FontWeight="Bold" Text="{Binding Data.matricula}"/>
+                    <Run FontWeight="Bold" Text="{Binding matricula}"/>
                 </TextBlock>
                 <TextBlock 
-                    Text="{Binding Data.nombre}"
+                    Text="{Binding nombre}"
                     FontSize="40"                                                                                                                                                                                                                   
                     FontFamily="Gotham"
                     Margin="30,80,0,0"
@@ -83,7 +83,7 @@
                     HorizontalAlignment="Left"
                 />
                 <TextBlock 
-                    Text="{Binding Data.organizaciontextual}"
+                    Text="{Binding organizacion}"
                     FontSize="30"
                     FontFamily="Arial"
                     Margin="0,140,30,0"
@@ -103,7 +103,7 @@
                     HorizontalAlignment="Left"
                 />
                 <TextBlock 
-                    Text="{Binding Data.ultanorenovado}"
+                    Text="{Binding ultanorenovado}"
                     FontWeight="Bold"
                     FontSize="30"
                     FontFamily="Arial"
@@ -124,7 +124,7 @@
                     HorizontalAlignment="Left"
                 />
                 <TextBlock
-                    Text="{Binding Data.fecharenovacion}"
+                    Text="{Binding fecharenovacion}"
                     FontSize="30"
                     FontFamily="Cabri"
                     Margin="0,245,30,0"
@@ -144,7 +144,7 @@
                     HorizontalAlignment="Left"
                     />
                 <TextBlock 
-                    Text="$1.620.000"
+                    Text="{Binding activos, StringFormat={}{0:C0}}"
                     FontSize="30"
                     FontFamily="Cabri"
                     Margin="0,200,30,0"
@@ -153,93 +153,92 @@
                     HorizontalAlignment="Right"
                 />
                 <TextBlock 
-                                FontSize="30"
-                                FontFamily="Arial"
-                                Margin="30,0,0,0"
-                                Foreground="#FF78AD3C"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left">
-                                <Run FontWeight="SemiBold" Text="Nuevos Activos"/>
-                                <Run Text="por año pendientes"/>
+                    FontSize="30"
+                    FontFamily="Arial"
+                    Margin="30,0,0,0"
+                    Foreground="#FF78AD3C"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left">
+                    <Run FontWeight="SemiBold" Text="Nuevos Activos"/>
+                    <Run Text="por año pendientes"/>
                 </TextBlock>
                 <TextBlock 
-                                Text="2020"
-                                FontWeight="Bold"
-                                FontSize="35"
-                                FontFamily="Arial"
-                                Margin="30,160,0,0"
-                                Foreground="#FF78AD3C"
-                                Height="60"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                             />
+                    Text="2020"
+                    FontWeight="Bold"
+                    FontSize="35"
+                    FontFamily="Arial"
+                    Margin="30,160,0,0"
+                    Foreground="#FF78AD3C"
+                    Height="60"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                />
                 <TextBox 
-                                md:HintAssist.Hint="Nuevos Activos"
-                                md:HintAssist.IsFloating="True"
-                                md:HintAssist.FloatingScale="0.3"
-                                Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                                FontSize="40"
-                                FontFamily="Cabri"
-                                Margin="0,190,60,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                TextChanged="NuevosActivos_TextChanged"
-                                TouchDown="NuevosActivos_TouchDown"
-                            />
+                    md:HintAssist.Hint="Nuevos Activos"
+                    md:HintAssist.IsFloating="True"
+                    md:HintAssist.FloatingScale="0.3"
+                    Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                    FontSize="40"
+                    FontFamily="Cabri"
+                    Margin="0,190,60,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    TextChanged="NuevosActivos_TextChanged"
+                    TouchDown="NuevosActivos_TouchDown"
+                />
                 <TextBlock
-                                HorizontalAlignment="Center" 
-                                VerticalAlignment="Center" 
-                                TextAlignment="Center"
-                                Text="Nuevos activos es requerido" 
-                                Foreground="Red" 
-                                FontSize="20" 
-                                FontFamily="Arial"
-                                Margin="0,330,190,0"
-                            />
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    TextAlignment="Center"
+                    Text="Nuevos activos es requerido" 
+                    Foreground="Red" 
+                    FontSize="20" 
+                    FontFamily="Arial"
+                    Margin="0,330,190,0"
+                />
                 <TextBlock 
-                                Text="Personal a nivel nacional:"
-                                FontSize="25"
-                                FontFamily="Arial"
-                                Margin="30,0,0,150"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Left"
-                             />
+                    Text="Personal a nivel nacional:"
+                    FontSize="25"
+                    FontFamily="Arial"
+                    Margin="30,0,0,150"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                />
                 <TextBox 
-                                md:HintAssist.Hint="Número Empleados"
-                                md:HintAssist.IsFloating="True"
-                                md:HintAssist.FloatingScale="0.3"
-                                FontSize="40"
-                                FontFamily="Cabri"
-                                Margin="0,450,60,0"
-                                Foreground="Black"
-                                Height="60"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                TextChanged="NumEmpleados_TextChanged"
-                                TouchDown="NumEmpleados_TouchDown"
-                            />
-                <TextBlock
-                                HorizontalAlignment="Center" 
-                                VerticalAlignment="Bottom" 
-                                TextAlignment="Center"
-                                Text="Número empleados es requerido" 
-                                Foreground="Red" 
-                                FontSize="20" 
-                                FontFamily="Arial"
-                                Margin="340,0,0,96"
-                            />
-            <Image 
-                                Source="/Images/Buttons/btn-continue.png"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Bottom"
-                                Width="250"
-                                Margin="30,0,0,20"
-                            />
-            
+                    md:HintAssist.Hint="Número Empleados"
+                    md:HintAssist.IsFloating="True"
+                    md:HintAssist.FloatingScale="0.3"
+                    FontSize="40"
+                    FontFamily="Cabri"
+                    Margin="0,450,60,0"
+                    Foreground="Black"
+                    Height="60"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    TextChanged="NumEmpleados_TextChanged"
+                    TouchDown="NumEmpleados_TouchDown"
+                />
+                 <TextBlock
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    TextAlignment="Center"
+                    Text="Número empleados es requerido" 
+                    Foreground="Red" 
+                    FontSize="20" 
+                    FontFamily="Arial"
+                    Margin="340,0,0,96"
+                />
+                <Image 
+                    Source="/Images/Buttons/btn-continue.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="250"
+                    Margin="30,0,0,20"
+                />
             
             <ListView x:Name="lv_data_list" 
                     Margin="0,20,0,0"

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using WPFCCPereira.Classes;
 using WPFCCPereira.DataModel;
 using WPFCCPereira.Services.Object;
+using WPFCCPereira.Services.ObjectIntegration;
 using WPFCCPereira.ViewModel;
 
 namespace WPFCCPereira.Models
@@ -16,6 +17,10 @@ namespace WPFCCPereira.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
+
+        //BEING RENOVACION
+        public ResponseIntegration ExpedientesMercantil { get; set; }
+        //END RENOVACION
 
         public string consecutive { get; set; }
 

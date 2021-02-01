@@ -35,7 +35,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.viewModel.ViewList = new CollectionViewSource();
 
-            lv_data_list.DataContext = viewModel.ViewList;
+            this.DataContext = ts.ExpedientesMercantil;
 
             //ConfigureViewList();
         }
@@ -49,6 +49,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 viewModel.ViewList.Source = (transaction.File as DataListViewModel).DataList;
                 viewModel.ViewList.View.Refresh();
                 lv_data_list.Items.Refresh();
+                lv_data_list.DataContext = viewModel.ViewList;
             }
             catch (Exception ex)
             {

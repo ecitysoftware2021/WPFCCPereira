@@ -127,7 +127,8 @@ namespace WPFCCPereira.UserControls.Renewal
                             {
                                 File = viewModel,
                                 State = ETransactionState.Initial,
-                                Type = viewModel.TypeTransaction
+                                Type = viewModel.TypeTransaction,
+                                ExpedientesMercantil = response
                             });
                         }
                         else
