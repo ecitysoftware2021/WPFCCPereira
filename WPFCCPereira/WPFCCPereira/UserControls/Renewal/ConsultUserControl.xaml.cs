@@ -99,49 +99,31 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 Task.Run(async () =>
                 {
-                    var token = await AdminPayPlus.ApiIntegration.SecurityToken();
+                    reference = "18130990";
+                    var response = await AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
 
-                    if (!token)
+                    Utilities.CloseModal();
+
+                    if (response != null)
+                    {
+                        Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, new Transaction
+                        {
+                            File = viewModel,
+                            State = ETransactionState.Initial,
+                            Type = viewModel.TypeTransaction,
+                            ExpedientesMercantil = response
+                        });
+                    }
+                    else
                     {
                         Application.Current.Dispatcher.Invoke(delegate
                         {
                             txtReferencia.Text = string.Empty;
                         });
 
-                        Utilities.CloseModal();
-
-                        Utilities.ShowModal("No hay comunicación con el servicio. Por favor intenta de nuevo.", EModalType.Error);
+                        Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
 
                         TimerService.Reset();
-                    }
-                    else
-                    {
-                        reference = "18130990";
-                        var response = await AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
-
-                        Utilities.CloseModal();
-
-                        if (response != null)
-                        {
-                            Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, new Transaction
-                            {
-                                File = viewModel,
-                                State = ETransactionState.Initial,
-                                Type = viewModel.TypeTransaction,
-                                ExpedientesMercantil = response
-                            });
-                        }
-                        else
-                        {
-                            Application.Current.Dispatcher.Invoke(delegate
-                            {
-                                txtReferencia.Text = string.Empty;
-                            });
-
-                            Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
-
-                            TimerService.Reset();
-                        }
                     }
                 });
 
