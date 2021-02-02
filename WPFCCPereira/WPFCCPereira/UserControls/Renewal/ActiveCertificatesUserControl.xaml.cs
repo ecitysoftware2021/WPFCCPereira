@@ -107,6 +107,8 @@ namespace WPFCCPereira.UserControls.Renewal
                             return false;
                         }
                     }
+                    
+                    lv_data_list.Items.Refresh();
                 }
 
                 return true;
@@ -150,7 +152,7 @@ namespace WPFCCPereira.UserControls.Renewal
                     text.Text = text.Text.Remove(text.Text.Length - 1);
                 }
 
-                //lblErrorIdentification.Content = string.Empty;
+                txtErrorActivos.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -174,12 +176,12 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 TextBox text = (TextBox)sender;
 
-                if (text.Text.Length > 4)
+                if (text.Text.Length > 6)
                 {
                     text.Text = text.Text.Remove(text.Text.Length - 1);
                 }
 
-                //lblErrorIdentification.Content = string.Empty;
+                txtErrorEmpleados.Text = string.Empty;
             }
             catch (Exception ex)
             {
