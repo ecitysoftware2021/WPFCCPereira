@@ -39,8 +39,6 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.listEstablecimientos = new List<ListEstablecimientos>();
 
-            this.DataContext = ts.ExpedientesMercantil;
-
             ConfigureViewList();
         }
         #endregion
@@ -52,9 +50,18 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 grvEstablecimientos.Visibility = System.Windows.Visibility.Hidden;
 
+                if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
+                {
+                    transaction.ExpedientesMercantil.anoporrenovar = transaction.ExpedientesMercantil.ultanorenovado + 1;
+                }
+
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
                 {
-                    listEstablecimientos.Add(item);
+                    if ((item.ultanorenovado + 1) == DateTime.Now.Year)
+                    {
+                        item.anoporrenovar = item.ultanorenovado + 1;
+                        listEstablecimientos.Add(item);
+                    }
                 }
 
                 if (listEstablecimientos.Count > 0)
@@ -65,16 +72,54 @@ namespace WPFCCPereira.UserControls.Renewal
                     lv_data_list.Items.Refresh();
                     lv_data_list.DataContext = viewModel.ViewList;
                 }
+
+                this.DataContext = transaction.ExpedientesMercantil;
             }
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+
+        private bool Validate()
+        {
+            try
+            {
+                if (txtNewAssets.Text == string.Empty)
+                {
+                    txtErrorActivos.Text = "Nuevos activos es requerido";
+                    return false;
+                }
+
+                if (txtCantEmployees.Text == string.Empty)
+                {
+                    txtErrorEmpleados.Text = "Número empleados es requerido";
+                    return false;
+                }
+
+                if (listEstablecimientos.Count > 0)
+                {
+                    foreach (var item in listEstablecimientos)
+                    {
+                        if (txtNewAssets.Text == string.Empty || txtCantEmployees.Text == string.Empty)
+                        {
+
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+                return false;
+            }
+        }
         #endregion
 
         #region "Eventos"
-
         private void Grid_TouchDown(object sender, TouchEventArgs e)
         {
             if (((Grid)sender).Tag != null)
@@ -139,6 +184,14 @@ namespace WPFCCPereira.UserControls.Renewal
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+
+        private void btnNext_TouchDown(object sender, TouchEventArgs e)
+        {
+            if (Validate())
+            {
+
             }
         }
         #endregion

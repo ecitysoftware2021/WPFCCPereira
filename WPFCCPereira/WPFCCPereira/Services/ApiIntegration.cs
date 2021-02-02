@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
@@ -460,6 +461,7 @@ namespace WPFCCPereira.Services
         {
             try
             {
+                Thread.Sleep(3000);
                 //RequestFileMercantil request = new RequestFileMercantil
                 //{
                 //    codigoempresa = code,

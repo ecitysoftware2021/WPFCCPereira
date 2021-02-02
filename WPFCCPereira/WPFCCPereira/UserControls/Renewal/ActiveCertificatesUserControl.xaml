@@ -164,7 +164,7 @@
                     <Run Text="por años pendientes"/>
                 </TextBlock>
                 <TextBlock 
-                    Text="2020"
+                    Text="{Binding anoporrenovar}"
                     FontWeight="Bold"
                     FontSize="30"
                     FontFamily="Arial"
@@ -175,6 +175,7 @@
                     HorizontalAlignment="Left"
                 />
                 <TextBox 
+                    Name="txtNewAssets"
                     md:HintAssist.Hint="Nuevos Activos"
                     md:HintAssist.IsFloating="True"
                     md:HintAssist.FloatingScale="0.3"
@@ -190,10 +191,11 @@
                     TouchDown="NuevosActivos_TouchDown"
                 />
                 <TextBlock
+                    Name="txtErrorActivos"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center" 
                     TextAlignment="Center"
-                    Text="Nuevos activos es requerido" 
+                    Text="" 
                     Foreground="Red" 
                     FontSize="15" 
                     FontFamily="Arial"
@@ -210,6 +212,7 @@
                     HorizontalAlignment="Left"
                 />
                 <TextBox 
+                    x:Name="txtCantEmployees"
                     md:HintAssist.Hint="Número Empleados"
                     md:HintAssist.IsFloating="True"
                     md:HintAssist.FloatingScale="0.3"
@@ -224,35 +227,28 @@
                     TouchDown="NumEmpleados_TouchDown"
                 />
                  <TextBlock
+                    Name="txtErrorEmpleados"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom" 
                     TextAlignment="Center"
-                    Text="Número empleados es requerido" 
+                    Text="" 
                     Foreground="Red" 
                     FontSize="15" 
                     FontFamily="Arial"
                     Margin="270,0,0,85"
                 />
                 <Image 
+                    x:Name="btnNext"
                     Source="/Images/Buttons/btn-continue.png"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     Width="250"
                     Margin="30,0,0,10"
+                    TouchDown="btnNext_TouchDown"
                 />
         </Grid>
 
         <Grid Name="grvEstablecimientos" Grid.Row="3">
-            <TextBlock 
-                Text="Establecimientos"
-                FontSize="25"
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-                Foreground="Black"
-                Height="60"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Center"
-            />
             <ListView 
                 x:Name="lv_data_list" 
                 Margin="0,50,0,0"
@@ -396,7 +392,7 @@
                                 <Run Text="por años pendientes"/>
                             </TextBlock>
                             <TextBlock 
-                                Text="2020"
+                                Text="{Binding anoporrenovar}"
                                 FontWeight="Bold"
                                 FontSize="30"
                                 FontFamily="Arial"

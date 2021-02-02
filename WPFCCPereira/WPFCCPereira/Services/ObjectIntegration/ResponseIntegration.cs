@@ -26,7 +26,8 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string estado { get; set; }
         public string fechamatricula { get; set; }
         public string fecharenovacion { get; set; }
-        public string ultanorenovado { get; set; }
+        public int ultanorenovado { get; set; }
+        public int anoporrenovar { get; set; }
         public string fechacancelacion { get; set; }
         public string dircom { get; set; }
         public string muncom { get; set; }
@@ -107,7 +108,8 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string categoria { get; set; }
         public string matricula { get; set; }
         public string nombre { get; set; }
-        public string ultanorenovado { get; set; }
+        public int ultanorenovado { get; set; }
+        public int anoporrenovar { get; set; }
         public string fechamatricula { get; set; }
         public string fecharenovacion { get; set; }
         public string valorestablecimiento { get; set; }
