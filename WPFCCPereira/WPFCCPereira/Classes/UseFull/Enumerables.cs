@@ -57,7 +57,8 @@ namespace WPFCCPereira.Classes
         PrintFile,
         Menu,
         ActiveCertificate,
-        Consult2
+        ConsultRenovacion,
+        LoginUser
     }
 
     public enum ETransactionState

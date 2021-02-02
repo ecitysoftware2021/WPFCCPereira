@@ -298,6 +298,10 @@ C:\Users\ASUS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 C:\Users\ASUS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.exe.manifest
 C:\Users\ASUS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.application
 C:\Users\ASUS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csproj.CopyComplete
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.g.resources
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.pdb
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ConsultUserControl.g.cs
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ConsultUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPFCCPereira.exe.config
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPFCCPereira.exe.manifest
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPFCCPereira.application
@@ -312,6 +316,7 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\System.Data.SQLite.dll
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WpfAnimatedGif.dll
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPKeyboard.dll
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\Dapper.xml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\EntityFramework.xml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\EntityFramework.SqlServer.xml
@@ -323,7 +328,7 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\System.Data.SQLite.xml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WpfAnimatedGif.xml
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csprojAssemblyReference.cache
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPKeyboard.pdb
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\AdministratorUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\ConfigurateUserControl.g.cs
@@ -337,6 +342,9 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\PrintFileUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ActiveCertificatesUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ConsultUserControl.g.cs
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ListEstablecimientosUserControl.g.cs
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\LocationAndDataGenericUserControl.g.cs
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\LoginUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\MenuFormsUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\ReturnMonyUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\ConsultUserControl.g.cs
@@ -362,6 +370,9 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\PrintFileUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ActiveCertificatesUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ConsultUserControl.baml
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ListEstablecimientosUserControl.baml
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\LocationAndDataGenericUserControl.baml
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\LoginUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\MenuFormsUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\ReturnMonyUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\ConsultUserControl.baml
@@ -370,7 +381,6 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\SussesUserControl.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\Windows\MasterWindow.baml
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\Windows\ModalWindow.baml
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.g.resources
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.Properties.Resources.resources
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.Resources.CommonResource.resources
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.Resources.ConstantsResource.resources
@@ -382,6 +392,3 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.application
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csproj.CopyComplete
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.exe
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.pdb
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ConsultUserControl.g.cs
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\ConsultUserControl.baml

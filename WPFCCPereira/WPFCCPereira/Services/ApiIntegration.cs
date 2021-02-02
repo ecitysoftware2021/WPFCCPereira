@@ -456,6 +456,37 @@ namespace WPFCCPereira.Services
         }
 
         //BEGIN RENOVACION 
+        public async Task<string> LoginUser(string id, string email, string password)
+        {
+            try
+            {
+                //RequestFileMercantil request = new RequestFileMercantil
+                //{
+                //    codigoempresa = code,
+                //    usuariows = user,
+                //    token = token,
+                //    identificacion = etype == EtypeConsult.Id ? reference : string.Empty,
+                //    matricula = etype == EtypeConsult.Matricula ? reference : string.Empty,
+                //    tipo = "T"
+                //};
+
+                //var response = await GetData(request, "ConsultFileMercantil");
+
+                //if (response != null)
+                //{
+                //    var requestresponse = JsonConvert.DeserializeObject<ResponseIntegration>(response.ToString());
+
+                //    return requestresponse;
+                //}
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return string.Empty;
+        }
+
         public async Task<ResponseIntegration> ConsultarExpedienteMercantil(string reference, EtypeConsult etype)
         {
             try

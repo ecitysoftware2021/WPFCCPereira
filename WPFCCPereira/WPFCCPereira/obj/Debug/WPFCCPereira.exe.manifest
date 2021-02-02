@@ -150,26 +150,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="3636696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="3672536">
       <assemblyIdentity name="WPFCCPereira" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jlQDE1380TTut69kzlwmMHB38E6/fE5+jX5IdDIPezc=</dsig:DigestValue>
+        <dsig:DigestValue>/iBcFDU691/wekmk/Q/X+/BIc6v8409c1RM60bSCgPY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPKeyboard.dll" size="96768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPKeyboard.dll" size="97792">
       <assemblyIdentity name="WPKeyboard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZrXp2i0wLmZinnwDZvIWYK9PGNbDvzBVV+idAaT8gSc=</dsig:DigestValue>
+        <dsig:DigestValue>+yMatIIqfdeq3R+KxrjsR7ZS39p4F3dObLwkGpUrFqc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

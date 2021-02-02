@@ -118,7 +118,7 @@
 
         <Grid Grid.Row="3" >
             <Image x:Name="btnConsult"
-                   Source="/Images/Buttons/btn-acept.png"
+                   Source="/Images/Buttons/btn-continue.png"
                    Stretch="None"
                    Width="320"
                    Height="110"
