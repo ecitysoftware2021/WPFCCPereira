@@ -43,7 +43,7 @@
             />
             <TextBlock 
                 HorizontalAlignment="Center"
-                Text="Identificaci[on"
+                Text="Identificación"
                 Margin="0,0,0,460" 
                 TextAlignment="Center"
                 VerticalAlignment="Center" 
@@ -126,7 +126,7 @@
                 HorizontalAlignment="Center"
                 Margin="0,0,0,40" 
                 VerticalAlignment="Bottom" 
-                Width="500"
+                Width="700"
                 TextWrapping="Wrap"
                 FontSize="40"
                 Height="120"

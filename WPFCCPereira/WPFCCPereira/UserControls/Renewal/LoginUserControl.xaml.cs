@@ -48,25 +48,25 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 if (txtId.Text == string.Empty || txtEmail.Text == string.Empty || txtPassword.Password == string.Empty)
                 {
-                    txtError.Text = "¡Mensaje de información!: Debe ingresar todos los campos.";
+                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar todos los campos.");
                     return false;
                 }
                 else 
                 if (txtId.Text.Length < 5)
                 {
-                    txtError.Text = "¡Mensaje de información!: Debe ingresar una identificación valida.";
+                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar una identificación valida.");
                     return false;
                 }
                 else 
                 if (!Utilities.IsValidEmailAddress(txtEmail.Text))
                 {
-                    txtError.Text = "¡Mensaje de información!: Debe ingresar un correo electrónico valido.";
+                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar un correo electrónico valido.");
                     return false;
                 }
                 else 
                 if (txtPassword.Password.Length < 3)
                 {
-                    txtError.Text = "¡Mensaje de información!: Debe ingresar una contraseña valida.";
+                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar una contraseña valida.");
                     return false;
                 }
 
