@@ -101,14 +101,14 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     foreach (var item in listEstablecimientos)
                     {
-                        if (item.numempleados == string.Empty || txtCantEmployees.Text == string.Empty)
+                        if (string.IsNullOrEmpty(item.numempleados))
                         {
-
+                            item.mserrorempleados = "Número empleados es requerido";
+                            lv_data_list.Items.Refresh();
                             return false;
                         }
+                        
                     }
-                    
-                    lv_data_list.Items.Refresh();
                 }
 
                 return true;
@@ -199,6 +199,8 @@ namespace WPFCCPereira.UserControls.Renewal
                     var service = text.DataContext as ListEstablecimientos;
 
                     service.mserrorempleados = string.Empty;
+
+                    lv_data_list.Items.Refresh();
                 }
             }
             catch (Exception ex)
