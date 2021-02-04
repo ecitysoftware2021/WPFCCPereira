@@ -105,6 +105,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
     public class ListEstablecimientos
     {
+        public string numempleados { get; set; }
+        public string mserroractivos { get; set; }
+        public string mserrorempleados { get; set; }
         public string categoria { get; set; }
         public string matricula { get; set; }
         public string nombre { get; set; }

@@ -101,7 +101,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     foreach (var item in listEstablecimientos)
                     {
-                        if (txtNewAssets.Text == string.Empty || txtCantEmployees.Text == string.Empty)
+                        if (item.numempleados == string.Empty || txtCantEmployees.Text == string.Empty)
                         {
 
                             return false;
@@ -152,7 +152,16 @@ namespace WPFCCPereira.UserControls.Renewal
                     text.Text = text.Text.Remove(text.Text.Length - 1);
                 }
 
-                txtErrorActivos.Text = string.Empty;
+                if (text.Tag.ToString() == "0")
+                {
+                    txtErrorActivos.Text = string.Empty;
+                }
+                else
+                {
+                    var service = text.DataContext as ListEstablecimientos;
+
+                    service.mserroractivos = string.Empty;
+                }
             }
             catch (Exception ex)
             {
@@ -181,7 +190,16 @@ namespace WPFCCPereira.UserControls.Renewal
                     text.Text = text.Text.Remove(text.Text.Length - 1);
                 }
 
-                txtErrorEmpleados.Text = string.Empty;
+                if (text.Tag.ToString() == "0")
+                {
+                    txtErrorEmpleados.Text = string.Empty;
+                }
+                else
+                {
+                    var service = text.DataContext as ListEstablecimientos;
+
+                    service.mserrorempleados = string.Empty;
+                }
             }
             catch (Exception ex)
             {
