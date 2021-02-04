@@ -10,14 +10,14 @@
              Width="1080" >
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg"/>
+            <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
             <RowDefinition Height="150" />
-            <RowDefinition Height="200" />
-            <RowDefinition Height="620" />
-            <RowDefinition Height="620" />
+            <RowDefinition Height="700" />
+            <RowDefinition Height="700" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -48,206 +48,215 @@
 
         <Grid Grid.Row="2" Margin="100,50,100,0">
             <Grid.Background>
-                   <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/capture.png"/>
+                   <ImageBrush ImageSource="/Images/Backgrounds/bg-active.png" Stretch="Fill"/>
             </Grid.Background>
-                <TextBlock 
-                    FontSize="25"
-                    FontWeight="Light"
-                    FontFamily="Gotham"
-                    Margin="30,13,0,0"
-                    Foreground="White"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left" Background="{x:Null}"
-                    >
-                    <Run Text="Matrícula:"/>
-                    <Run FontWeight="Bold" Text="{Binding matricula}"/>
-                </TextBlock>
-                <TextBlock 
-                    Text="{Binding nombre}"
-                    FontSize="35"                                                                                                                                                                                                                   
-                    FontFamily="Gotham"
-                    Margin="30,53,0,0"
-                    Foreground="Black"
-                    FontWeight="SemiBold"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
+            <!--<Image 
+                Source="/Images/backgrounds/bg-active.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Height="400"
+                Width="950"
+                Margin="0,0,0,0"
+                Stretch="Fill"
+            />-->
+            <TextBlock 
+                FontSize="25"
+                FontWeight="Light"
+                FontFamily="Gotham"
+                Margin="30,13,0,0"
+                Foreground="White"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left" Background="{x:Null}"
+                >
+                <Run Text="Matrícula:"/>
+                <Run FontWeight="Bold" Text="{Binding matricula}"/>
+            </TextBlock>
+            <TextBlock 
+                Text="{Binding nombre}"
+                FontSize="35"                                                                                                                                                                                                                   
+                FontFamily="Gotham"
+                Margin="30,53,0,0"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+            />
+            <TextBlock 
+                Text="Organización:"
+                FontSize="25"
+                FontFamily="Arial"
+                Margin="30,96,0,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+            />
+            <TextBlock 
+                Text="{Binding organizacion}"
+                FontSize="30"
+                FontFamily="Arial"
+                Margin="0,96,30,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+            />
+            <TextBlock 
+                Text="Último año renovado:"
+                FontSize="25"
+                FontFamily="Arial"
+                Margin="30,135,0,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+            />
+            <TextBlock 
+                Text="{Binding ultanorenovado}"
+                FontWeight="Bold"
+                FontSize="30"
+                FontFamily="Arial"
+                Margin="0,135,30,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+            />
+            <TextBlock 
+                Text="Última fecha renovación:"
+                FontSize="25"
+                FontFamily="Arial"
+                Margin="30,175,0,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+            />
+            <TextBlock
+                Text="{Binding fecharenovacion}"
+                FontSize="30"
+                FontFamily="Cabri"
+                Margin="0,175,30,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+            />
+            <TextBlock 
+                Text="Últimos activos reportados:"
+                FontSize="25"
+                FontFamily="Arial"
+                Margin="30,215,0,0"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
                 />
-                <TextBlock 
-                    Text="Organización:"
-                    FontSize="25"
-                    FontFamily="Arial"
-                    Margin="30,96,0,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                />
-                <TextBlock 
-                    Text="{Binding organizacion}"
-                    FontSize="30"
-                    FontFamily="Arial"
-                    Margin="0,96,30,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                />
-                <TextBlock 
-                    Text="Último año renovado:"
-                    FontSize="25"
-                    FontFamily="Arial"
-                    Margin="30,135,0,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                />
-                <TextBlock 
-                    Text="{Binding ultanorenovado}"
-                    FontWeight="Bold"
-                    FontSize="30"
-                    FontFamily="Arial"
-                    Margin="0,135,30,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                />
-                <TextBlock 
-                    Text="Última fecha renovación:"
-                    FontSize="25"
-                    FontFamily="Arial"
-                    Margin="30,175,0,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                />
-                <TextBlock
-                    Text="{Binding fecharenovacion}"
-                    FontSize="30"
-                    FontFamily="Cabri"
-                    Margin="0,175,30,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                />
-                <TextBlock 
-                    Text="Últimos activos reportados:"
-                    FontSize="25"
-                    FontFamily="Arial"
-                    Margin="30,215,0,0"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    />
-                <TextBlock 
-                    Text="{Binding activos, StringFormat={}{0:C0}}"
-                    FontSize="30"
-                    FontFamily="Cabri"
-                    Margin="0,212,30,0"
-                    Foreground="Black"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                />
-                <TextBlock 
-                    FontSize="30"
-                    FontFamily="Arial"
-                    Margin="30,0,0,0"
-                    Foreground="#FF78AD3C"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left">
-                    <Run FontWeight="SemiBold" Text="Nuevos activos"/>
-                    <Run Text="por años pendientes"/>
-                </TextBlock>
-                <TextBlock 
-                    Text="{Binding anoporrenovar}"
-                    FontWeight="Bold"
-                    FontSize="30"
-                    FontFamily="Arial"
-                    Margin="30,130,0,0"
-                    Foreground="#FF78AD3C"
-                    Height="60"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                />
-                <TextBox 
-                    Name="txtNewAssets"
-                    md:HintAssist.Hint="Nuevos Activos"
-                    md:HintAssist.IsFloating="True"
-                    md:HintAssist.FloatingScale="0.3"
-                    Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                    FontSize="25"
-                    FontFamily="Cabri"
-                    Margin="0,120,60,0"
-                    Foreground="Black"
-                    Height="60"
-                    Tag="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    TextChanged="NuevosActivos_TextChanged"
-                    TouchDown="NuevosActivos_TouchDown"
-                />
-                <TextBlock
-                    Name="txtErrorActivos"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" 
-                    TextAlignment="Center"
-                    Text="" 
-                    Foreground="Red" 
-                    FontSize="15" 
-                    FontFamily="Arial"
-                    Margin="0,190,190,0"
-                />
-                <TextBlock 
-                    Text="Personal a nivel nacional:"
-                    FontSize="25"
-                    FontFamily="Arial"
-                    Margin="30,0,0,100"
-                    Foreground="Black"
-                    Height="60"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left"
-                />
-                <TextBox 
-                    x:Name="txtCantEmployees"
-                    md:HintAssist.Hint="Número Empleados"
-                    md:HintAssist.IsFloating="True"
-                    md:HintAssist.FloatingScale="0.3"
-                    FontSize="25"
-                    FontFamily="Cabri"
-                    Margin="0,310,60,0"
-                    Text="{Binding numempleados}"
-                    Height="60"
-                    Tag="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    TextChanged="NumEmpleados_TextChanged"
-                    TouchDown="NumEmpleados_TouchDown"
-                />
-                 <TextBlock
-                    Name="txtErrorEmpleados"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Bottom" 
-                    TextAlignment="Center"
-                    Text="" 
-                    Foreground="Red" 
-                    FontSize="15" 
-                    FontFamily="Arial"
-                    Margin="270,0,0,85"
-                />
-                <Image 
-                    x:Name="btnNext"
-                    Source="/Images/Buttons/btn-continue.png"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Width="250"
-                    Margin="30,0,0,10"
-                    TouchDown="btnNext_TouchDown"
-                />
+            <TextBlock 
+                Text="{Binding activos, StringFormat={}{0:C0}}"
+                FontSize="30"
+                FontFamily="Cabri"
+                Margin="0,212,30,0"
+                Foreground="Black"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+            />
+            <TextBlock 
+                FontSize="30"
+                FontFamily="Arial"
+                Margin="30,0,0,0"
+                Foreground="#FF78AD3C"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left">
+                <Run FontWeight="SemiBold" Text="Nuevos activos"/>
+                <Run Text="por años pendientes"/>
+            </TextBlock>
+            <TextBlock 
+                Text="{Binding anoporrenovar}"
+                FontWeight="Bold"
+                FontSize="30"
+                FontFamily="Arial"
+                Margin="30,130,0,0"
+                Foreground="#FF78AD3C"
+                Height="60"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+            />
+            <TextBox 
+                Name="txtNewAssets"
+                md:HintAssist.Hint="Nuevos Activos"
+                md:HintAssist.IsFloating="True"
+                md:HintAssist.FloatingScale="0.3"
+                Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="25"
+                FontFamily="Cabri"
+                Margin="0,120,60,0"
+                Foreground="Black"
+                Height="60"
+                Tag="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                TextChanged="NuevosActivos_TextChanged"
+                TouchDown="NuevosActivos_TouchDown"
+            />
+            <TextBlock
+                Name="txtErrorActivos"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                TextAlignment="Center"
+                Text="" 
+                Foreground="Red" 
+                FontSize="15" 
+                FontFamily="Arial"
+                Margin="0,190,190,0"
+            />
+            <TextBlock 
+                Text="Personal a nivel nacional:"
+                FontSize="25"
+                FontFamily="Arial"
+                Margin="30,0,0,100"
+                Foreground="Black"
+                Height="60"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+            />
+            <TextBox 
+                x:Name="txtCantEmployees"
+                md:HintAssist.Hint="Número Empleados"
+                md:HintAssist.IsFloating="True"
+                md:HintAssist.FloatingScale="0.3"
+                FontSize="25"
+                FontFamily="Cabri"
+                Margin="0,310,60,0"
+                Text="{Binding numempleados}"
+                Height="60"
+                Tag="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                TextChanged="NumEmpleados_TextChanged"
+                TouchDown="NumEmpleados_TouchDown"
+            />
+            <TextBlock
+                Name="txtErrorEmpleados"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Bottom" 
+                TextAlignment="Center"
+                Text="" 
+                Foreground="Red" 
+                FontSize="15" 
+                FontFamily="Arial"
+                Margin="270,0,0,85"
+            />
+            <Image 
+                x:Name="btnNext"
+                Source="/Images/Buttons/btn-continue.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="250"
+                Margin="30,0,0,10"
+                TouchDown="btnNext_TouchDown"
+            />
         </Grid>
 
         <Grid Name="grvEstablecimientos" Grid.Row="3">

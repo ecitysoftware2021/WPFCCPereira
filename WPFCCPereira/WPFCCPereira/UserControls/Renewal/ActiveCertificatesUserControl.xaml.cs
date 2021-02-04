@@ -85,16 +85,18 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
+                bool state = true;
+
                 if (txtNewAssets.Text == string.Empty)
                 {
                     txtErrorActivos.Text = "Nuevos activos es requerido";
-                    return false;
+                    state = false;
                 }
 
                 if (txtCantEmployees.Text == string.Empty)
                 {
                     txtErrorEmpleados.Text = "Número empleados es requerido";
-                    return false;
+                    state = false;
                 }
 
                 if (listEstablecimientos.Count > 0)
@@ -104,14 +106,15 @@ namespace WPFCCPereira.UserControls.Renewal
                         if (string.IsNullOrEmpty(item.numempleados))
                         {
                             item.mserrorempleados = "Número empleados es requerido";
-                            lv_data_list.Items.Refresh();
-                            return false;
+                            state = false;
                         }
                         
                     }
                 }
 
-                return true;
+                lv_data_list.Items.Refresh();
+
+                return state;
             }
             catch (Exception ex)
             {
