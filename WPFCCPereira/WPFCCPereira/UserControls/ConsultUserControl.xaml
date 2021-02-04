@@ -21,15 +21,13 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Button Name="btn_exit"
+            <Image Source="/Images/Buttons/btnsalir.png"
+                   Name="btn_exit"
                    HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"
-                   Width="550"
-                    Height="80"
-                   Margin="80,0,0,0"
-                   Background="{x:Null}" 
-                   BorderBrush="{x:Null}" 
-                   Foreground="{x:Null}"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Margin="50,0,0,30"
+                   Stretch="Uniform"
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>
 

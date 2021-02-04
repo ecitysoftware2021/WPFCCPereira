@@ -9,7 +9,7 @@
              Width="1080">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-menu2.jpg" Stretch="Uniform"/>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-menu.jpg" Stretch="Uniform"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="180" />
@@ -17,12 +17,13 @@
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Image Source="/Images/Buttons/btn-menu.png"
+            <Image Source="/Images/Buttons/btnsalir.png"
                    Name="btn_exit"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    Width="250"
                    Margin="50,0,0,30"
+                   Stretch="Uniform"
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>
 

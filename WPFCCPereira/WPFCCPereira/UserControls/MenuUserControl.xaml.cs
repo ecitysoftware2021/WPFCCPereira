@@ -22,7 +22,7 @@ namespace WPFCCPereira.UserControls
             try
             {
                 var tag = int.Parse(((Button)sender).Tag.ToString());
-                if (tag > 0 )
+                if (tag > 0)
                 {
                     if (tag == (int)ETransactionType.Renovacion)
                     {
@@ -45,21 +45,7 @@ namespace WPFCCPereira.UserControls
 
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
-            try
-            {
-                try
-                {
-                    Utilities.navigator.Navigate(UserControlView.Main);
-                }
-                catch (Exception ex)
-                {
-                    Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-                }
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
+            Utilities.navigator.Navigate(UserControlView.Main);
         }
     }
 }

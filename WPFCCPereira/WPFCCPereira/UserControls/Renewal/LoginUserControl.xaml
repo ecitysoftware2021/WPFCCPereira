@@ -14,24 +14,37 @@
                         Stretch="Fill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="500" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="300" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="500" />
+            <RowDefinition Height="400" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
+            <Image 
+                Name="btn_exit"
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Width="250"
+                Margin="50,0,0,0"
+                Stretch="Uniform"
+                TouchDown="Btn_exit_TouchDown" 
+            />
+        </Grid>
+        <Grid Grid.Row="1">
             <TextBlock
                 TextWrapping="Wrap" 
                 Width="900"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center" 
+                VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
                 Text="Para poder realizar el trámite de renovación ingresa los siguientes datos de autenticación " 
                 FontSize="45" 
                 FontFamily="Arial"
-                Margin="0,150,0,0"
+                Margin="0,0,0,50"
             />
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <TextBlock 
                 Text="Login"
                 HorizontalAlignment="Center"
@@ -44,7 +57,7 @@
             <TextBlock 
                 HorizontalAlignment="Center"
                 Text="Identificación"
-                Margin="0,0,0,460" 
+                Margin="0,0,0,560" 
                 TextAlignment="Center"
                 VerticalAlignment="Center" 
                 FontSize="40"
@@ -57,7 +70,7 @@
                 HorizontalAlignment="Center" 
                 TextAlignment="Center"
                 Height="60" 
-                Margin="0,0,0,320" 
+                Margin="0,0,0,420" 
                 VerticalAlignment="Center" 
                 Width="415"
                 FontSize="35" 
@@ -137,7 +150,7 @@
         <Grid Grid.Row="3" >
             <Image 
                 x:Name="btnLogin"
-                Source="/Images/Buttons/btn-continue.png"
+                Source="/Images/Buttons/btnsiguiente.png"
                 Stretch="Uniform"
                 Height="70"
                 HorizontalAlignment="Right"
@@ -147,7 +160,7 @@
             />
             <Image 
                 x:Name="btnCancell"
-                Source="/Images/Buttons/btn-cancel.png"
+                Source="/Images/Buttons/btnsalir.png"
                 Stretch="Uniform" 
                 Height="70"
                 HorizontalAlignment="Left"
@@ -161,10 +174,10 @@
             gif:ImageBehavior.AnimatedSource="/Images/Gif/gif-preload.gif"
             HorizontalAlignment="Right"
             Height="300" 
-            Margin="0,0,150,290"
+            Margin="0,0,100,200"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Grid.RowSpan="3"
+            Visibility="Visible"
+            Grid.RowSpan="4"
             Width="300"
         />
     </Grid>

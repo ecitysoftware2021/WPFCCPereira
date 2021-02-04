@@ -231,5 +231,10 @@ namespace WPFCCPereira.UserControls.Renewal
             Utilities.OpenKeyboard(false, sender, this);
         }
         #endregion
+
+        private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
+        }
     }
 }
