@@ -15,20 +15,23 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
-            <RowDefinition Height="150" />
+            <RowDefinition Height="200" />
             <RowDefinition Height="700" />
             <RowDefinition Height="700" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Image Source="/Images/Buttons/btn-menu.png"
-                   Name="btn_exit"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Width="250"
-                   Margin="50,0,0,0"
-                   TouchDown="Btn_exit_TouchDown" />
+            <Image 
+                Name="btn_exit"
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Width="250"
+                Margin="50,0,0,0"
+                Stretch="Uniform"
+                TouchDown="Btn_exit_TouchDown" 
+            />
         </Grid>
         
         <Grid Grid.Row="1">
@@ -48,17 +51,8 @@
 
         <Grid Grid.Row="2" Margin="100,50,100,0">
             <Grid.Background>
-                   <ImageBrush ImageSource="/Images/Backgrounds/bg-active.png" Stretch="Fill"/>
+                <ImageBrush ImageSource="/Images/Backgrounds/bg-active.png" Stretch="Fill"/>
             </Grid.Background>
-            <!--<Image 
-                Source="/Images/backgrounds/bg-active.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Height="400"
-                Width="950"
-                Margin="0,0,0,0"
-                Stretch="Fill"
-            />-->
             <TextBlock 
                 FontSize="25"
                 FontWeight="Light"
@@ -66,16 +60,16 @@
                 Margin="30,13,0,0"
                 Foreground="White"
                 VerticalAlignment="Top"
-                HorizontalAlignment="Left" Background="{x:Null}"
+                HorizontalAlignment="Left"
                 >
                 <Run Text="Matrícula:"/>
                 <Run FontWeight="Bold" Text="{Binding matricula}"/>
             </TextBlock>
             <TextBlock 
                 Text="{Binding nombre}"
-                FontSize="35"                                                                                                                                                                                                                   
+                FontSize="30"                                                                                                                                                                                                                   
                 FontFamily="Gotham"
-                Margin="30,53,0,0"
+                Margin="30,60,0,0"
                 Foreground="Black"
                 FontWeight="SemiBold"
                 Height="60"
@@ -86,7 +80,7 @@
                 Text="Organización:"
                 FontSize="25"
                 FontFamily="Arial"
-                Margin="30,96,0,0"
+                Margin="30,100,0,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -96,7 +90,7 @@
                 Text="{Binding organizacion}"
                 FontSize="30"
                 FontFamily="Arial"
-                Margin="0,96,30,0"
+                Margin="0,100,30,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -106,7 +100,7 @@
                 Text="Último año renovado:"
                 FontSize="25"
                 FontFamily="Arial"
-                Margin="30,135,0,0"
+                Margin="30,145,0,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -117,7 +111,7 @@
                 FontWeight="Bold"
                 FontSize="30"
                 FontFamily="Arial"
-                Margin="0,135,30,0"
+                Margin="0,145,30,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -127,7 +121,7 @@
                 Text="Última fecha renovación:"
                 FontSize="25"
                 FontFamily="Arial"
-                Margin="30,175,0,0"
+                Margin="30,185,0,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -137,7 +131,7 @@
                 Text="{Binding fecharenovacion}"
                 FontSize="30"
                 FontFamily="Cabri"
-                Margin="0,175,30,0"
+                Margin="0,185,30,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -147,7 +141,7 @@
                 Text="Últimos activos reportados:"
                 FontSize="25"
                 FontFamily="Arial"
-                Margin="30,215,0,0"
+                Margin="30,230,0,0"
                 Foreground="Black"
                 Height="60"
                 VerticalAlignment="Top"
@@ -157,7 +151,7 @@
                 Text="{Binding activos, StringFormat={}{0:C0}}"
                 FontSize="30"
                 FontFamily="Cabri"
-                Margin="0,212,30,0"
+                Margin="0,230,30,0"
                 Foreground="Black"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
@@ -165,7 +159,7 @@
             <TextBlock 
                 FontSize="30"
                 FontFamily="Arial"
-                Margin="30,0,0,0"
+                Margin="30,0,0,23"
                 Foreground="#FF78AD3C"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left">
@@ -177,7 +171,7 @@
                 FontWeight="Bold"
                 FontSize="30"
                 FontFamily="Arial"
-                Margin="30,130,0,0"
+                Margin="30,160,0,0"
                 Foreground="#FF78AD3C"
                 Height="60"
                 VerticalAlignment="Center"
@@ -189,11 +183,10 @@
                 md:HintAssist.IsFloating="True"
                 md:HintAssist.FloatingScale="0.3"
                 Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                FontSize="25"
+                FontSize="30"
                 FontFamily="Cabri"
                 Margin="0,120,60,0"
                 Foreground="Black"
-                Height="60"
                 Tag="0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
@@ -202,14 +195,14 @@
             />
             <TextBlock
                 Name="txtErrorActivos"
-                HorizontalAlignment="Center" 
+                HorizontalAlignment="Left" 
                 VerticalAlignment="Center" 
                 TextAlignment="Center"
                 Text="" 
                 Foreground="Red" 
-                FontSize="15" 
+                FontSize="20" 
                 FontFamily="Arial"
-                Margin="0,190,190,0"
+                Margin="240,190,0,0"
             />
             <TextBlock 
                 Text="Personal a nivel nacional:"
@@ -226,11 +219,10 @@
                 md:HintAssist.Hint="Número Empleados"
                 md:HintAssist.IsFloating="True"
                 md:HintAssist.FloatingScale="0.3"
-                FontSize="25"
+                FontSize="30"
                 FontFamily="Cabri"
-                Margin="0,310,60,0"
+                Margin="0,340,60,0"
                 Text="{Binding numempleados}"
-                Height="60"
                 Tag="0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
@@ -239,14 +231,14 @@
             />
             <TextBlock
                 Name="txtErrorEmpleados"
-                HorizontalAlignment="Center" 
+                HorizontalAlignment="Left" 
                 VerticalAlignment="Bottom" 
                 TextAlignment="Center"
                 Text="" 
                 Foreground="Red" 
-                FontSize="15" 
+                FontSize="20" 
                 FontFamily="Arial"
-                Margin="270,0,0,85"
+                Margin="450,0,0,107"
             />
             <Image 
                 x:Name="btnNext"
@@ -262,7 +254,7 @@
         <Grid Name="grvEstablecimientos" Grid.Row="3">
             <ListView 
                 x:Name="lv_data_list" 
-                Margin="0,50,0,0"
+                Margin="0,0,0,0"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Top"
@@ -283,11 +275,11 @@
                             VerticalAlignment="Top"
                             Margin="0,0,0,0"
                             Width="870"
-                            Height="580" 
+                            Height="640" 
                             Tag="{Binding Data}"
                             TouchDown="Grid_TouchDown">
                             <Grid.Background>
-                                <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/capture.png"/>
+                                <ImageBrush ImageSource="/Images/Backgrounds/bg-active.png" Stretch="Fill"/>
                             </Grid.Background>
                             <TextBlock 
                                 FontSize="25"
@@ -296,16 +288,16 @@
                                 Margin="30,13,0,0"
                                 Foreground="White"
                                 VerticalAlignment="Top"
-                                HorizontalAlignment="Left" Background="{x:Null}"
+                                HorizontalAlignment="Left"
                                 >
                                 <Run Text="Matrícula:"/>
                                 <Run FontWeight="Bold" Text="{Binding matricula}"/>
                             </TextBlock>
                             <TextBlock 
                                 Text="{Binding nombre}"
-                                FontSize="35"                                                                                                                                                                                                                   
+                                FontSize="30"                                                                                                                                                                                                                   
                                 FontFamily="Gotham"
-                                Margin="30,53,0,0"
+                                Margin="30,60,0,0"
                                 Foreground="Black"
                                 FontWeight="SemiBold"
                                 Height="60"
@@ -316,7 +308,7 @@
                                 Text="Organización:"
                                 FontSize="25"
                                 FontFamily="Arial"
-                                Margin="30,96,0,0"
+                                Margin="30,100,0,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
@@ -326,7 +318,7 @@
                                 Text="{Binding organizacion}"
                                 FontSize="30"
                                 FontFamily="Arial"
-                                Margin="0,96,30,0"
+                                Margin="0,100,30,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
@@ -336,7 +328,7 @@
                                 Text="Último año renovado:"
                                 FontSize="25"
                                 FontFamily="Arial"
-                                Margin="30,135,0,0"
+                                Margin="30,145,0,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
@@ -347,7 +339,7 @@
                                 FontWeight="Bold"
                                 FontSize="30"
                                 FontFamily="Arial"
-                                Margin="0,135,30,0"
+                                Margin="0,145,30,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
@@ -357,7 +349,7 @@
                                 Text="Última fecha renovación:"
                                 FontSize="25"
                                 FontFamily="Arial"
-                                Margin="30,175,0,0"
+                                Margin="30,185,0,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
@@ -367,7 +359,7 @@
                                 Text="{Binding fecharenovacion}"
                                 FontSize="30"
                                 FontFamily="Cabri"
-                                Margin="0,175,30,0"
+                                Margin="0,185,30,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
@@ -377,17 +369,17 @@
                                 Text="Últimos activos reportados:"
                                 FontSize="25"
                                 FontFamily="Arial"
-                                Margin="30,215,0,0"
+                                Margin="30,230,0,0"
                                 Foreground="Black"
                                 Height="60"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
-                            />
+                                />
                             <TextBlock 
                                 Text="{Binding activos, StringFormat={}{0:C0}}"
                                 FontSize="30"
                                 FontFamily="Cabri"
-                                Margin="0,212,30,0"
+                                Margin="0,230,30,0"
                                 Foreground="Black"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Right"
@@ -395,7 +387,7 @@
                             <TextBlock 
                                 FontSize="30"
                                 FontFamily="Arial"
-                                Margin="30,0,0,0"
+                                Margin="30,0,0,23"
                                 Foreground="#FF78AD3C"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left">
@@ -407,38 +399,39 @@
                                 FontWeight="Bold"
                                 FontSize="30"
                                 FontFamily="Arial"
-                                Margin="30,130,0,0"
+                                Margin="30,160,0,0"
                                 Foreground="#FF78AD3C"
                                 Height="60"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
                             />
                             <TextBox 
+                                Name="txtNewAssets"
                                 md:HintAssist.Hint="Nuevos Activos"
                                 md:HintAssist.IsFloating="True"
                                 md:HintAssist.FloatingScale="0.3"
                                 Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                                FontSize="25"
+                                FontSize="30"
                                 FontFamily="Cabri"
                                 Margin="0,120,60,0"
                                 Foreground="Black"
-                                Height="60"
+                                Tag="0"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Right"
-                                Tag="1"
                                 TextChanged="NuevosActivos_TextChanged"
                                 TouchDown="NuevosActivos_TouchDown"
                             />
                             <TextBlock
-                                HorizontalAlignment="Center" 
+                                Name="txtErrorActivos"
+                                HorizontalAlignment="Left" 
                                 VerticalAlignment="Center" 
                                 TextAlignment="Center"
                                 Text="{Binding mserroractivos}" 
                                 Foreground="Red" 
-                                FontSize="15" 
+                                FontSize="20" 
                                 FontFamily="Arial"
-                                Margin="0,190,190,0"
-                            />
+                                Margin="240,190,0,0"
+                            />  
                             <TextBlock 
                                 Text="Personal a nivel nacional:"
                                 FontSize="25"
@@ -450,31 +443,31 @@
                                 HorizontalAlignment="Left"
                             />
                             <TextBox 
+                                x:Name="txtCantEmployees"
                                 md:HintAssist.Hint="Número Empleados"
                                 md:HintAssist.IsFloating="True"
                                 md:HintAssist.FloatingScale="0.3"
-                                FontSize="25"
+                                FontSize="30"
                                 FontFamily="Cabri"
-                                Margin="0,310,60,0"
-                                Foreground="Black"
-                                Height="60"
+                                Margin="0,340,60,0"
                                 Text="{Binding numempleados}"
+                                Tag="0"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Right"
-                                Tag="1"
                                 TextChanged="NumEmpleados_TextChanged"
                                 TouchDown="NumEmpleados_TouchDown"
                             />
                             <TextBlock
-                                HorizontalAlignment="Center" 
+                                Name="txtErrorEmpleados"
+                                HorizontalAlignment="Left" 
                                 VerticalAlignment="Bottom" 
                                 TextAlignment="Center"
                                 Text="{Binding mserrorempleados}" 
                                 Foreground="Red" 
-                                FontSize="15" 
+                                FontSize="20" 
                                 FontFamily="Arial"
-                                Margin="270,0,0,85"
-                            />
+                                Margin="450,0,0,107"
+                            />  
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

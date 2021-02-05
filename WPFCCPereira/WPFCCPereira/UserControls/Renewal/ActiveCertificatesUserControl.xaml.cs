@@ -164,6 +164,8 @@ namespace WPFCCPereira.UserControls.Renewal
                     var service = text.DataContext as ListEstablecimientos;
 
                     service.mserroractivos = string.Empty;
+
+                    lv_data_list.Items.Refresh();
                 }
             }
             catch (Exception ex)
