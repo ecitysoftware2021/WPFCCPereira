@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
              mc:Ignorable="d" 
-             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              Height="1920" 
              Width="1080" >
     <Grid>
@@ -131,20 +130,33 @@
                 FontFamily="Myriad Pro Cond" 
                 CaretBrush="#FFB2B0B8"
                 Background="White"
+                Visibility="{Binding VisibleId}"
                 PasswordChanged="txtPassword_PasswordChanged"
                 TouchDown="txtPassword_TouchDown"
             />
             <TextBlock 
-                Name="txtError"
-                HorizontalAlignment="Center"
-                Margin="0,0,0,40" 
+                HorizontalAlignment="Center" 
+                Height="60" 
+                Margin="0,0,0,200"
                 VerticalAlignment="Bottom" 
-                Width="700"
-                TextWrapping="Wrap"
-                FontSize="40"
-                Height="120"
-                TextAlignment="Center"
-                Foreground="Red"
+                Width="415"
+                FontSize="35"
+                Foreground="Black" 
+                FontWeight="Bold" 
+                FontFamily="Myriad Pro Cond" 
+                Background="White"
+                Visibility="{Binding VisibleInput}"
+                Text="{Binding Value1}"
+            />
+            <Image 
+                Source="/Images/buttons/ojo.png"
+                x:Name="btn_show_id"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Margin="0,0,250,200"                  
+                Width="70"
+                TouchEnter="Btn_show_id_TouchEnter"
+                TouchLeave="Btn_show_id_TouchLeave"
             />
         </Grid>
         <Grid Grid.Row="3" >
@@ -169,16 +181,5 @@
                 TouchDown="btnCancell_TouchDown"
             />
         </Grid>
-        <Image 
-            Name="load_gif"
-            gif:ImageBehavior.AnimatedSource="/Images/Gif/gif-preload.gif"
-            HorizontalAlignment="Right"
-            Height="300" 
-            Margin="0,0,100,200"
-            VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Grid.RowSpan="4"
-            Width="300"
-        />
     </Grid>
 </UserControl>

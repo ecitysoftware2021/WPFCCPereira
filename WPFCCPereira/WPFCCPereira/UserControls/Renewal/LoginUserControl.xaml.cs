@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Resources;
+using WPFCCPereira.ViewModel;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -28,16 +29,26 @@ namespace WPFCCPereira.UserControls.Renewal
         private string Id;
         private string Email;
         private string Password;
+        private DetailViewModel viewModel;
         #endregion
 
         #region "Constructor"
         public LoginUserControl(ETransactionType type)
         {
             InitializeComponent();
+
             Type = type;
             Id = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
+
+            //viewModel = new DetailViewModel
+            //{
+            //    VisibleId = Visibility.Visible,
+            //    VisibleInput = Visibility.Hidden
+            //};
+
+            //this.DataContext = viewModel;
         }
         #endregion
 
@@ -46,30 +57,33 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
+                string MS = string.Empty;
+
                 if (txtId.Text == string.Empty || txtEmail.Text == string.Empty || txtPassword.Password == string.Empty)
                 {
-                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar todos los campos.");
-                    return false;
+                    MS = "Debe ingresar todos los campos.";
                 }
                 else 
                 if (txtId.Text.Length < 5)
                 {
-                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar una identificación valida.");
-                    return false;
+                    MS = "Debe ingresar una identificación valida.";
                 }
                 else 
                 if (!Utilities.IsValidEmailAddress(txtEmail.Text))
                 {
-                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar un correo electrónico valido.");
-                    return false;
+                    MS = "Debe ingresar un correo electrónico valido.";
                 }
                 else 
                 if (txtPassword.Password.Length < 3)
                 {
-                    txtError.Text = string.Concat("¡Mensaje de información!", Environment.NewLine, "Debe ingresar una contraseña valida.");
-                    return false;
+                    MS = "Debe ingresar una contraseña valida.";
                 }
 
+                if (MS != string.Empty)
+                {
+                    Utilities.ShowModal(string.Concat(MS, Environment.NewLine, "Por favor intenta de nuevo."), EModalType.Error);
+                    return false;
+                }
 
                 Id = txtId.Text;
                 Email = txtEmail.Text;
@@ -88,7 +102,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                load_gif.Visibility = Visibility.Visible;
                 btnLogin.Visibility = Visibility.Hidden;
                 btnCancell.Visibility = Visibility.Hidden;
 
@@ -102,7 +115,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         Application.Current.Dispatcher.Invoke(delegate
                         {
-                            load_gif.Visibility = Visibility.Hidden;
                             btnLogin.Visibility = Visibility.Visible;
                             btnCancell.Visibility = Visibility.Visible;
                         });
@@ -117,9 +129,11 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         string responseCode = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password);
 
+                        Utilities.CloseModal();
+
                         //if (responseCode == "0000")
                         //{
-                            Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
+                        Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
                         //}
                         //else
                         //{
@@ -143,6 +157,9 @@ namespace WPFCCPereira.UserControls.Renewal
                         //}
                     }
                 });
+
+
+                Utilities.ShowModal(MessageResource.ConsultingConinsidences, EModalType.Preload);
             }
             catch (Exception ex)
             {
@@ -152,6 +169,11 @@ namespace WPFCCPereira.UserControls.Renewal
         #endregion
 
         #region "Eventos"
+        private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
+        }
+
         private void btnCancell_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Menu);
@@ -159,18 +181,16 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void btnLogin_TouchDown(object sender, TouchEventArgs e)
         {
-            if (ValidateData())
-            {
+            //if (ValidateData())
+            //{
                 Login();
-            }
+            //}
         }
 
         private void txtId_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                txtError.Text = string.Empty;
-
                 if (txtId.Text.Length > 12)
                 {
                     txtId.Text = txtId.Text.Substring(0, txtId.Text.Length - 1);
@@ -186,8 +206,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                txtError.Text = string.Empty;
-
                 if (txtPassword.Password.Length > 10)
                 {
                     txtPassword.Password = txtPassword.Password.Substring(0, txtPassword.Password.Length - 1);
@@ -203,8 +221,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                txtError.Text = string.Empty;
-
                 if (txtEmail.Text.Length > 30)
                 {
                     txtEmail.Text = txtEmail.Text.Substring(0, txtEmail.Text.Length - 1);
@@ -230,11 +246,36 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             Utilities.OpenKeyboard(false, sender, this);
         }
-        #endregion
 
-        private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
+        private void Btn_show_id_TouchEnter(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Main);
+            try
+            {
+                if (!string.IsNullOrEmpty(txtPassword.Password))
+                {
+                    viewModel.Value1 = txtPassword.Password;
+                    viewModel.VisibleId = Visibility.Hidden;
+                    viewModel.VisibleInput = Visibility.Visible;
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
+
+        private void Btn_show_id_TouchLeave(object sender, TouchEventArgs e)
+        {
+            try
+            {
+                viewModel.VisibleId = Visibility.Visible;
+                viewModel.VisibleInput = Visibility.Hidden;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+        #endregion
     }
 }

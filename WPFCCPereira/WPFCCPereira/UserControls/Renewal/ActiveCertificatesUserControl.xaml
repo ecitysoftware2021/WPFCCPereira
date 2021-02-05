@@ -177,44 +177,45 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
             />
-            <TextBox 
-                Name="txtNewAssets"
-                md:HintAssist.Hint="Nuevos Activos"
-                md:HintAssist.IsFloating="True"
-                md:HintAssist.FloatingScale="0.3"
-                Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                FontSize="30"
-                FontFamily="Cabri"
-                Margin="0,120,60,0"
-                Foreground="Black"
-                Tag="0"
-                VerticalAlignment="Center"
+            <Border
+                Name="bdrActivos"
+                BorderBrush="Transparent"
+                BorderThickness="4"
+                Background="Transparent"
+                Width="617"
+                Height="98"
+                CornerRadius="15"
                 HorizontalAlignment="Right"
-                TextChanged="NuevosActivos_TextChanged"
-                TouchDown="NuevosActivos_TouchDown"
-            />
-            <TextBlock
-                Name="txtErrorActivos"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                TextAlignment="Center"
-                Text="" 
-                Foreground="Red" 
-                FontSize="20" 
-                FontFamily="Arial"
-                Margin="240,190,0,0"
-            />
-            <Image 
-                x:Name="ImgErrorActivos"
-                Source="/Images/backgrounds/bg-error1.png"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Height="108"
-                Width="675"
-                Margin="0,0,0,205"
-                Stretch="Fill"
-                Visibility="Hidden"
-            />
+                Margin="0,131,30,0">
+                <Grid>
+                    <TextBox 
+                        Name="txtNewAssets"
+                        md:HintAssist.Hint="Nuevos Activos"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="30"
+                        FontFamily="Cabri"
+                        Margin="0,0,20,10"
+                        Foreground="Black"
+                        Tag="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        TextChanged="NuevosActivos_TextChanged"
+                        TouchDown="NuevosActivos_TouchDown"
+                    />
+                    <TextBlock
+                        Name="txtErrorActivos"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        TextAlignment="Center"
+                        Foreground="Red" 
+                        FontSize="20" 
+                        FontFamily="Arial"
+                        Margin="20,60,0,0"
+                    />
+                </Grid>
+            </Border>
             <TextBlock 
                 Text="Personal a nivel nacional:"
                 FontSize="25"
@@ -225,43 +226,44 @@
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Left"
             />
-            <TextBox 
-                x:Name="txtCantEmployees"
-                md:HintAssist.Hint="Número Empleados"
-                md:HintAssist.IsFloating="True"
-                md:HintAssist.FloatingScale="0.3"
-                FontSize="30"
-                FontFamily="Cabri"
-                Margin="0,340,60,0"
-                Text="{Binding numempleados}"
-                Tag="0"
-                VerticalAlignment="Center"
+            <Border
+                Name="bdrEmpleados"
+                BorderBrush="Transparent"
+                BorderThickness="4"
+                Background="Transparent"
+                Width="413"
+                Height="89"
+                CornerRadius="15"
                 HorizontalAlignment="Right"
-                TextChanged="NumEmpleados_TextChanged"
-                TouchDown="NumEmpleados_TouchDown"
-            />
-            <TextBlock
-                Name="txtErrorEmpleados"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Bottom" 
-                TextAlignment="Center"
-                Text="" 
-                Foreground="Red" 
-                FontSize="20" 
-                FontFamily="Arial"
-                Margin="450,0,0,107"
-            />
-            <Image 
-                x:Name="ImgErrorEmpleados"
-                Source="/Images/backgrounds/bg-error1.png"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Height="100"
-                Width="450"
-                Margin="0,0,10,100"
-                Stretch="Fill"
-                Visibility="Hidden"
-            />
+                Margin="0,347,30,0">
+                <Grid>
+                    <TextBox 
+                        x:Name="txtCantEmployees"
+                        md:HintAssist.Hint="Número Empleados"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        FontSize="30"
+                        FontFamily="Cabri"
+                        Margin="0,0,20,25"
+                        Text="{Binding numempleados}"
+                        Tag="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        TextChanged="NumEmpleados_TextChanged"
+                        TouchDown="NumEmpleados_TouchDown"
+                    />
+                    <TextBlock
+                        Name="txtErrorEmpleados"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom" 
+                        TextAlignment="Center"
+                        Foreground="Red" 
+                        FontSize="20" 
+                        FontFamily="Arial"
+                        Margin="10,0,0,3"
+                    />
+                </Grid>
+            </Border>
             <Image 
                 x:Name="btnNext"
                 Source="/Images/Buttons/btnsiguiente.png"
@@ -299,7 +301,7 @@
                             Width="870"
                             Height="640" 
                             Tag="{Binding Data}"
-                            TouchDown="Grid_TouchDown">
+                            >
                             <Grid.Background>
                                 <ImageBrush ImageSource="/Images/Backgrounds/bg-active.png" Stretch="Fill"/>
                             </Grid.Background>
@@ -427,31 +429,43 @@
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
                             />
-                            <TextBox 
-                                md:HintAssist.Hint="Nuevos Activos"
-                                md:HintAssist.IsFloating="True"
-                                md:HintAssist.FloatingScale="0.3"
-                                Text="{Binding numactivos, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
-                                FontSize="30"
-                                FontFamily="Cabri"
-                                Margin="0,120,60,0"
-                                Foreground="Black"
-                                Tag="0"
-                                VerticalAlignment="Center"
+                            <Border
+                                BorderBrush="{Binding bdActivos}"
+                                BorderThickness="4"
+                                Background="Transparent"
+                                Width="610"
+                                Height="98"
+                                CornerRadius="15"
                                 HorizontalAlignment="Right"
-                                TextChanged="NuevosActivos_TextChanged"
-                                TouchDown="NuevosActivos_TouchDown"
-                            />
-                            <TextBlock
-                                HorizontalAlignment="Left" 
-                                VerticalAlignment="Center" 
-                                TextAlignment="Center"
-                                Text="{Binding mserroractivos}" 
-                                Foreground="Red" 
-                                FontSize="20" 
-                                FontFamily="Arial"
-                                Margin="240,190,0,0"
-                            />  
+                                Margin="0,131,30,0">
+                                <Grid>
+                                    <TextBox 
+                                        md:HintAssist.Hint="Nuevos Activos"
+                                        md:HintAssist.IsFloating="True"
+                                        md:HintAssist.FloatingScale="0.3"
+                                        Text="{Binding numactivos, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                                        FontSize="30"
+                                        FontFamily="Cabri"
+                                        Margin="0,0,20,10"
+                                        Foreground="Black"
+                                        Tag="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        TextChanged="NuevosActivos_TextChanged"
+                                        TouchDown="NuevosActivos_TouchDown"
+                                    />
+                                    <TextBlock
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Center" 
+                                        TextAlignment="Center"
+                                        Foreground="Red" 
+                                        FontSize="20" 
+                                        Text="{Binding mserroractivos}"
+                                        FontFamily="Arial"
+                                        Margin="20,60,0,0"
+                                    />  
+                                </Grid>
+                            </Border>
                             <TextBlock 
                                 Text="Personal a nivel nacional:"
                                 FontSize="25"
@@ -462,30 +476,42 @@
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
                             />
-                            <TextBox 
-                                md:HintAssist.Hint="Número Empleados"
-                                md:HintAssist.IsFloating="True"
-                                md:HintAssist.FloatingScale="0.3"
-                                FontSize="30"
-                                FontFamily="Cabri"
-                                Margin="0,340,60,0"
-                                Text="{Binding numempleados}"
-                                Tag="0"
-                                VerticalAlignment="Center"
+                            <Border
+                                BorderBrush="{Binding bdEmpleados}"
+                                BorderThickness="4"
+                                Background="Transparent"
+                                Width="409"
+                                Height="89"
+                                CornerRadius="15"
                                 HorizontalAlignment="Right"
-                                TextChanged="NumEmpleados_TextChanged"
-                                TouchDown="NumEmpleados_TouchDown"
-                            />
-                            <TextBlock
-                                HorizontalAlignment="Left" 
-                                VerticalAlignment="Bottom" 
-                                TextAlignment="Center"
-                                Text="{Binding mserrorempleados}" 
-                                Foreground="Red" 
-                                FontSize="20" 
-                                FontFamily="Arial"
-                                Margin="450,0,0,107"
-                            />  
+                                Margin="0,347,30,0">
+                                <Grid>
+                                    <TextBox 
+                                        md:HintAssist.Hint="Número Empleados"
+                                        md:HintAssist.IsFloating="True"
+                                        md:HintAssist.FloatingScale="0.3"
+                                        FontSize="30"
+                                        FontFamily="Cabri"
+                                        Margin="0,0,20,30"
+                                        Text="{Binding numempleados}"
+                                        Tag="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        TextChanged="NumEmpleados_TextChanged"
+                                        TouchDown="NumEmpleados_TouchDown"
+                                    />
+                                    <TextBlock
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Bottom" 
+                                        TextAlignment="Center"
+                                        Text="{Binding mserrorempleados}" 
+                                        Foreground="Red" 
+                                        FontSize="20" 
+                                        FontFamily="Arial"
+                                        Margin="10,0,0,0"
+                                    />
+                                </Grid>
+                             </Border>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

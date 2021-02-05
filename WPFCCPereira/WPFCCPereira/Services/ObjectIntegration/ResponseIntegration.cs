@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 
 namespace WPFCCPereira.Services.ObjectIntegration
 {
@@ -104,25 +106,96 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string actvin { get; set; }
     }
 
-    public class ListEstablecimientos
+    public class ListEstablecimientos : INotifyPropertyChanged
     {
-        #region Events
         public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
+
+        public string numempleados { get; set; }
 
         private decimal _numactivos;
         public decimal numactivos
         {
-            get { return _numactivos; }
+            get
+            {
+                return _numactivos;
+            }
             set
             {
-                _numactivos = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(numactivos)));
+                if (_numactivos != value)
+                {
+                    _numactivos = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(numactivos)));
+                }
             }
         }
-        public string numempleados { get; set; }
-        public string mserroractivos { get; set; }
-        public string mserrorempleados { get; set; }
+
+        private string _bdActivos = "Transparent";
+        public string bdActivos
+        {
+            get
+            {
+                return _bdActivos;
+            }
+            set
+            {
+                if (_bdActivos != value)
+                {
+                    _bdActivos = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(bdActivos)));
+                }
+            }
+        }
+        
+        private string _bdEmpleados = "Transparent";
+        public string bdEmpleados
+        {
+            get
+            {
+                return _bdEmpleados;
+            }
+            set
+            {
+                if (_bdEmpleados != value)
+                {
+                    _bdEmpleados = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(bdEmpleados)));
+                }
+            }
+        }
+        
+        private string _mserroractivos;
+        public string mserroractivos
+        {
+            get
+            {
+                return _mserroractivos;
+            }
+            set
+            {
+                if (_mserroractivos != value)
+                {
+                    _mserroractivos = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(mserroractivos)));
+                }
+            }
+        }
+
+        private string _mserrorempleados;
+        public string mserrorempleados
+    {
+            get
+            {
+                return _mserrorempleados;
+            }
+            set
+            {
+                if (_mserrorempleados != value)
+                {
+                    _mserrorempleados = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(mserrorempleados)));
+                }
+            }
+        }
         public string categoria { get; set; }
         public string matricula { get; set; }
         public string nombre { get; set; }

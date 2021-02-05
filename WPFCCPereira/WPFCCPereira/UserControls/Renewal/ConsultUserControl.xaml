@@ -88,6 +88,7 @@
                 Width="710"
                 Height="160" 
                 TextWrapping="Wrap"
+                Text="1111111"
                 TabIndex="0"
                 FontSize="48" 
                 Foreground="#FF56C5C8"

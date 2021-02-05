@@ -16,6 +16,36 @@ namespace WPFCCPereira.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
+        private Visibility _visibleInput;
+
+        public Visibility VisibleInput
+        {
+            get
+            {
+                return _visibleInput;
+            }
+            set
+            {
+                _visibleInput = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VisibleInput)));
+            }
+        }
+
+        private Visibility _visibleId;
+
+        public Visibility VisibleId
+        {
+            get
+            {
+                return _visibleId;
+            }
+            set
+            {
+                _visibleId = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VisibleId)));
+            }
+        }
+
         private string _row1;
 
         public string Row1

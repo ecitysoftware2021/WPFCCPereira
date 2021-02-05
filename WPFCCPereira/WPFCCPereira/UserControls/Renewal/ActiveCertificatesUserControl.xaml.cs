@@ -10,6 +10,8 @@ using WPFCCPereira.Resources;
 using WPFCCPereira.Services.ObjectIntegration;
 using WPFCCPereira.ViewModel;
 using System.Windows;
+using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -21,7 +23,7 @@ namespace WPFCCPereira.UserControls.Renewal
         #region "Referencias"
         private DataListViewModel viewModel;
         private Transaction transaction;
-        private List<ListEstablecimientos> listEstablecimientos;
+        private ObservableCollection<ListEstablecimientos> listEstablecimientos;
         #endregion
 
         #region "Constructor"
@@ -35,7 +37,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.viewModel.ViewList = new CollectionViewSource();
 
-            this.listEstablecimientos = new List<ListEstablecimientos>();
+            this.listEstablecimientos = new ObservableCollection<ListEstablecimientos>();
 
             ConfigureViewList();
         }
@@ -46,7 +48,7 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                grvEstablecimientos.Visibility = System.Windows.Visibility.Hidden;
+                grvEstablecimientos.Visibility = Visibility.Hidden;
 
                 if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
                 {
@@ -64,11 +66,11 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 if (listEstablecimientos.Count > 0)
                 {
-                    grvEstablecimientos.Visibility = System.Windows.Visibility.Visible;
-                    viewModel.ViewList.Source = listEstablecimientos;
-                    viewModel.ViewList.View.Refresh();
-                    lv_data_list.Items.Refresh();
-                    lv_data_list.DataContext = viewModel.ViewList;
+                    grvEstablecimientos.Visibility = Visibility.Visible;
+                    //viewModel.ViewList.Source = listEstablecimientos;
+                    //viewModel.ViewList.View.Refresh();
+                    //lv_data_list.Items.Refresh();
+                    lv_data_list.DataContext = listEstablecimientos;
                 }
 
                 this.DataContext = transaction.ExpedientesMercantil;
@@ -88,14 +90,14 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (txtNewAssets.Text == string.Empty)
                 {
                     txtErrorActivos.Text = "Nuevos activos es requerido";
-                    ImgErrorActivos.Visibility = Visibility.Visible;
+                    bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
 
                 if (txtCantEmployees.Text == string.Empty)
                 {
                     txtErrorEmpleados.Text = "Número empleados es requerido";
-                    ImgErrorEmpleados.Visibility = Visibility.Visible;
+                    bdrEmpleados.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
 
@@ -106,13 +108,18 @@ namespace WPFCCPereira.UserControls.Renewal
                         if (string.IsNullOrEmpty(item.numempleados))
                         {
                             item.mserrorempleados = "Número empleados es requerido";
+                            item.bdEmpleados = "Red"; 
                             state = false;
                         }
-                        
+
+                        if (item.numactivos <= 99)
+                        {
+                            item.mserroractivos = "Número activos es requerido";
+                            item.bdActivos = "Red";
+                            state = false;
+                        }
                     }
                 }
-
-                lv_data_list.Items.Refresh();
 
                 return state;
             }
@@ -158,15 +165,14 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (text.Tag.ToString() == "0")
                 {
                     txtErrorActivos.Text = string.Empty;
-                    ImgErrorActivos.Visibility = Visibility.Hidden;
+                    bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
                 }
                 else
                 {
                     var service = text.DataContext as ListEstablecimientos;
 
+                    service.bdActivos = "Transparent";
                     service.mserroractivos = string.Empty;
-
-                    lv_data_list.Items.Refresh();
                 }
             }
             catch (Exception ex)
@@ -199,15 +205,14 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (text.Tag.ToString() == "0")
                 {
                     txtErrorEmpleados.Text = string.Empty;
-                    ImgErrorEmpleados.Visibility = Visibility.Hidden;
+                    bdrEmpleados.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
                 }
                 else
                 {
                     var service = text.DataContext as ListEstablecimientos;
 
+                    service.bdEmpleados = "Transparent";
                     service.mserrorempleados = string.Empty;
-
-                    lv_data_list.Items.Refresh();
                 }
             }
             catch (Exception ex)
