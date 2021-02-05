@@ -316,9 +316,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Backgrounds\bg-menu2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Others\backspace.png" />
   </ItemGroup>
   <ItemGroup>
@@ -491,13 +488,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\bg-consult2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\bg1.png" />
-    <Resource Include="Images\Backgrounds\bg2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Backgrounds\Capture.PNG" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\listBtn.png" />

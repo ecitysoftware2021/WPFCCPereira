@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,6 +106,20 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
     public class ListEstablecimientos
     {
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+        private decimal _numactivos;
+        public decimal numactivos
+        {
+            get { return _numactivos; }
+            set
+            {
+                _numactivos = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(numactivos)));
+            }
+        }
         public string numempleados { get; set; }
         public string mserroractivos { get; set; }
         public string mserrorempleados { get; set; }

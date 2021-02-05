@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -6,12 +7,9 @@ using System.Windows.Input;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
-using WPFCCPereira.ViewModel;
-using System.Linq;
-using System.Collections.Generic;
-using WPFCCPereira.Services.Object;
-using System.Globalization;
 using WPFCCPereira.Services.ObjectIntegration;
+using WPFCCPereira.ViewModel;
+using System.Windows;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -90,12 +88,14 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (txtNewAssets.Text == string.Empty)
                 {
                     txtErrorActivos.Text = "Nuevos activos es requerido";
+                    ImgErrorActivos.Visibility = Visibility.Visible;
                     state = false;
                 }
 
                 if (txtCantEmployees.Text == string.Empty)
                 {
                     txtErrorEmpleados.Text = "Número empleados es requerido";
+                    ImgErrorEmpleados.Visibility = Visibility.Visible;
                     state = false;
                 }
 
@@ -158,6 +158,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (text.Tag.ToString() == "0")
                 {
                     txtErrorActivos.Text = string.Empty;
+                    ImgErrorActivos.Visibility = Visibility.Hidden;
                 }
                 else
                 {
@@ -198,6 +199,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (text.Tag.ToString() == "0")
                 {
                     txtErrorEmpleados.Text = string.Empty;
+                    ImgErrorEmpleados.Visibility = Visibility.Hidden;
                 }
                 else
                 {

@@ -204,6 +204,17 @@
                 FontFamily="Arial"
                 Margin="240,190,0,0"
             />
+            <Image 
+                x:Name="ImgErrorActivos"
+                Source="/Images/backgrounds/bg-error1.png"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Height="108"
+                Width="675"
+                Margin="0,0,0,205"
+                Stretch="Fill"
+                Visibility="Hidden"
+            />
             <TextBlock 
                 Text="Personal a nivel nacional:"
                 FontSize="25"
@@ -241,8 +252,19 @@
                 Margin="450,0,0,107"
             />
             <Image 
+                x:Name="ImgErrorEmpleados"
+                Source="/Images/backgrounds/bg-error1.png"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Height="100"
+                Width="450"
+                Margin="0,0,10,100"
+                Stretch="Fill"
+                Visibility="Hidden"
+            />
+            <Image 
                 x:Name="btnNext"
-                Source="/Images/Buttons/btn-continue.png"
+                Source="/Images/Buttons/btnsiguiente.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Width="250"
@@ -406,11 +428,10 @@
                                 HorizontalAlignment="Left"
                             />
                             <TextBox 
-                                Name="txtNewAssets"
                                 md:HintAssist.Hint="Nuevos Activos"
                                 md:HintAssist.IsFloating="True"
                                 md:HintAssist.FloatingScale="0.3"
-                                Text="{Binding Val, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                                Text="{Binding numactivos, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
                                 FontSize="30"
                                 FontFamily="Cabri"
                                 Margin="0,120,60,0"
@@ -422,7 +443,6 @@
                                 TouchDown="NuevosActivos_TouchDown"
                             />
                             <TextBlock
-                                Name="txtErrorActivos"
                                 HorizontalAlignment="Left" 
                                 VerticalAlignment="Center" 
                                 TextAlignment="Center"
@@ -443,7 +463,6 @@
                                 HorizontalAlignment="Left"
                             />
                             <TextBox 
-                                x:Name="txtCantEmployees"
                                 md:HintAssist.Hint="Número Empleados"
                                 md:HintAssist.IsFloating="True"
                                 md:HintAssist.FloatingScale="0.3"
@@ -458,7 +477,6 @@
                                 TouchDown="NumEmpleados_TouchDown"
                             />
                             <TextBlock
-                                Name="txtErrorEmpleados"
                                 HorizontalAlignment="Left" 
                                 VerticalAlignment="Bottom" 
                                 TextAlignment="Center"
