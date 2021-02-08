@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
-             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"    
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             gif:ImageBehavior.AnimateInDesignMode="True"
              mc:Ignorable="d" 
              Height="1920" 
              Width="1080" >
@@ -264,6 +266,27 @@
                     />
                 </Grid>
             </Border>
+
+            <Image 
+                gif:ImageBehavior.AnimatedSource="/Images/Gif/click.gif" 
+                gif:ImageBehavior.AnimateInDesignMode="True"
+                gif:ImageBehavior.AutoStart="True"
+                Stretch="Uniform"
+                Margin="0,170,50,0" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Right" 
+                Height="70"
+            />
+            <Image 
+                gif:ImageBehavior.AnimatedSource="/Images/Gif/click.gif" 
+                gif:ImageBehavior.AnimateInDesignMode="True"
+                gif:ImageBehavior.AutoStart="True"
+                Stretch="Uniform"
+                Margin="0,370,50,0" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Right" 
+                Height="70"
+            />
             <Image 
                 x:Name="btnNext"
                 Source="/Images/Buttons/btnsiguiente.png"

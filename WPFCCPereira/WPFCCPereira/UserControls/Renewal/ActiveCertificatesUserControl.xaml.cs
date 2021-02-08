@@ -101,7 +101,7 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 bool state = true;
 
-                if (txtNewAssets.Text == string.Empty)
+                if (string.IsNullOrEmpty(txtNewAssets.Text) || Convert.ToDecimal(txtNewAssets.Text) <= 99)
                 {
                     txtErrorActivos.Text = "Nuevos activos es requerido";
                     bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));

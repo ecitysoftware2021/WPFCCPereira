@@ -52,12 +52,11 @@
                     gif:ImageBehavior.AnimateInDesignMode="True"
                     gif:ImageBehavior.AutoStart="True"
                     x:Name="GifLoadder" 
-                    Stretch="Fill"
+                    Stretch="Uniform"
                     Margin="0,180,0,0" 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
-                    Width="450" 
-                    Height="520"/>
+                    Height="500"/>
 
             <TextBlock x:Name="txt_description"
                 Text="{Binding DescriptionStatusPayPlus}"
