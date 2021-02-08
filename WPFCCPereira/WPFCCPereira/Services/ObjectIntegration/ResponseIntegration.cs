@@ -110,7 +110,23 @@ namespace WPFCCPereira.Services.ObjectIntegration
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string numempleados { get; set; }
+        private string _numempleados;
+
+        public string numempleados
+        {
+            get
+            {
+                return _numempleados;
+            }
+            set
+            {
+                if (_numempleados != value)
+                {
+                    _numempleados = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(numempleados)));
+                }
+            }
+        }
 
         private decimal _numactivos;
         public decimal numactivos

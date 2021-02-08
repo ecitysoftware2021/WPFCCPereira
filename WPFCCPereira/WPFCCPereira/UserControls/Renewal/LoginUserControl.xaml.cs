@@ -42,13 +42,13 @@ namespace WPFCCPereira.UserControls.Renewal
             Email = string.Empty;
             Password = string.Empty;
 
-            //viewModel = new DetailViewModel
-            //{
-            //    VisibleId = Visibility.Visible,
-            //    VisibleInput = Visibility.Hidden
-            //};
+            viewModel = new DetailViewModel
+            {
+                VisibleId = Visibility.Visible,
+                VisibleInput = Visibility.Hidden
+            };
 
-            //this.DataContext = viewModel;
+            this.DataContext = viewModel;
         }
         #endregion
 

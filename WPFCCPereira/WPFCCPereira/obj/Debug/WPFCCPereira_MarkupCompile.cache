@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 WPFCCPereira
 none
 false
 DEBUG;TRACE
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
 241679184640
 
-80-2089671309
-29-1299165757
+791237368926
+29-378538392
 KeyboardNew\WKeyboard.xaml;UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DescriptionUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUserControl.xaml;UserControls\MenuUserControl.xaml;UserControls\PayerUserControl.xaml;UserControls\PrintFileUserControl.xaml;UserControls\Renewal\ActiveCertificatesUserControl.xaml;UserControls\Renewal\ConsultUserControl.xaml;UserControls\Renewal\ListEstablecimientosUserControl.xaml;UserControls\Renewal\LocationAndDataGenericUserControl.xaml;UserControls\Renewal\LoginUserControl.xaml;UserControls\Renewal\MenuFormsUserControl.xaml;UserControls\ReturnMonyUserControl.xaml;UserControls\ConsultUserControl.xaml;UserControls\MainUserControl.xaml;UserControls\PaymentUserControl.xaml;UserControls\SussesUserControl.xaml;Windows\MasterWindow.xaml;Windows\ModalWindow.xaml;
 
-True
+False
 
