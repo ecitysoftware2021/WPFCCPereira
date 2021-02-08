@@ -11,6 +11,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
 {
     public class ResponseIntegration
     {
+        public decimal numactivos { get; set; }
         public string codigoerror { get; set; }
         public string mensajeerror { get; set; }
         public string matricula { get; set; }
@@ -219,7 +220,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public int anoporrenovar { get; set; }
         public string fechamatricula { get; set; }
         public string fecharenovacion { get; set; }
-        public string valorestablecimiento { get; set; }
+        public decimal valorestablecimiento { get; set; }
         public int latitud { get; set; }
         public int longitud { get; set; }
         public string fechacenso { get; set; }

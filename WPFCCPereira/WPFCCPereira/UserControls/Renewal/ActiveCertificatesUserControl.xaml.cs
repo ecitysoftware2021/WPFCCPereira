@@ -12,6 +12,7 @@ using WPFCCPereira.ViewModel;
 using System.Windows;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -48,32 +49,45 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                grvEstablecimientos.Visibility = Visibility.Hidden;
-
                 if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
                 {
                     transaction.ExpedientesMercantil.anoporrenovar = transaction.ExpedientesMercantil.ultanorenovado + 1;
-                }
 
-                foreach (var item in transaction.ExpedientesMercantil.establecimientos)
-                {
-                    if ((item.ultanorenovado + 1) == DateTime.Now.Year)
+                    var organizacion = (EOrganizacion)Convert.ToUInt32(transaction.ExpedientesMercantil.organizacion);
+
+                    transaction.ExpedientesMercantil.organizacion = organizacion.ToString();
+
+                    DateTime dtm;
+                    DateTime.TryParseExact(transaction.ExpedientesMercantil.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+                    
+                    transaction.ExpedientesMercantil.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+
+                    this.DataContext = transaction.ExpedientesMercantil;
+
+                    foreach (var item in transaction.ExpedientesMercantil.establecimientos)
                     {
-                        item.anoporrenovar = item.ultanorenovado + 1;
-                        listEstablecimientos.Add(item);
+                        if ((item.ultanorenovado + 1) == DateTime.Now.Year)
+                        {
+                            item.anoporrenovar = item.ultanorenovado + 1;
+
+                            DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+
+                            item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+
+                            listEstablecimientos.Add(item);
+                        }
+                    }
+
+                    if (listEstablecimientos.Count > 0)
+                    {
+                        grvEstablecimientos.Visibility = Visibility.Visible;
+                        lv_data_list.DataContext = listEstablecimientos;
                     }
                 }
-
-                if (listEstablecimientos.Count > 0)
+                else
                 {
-                    grvEstablecimientos.Visibility = Visibility.Visible;
-                    //viewModel.ViewList.Source = listEstablecimientos;
-                    //viewModel.ViewList.View.Refresh();
-                    //lv_data_list.Items.Refresh();
-                    lv_data_list.DataContext = listEstablecimientos;
+                    Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
                 }
-
-                this.DataContext = transaction.ExpedientesMercantil;
             }
             catch (Exception ex)
             {

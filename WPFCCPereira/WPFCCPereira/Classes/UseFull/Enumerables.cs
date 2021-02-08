@@ -40,6 +40,27 @@ namespace WPFCCPereira.Classes
         Mild = 3,
         Medium = 2,
         Strong = 1,
+    } 
+    
+    public enum EOrganizacion
+    {
+        Persona_Natural = 01,
+        Establecimiento_de_Comercio = 02,
+        Sociedad_Limitada = 03,
+        Sociedad_Anonima = 04,
+        Sociedad_Colectiva = 05,
+        Sociedad_Comandita_Simple = 06,
+        Sociedad_Comandita_por_Acciones = 07,
+        Sociedad_Extranjera = 08,
+        Empresa_Asociativa_de_Trabajo = 09,
+        Sociedad_Civil = 10,
+        Empresa_Unipersonal = 11,
+        Entidad_Sin_Animo_de_Lucro = 12,
+        Entidad_de_Economia_Solidaria = 14,
+        Empresa_Industrial_y_Comercial_del_Estado = 15,
+        Sociedad_por_Acciones_Simplificada = 16,
+        Agrarias_de_transformacion = 17,
+        OtrasPersonasJuridicas = 99
     }
 
     public enum UserControlView
