@@ -266,27 +266,6 @@
                     />
                 </Grid>
             </Border>
-
-            <Image 
-                gif:ImageBehavior.AnimatedSource="/Images/Gif/click.gif" 
-                gif:ImageBehavior.AnimateInDesignMode="True"
-                gif:ImageBehavior.AutoStart="True"
-                Stretch="Uniform"
-                Margin="0,170,50,0" 
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Right" 
-                Height="70"
-            />
-            <Image 
-                gif:ImageBehavior.AnimatedSource="/Images/Gif/click.gif" 
-                gif:ImageBehavior.AnimateInDesignMode="True"
-                gif:ImageBehavior.AutoStart="True"
-                Stretch="Uniform"
-                Margin="0,370,50,0" 
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Right" 
-                Height="70"
-            />
             <Image 
                 x:Name="btnNext"
                 Source="/Images/Buttons/btnsiguiente.png"

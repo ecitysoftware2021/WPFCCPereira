@@ -100,6 +100,9 @@ namespace WPFCCPereira.UserControls.Renewal
                 Task.Run(async () =>
                 {
                     reference = "18130990";
+                    reference = "14693801";//persona natural
+                    reference = "8623304";//persona juridica 2 establecimientos
+
                     var response = await AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
 
                     Utilities.CloseModal();

@@ -45,7 +45,8 @@ namespace WPFCCPereira.UserControls.Renewal
             viewModel = new DetailViewModel
             {
                 VisibleId = Visibility.Visible,
-                VisibleInput = Visibility.Hidden
+                VisibleInput = Visibility.Hidden,
+                Value2 = "/Images/others/passclosed.png"
             };
 
             this.DataContext = viewModel;
@@ -103,7 +104,6 @@ namespace WPFCCPereira.UserControls.Renewal
             try
             {
                 btnLogin.Visibility = Visibility.Hidden;
-                btnCancell.Visibility = Visibility.Hidden;
 
                 TimerService.Stop();
 
@@ -116,7 +116,6 @@ namespace WPFCCPereira.UserControls.Renewal
                         Application.Current.Dispatcher.Invoke(delegate
                         {
                             btnLogin.Visibility = Visibility.Visible;
-                            btnCancell.Visibility = Visibility.Visible;
                         });
 
                         Utilities.CloseModal();
@@ -256,6 +255,8 @@ namespace WPFCCPereira.UserControls.Renewal
                     viewModel.Value1 = txtPassword.Password;
                     viewModel.VisibleId = Visibility.Hidden;
                     viewModel.VisibleInput = Visibility.Visible;
+                    viewModel.Value2 = "/Images/others/passOpen.png";
+
                 }
             }
             catch (Exception ex)
@@ -270,6 +271,7 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 viewModel.VisibleId = Visibility.Visible;
                 viewModel.VisibleInput = Visibility.Hidden;
+                viewModel.Value2 = "/Images/others/passclosed.png";
             }
             catch (Exception ex)
             {

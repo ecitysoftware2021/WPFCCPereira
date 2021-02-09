@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Height="1920" 
              Width="1080" >
@@ -16,7 +17,7 @@
             <RowDefinition Height="150" />
             <RowDefinition Height="300" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="400" />
+            <RowDefinition Height="300" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Image 
@@ -44,142 +45,183 @@
             />
         </Grid>
         <Grid Grid.Row="2">
-            <TextBlock 
-                Text="Login"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                FontSize="60"
-                Foreground="#FF104B6D"
-                TextAlignment="Center"
-                FontWeight="Bold" 
-            />
-            <TextBlock 
-                HorizontalAlignment="Center"
-                Text="Identificación"
-                Margin="0,0,0,560" 
-                TextAlignment="Center"
-                VerticalAlignment="Center" 
-                FontSize="40"
-                FontWeight="Bold"
-                Foreground="Gray" 
-                FontFamily="Myriad Pro Cond"
-            />
-            <TextBox 
-                x:Name="txtId" 
-                HorizontalAlignment="Center" 
-                TextAlignment="Center"
-                Height="60" 
-                Margin="0,0,0,420" 
-                VerticalAlignment="Center" 
-                Width="415"
-                FontSize="35" 
-                Foreground="Black" 
+            <Border
+                BorderBrush="Transparent"
+                BorderThickness="0"
                 Background="White"
-                TextChanged="txtId_TextChanged"
-                TouchDown="txtId_TouchDown"
-            />
-            <TextBlock 
-                HorizontalAlignment="Center"
-                Text="Correo electrónico"
-                Margin="0,0,0,60" 
-                TextAlignment="Center"
-                VerticalAlignment="Center" 
-                FontSize="40"
-                FontWeight="Bold"
-                Foreground="Gray" 
-                FontFamily="Myriad Pro Cond"
-            />
-            <TextBox 
-                x:Name="txtEmail" 
-                HorizontalAlignment="Center" 
-                TextAlignment="Center"
-                Height="60" 
-                Margin="0,80,0,0" 
-                VerticalAlignment="Center" 
                 Width="800"
-                FontSize="35" 
-                Foreground="Black" 
-                CaretBrush="#FFB2B0B8"
-                Background="White"
-                TextChanged="txtEmail_TextChanged"
-                TouchDown="txtEmail_TouchDown"
-            />
-            <TextBlock 
+                CornerRadius="60"
                 HorizontalAlignment="Center"
-                Text="Contraseña"
-                Margin="0,0,0,270" 
-                VerticalAlignment="Bottom" 
-                Width="300"
-                FontSize="40"
-                Height="56"
-                FontWeight="Bold"
-                TextAlignment="Center"
-                Foreground="Gray"
-            />
-            <PasswordBox 
-                x:Name="txtPassword" 
-                HorizontalAlignment="Center" 
-                Height="60" 
-                Margin="0,0,0,200"
-                HorizontalContentAlignment="Center"
-                VerticalAlignment="Bottom" 
-                Width="415"
-                FontSize="35"
-                Foreground="Black" 
-                FontWeight="Bold" 
-                FontFamily="Myriad Pro Cond" 
-                CaretBrush="#FFB2B0B8"
-                Background="White"
-                Visibility="{Binding VisibleId}"
-                PasswordChanged="txtPassword_PasswordChanged"
-                TouchDown="txtPassword_TouchDown"
-            />
-            <TextBlock 
-                HorizontalAlignment="Center" 
-                Height="60" 
-                Margin="0,0,0,200"
-                VerticalAlignment="Bottom" 
-                Width="415"
-                FontSize="35"
-                Foreground="Black" 
-                FontWeight="Bold" 
-                FontFamily="Myriad Pro Cond" 
-                Background="White"
-                Visibility="{Binding VisibleInput}"
-                Text="{Binding Value1}"
-            />
-            <Image 
-                Source="/Images/buttons/ojo.png"
-                x:Name="btn_show_id"
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Bottom" 
-                Margin="0,0,250,200"                  
-                Width="70"
-                TouchEnter="Btn_show_id_TouchEnter"
-                TouchLeave="Btn_show_id_TouchLeave"
-            />
-        </Grid>
-        <Grid Grid.Row="3" >
-            <Image 
-                x:Name="btnLogin"
-                Source="/Images/Buttons/btnsiguiente.png"
-                Stretch="Uniform"
-                Height="70"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0,0,100,0"
-                TouchDown="btnLogin_TouchDown"
-            />
-            <Image 
-                x:Name="btnCancell"
-                Source="/Images/Buttons/btnsalir.png"
-                Stretch="Uniform" 
-                Height="70"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="100,0,0,0"
-                TouchDown="btnCancell_TouchDown"
-            />
+                Margin="0,0,0,0">
+                <Grid>
+                    <Image 
+                        Source="/Images/others/user.png"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Height="200"
+                        Margin="0,50,0,0"
+                        Stretch="Uniform"
+                    />
+                    <Image 
+                        Source="/Images/others/usericon.png"
+                        Stretch="Uniform"
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,500,380"
+                        TouchDown="btnLogin_TouchDown"
+                    />
+                    <TextBox 
+                        x:Name="txtId"
+                        md:HintAssist.Hint="        Identificación"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        TextAlignment="Center"
+                        Height="110" 
+                        Width="400"
+                        Margin="0,0,0,400"
+                        FontSize="40"
+                        Foreground="Black" 
+                        VerticalContentAlignment="Center"
+                        TextChanged="txtId_TextChanged"
+                        TouchDown="txtId_TouchDown"
+                        >
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Background>
+                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Image 
+                        Source="/Images/others/email.png"
+                        Stretch="Uniform"
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,500,80"
+                        TouchDown="btnLogin_TouchDown"
+                    />
+                    <TextBox 
+                        x:Name="txtEmail"
+                        md:HintAssist.Hint="                Email"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Height="110" 
+                        Width="400"
+                        Margin="0,0,0,100"
+                        FontSize="35"
+                        Foreground="Black" 
+                        VerticalContentAlignment="Center"
+                        TextChanged="txtEmail_TextChanged"
+                        TouchDown="txtEmail_TouchDown"
+                        >
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Background>
+                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Image 
+                        Source="{Binding Value2}"
+                        Stretch="Uniform"
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,240,500,0"
+                        TouchDown="btnLogin_TouchDown"
+                    />
+                    <Image 
+                        Source="/Images/others/eyes.png"
+                        x:Name="btn_show_id"
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Bottom" 
+                        Margin="0,0,130,430"                  
+                        Width="70"
+                        TouchEnter="Btn_show_id_TouchEnter"
+                        TouchLeave="Btn_show_id_TouchLeave"
+                    />
+                    <PasswordBox 
+                        x:Name="txtPassword"
+                        md:HintAssist.Hint="            Contraseña"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Height="110" 
+                        Width="400"
+                        Margin="0,230,0,0"
+                        FontSize="35"
+                        Foreground="Black" 
+                        VerticalContentAlignment="Center"
+                        Visibility="{Binding VisibleId}"
+                        PasswordChanged="txtPassword_PasswordChanged"
+                        TouchDown="txtPassword_TouchDown"
+                        >
+                        <PasswordBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </PasswordBox.Resources>
+                        <PasswordBox.Background>
+                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                        </PasswordBox.Background>
+                    </PasswordBox>
+                    <TextBox 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Height="110" 
+                        Width="400"
+                        Margin="0,230,0,0"
+                        FontSize="35"
+                        Foreground="Black" 
+                        Visibility="{Binding VisibleInput}"
+                        Text="{Binding Value1}"
+                        VerticalContentAlignment="Center"
+                        >
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Background>
+                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Image 
+                        x:Name="btnLogin"
+                        Source="/Images/Buttons/btnsiguiente.png"
+                        Stretch="Uniform"
+                        Height="90"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,0,200"
+                        TouchDown="btnLogin_TouchDown"
+                    />
+                    <Image 
+                        Source="/Images/Others/lineGreen.png"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,0,150" 
+                        Width="600"
+                        Height="3"
+                        Stretch="Fill"
+                    />
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>
