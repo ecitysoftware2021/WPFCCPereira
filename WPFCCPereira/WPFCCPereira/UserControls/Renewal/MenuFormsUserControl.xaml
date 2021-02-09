@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
              mc:Ignorable="d" 
-              Height="1920" 
+             Height="1920" 
              Width="1080" >
     <Grid>
         <Grid.Background>
@@ -22,12 +22,14 @@
 
         <Grid Grid.Row="0">
             <Image 
-                Source="/Images/Buttons/btn-menu.png"
                 Name="btn_exit"
+                Source="/Images/Buttons/btnsalir.png"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Width="250"
-                Margin="50,0,0,30" 
+                Margin="50,0,0,30"
+                Stretch="Uniform"
+                TouchDown="Btn_exit_TouchDown" 
             />
         </Grid>
 
@@ -40,16 +42,13 @@
                 TextAlignment="Justify"
                 Text="Para completar y pagar la renovación por favor verifique los datos y complete los pasos siguientes." 
                 Foreground="Black" 
-                FontSize="45" 
+                FontSize="40" 
                 FontFamily="Arial"
                 Margin="0,100,0,20"
             />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
+            <TextBlock 
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
+                VerticalAlignment="Bottom"
                 Text="N° Liquidación" 
                 Foreground="#FF78AD3C" 
                 FontSize="35" 
@@ -57,11 +56,8 @@
                 Margin="80,0,0,80"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="1682334" 
                 FontWeight="Bold"
                 Foreground="#FF78AD3C" 
@@ -69,15 +65,15 @@
                 FontFamily="Arial"
                 Margin="80,0,0,20"
             />
-            <Image Source="/Images/Backgrounds/listBtn.png"
-                   Name="btn_list"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Bottom"
-                   Width="650"
-                   Margin="0,0,70,40" />
+            <Image 
+                Source="/Images/Backgrounds/listBtn.png"
+                Name="btn_list"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Width="650"
+                Margin="0,0,70,40" 
+            />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
@@ -87,34 +83,32 @@
                 FontFamily="Arial"
                 Margin="0,0,150,50"
             />
-            <Image Source="/Images/Others/img-split.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"
-                   Width="1000"
-                   Margin="0,0,0,0" />
+            <Image 
+                Source="/Images/Others/img-split.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="1000"
+                Margin="0,0,0,0"
+            />
         </Grid>
         <Grid Grid.Row="2">
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Left"
                 VerticalAlignment="top" 
-                TextAlignment="Justify"
                 Text="N° Recuperación" 
                 Foreground="Black" 
                 FontSize="35" 
                 FontFamily="Arial"
                 Margin="80,20,0,0"
             />
-            <Image Source="/Images/Backgrounds/recuImg.png"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Top"
-                   Width="210"
-                   Margin="0,10,80,0"
+            <Image
+                Source="/Images/Backgrounds/recuImg.png"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Width="210"
+                Margin="0,10,80,0"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top" 
                 TextAlignment="Right"
@@ -134,13 +128,11 @@
                 Text="BRICEÑO QUINTANA LUZ ENID" 
                 Foreground="Black" 
                 FontWeight="DemiBold"
-                FontSize="55" 
+                FontSize="50" 
                 FontFamily="Arial"
-                Margin="80,0,0,180"
+                Margin="80,0,0,210"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
                 TextAlignment="Justify"
@@ -149,14 +141,11 @@
                 FontWeight="Bold"
                 FontSize="35" 
                 FontFamily="Arial"
-                Margin="80,0,0,50"
+                Margin="80,0,0,20"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="Valor Bruto:" 
                 Foreground="Black" 
                 FontSize="30"
@@ -164,8 +153,6 @@
                 Margin="80,0,0,180"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
@@ -177,11 +164,8 @@
                 Margin="80,0,95,174"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="Valor a Pagar:" 
                 Foreground="#39b6b8" 
                 FontSize="30"
@@ -189,8 +173,6 @@
                 Margin="80,0,0,90"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
@@ -201,55 +183,51 @@
                 FontFamily="Arial"
                 Margin="80,0,95,70"
             />
-            <Image Source="/Images/Others/img-split.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"
-                   Width="1000"
-                   Margin="0,0,0,0"
+            <Image 
+                Source="/Images/Others/img-split.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="1000"
+                Margin="0,0,0,0"
             />
         </Grid>
         <Grid Grid.Row="3">
-            <Image Source="/Images/Backgrounds/opcionesMatricula.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Width="900"
-                   Margin="0,30,0,0"
-            />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
+            <Image 
+                Source="/Images/buttons/btnPaso1.png"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top" 
-                TextAlignment="Center"
-                Text="DILIGENCIAR FORMULARIOS" 
-                Foreground="White" 
-                FontWeight="DemiBold"
-                FontSize="40" 
-                FontFamily="Arial"
-                Margin="80,74,0,0"
+                VerticalAlignment="Top"
+                Height="150"
+                Margin="0,30,0,0"
+                Stretch="Uniform"
+            />
+            <Image 
+                Source="/Images/buttons/btnPaso2.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Height="150"
+                Margin="0,30,0,0"
+                IsEnabled="False"
+                Opacity="0.5"
+                Stretch="Uniform"
+            />
+            <Image 
+                Source="/Images/buttons/btnPaso3.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Height="150"
+                Margin="0,0,0,0"
+                IsEnabled="False"
+                Opacity="0.5"
+                Stretch="Uniform"
+            />
+            <Image 
+                Source="/Images/Backgrounds/avisoDiligenciar.png"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Width="310"
+                Margin="0,10,140,0"
             />
             <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                TextAlignment="Left"
-                Text="1" 
-                Foreground="#39b6b8" 
-                FontWeight="DemiBold"
-                FontSize="40" 
-                FontFamily="Arial"
-                Margin="154,73,0,0"
-            />
-            <Image Source="/Images/Backgrounds/avisoDiligenciar.png"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Top"
-                   Width="310"
-                   Margin="0,10,140,0"
-            />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
                 HorizontalAlignment="Right"
                 VerticalAlignment="top" 
                 TextAlignment="Right"
@@ -262,70 +240,6 @@
                 <Run FontSize="25" Text="Por Diligenciar:"/>
                 <Run FontWeight="Bold" Text="2 de 2"/>
             </TextBlock>
-            <Image Source="/Images/Backgrounds/opcionesMatricula.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Width="900"
-                   Margin="0,180,0,0"
-            />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" 
-                TextAlignment="Center"
-                Text="FIRMAR ELECTRÓNICAMENTE" 
-                Foreground="White" 
-                FontWeight="DemiBold"
-                FontSize="40" 
-                FontFamily="Arial"
-                Margin="80,0,0,5"
-            />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                TextAlignment="Left"
-                Text="2" 
-                Foreground="#39b6b8" 
-                FontWeight="DemiBold"
-                FontSize="40" 
-                FontFamily="Arial"
-                Margin="154,0,0,5"
-            />
-            <Image Source="/Images/Backgrounds/opcionesMatricula.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Width="900"
-                   Margin="0,330,0,0"
-            />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom" 
-                TextAlignment="Center"
-                Text="REALIZAR PAGO" 
-                Foreground="White" 
-                FontWeight="DemiBold"
-                FontSize="40" 
-                FontFamily="Arial"
-                Margin="80,0,0,80"
-            />
-            <TextBlock
-                TextWrapping="Wrap" 
-                Width="950"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom" 
-                TextAlignment="Left"
-                Text="3" 
-                Foreground="#39b6b8" 
-                FontWeight="DemiBold"
-                FontSize="40" 
-                FontFamily="Arial"
-                Margin="154,0,0,80"
-            />
         </Grid>    
     </Grid>
 </UserControl>

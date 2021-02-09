@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCCPereira.Classes;
+using WPFCCPereira.Models;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -20,14 +22,28 @@ namespace WPFCCPereira.UserControls.Renewal
     /// </summary>
     public partial class MenuFormsUserControl : UserControl
     {
-        public MenuFormsUserControl()
+        #region "Referencias"
+        private Transaction transaction;
+        #endregion
+
+        #region "Constructor"
+        public MenuFormsUserControl(Transaction ts)
         {
             InitializeComponent();
-        }
 
-        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+            this.transaction = ts;
+        }
+        #endregion
+
+        #region "Métodos"
+
+        #endregion
+
+        #region "Eventos"
+        private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
-
+            Utilities.navigator.Navigate(UserControlView.Menu);
         }
+        #endregion
     }
 }

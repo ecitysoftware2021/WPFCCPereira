@@ -156,13 +156,14 @@
                     />
                     <PasswordBox 
                         x:Name="txtPassword"
-                        md:HintAssist.Hint="            Contraseña"
+                        md:HintAssist.Hint="Contraseña"
                         md:HintAssist.IsFloating="True"
                         md:HintAssist.FloatingScale="0.3"
                         HorizontalAlignment="Center" 
                         VerticalAlignment="Center"
                         Height="110" 
                         Width="400"
+                        HorizontalContentAlignment="Center"
                         Margin="0,230,0,0"
                         FontSize="35"
                         Foreground="Black" 

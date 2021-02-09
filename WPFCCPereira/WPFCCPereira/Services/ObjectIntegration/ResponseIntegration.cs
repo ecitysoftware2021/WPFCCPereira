@@ -9,6 +9,13 @@ using System.Windows.Media;
 
 namespace WPFCCPereira.Services.ObjectIntegration
 {
+    public class ResponseLogin
+    {
+        public string codigoerror { get; set; }
+        public string mensajeerror { get; set; }
+        public string nombreusuario { get; set; }
+    }
+
     public class ResponseIntegration
     {
         public decimal numactivos { get; set; }
@@ -227,5 +234,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string censo { get; set; }
         public string infografia1 { get; set; }
         public string infografia2 { get; set; }
+        public bool status { get; set; } = false;
     }
 }

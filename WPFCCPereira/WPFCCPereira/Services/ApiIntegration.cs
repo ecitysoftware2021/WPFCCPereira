@@ -62,7 +62,7 @@ namespace WPFCCPereira.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente" , response.RequestMessage.ToString(), EError.Customer, ELevelError.Medium);
+                    AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente", response.RequestMessage.ToString(), EError.Customer, ELevelError.Medium);
                     return false;
                 }
 
@@ -79,7 +79,7 @@ namespace WPFCCPereira.Services
                     }
                 }
 
-                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente","", EError.Customer, ELevelError.Medium);
+                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente", "", EError.Customer, ELevelError.Medium);
             }
             catch (Exception ex)
             {
@@ -123,7 +123,8 @@ namespace WPFCCPereira.Services
 
         public async Task<object> ConsultThrough(string reference, EtypeConsult type)
         {
-            try { 
+            try
+            {
 
                 RequestSearch request = new RequestSearch
                 {
@@ -131,7 +132,7 @@ namespace WPFCCPereira.Services
                     usuariows = user,
                     token = token
                 };
-                
+
                 object response = null;
 
                 if (type == EtypeConsult.Settled)
@@ -251,7 +252,7 @@ namespace WPFCCPereira.Services
                     codigoempresa = code,
                     usuariows = user,
                     token = token,
-                    matriculainicial =  0,
+                    matriculainicial = 0,
                     semilla = "0"
                 };
 
@@ -264,7 +265,7 @@ namespace WPFCCPereira.Services
                     request.nombreinicial = reference;
                 }
 
-                var response = await GetData(request , "SearchFiles");
+                var response = await GetData(request, "SearchFiles");
 
                 if (response != null)
                 {
@@ -312,10 +313,10 @@ namespace WPFCCPereira.Services
                         nombre2cliente = transaction.payer.NAME ?? string.Empty,
                         apellido1cliente = transaction.payer.LAST_NAME ?? string.Empty,
                         apellido2cliente = transaction.payer.LAST_NAME ?? string.Empty,
-                        emailcliente = transaction.payer.EMAIL?? Utilities.GetConfiguration("EmailControl"),
+                        emailcliente = transaction.payer.EMAIL ?? Utilities.GetConfiguration("EmailControl"),
                         direccioncliente = transaction.payer.ADDRESS ?? ((Noun)transaction.File).direccion,
                         telefonocliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"),
-                        celularcliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"), 
+                        celularcliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"),
                         municipiocliente = ((Noun)transaction.File).municipio,
                         valorbruto = 0,
                         Valorbaseiva = 0,
@@ -457,36 +458,39 @@ namespace WPFCCPereira.Services
         }
 
         //BEGIN RENOVACION 
-        public async Task<string> LoginUser(string id, string email, string password)
+        public async Task<ResponseLogin> LoginUser(string id, string email, string password)
         {
             try
             {
-                Thread.Sleep(3000);
-                //RequestFileMercantil request = new RequestFileMercantil
-                //{
-                //    codigoempresa = code,
-                //    usuariows = user,
-                //    token = token,
-                //    identificacion = etype == EtypeConsult.Id ? reference : string.Empty,
-                //    matricula = etype == EtypeConsult.Matricula ? reference : string.Empty,
-                //    tipo = "T"
-                //};
+                RequestLogin request = new RequestLogin
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    celularusuario = "123456789",
+                    claveusuario = password,
+                    emailusuario = email,
+                    identificacionusuario = id
+                };
 
-                //var response = await GetData(request, "ConsultFileMercantil");
+                var response = await GetData(request, "LoginUser");
 
-                //if (response != null)
-                //{
-                //    var requestresponse = JsonConvert.DeserializeObject<ResponseIntegration>(response.ToString());
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<ResponseLogin>(response.ToString());
 
-                //    return requestresponse;
-                //}
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
 
-            return string.Empty;
+            return null;
         }
 
         public async Task<ResponseIntegration> ConsultarExpedienteMercantil(string reference, EtypeConsult etype)
@@ -508,6 +512,36 @@ namespace WPFCCPereira.Services
                 if (response != null)
                 {
                     var requestresponse = JsonConvert.DeserializeObject<ResponseIntegration>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<RequestLiquidarRenovacionNormal> liquidarRenovacionNormal(RequestLiquidarRenovacionNormal data)
+        {
+            try
+            {
+                RequestLiquidarRenovacionNormal request = data;
+
+                request.codigoempresa = code;
+                request.usuariows = user;
+                request.token = token;
+
+                var response = await GetData(request, "RenovacionNormal");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RequestLiquidarRenovacionNormal>(response.ToString());
 
                     if (requestresponse != null && requestresponse.codigoerror == "0000")
                     {

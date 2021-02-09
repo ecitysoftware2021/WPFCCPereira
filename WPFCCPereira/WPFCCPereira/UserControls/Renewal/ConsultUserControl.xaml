@@ -38,7 +38,7 @@
                 Width="900"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
-                TextAlignment="Center"
+                TextAlignment="Justify"
                 Text="Ingresar datos del comerciante que desea renovar." 
                 Foreground="Black" 
                 FontSize="40" 

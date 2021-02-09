@@ -103,8 +103,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                btnLogin.Visibility = Visibility.Hidden;
-
                 TimerService.Stop();
 
                 Task.Run(async () =>
@@ -113,11 +111,6 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     if (!token)
                     {
-                        Application.Current.Dispatcher.Invoke(delegate
-                        {
-                            btnLogin.Visibility = Visibility.Visible;
-                        });
-
                         Utilities.CloseModal();
 
                         Utilities.ShowModal("No hay comunicación con el servicio. Por favor intenta de nuevo.", EModalType.Error);
@@ -126,39 +119,31 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
-                        string responseCode = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password);
+                        var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password);
 
                         Utilities.CloseModal();
 
-                        //if (responseCode == "0000")
-                        //{
-                        Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
-                        //}
-                        //else
-                        //{
-                        //    Application.Current.Dispatcher.Invoke(delegate
-                        //    {
-                        //        load_gif.Visibility = Visibility.Visible;
-                        //        btnLogin.Visibility = Visibility.Hidden;
-                        //        btnCancell.Visibility = Visibility.Hidden;
-                        //    });
+                        if (response != null)
+                        {
+                            Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
+                        }
+                        else
+                        {
+                            if (response != null && response.codigoerror == "0003")
+                            {
+                                Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
+                            }
+                            else
+                            {
+                                Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
+                            }
 
-                        //    if (responseCode == "0003")
-                        //    {
-                        //        Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
-                        //    }
-                        //    else
-                        //    {
-                        //        Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta más tarde.", EModalType.Error);
-                        //    }
-
-                        //    TimerService.Reset();
-                        //}
+                            TimerService.Reset();
+                        }
                     }
                 });
 
-
-                Utilities.ShowModal(MessageResource.ConsultingConinsidences, EModalType.Preload);
+                Utilities.ShowModal("Validando usuario. Regálenos unos segundos.", EModalType.Preload);
             }
             catch (Exception ex)
             {
@@ -173,17 +158,12 @@ namespace WPFCCPereira.UserControls.Renewal
             Utilities.navigator.Navigate(UserControlView.Main);
         }
 
-        private void btnCancell_TouchDown(object sender, TouchEventArgs e)
-        {
-            Utilities.navigator.Navigate(UserControlView.Menu);
-        }
-
         private void btnLogin_TouchDown(object sender, TouchEventArgs e)
         {
-            //if (ValidateData())
-            //{
+            if (ValidateData())
+            {
                 Login();
-            //}
+            }
         }
 
         private void txtId_TextChanged(object sender, TextChangedEventArgs e)

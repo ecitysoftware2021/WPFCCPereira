@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -33,7 +34,7 @@ namespace WPFCCPereira.UserControls.Renewal
             InitializeComponent();
 
             this.transaction = ts;
-           
+
             this.viewModel = new DataListViewModel();
 
             this.viewModel.ViewList = new CollectionViewSource();
@@ -59,7 +60,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     DateTime dtm;
                     DateTime.TryParseExact(transaction.ExpedientesMercantil.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-                    
+
                     transaction.ExpedientesMercantil.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
 
                     this.DataContext = transaction.ExpedientesMercantil;
@@ -73,6 +74,8 @@ namespace WPFCCPereira.UserControls.Renewal
                             DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
 
                             item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+
+                            item.status = true;
 
                             listEstablecimientos.Add(item);
                         }
@@ -101,6 +104,8 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 bool state = true;
 
+
+                //TODO:validar que numero de empleados no venga vacio y que lo cogamos de la clase no del txt
                 if (string.IsNullOrEmpty(txtNewAssets.Text) || Convert.ToDecimal(txtNewAssets.Text) <= 99)
                 {
                     txtErrorActivos.Text = "Nuevos activos es requerido";
@@ -122,7 +127,7 @@ namespace WPFCCPereira.UserControls.Renewal
                         if (string.IsNullOrEmpty(item.numempleados))
                         {
                             item.mserrorempleados = "Número empleados es requerido";
-                            item.bdEmpleados = "Red"; 
+                            item.bdEmpleados = "Red";
                             state = false;
                         }
 
@@ -143,23 +148,65 @@ namespace WPFCCPereira.UserControls.Renewal
                 return false;
             }
         }
+
+        private void SendData()
+        {
+            try
+            {
+                TimerService.Stop();
+
+                Task.Run(async () =>
+                {
+                    RequestLiquidarRenovacionNormal request = new RequestLiquidarRenovacionNormal
+                    {
+                        idusuario = "USUPUBXX",
+                        identificacioncontrol = "123456789",
+                        nombrecontrol = "KIOSCOS-PRUEBAS",
+                        emailcontrol = "ecitysoftware@gmail.com",
+                        celularcontrol = "123456789",
+                        //personal = transaction.ExpedientesMercantil.,
+                        incluirafiliacion = "N",
+                        incluirformulario = "S",
+                        incluircertificado = "N",
+                        cumple1780 = "N",
+                        mantiene1780 = "N",
+                        renuncia1780 = "N",
+                        matriculas = new List<Matricula>()
+                    };
+
+                    request.matriculas.Add(new Matricula
+                    {
+                        activos = 397034000,
+                        anorenovacion = "2021",
+                        matricula = "8623304"
+                    });
+
+                    var token = await AdminPayPlus.ApiIntegration.liquidarRenovacionNormal(request);
+
+                    Utilities.CloseModal();
+
+                    if (token == null)
+                    {
+                        Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
+
+                        TimerService.Reset();
+                    }
+                    else
+                    {
+                        Utilities.navigator.Navigate(UserControlView.MenuRenovacion, false, transaction);
+                    }
+                });
+
+                Utilities.ShowModal("Consultando detalles de la liquidación. Regálenos unos segundos.", EModalType.Preload);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
         #endregion
 
         #region "Eventos"
-        private void Grid_TouchDown(object sender, TouchEventArgs e)
-        {
-            if (((Grid)sender).Tag != null)
-            {
-
-                //Utilities.navigator.Navigate(UserControlView.Certificates, true, new Transaction
-                //{
-                //    File = (Noun)((Grid)sender).Tag,
-                //    State = ETransactionState.Initial,
-                //    Type = viewModel.TypeTransaction
-                //});
-            }
-        }
-
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Menu);
@@ -239,7 +286,7 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             if (Validate())
             {
-
+                SendData();
             }
         }
         #endregion

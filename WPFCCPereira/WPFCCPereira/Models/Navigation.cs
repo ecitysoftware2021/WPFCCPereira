@@ -52,6 +52,9 @@ namespace WPFCCPereira.Models
                         break;
                     case UserControlView.ActiveCertificate:
                         View = new UserControls.Renewal.ActiveCertificatesUserControl((Transaction)data);
+                        break; 
+                    case UserControlView.MenuRenovacion:
+                        View = new UserControls.Renewal.MenuFormsUserControl((Transaction)data);
                         break;
                         //END RENOVACION//
                     case UserControlView.PaySuccess:

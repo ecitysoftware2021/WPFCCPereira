@@ -25,15 +25,20 @@ namespace WPFCCPereira.UserControls.Renewal
     /// </summary>
     public partial class ConsultUserControl : UserControl
     {
+        #region "Referencias"
         private DataListViewModel viewModel;
+        #endregion
 
+        #region "Constructor"
         public ConsultUserControl(ETransactionType type)
         {
             InitializeComponent();
 
             ConfigurateView(type);
         }
+        #endregion
 
+        #region "Métodos"
         private void ConfigurateView(ETransactionType type)
         {
             try
@@ -119,11 +124,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
-                        Application.Current.Dispatcher.Invoke(delegate
-                        {
-                            txtReferencia.Text = string.Empty;
-                        });
-
                         Utilities.ShowModal(MessageResource.ErrorCoincidences, EModalType.Error);
 
                         TimerService.Reset();
@@ -137,7 +137,9 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+        #endregion
 
+        #region "Eventos"
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Menu);
@@ -210,5 +212,6 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+        #endregion
     }
 }

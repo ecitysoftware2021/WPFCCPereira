@@ -42,7 +42,7 @@
                 Width="900"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Bottom" 
-                TextAlignment="Center"
+                TextAlignment="Justify"
                 Text="A continuación podrá encontrar la matrícula que necesita renovar ingresando los activos de los años pendientes." 
                 Foreground="Black" 
                 FontSize="35" 
