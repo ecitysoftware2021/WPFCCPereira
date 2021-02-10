@@ -19,6 +19,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
     public class ResponseIntegration
     {
         public decimal numactivos { get; set; }
+        public int numempleados { get; set; }
         public string codigoerror { get; set; }
         public string mensajeerror { get; set; }
         public string matricula { get; set; }
@@ -118,9 +119,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string _numempleados;
+        private int _numempleados;
 
-        public string numempleados
+        public int numempleados
         {
             get
             {

@@ -23,6 +23,8 @@ namespace WPFCCPereira.UserControls.Renewal
     public partial class ActiveCertificatesUserControl : UserControl
     {
         #region "Referencias"
+        private decimal MinActivos;
+        private decimal MinEmpleados;
         private DataListViewModel viewModel;
         private Transaction transaction;
         private ObservableCollection<ListEstablecimientos> listEstablecimientos;
@@ -40,6 +42,10 @@ namespace WPFCCPereira.UserControls.Renewal
             this.viewModel.ViewList = new CollectionViewSource();
 
             this.listEstablecimientos = new ObservableCollection<ListEstablecimientos>();
+
+            this.MinActivos = Convert.ToDecimal(Utilities.GetConfiguration("MinimoActivos"));
+
+            this.MinEmpleados = Convert.ToInt32(Utilities.GetConfiguration("MinimoEmpleados"));
 
             ConfigureViewList();
         }
@@ -104,16 +110,14 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 bool state = true;
 
-
-                //TODO:validar que numero de empleados no venga vacio y que lo cogamos de la clase no del txt
-                if (string.IsNullOrEmpty(txtNewAssets.Text) || Convert.ToDecimal(txtNewAssets.Text) <= 99)
+                if (transaction.ExpedientesMercantil.numactivos < MinActivos)
                 {
                     txtErrorActivos.Text = "Nuevos activos es requerido";
                     bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
 
-                if (txtCantEmployees.Text == string.Empty)
+                if (transaction.ExpedientesMercantil.numempleados < MinEmpleados)
                 {
                     txtErrorEmpleados.Text = "Número empleados es requerido";
                     bdrEmpleados.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
@@ -124,14 +128,14 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     foreach (var item in listEstablecimientos)
                     {
-                        if (string.IsNullOrEmpty(item.numempleados))
+                        if (item.numempleados < MinEmpleados)
                         {
                             item.mserrorempleados = "Número empleados es requerido";
                             item.bdEmpleados = "Red";
                             state = false;
                         }
 
-                        if (item.numactivos <= 99)
+                        if (item.numactivos < MinActivos)
                         {
                             item.mserroractivos = "Número activos es requerido";
                             item.bdActivos = "Red";
@@ -164,7 +168,7 @@ namespace WPFCCPereira.UserControls.Renewal
                         nombrecontrol = "KIOSCOS-PRUEBAS",
                         emailcontrol = "ecitysoftware@gmail.com",
                         celularcontrol = "123456789",
-                        //personal = transaction.ExpedientesMercantil.,
+                        personal = transaction.ExpedientesMercantil.numempleados,
                         incluirafiliacion = "N",
                         incluirformulario = "S",
                         incluircertificado = "N",
@@ -181,11 +185,11 @@ namespace WPFCCPereira.UserControls.Renewal
                         matricula = "8623304"
                     });
 
-                    var token = await AdminPayPlus.ApiIntegration.liquidarRenovacionNormal(request);
+                    var response = await AdminPayPlus.ApiIntegration.liquidarRenovacionNormal(request);
 
                     Utilities.CloseModal();
 
-                    if (token == null)
+                    if (response == null)
                     {
                         Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
 

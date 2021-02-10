@@ -58,6 +58,9 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
+                //TODO:aqui
+                return true;
+
                 string MS = string.Empty;
 
                 if (txtId.Text == string.Empty || txtEmail.Text == string.Empty || txtPassword.Password == string.Empty)
@@ -119,27 +122,28 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
-                        var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password);
+                        //var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password);
 
                         Utilities.CloseModal();
 
-                        if (response != null)
-                        {
+                        //TODO: aqui
+                        //if (response != null)
+                        //{
                             Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
-                        }
-                        else
-                        {
-                            if (response != null && response.codigoerror == "0003")
-                            {
-                                Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
-                            }
-                            else
-                            {
-                                Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
-                            }
+                        //}
+                        //else
+                        //{
+                        //    if (response != null && response.codigoerror == "0003")
+                        //    {
+                        //        Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
+                        //    }
+                        //    else
+                        //    {
+                        //        Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
+                        //    }
 
-                            TimerService.Reset();
-                        }
+                        //    TimerService.Reset();
+                        //}
                     }
                 });
 

@@ -50,7 +50,7 @@
             <Border
                 BorderBrush="Transparent"
                 BorderThickness="0"
-                Background="White"
+                Background="#ffffff"
                 Width="800"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
@@ -242,6 +242,7 @@
                     />
                 </Grid>
             </Border>
+            
         </Grid>
     </Grid>
 </UserControl>

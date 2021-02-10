@@ -19,7 +19,21 @@
             <RowDefinition Height="500" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        
+        <Grid Grid.RowSpan="5">
+            <Border
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Background="#ffffff"
+                Width="900"
+                Height="1300"
+                CornerRadius="60"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,200">
+            </Border>
+        </Grid>
+        
         <Grid Grid.Row="0">
             <Image 
                 Name="btn_exit"
@@ -42,7 +56,7 @@
                 TextAlignment="Justify"
                 Text="Para completar y pagar la renovación por favor verifique los datos y complete los pasos siguientes." 
                 Foreground="Black" 
-                FontSize="40" 
+                FontSize="35" 
                 FontFamily="Arial"
                 Margin="0,100,0,20"
             />
@@ -51,9 +65,9 @@
                 VerticalAlignment="Bottom"
                 Text="N° Liquidación" 
                 Foreground="#FF78AD3C" 
-                FontSize="35" 
+                FontSize="25" 
                 FontFamily="Arial"
-                Margin="80,0,0,80"
+                Margin="120,0,0,80"
             />
             <TextBlock
                 HorizontalAlignment="Left"
@@ -61,17 +75,17 @@
                 Text="1682334" 
                 FontWeight="Bold"
                 Foreground="#FF78AD3C" 
-                FontSize="60" 
+                FontSize="50" 
                 FontFamily="Arial"
-                Margin="80,0,0,20"
+                Margin="120,0,0,20"
             />
             <Image 
                 Source="/Images/Backgrounds/listBtn.png"
                 Name="btn_list"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                Width="650"
-                Margin="0,0,70,40" 
+                Width="550"
+                Margin="0,0,120,40" 
             />
             <TextBlock
                 HorizontalAlignment="Right"
@@ -79,15 +93,15 @@
                 TextAlignment="Right"
                 Text="DETALLES DE LIQUDACIÓN" 
                 Foreground="White" 
-                FontSize="40" 
+                FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,0,150,50"
+                Margin="0,0,250,50"
             />
             <Image 
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="1000"
+                Width="840"
                 Margin="0,0,0,0"
             />
         </Grid>
@@ -97,16 +111,16 @@
                 VerticalAlignment="top" 
                 Text="N° Recuperación" 
                 Foreground="Black" 
-                FontSize="35" 
+                FontSize="25" 
                 FontFamily="Arial"
-                Margin="80,20,0,0"
+                Margin="120,20,0,0"
             />
             <Image
                 Source="/Images/Backgrounds/recuImg.png"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Width="210"
-                Margin="0,10,80,0"
+                Margin="0,10,120,0"
             />
             <TextBlock
                 HorizontalAlignment="Right"
@@ -115,22 +129,22 @@
                 Text="RZOGUJ" 
                 FontWeight="Black"
                 Foreground="White" 
-                FontSize="38" 
+                FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,21,95,0"
+                Margin="0,26,155,0"
             />
             <TextBlock
                 TextWrapping="Wrap" 
-                Width="950"
+                Width="850"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
-                TextAlignment="Justify"
-                Text="BRICEÑO QUINTANA LUZ ENID" 
+                TextAlignment="Left"
+                Text="BRICEÑO QUINTANA LUZ" 
                 Foreground="Black" 
                 FontWeight="DemiBold"
-                FontSize="50" 
+                FontSize="40" 
                 FontFamily="Arial"
-                Margin="80,0,0,210"
+                Margin="120,0,0,210"
             />
             <TextBlock
                 HorizontalAlignment="Left"
@@ -139,9 +153,9 @@
                 Text="(41908418)" 
                 Foreground="Black" 
                 FontWeight="Bold"
-                FontSize="35" 
+                FontSize="30" 
                 FontFamily="Arial"
-                Margin="80,0,0,20"
+                Margin="120,0,0,20"
             />
             <TextBlock
                 HorizontalAlignment="Left"
@@ -150,7 +164,7 @@
                 Foreground="Black" 
                 FontSize="30"
                 FontFamily="Arial"
-                Margin="80,0,0,180"
+                Margin="120,0,0,140"
             />
             <TextBlock
                 HorizontalAlignment="Right"
@@ -159,9 +173,9 @@
                 Text="$114.100" 
                 Foreground="Black" 
                 FontWeight="DemiBold"
-                FontSize="40" 
+                FontSize="35" 
                 FontFamily="Arial"
-                Margin="80,0,95,174"
+                Margin="0,0,120,140"
             />
             <TextBlock
                 HorizontalAlignment="Left"
@@ -170,7 +184,7 @@
                 Foreground="#39b6b8" 
                 FontSize="30"
                 FontFamily="Arial"
-                Margin="80,0,0,90"
+                Margin="120,0,0,50"
             />
             <TextBlock
                 HorizontalAlignment="Right"
@@ -181,13 +195,13 @@
                 FontWeight="DemiBold"
                 FontSize="50" 
                 FontFamily="Arial"
-                Margin="80,0,95,70"
+                Margin="0,0,120,50"
             />
             <Image 
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="1000"
+                Width="840"
                 Margin="0,0,0,0"
             />
         </Grid>
@@ -196,16 +210,16 @@
                 Source="/Images/buttons/btnPaso1.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Height="150"
-                Margin="0,30,0,0"
+                Height="100"
+                Margin="0,50,0,0"
                 Stretch="Uniform"
             />
             <Image 
                 Source="/Images/buttons/btnPaso2.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Height="150"
-                Margin="0,30,0,0"
+                Height="100"
+                Margin="0,0,0,0"
                 IsEnabled="False"
                 Opacity="0.5"
                 Stretch="Uniform"
@@ -214,18 +228,18 @@
                 Source="/Images/buttons/btnPaso3.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Height="150"
-                Margin="0,0,0,0"
+                Height="100"
+                Margin="0,0,0,50"
                 IsEnabled="False"
                 Opacity="0.5"
                 Stretch="Uniform"
             />
-            <Image 
+            <!--<Image 
                 Source="/Images/Backgrounds/avisoDiligenciar.png"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Width="310"
-                Margin="0,10,140,0"
+                Width="210"
+                Margin="0,30,254,0"
             />
             <TextBlock
                 HorizontalAlignment="Right"
@@ -239,7 +253,7 @@
             >
                 <Run FontSize="25" Text="Por Diligenciar:"/>
                 <Run FontWeight="Bold" Text="2 de 2"/>
-            </TextBlock>
+            </TextBlock>-->
         </Grid>    
     </Grid>
 </UserControl>
