@@ -283,7 +283,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string cumple1780 { get; set; }
         public string mantiene1780 { get; set; }
         public string renuncia1780 { get; set; }
-        public int idliquidacion { get; set; }
+        public string idliquidacion { get; set; }
         public string numerorecuperacion { get; set; }
         public List<Liquidacion> liquidacion { get; set; }
         public int valorbruto { get; set; }
