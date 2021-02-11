@@ -193,7 +193,7 @@
                         Foreground="Black" 
                         Visibility="{Binding VisibleInput}"
                         Text="{Binding Value1}"
-                        VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged"
+                        VerticalContentAlignment="Center"
                         >
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">

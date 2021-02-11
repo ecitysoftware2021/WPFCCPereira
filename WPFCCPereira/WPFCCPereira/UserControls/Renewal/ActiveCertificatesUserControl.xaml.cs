@@ -116,6 +116,13 @@ namespace WPFCCPereira.UserControls.Renewal
                     bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
+                else 
+                if (transaction.ExpedientesMercantil.numactivos < transaction.ExpedientesMercantil.activos)
+                {
+                    txtErrorActivos.Text = "Los activos deben ser mayor o iguales a los de "+ transaction.ExpedientesMercantil.ultanorenovado;
+                    bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    state = false;
+                }
 
                 if (transaction.ExpedientesMercantil.numempleados < MinEmpleados)
                 {
@@ -138,6 +145,13 @@ namespace WPFCCPereira.UserControls.Renewal
                         if (item.numactivos < MinActivos)
                         {
                             item.mserroractivos = "Número activos es requerido";
+                            item.bdActivos = "Red";
+                            state = false;
+                        }
+                        else
+                        if (item.numactivos < item.valorestablecimiento)
+                        {
+                            item.mserroractivos = "Los activos deben ser mayor o iguales a los de " + item.ultanorenovado;
                             item.bdActivos = "Red";
                             state = false;
                         }
