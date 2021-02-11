@@ -20,6 +20,8 @@ namespace WPFCCPereira.Models
 
         //BEING RENOVACION
         public ResponseIntegration ExpedientesMercantil { get; set; }
+
+        public LiquidarRenovacionNormalResponse LiquidarRenovacionNormal{ get; set; }
         //END RENOVACION
 
         public string consecutive { get; set; }

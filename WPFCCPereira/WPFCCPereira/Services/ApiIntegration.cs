@@ -527,25 +527,25 @@ namespace WPFCCPereira.Services
             return null;
         }
 
-        public async Task<RequestLiquidarRenovacionNormal> liquidarRenovacionNormal(RequestLiquidarRenovacionNormal data)
+        public async Task<LiquidarRenovacionNormalResponse> liquidarRenovacionNormal(RequestLiquidarRenovacionNormal request)
         {
             try
             {
-                RequestLiquidarRenovacionNormal request = data;
+                RequestLiquidarRenovacionNormal Request = request;
 
-                request.codigoempresa = code;
-                request.usuariows = user;
-                request.token = token;
+                Request.codigoempresa = code;
+                Request.usuariows = user;
+                Request.token = token;
 
-                var response = await GetData(request, "RenovacionNormal");
+                var response = await GetData(Request, "RenovacionNormal");
 
                 if (response != null)
                 {
-                    var requestresponse = JsonConvert.DeserializeObject<RequestLiquidarRenovacionNormal>(response.ToString());
+                    var data = JsonConvert.DeserializeObject<LiquidarRenovacionNormalResponse>(response.ToString());
 
-                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    if (data != null && data.codigoerror == "0000")
                     {
-                        return requestresponse;
+                        return data;
                     }
                 }
             }

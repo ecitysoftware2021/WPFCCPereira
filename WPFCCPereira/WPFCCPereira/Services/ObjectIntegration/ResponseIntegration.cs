@@ -9,13 +9,16 @@ using System.Windows.Media;
 
 namespace WPFCCPereira.Services.ObjectIntegration
 {
+    #region "RESPONSE-autenticarUsuarioVerificado"
     public class ResponseLogin
     {
         public string codigoerror { get; set; }
         public string mensajeerror { get; set; }
         public string nombreusuario { get; set; }
     }
+    #endregion
 
+    #region "RESPONSE-consultarExpedienteMercantil"
     public class ResponseIntegration
     {
         public decimal numactivos { get; set; }
@@ -170,7 +173,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
                 }
             }
         }
-        
+
         private string _bdEmpleados = "Transparent";
         public string bdEmpleados
         {
@@ -187,7 +190,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
                 }
             }
         }
-        
+
         private string _mserroractivos;
         public string mserroractivos
         {
@@ -207,7 +210,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
         private string _mserrorempleados;
         public string mserrorempleados
-    {
+        {
             get
             {
                 return _mserrorempleados;
@@ -237,4 +240,56 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string infografia2 { get; set; }
         public bool status { get; set; } = false;
     }
+    #endregion
+
+    #region "RESPONSE-liquidarRenovacionNormal"
+    public class MatriculaResponse
+    {
+        public string matricula { get; set; }
+        public int activos { get; set; }
+        public string anorenovacion { get; set; }
+    }
+
+    public class LiquidacionResponse
+    {
+        public string servicio { get; set; }
+        public string cc { get; set; }
+        public string matricula { get; set; }
+        public string nmatricula { get; set; }
+        public object anorenovar { get; set; }
+        public int cantidad { get; set; }
+        public int activos { get; set; }
+        public object valor { get; set; }
+        public string nservicio { get; set; }
+    }
+
+    public class LiquidarRenovacionNormalResponse
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public int personal { get; set; }
+        public string token { get; set; }
+        public string codigoerror { get; set; }
+        public string mensajeerror { get; set; }
+        public string idusuario { get; set; }
+        public string emailcontrol { get; set; }
+        public string celularcontrol { get; set; }
+        public string nombrecontrol { get; set; }
+        public string identificacioncontrol { get; set; }
+        public List<Matricula> matriculas { get; set; }
+        public string incluirafiliacion { get; set; }
+        public string incluircertificado { get; set; }
+        public string incluirformulario { get; set; }
+        public string cumple1780 { get; set; }
+        public string mantiene1780 { get; set; }
+        public string renuncia1780 { get; set; }
+        public int idliquidacion { get; set; }
+        public string numerorecuperacion { get; set; }
+        public List<Liquidacion> liquidacion { get; set; }
+        public int valorbruto { get; set; }
+        public int valorbaseiva { get; set; }
+        public int valoriva { get; set; }
+        public int valortotal { get; set; }
+    }
+    #endregion
 }

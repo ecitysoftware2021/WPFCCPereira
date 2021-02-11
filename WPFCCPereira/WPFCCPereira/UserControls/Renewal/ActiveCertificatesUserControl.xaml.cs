@@ -180,10 +180,20 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     request.matriculas.Add(new Matricula
                     {
-                        activos = 397034000,
-                        anorenovacion = "2021",
-                        matricula = "8623304"
+                        activos = transaction.ExpedientesMercantil.numactivos,
+                        anorenovacion = transaction.ExpedientesMercantil.anoporrenovar.ToString(),
+                        matricula = transaction.ExpedientesMercantil.matricula
                     });
+
+                    foreach (var item in listEstablecimientos)
+                    {
+                        request.matriculas.Add(new Matricula
+                        {
+                            activos = item.numactivos,
+                            anorenovacion = item.anoporrenovar.ToString(),
+                            matricula = item.matricula
+                        });
+                    }
 
                     var response = await AdminPayPlus.ApiIntegration.liquidarRenovacionNormal(request);
 
@@ -197,6 +207,8 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
+                        transaction.LiquidarRenovacionNormal = response;
+
                         Utilities.navigator.Navigate(UserControlView.MenuRenovacion, false, transaction);
                     }
                 });

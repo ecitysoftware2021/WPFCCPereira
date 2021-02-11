@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace WPFCCPereira.Services.ObjectIntegration
 {
+    #region "REQUEST-liquidarRenovacionNormal"
     public class Matricula
     {
         public string matricula { get; set; }
-        public int activos { get; set; }
+        public decimal activos { get; set; }
         public string anorenovacion { get; set; }
     }
 
@@ -54,7 +55,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public int valoriva { get; set; }
         public int valortotal { get; set; }
     }
+    #endregion
 
+    #region "REQUEST-consultarExpedienteMercantil"
     public class RequestFileMercantil
     {
         public string codigoempresa { get; set; }
@@ -69,17 +72,18 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
         public string tipo { get; set; }
     }
+    #endregion
 
+    #region "REQUEST-autenticarUsuarioVerificado"
     public class RequestLogin
     {
         public string codigoempresa { get; set; }
-
         public string usuariows { get; set; }
-
         public string token { get; set; }
         public string identificacionusuario { get; set; }
         public string emailusuario { get; set; }
         public string celularusuario { get; set; }
         public string claveusuario { get; set; }
     }
+    #endregion
 }
