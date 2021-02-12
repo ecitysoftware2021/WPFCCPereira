@@ -32,6 +32,8 @@ namespace WPFCCPereira.UserControls.Renewal
             InitializeComponent();
 
             this.transaction = ts;
+
+            this.DataContext = transaction.LiquidarRenovacionNormal;
         }
         #endregion
 
