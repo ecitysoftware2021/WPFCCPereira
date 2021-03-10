@@ -150,14 +150,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="6343640">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="6353368">
       <assemblyIdentity name="WPFCCPereira" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dr5DteDWJnlpC3f3fko7wOeYEPsW/7dgjWJQdN2HfKU=</dsig:DigestValue>
+        <dsig:DigestValue>bIq/W1J6bkJ138LnKobHgk4/OwTplAnDuF3vQDThJFg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

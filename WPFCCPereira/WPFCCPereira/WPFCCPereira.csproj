@@ -224,6 +224,9 @@
     <Compile Include="UserControls\Renewal\FormsPpal\IdentificacionUC.xaml.cs">
       <DependentUpon>IdentificacionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml.cs">
+      <DependentUpon>InformacionFinancieraUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml.cs">
       <DependentUpon>UbicacionDatosGeneralesUC.xaml</DependentUpon>
     </Compile>
@@ -454,6 +457,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Renewal\FormsPpal\IdentificacionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

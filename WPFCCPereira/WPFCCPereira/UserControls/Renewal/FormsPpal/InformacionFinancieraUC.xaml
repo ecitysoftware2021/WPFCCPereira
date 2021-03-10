@@ -1,0 +1,400 @@
+﻿<UserControl x:Class="WPFCCPereira.UserControls.Renewal.FormsPpal.InformacionFinancieraUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal.FormsPpal"
+             mc:Ignorable="d" 
+             Height="1920" 
+             Width="1080">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="310"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="6">
+            <Border
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Background="#ffffff"
+                Width="900"
+                Height="1400"
+                CornerRadius="60"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,200">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Image 
+                Name="btn_exit"
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="250"
+                Margin="50,0,0,30"
+                Stretch="Uniform"
+            />
+        </Grid>
+        <Grid Grid.Row="1" Margin="110,0,110,0">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="top" 
+                TextAlignment="Center"
+                Text="ACTIVIDAD ECONÓMICA / CLASIFICACIÓN CIIU" 
+                FontSize="45" 
+                TextWrapping="Wrap"
+                FontFamily="Arial"
+                Margin="0,50,0,0"
+            />
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Justify"
+                Text="N° Liquidación" 
+                FontSize="30" 
+                FontFamily="Arial"
+                Margin="0,0,0,70"
+            />
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Justify"
+                Text="1682334" 
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="0,0,0,30"
+            />
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Right"
+                Text="N° Matrícula" 
+                FontSize="30" 
+                FontFamily="Arial"
+                Margin="0,0,0,70"
+            />
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Right"
+                Text="18130990" 
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="0,0,0,30"
+            />
+            <Image
+                Source="/Images/Others/img-split.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="800"
+                Margin="0,0,0,10" 
+            />
+        </Grid>
+        <Grid Grid.Row="2" Margin="110,0,110,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock
+                    TextWrapping="Wrap" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="Si han relacionado en su actividad económica dos o más códigos CIIU, indique el CIIU por el cual recibió mayores ingresos por actividad ordinaria" 
+                    Foreground="#0f3a43" 
+                    FontSize="25" 
+                    Margin="0,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBox
+                    VerticalAlignment="Center" 
+                    TextAlignment="Center"
+                    Text="2020"
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="2">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" 
+                    Text="Estado de Situación Fincanciera 2020" 
+                    Foreground="#0f3a43" 
+                    FontSize="25" 
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    Text="Activo" 
+                    Foreground="#7a837e" 
+                    FontSize="25" 
+                />
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Corriente" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="4">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="No Corriente" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="5">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Activo Total" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="6">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    FontSize="35" 
+                    FontFamily="Arial"
+                    Margin="0,0,0,0"
+                    Width="870"
+                    Height="50"
+                    Background="#FFAEABAB"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Pasivos" 
+                    FontSize="40" 
+                    Foreground="#FF424242"
+                    FontFamily="Arial"
+                    Margin="10,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="7">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Corriente" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="8">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="No Corriente" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="9">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Pasivo Total" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="10">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Patrimonio Neto" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="11">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Pasivo+Patrim" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="12">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    FontSize="35" 
+                    FontFamily="Arial"
+                    Margin="0,0,0,0"
+                    Width="870"
+                    Height="50"
+                    Background="#FFAEABAB"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Estado de Resultados" 
+                    FontSize="40" 
+                    Foreground="#FF424242"
+                    FontFamily="Arial"
+                    Margin="10,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="13">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Ingresos Actividad Ordina" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="14">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Otros ingresos" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="15">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Costo de Ventas" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="16">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Gastos Operacio..." 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="17">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Otros Gastos" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="18">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Gastos por impuestos" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="19">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Utilidad / Perd" 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="20">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Resultado del Pe..." 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="20">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    FontSize="35" 
+                    FontFamily="Arial"
+                    Margin="0,0,0,0"
+                    Width="870"
+                    Height="50"
+                    Background="#FFAEABAB"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Personal" 
+                    FontSize="40" 
+                    Foreground="#FF424242"
+                    FontFamily="Arial"
+                    Margin="10,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="21">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Personal Ocupa..." 
+                    FontSize="30" 
+                />
+            </Grid>
+            <Grid Grid.Row="22">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="% Personal temporal" 
+                    FontSize="30" 
+                />
+            </Grid> 
+            <Grid Grid.Row="23">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Grupo NIIF" 
+                    FontSize="30" 
+                />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="5" Margin="110,0,110,0">
+            <Image 
+                x:Name="btnNext"
+                Source="/Images/Buttons/btnsiguiente.png"
+                Stretch="Uniform"
+                Height="70"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,10,100,0"
+            />
+            <Image 
+                x:Name="btnReturn"
+                Source="/Images/Buttons/btnatras.png"
+                Stretch="Uniform"
+                Height="70"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="100,10,0,0"
+            />
+        </Grid>
+    </Grid>
+</UserControl>
