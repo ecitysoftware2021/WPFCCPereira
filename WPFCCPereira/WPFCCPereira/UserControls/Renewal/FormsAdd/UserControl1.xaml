@@ -15,8 +15,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="300" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="200" />
+            <RowDefinition Height="450" />
+            <RowDefinition Height="390" />
+            <RowDefinition Height="120" />
+            <RowDefinition Height="460" />
+            <!--<RowDefinition Height="*" />-->
+            <!--<RowDefinition Height="100" />-->
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -35,7 +39,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="top" 
                 TextAlignment="Center"
-                Text="ACTIVIDAD ECONÓMICA / CLASIFICACIÓN CIIU" 
+                Text="INFORMACIÓN FINANCIERA" 
                 Foreground="Black" 
                 FontSize="45" 
                 FontFamily="Arial"
@@ -96,273 +100,372 @@
                    Width="1010"
                    Margin="0,0,0,10" />
         </Grid>
-        <!--TODO: MIRAR LA POSIBILIDAD DE METER ESTE GRID EN UNA LISTVIEW-->
-        <Grid Grid.Row="2" >
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="160" />
-                <RowDefinition Height="300" />
-                <RowDefinition Height="330" />
-                <RowDefinition Height="150" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="265" />
+                <RowDefinition Height="180" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid
+                Grid.Row="0"
+                Width="1000"
+                Height="160"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,10,0,0"
+                Background="#c6cfca">
+
                 <TextBlock
                     TextWrapping="Wrap" 
                     Width="900"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom" 
-                    TextAlignment="Justify" 
-                    FontSize="45" 
-                    FontFamily="Arial"
-                    Margin="60,0,0,40"
-                >
-                    <Run FontSize="35" Text="Fecha de Matríula:" Foreground="#b9bbba"></Run>
-                    <Run Text="enero 01, 2013" Foreground="#9ea09f"></Run>
-                </TextBlock>
-
-                <Image Source="/Images/Others/img-split.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"
-                   Width="1010"
-                   Margin="0,0,0,20" />
-            </Grid>
-            <Grid Grid.Row="1">
-                <Grid
-                    Width="1000"
-                    Height="130"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Margin="0,15,0,0"
-                    Background="#c6cfca">
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="Si han relacionado en su actividad económica dos o más códigos CIIU, indique el CIIU por el cual recibió mayores ingresos por actividad ordinaria" 
+                    Foreground="#0f3a43" 
+                    FontSize="40" 
+                    FontFamily="Arial"
+                    Margin="0,0,0,0"
+                />
+            </Grid>
+            <TextBox
+                Width="960"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top" 
+                TextAlignment="Center"
+                Text="2020"
+                Foreground="Black"
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,200,60,0"
+            />
+            <Grid
+                Grid.Row="1"
+                Width="1000"
+                Height="160"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,10,0,0"
+                Background="#c6cfca">
 
-                    <TextBlock
-                        TextWrapping="Wrap" 
-                        Width="900"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center" 
-                        TextAlignment="Left"
-                        Text="Actividad Económica" 
-                        Foreground="#7a837e" 
-                        FontSize="45" 
-                        FontFamily="Arial"
-                        Margin="0,0,0,0"
-                    />
-                </Grid>
                 <TextBlock
                     TextWrapping="Wrap" 
                     Width="900"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom" 
-                    TextAlignment="Justify"
-                    Text="Descripción actividad económica" 
-                    Foreground="Black" 
-                    FontSize="30" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                    TextAlignment="Left"
+                    Text="Estado de Situación Fincanciera 2020" 
+                    Foreground="#0f3a43" 
+                    FontSize="40" 
                     FontFamily="Arial"
-                    Margin="60,0,0,100"
+                    Margin="0,20,0,0"
                 />
                 <TextBlock
                     TextWrapping="Wrap" 
                     Width="900"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Bottom" 
-                    TextAlignment="Justify"
-                    Text="MISCELANEA" 
-                    FontWeight="SemiBold"
-                    Foreground="Black" 
-                    FontSize="45" 
+                    TextAlignment="Left"
+                    Text="Activo" 
+                    Foreground="#7a837e" 
+                    FontSize="40" 
                     FontFamily="Arial"
-                    Margin="60,0,0,30"
+                    Margin="0,0,0,20"
                 />
             </Grid>
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid
-                    Grid.Row="0"
-                    Width="1000"
-                    Height="130"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Margin="0,10,0,0"
-                    Background="#c6cfca">
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
 
-                    <TextBlock
-                        TextWrapping="Wrap" 
-                        Width="900"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center" 
-                        TextAlignment="Left"
-                        Text="Personal" 
-                        Foreground="#7a837e" 
-                        FontSize="45" 
-                        FontFamily="Arial"
-                        Margin="0,0,0,0"
-                    />
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="300"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock
-                        Grid.Column="0"
-                        TextWrapping="Wrap" 
-                        Width="200"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center" 
-                        TextAlignment="Left"
-                        Text="Número de Mujeres Empleadas"
-                        Foreground="Black" 
-                        FontSize="35" 
-                        FontFamily="Arial"
-                        Margin="60,0,0,0"
-                    />
-                    <Grid
-                        Grid.Column="1"
-                        Width="700"
-                        Height="100"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Margin="0,0,0,0"
-                        >
-                        <Border
-                            BorderBrush="#7a837e"
-                            BorderThickness="2"
-                            CornerRadius="15">
-                            <TextBox
-                                TextWrapping="Wrap" 
-                                Width="600"
-                                Height="80"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Center" 
-                                TextAlignment="Right"
-                                Padding="3,7"
-                            
-                                Text="4" 
-                                Foreground="Black" 
-                                FontSize="45" 
-                                FontFamily="Arial"
-                                Margin="0,0,40,0"
-                            />
-                        </Border>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="3">
-                <Grid
-                    Grid.Row="0"
-                    Width="1000"
-                    Height="130"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Margin="0,10,0,0"
-                    Background="#c6cfca">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                BorderBrush="#7a837e"
+                BorderThickness="3"
+                CornerRadius="20"
+                Width="550"
+                Margin="0,10,0,10">
+                <TextBox
+                    Width="450"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    Text="1.800.000"
+                    Foreground="Black"
+                    FontSize="40" 
+                    FontFamily="Arial"
+                    Margin="0,0,30,0"
+                />
+            </Border>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Corriente" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
 
-                    <TextBlock
-                        TextWrapping="Wrap" 
-                        Width="900"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center" 
-                        TextAlignment="Left"
-                        Text="Clasificación CIIU" 
-                        Foreground="#7a837e" 
-                        FontSize="45" 
-                        FontFamily="Arial"
-                        Margin="0,0,0,0"
-                    />
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="4">
-                <TextBlock
-                    Grid.Column="0"
-                    TextWrapping="Wrap" 
-                    Width="200"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center" 
-                    TextAlignment="Left"
-                    Text="CIIU"
-                    Foreground="Black" 
-                    FontSize="35" 
-                    FontFamily="Arial"
-                    Margin="60,0,0,0"
-                />
-                <TextBlock
-                    Grid.Column="0"
-                    TextWrapping="Wrap" 
-                    Width="200"
+            <Border
+                Grid.Row="1"
+                Grid.Column="1"
+                BorderBrush="#7a837e"
+                BorderThickness="3"
+                CornerRadius="20"
+                Width="550"
+                Margin="0,10,0,10">
+                <TextBox
+                    Width="450"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
+                    Foreground="Black"
                     TextAlignment="Right"
-                    FontWeight="Bold"
-                    Text="G4711"
-                    Foreground="Black" 
-                    FontSize="45" 
+                    Text="0"
+                    FontSize="40" 
                     FontFamily="Arial"
-                    Margin="0,0,60,0"
+                    Margin="0,0,30,0"
                 />
-            </Grid>
-            <Grid Grid.Row="5">
+            </Border>
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="No Corriente" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                Width="450"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center" 
+                Foreground="Black"
+                TextAlignment="Right"
+                Text="$1.800.000"
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,0,100,0"
+            />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Activo Total" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                Width="650"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Los Activos ingresados no son iguales a los Nuevos Activos totales." 
+                Foreground="Red"
+                FontSize="25" 
+                FontFamily="Arial"
+                Margin="0,0,0,0"
+            />
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid
+                Grid.Row="1"
+                Width="1000"
+                Height="100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,10,0,0"
+                Background="#c6cfca">
+
                 <TextBlock
-                    Grid.Column="0"
                     TextWrapping="Wrap" 
-                    Width="400"
-                    HorizontalAlignment="Left"
+                    Width="900"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center" 
                     TextAlignment="Left"
-                    Text="Inicio actividad primaria"
-                    Foreground="Black" 
-                    FontSize="35" 
+                    Text="Pasivo" 
+                    Foreground="#7a837e" 
+                    FontSize="40" 
                     FontFamily="Arial"
-                    Margin="60,0,0,0"
-                />
-                <TextBlock
-                    Grid.Column="0"
-                    TextWrapping="Wrap" 
-                    Width="400"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    TextAlignment="Right"
-                    FontWeight="Bold"
-                    Text="Ene 20, 2015"
-                    Foreground="Black" 
-                    FontSize="45" 
-                    FontFamily="Arial"
-                    Margin="0,0,60,0"
+                    Margin="0,0,0,0"
                 />
             </Grid>
-            <Grid Grid.Row="6">
-                <TextBlock
-                    Grid.Column="0"
-                    TextWrapping="Wrap" 
-                    Width="200"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center" 
-                    TextAlignment="Left"
-                    Text="CIIU 2"
-                    Foreground="Black" 
-                    FontSize="35" 
-                    FontFamily="Arial"
-                    Margin="60,0,0,0"
-                />
-                <TextBlock
-                    Grid.Column="0"
-                    TextWrapping="Wrap" 
-                    Width="200"
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                BorderBrush="#7a837e"
+                BorderThickness="3"
+                CornerRadius="20"
+                Width="550"
+                Margin="0,10,0,10">
+                <TextBox
+                    Width="450"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
+                    Foreground="Black"
                     TextAlignment="Right"
-                    FontWeight="Bold"
-                    Text=""
-                    Foreground="Black" 
-                    FontSize="45" 
+                    Text="0"
+                    FontSize="40" 
                     FontFamily="Arial"
-                    Margin="0,0,60,0"
+                    Margin="0,0,30,0"
                 />
-            </Grid>
+            </Border>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="No Corriente" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="450"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center" 
+                Foreground="Black"
+                TextAlignment="Right"
+                Text="$"
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,0,100,0"
+            />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Pasivo Total" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
+
+            <Border
+                Grid.Row="2"
+                Grid.Column="1"
+                BorderBrush="#7a837e"
+                BorderThickness="3"
+                CornerRadius="20"
+                Width="550"
+                Margin="0,10,0,10">
+                <TextBox
+                    Width="450"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Foreground="Black"
+                    TextAlignment="Right"
+                    Text="1.800.000"
+                    FontSize="40" 
+                    FontFamily="Arial"
+                    Margin="0,0,30,0"
+                />
+            </Border>
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Patrimonio Neto" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                Width="450"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center" 
+                Foreground="Black"
+                TextAlignment="Right"
+                Text="$1.800.000"
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,0,100,0"
+            />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Width="350"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Pasivo+Patrim" 
+                Foreground="Black"
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="60,0,0,0"
+            />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="1"
+                Width="650"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" 
+                TextAlignment="Justify"
+                Text="Los Activos ingresados no son iguales a los Nuevos Activos totales." 
+                Foreground="Red"
+                FontSize="25" 
+                FontFamily="Arial"
+                Margin="0,0,0,0"
+            />
         </Grid>
     </Grid>
 </UserControl>
