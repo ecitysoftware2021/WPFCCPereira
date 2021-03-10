@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="WPFCCPereira.UserControls.Renewal.ConsultUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="1920" 
+             Width="1080" >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/backgrounds/bg-consult2.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="550" />
+            <RowDefinition Height="240" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Image 
+                Name="btn_exit"
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="250"
+                Margin="50,0,0,30"
+                Stretch="Uniform"
+                TouchDown="Btn_exit_TouchDown" 
+            />
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                TextAlignment="Justify"
+                Text="Ingresar datos del comerciante que desea renovar." 
+                Foreground="Black" 
+                FontSize="40" 
+                FontFamily="Arial"
+                Margin="0,0,0,20"
+            />
+            <Image 
+                Source="{Binding SourceCheckId}"
+                Width="800"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,20" 
+            />
+            <Button 
+                Tag="{Binding OptionCheck}"
+                Width="450"
+                Height="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="100,0,0,20"
+                TouchDown="Select_TouchDown"
+                Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
+                Foreground="{x:Null}"
+            />
+            <Button 
+                Width="420"
+                Height="80"
+                Tag="{Binding OptionChecktwo}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,100,20" 
+                TouchDown="Select_TouchDown"
+                Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
+                Foreground="{x:Null}"
+            />
+        </Grid>
+        <Grid Grid.Row="2" >
+            <TextBox 
+                Name="txtReferencia"
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left" 
+                TextAlignment="Center"
+                Margin="100,0,0,0" 
+                Width="710"
+                Height="160" 
+                TextWrapping="Wrap"
+                TabIndex="0"
+                FontSize="48" 
+                Foreground="#FF56C5C8"
+                FontWeight="Medium"
+                md:HintAssist.FloatingScale="0.4"
+                md:HintAssist.IsFloating="True"
+                md:HintAssist.Hint="Ingrese la referencia a consultar"
+                TextChanged="txt_TextChanged"
+                TouchDown="Text_TouchDown" 
+                FontFamily="Arial" 
+            />
+            <TextBlock 
+                Name="txt_error"
+                FontSize="25"
+                TextAlignment="Center"
+                Margin="100,0,0,30"
+                FontFamily="Arial"
+                FontWeight="Bold"
+                Foreground="Red"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"  
+            />
+            <Button
+                x:Name="btn_consult"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Width="240"
+                Height="240" 
+                Margin="0,0,20,0" 
+                TouchDown="BtnConsult_TouchDown" 
+                Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
+                Foreground="{x:Null}"
+            />
+        </Grid>
+
+    </Grid>
+</UserControl>
+

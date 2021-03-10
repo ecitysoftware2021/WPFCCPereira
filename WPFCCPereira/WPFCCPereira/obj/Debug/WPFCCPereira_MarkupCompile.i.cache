@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 WPFCCPereira
 none
 false
 DEBUG;TRACE
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
-241679184640
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
+26529295230
 
-80-2089671309
-29-378538392
-KeyboardNew\WKeyboard.xaml;UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DescriptionUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUserControl.xaml;UserControls\MenuUserControl.xaml;UserControls\PayerUserControl.xaml;UserControls\PrintFileUserControl.xaml;UserControls\Renewal\ActiveCertificatesUserControl.xaml;UserControls\Renewal\ConsultUserControl.xaml;UserControls\Renewal\ListEstablecimientosUserControl.xaml;UserControls\Renewal\LocationAndDataGenericUserControl.xaml;UserControls\Renewal\LoginUserControl.xaml;UserControls\Renewal\MenuFormsUserControl.xaml;UserControls\ReturnMonyUserControl.xaml;UserControls\ConsultUserControl.xaml;UserControls\MainUserControl.xaml;UserControls\PaymentUserControl.xaml;UserControls\SussesUserControl.xaml;Windows\MasterWindow.xaml;Windows\ModalWindow.xaml;
+82-202843258
+29-1299165757
+KeyboardNew\WKeyboard.xaml;UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DescriptionUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUC.xaml;UserControls\MenuUC.xaml;UserControls\PayerUC.xaml;UserControls\PrintFileUC.xaml;UserControls\Renewal\ActiveCertificatesUC.xaml;UserControls\Renewal\ConsultUC.xaml;UserControls\Renewal\FormsAdd\UserControl1.xaml;UserControls\Renewal\FormsPpal\IdentificacionUC.xaml;UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml;UserControls\Renewal\ListEstablecimientosUC.xaml;UserControls\Renewal\LoginUC.xaml;UserControls\Renewal\MenuFormsUC.xaml;UserControls\ReturnMonyUC.xaml;UserControls\ConsultUC.xaml;UserControls\MainUC.xaml;UserControls\PaymentUC.xaml;UserControls\SussesUC.xaml;Windows\MasterWindow.xaml;Windows\ModalWindow.xaml;
 
 True
 

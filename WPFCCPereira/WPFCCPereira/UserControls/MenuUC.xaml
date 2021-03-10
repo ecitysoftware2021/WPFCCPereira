@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="WPFCCPereira.UserControls.MenuUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCCPereira.UserControls"
+             mc:Ignorable="d"
+             Height="1920" 
+             Width="1080">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-menu.jpg" Stretch="Uniform"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Image Source="/Images/Buttons/btnsalir.png"
+                   Name="btn_exit"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Margin="50,0,0,30"
+                   Stretch="Uniform"
+                   TouchDown="Btn_exit_TouchDown" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Button Name="btn_pay_certificate"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Tag = "3"
+                   Height="300"
+                   Margin="0,0,450,60"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
+                   TouchDown="btn_search_TouchDown" />
+
+            <Button Name="btn_search_name"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Tag ="1"
+                   Width="250"
+                   Height="300"
+                   Margin="450,0,0,60"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
+                   TouchDown="btn_search_TouchDown" />
+
+            <Button 
+                   Name="btn_search_consecutive"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Tag ="2"
+                   Height="300"
+                   Margin="200,0,0,180"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
+                   TouchDown="btn_search_TouchDown" />
+            <Button 
+                   Name="btn_search_renovacion"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Tag ="31"
+                   Height="300"
+                   Margin="0,0,200,180"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
+                   TouchDown="btn_search_TouchDown" />
+        </Grid>
+    </Grid>
+</UserControl>

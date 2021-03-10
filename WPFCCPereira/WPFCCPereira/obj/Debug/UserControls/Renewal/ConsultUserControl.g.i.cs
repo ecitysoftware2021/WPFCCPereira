@@ -39,9 +39,9 @@ namespace WPFCCPereira.UserControls.Renewal {
     
     
     /// <summary>
-    /// ConsultUserControl
+    /// ConsultUC
     /// </summary>
-    public partial class ConsultUserControl : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class ConsultUC : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
         #line 25 "..\..\..\..\UserControls\Renewal\ConsultUserControl.xaml"

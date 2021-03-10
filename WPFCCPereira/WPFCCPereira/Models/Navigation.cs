@@ -38,33 +38,33 @@ namespace WPFCCPereira.Models
                 switch (newWindow)
                 {
                     case UserControlView.Main:
-                        View = data != null ? new MainUserControl((bool)data) : new MainUserControl();
+                        View = data != null ? new MainUC((bool)data) : new MainUC();
                         break;
                     case UserControlView.Consult:
-                        View = new ConsultUserControl((ETransactionType)data);
+                        View = new ConsultUC((ETransactionType)data);
                         break;
                     //BEGIN RENOVACION//
                     case UserControlView.LoginUser:
-                        View = new UserControls.Renewal.LoginUserControl((ETransactionType)data);
+                        View = new UserControls.Renewal.LoginUC((ETransactionType)data);
                         break;
                     case UserControlView.ConsultRenovacion:
-                        View = new UserControls.Renewal.ConsultUserControl((ETransactionType)data);
+                        View = new UserControls.Renewal.ConsultUC((ETransactionType)data);
                         break;
                     case UserControlView.ActiveCertificate:
-                        View = new UserControls.Renewal.ActiveCertificatesUserControl((Transaction)data);
+                        View = new UserControls.Renewal.ActiveCertificatesUC((Transaction)data);
                         break; 
                     case UserControlView.MenuRenovacion:
-                        View = new UserControls.Renewal.MenuFormsUserControl((Transaction)data);
+                        View = new UserControls.Renewal.MenuFormsUC((Transaction)data);
                         break;
                         //END RENOVACION//
                     case UserControlView.PaySuccess:
-                        View = new SussesUserControl((Transaction)data);
+                        View = new SussesUC((Transaction)data);
                         break;
                     case UserControlView.Pay:
-                        View = new PaymentUserControl((Transaction)data);
+                        View = new PaymentUC((Transaction)data);
                         break;
                     case UserControlView.ReturnMony:
-                        View = new ReturnMonyUserControl((Transaction)data);
+                        View = new ReturnMonyUC((Transaction)data);
                         break;
                     case UserControlView.Login:
                         View = new LoginAdministratorUserControl((ETypeAdministrator)data);
@@ -76,16 +76,16 @@ namespace WPFCCPereira.Models
                         View = new AdministratorUserControl((PaypadOperationControl)data, (ETypeAdministrator)complement);
                         break;
                     case UserControlView.Certificates:
-                        View = new FileUserControl((Transaction)data);
+                        View = new FileUC((Transaction)data);
                         break;
                     case UserControlView.Payer:
-                        View = new PayerUserControl((Transaction)data);
+                        View = new PayerUC((Transaction)data);
                         break;
                     case UserControlView.PrintFile:
-                        View = new PrintFileUserControl((Transaction)data);
+                        View = new PrintFileUC((Transaction)data);
                         break;
                     case UserControlView.Menu:
-                        View = new MenuUserControl();
+                        View = new MenuUC();
                         break;
                 }
 
@@ -98,7 +98,7 @@ namespace WPFCCPereira.Models
                     {
                         Application.Current.Dispatcher.Invoke((Action)delegate
                         {
-                            View = new MainUserControl();
+                            View = new MainUC();
                             WPKeyboard.Keyboard.CloseKeyboard(View);
                         });
                         GC.Collect();
