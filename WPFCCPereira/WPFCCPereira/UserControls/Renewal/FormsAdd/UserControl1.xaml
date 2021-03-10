@@ -15,255 +15,354 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="300" />
-            <RowDefinition Height="150" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="300" />
+            <RowDefinition Height="200" />
         </Grid.RowDefinitions>
-        <Grid Grid.RowSpan="5">
-            <Border
-                BorderBrush="Transparent"
-                BorderThickness="0"
-                Background="#ffffff"
-                Width="900"
-                Height="1400"
-                CornerRadius="60"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Margin="0,0,0,200">
-            </Border>
-        </Grid>
+
         <Grid Grid.Row="0">
-            <Image 
-                Name="btn_exit"
-                Source="/Images/Buttons/btnsalir.png"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Width="250"
-                Margin="50,0,0,30"
-            />
+            <Image Source="/Images/Buttons/btn-menu.png"
+                   Name="btn_exit"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Width="250"
+                   Margin="50,0,0,30" />
         </Grid>
-        <Grid Grid.Row="1" Margin="110,0,110,0">
+
+        <Grid Grid.Row="1">
             <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
                 HorizontalAlignment="Center"
                 VerticalAlignment="top" 
                 TextAlignment="Center"
-                Text="IDENTIFICACIÓN" 
+                Text="ACTIVIDAD ECONÓMICA / CLASIFICACIÓN CIIU" 
                 Foreground="Black" 
                 FontSize="45" 
                 FontFamily="Arial"
                 Margin="0,40,0,0"
             />
             <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
                 Text="N° Liquidación" 
+                Foreground="Black" 
                 FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,0,0,70"
+                Margin="60,0,0,70"
             />
             <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
                 Text="1682334" 
+                Foreground="Black" 
                 FontSize="35" 
                 FontFamily="Arial"
-                Margin="0,0,0,30"
+                Margin="60,0,0,30"
             />
+
             <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="N° Matrícula" 
+                Foreground="Black" 
                 FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,0,0,70"
+                Margin="0,0,60,70"
             />
             <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="18130990" 
+                Foreground="Black" 
                 FontSize="35" 
                 FontFamily="Arial"
-                Margin="0,0,0,30"
+                Margin="0,0,60,30"
             />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Width="800"
-                Margin="0,0,0,10"
-            />
+            <Image Source="/Images/Others/img-split.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Width="1010"
+                   Margin="0,0,0,10" />
         </Grid>
-        <Grid Grid.Row="2" Margin="110,0,110,0">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" 
-                FontSize="35" 
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-                Width="830"
-                Height="90"
-                Background="#FFAEABAB"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Datos de identificación" 
-                FontSize="35" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="50,0,0,0"
-            />
-        </Grid>
-        <Grid Grid.Row="3" Margin="110,0,110,0">
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                Text="Nombre" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,70,0,0"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                Text="ARCILA PALACIO MILENA" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,150,0,0"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,0,0,500"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Tipo de identificación" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,400"
-            />
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                Text="Cédula de ciudadanía" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,400"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,0,0,300"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Identificación" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,200"
-            />
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                Text="1152465864" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,200"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,0,0,100"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Organización" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-            />
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                Text="Persona Natural" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,100,0,0"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Género" 
-                FontSize="30" 
-                FontFamily="Arial"
-                Margin="0,200,0,0"
-            />
-            <ComboBox 
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Width="180"
-                FontSize="40"
-                Height="60"
-                Margin="0,200,0,0"
-                Name="CmbDomains"
-                SelectedIndex="0">
-                <ComboBoxItem Content="Femenino" />
-                <ComboBoxItem Content="Masculino" />
-            </ComboBox>
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,300,0,0"
-            />
-            <Image 
-                x:Name="btnNext"
-                Source="/Images/Buttons/btnsiguiente.png"
-                Stretch="Uniform"
-                Height="70"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Margin="0,0,100,100"
-            />
-            <Image 
-                x:Name="btnReturn"
-                Source="/Images/Buttons/btnatras.png"
-                Stretch="Uniform"
-                Height="70"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                Margin="100,0,0,100"
-            />
+        <!--TODO: MIRAR LA POSIBILIDAD DE METER ESTE GRID EN UNA LISTVIEW-->
+        <Grid Grid.Row="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160" />
+                <RowDefinition Height="300" />
+                <RowDefinition Height="330" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock
+                    TextWrapping="Wrap" 
+                    Width="900"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    TextAlignment="Justify" 
+                    FontSize="45" 
+                    FontFamily="Arial"
+                    Margin="60,0,0,40"
+                >
+                    <Run FontSize="35" Text="Fecha de Matríula:" Foreground="#b9bbba"></Run>
+                    <Run Text="enero 01, 2013" Foreground="#9ea09f"></Run>
+                </TextBlock>
+
+                <Image Source="/Images/Others/img-split.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Width="1010"
+                   Margin="0,0,0,20" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid
+                    Width="1000"
+                    Height="130"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,15,0,0"
+                    Background="#c6cfca">
+
+                    <TextBlock
+                        TextWrapping="Wrap" 
+                        Width="900"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" 
+                        TextAlignment="Left"
+                        Text="Actividad Económica" 
+                        Foreground="#7a837e" 
+                        FontSize="45" 
+                        FontFamily="Arial"
+                        Margin="0,0,0,0"
+                    />
+                </Grid>
+                <TextBlock
+                    TextWrapping="Wrap" 
+                    Width="900"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    TextAlignment="Justify"
+                    Text="Descripción actividad económica" 
+                    Foreground="Black" 
+                    FontSize="30" 
+                    FontFamily="Arial"
+                    Margin="60,0,0,100"
+                />
+                <TextBlock
+                    TextWrapping="Wrap" 
+                    Width="900"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    TextAlignment="Justify"
+                    Text="MISCELANEA" 
+                    FontWeight="SemiBold"
+                    Foreground="Black" 
+                    FontSize="45" 
+                    FontFamily="Arial"
+                    Margin="60,0,0,30"
+                />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row="0"
+                    Width="1000"
+                    Height="130"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    Background="#c6cfca">
+
+                    <TextBlock
+                        TextWrapping="Wrap" 
+                        Width="900"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" 
+                        TextAlignment="Left"
+                        Text="Personal" 
+                        Foreground="#7a837e" 
+                        FontSize="45" 
+                        FontFamily="Arial"
+                        Margin="0,0,0,0"
+                    />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        TextWrapping="Wrap" 
+                        Width="200"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" 
+                        TextAlignment="Left"
+                        Text="Número de Mujeres Empleadas"
+                        Foreground="Black" 
+                        FontSize="35" 
+                        FontFamily="Arial"
+                        Margin="60,0,0,0"
+                    />
+                    <Grid
+                        Grid.Column="1"
+                        Width="700"
+                        Height="100"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"
+                        >
+                        <Border
+                            BorderBrush="#7a837e"
+                            BorderThickness="2"
+                            CornerRadius="15">
+                            <TextBox
+                                TextWrapping="Wrap" 
+                                Width="600"
+                                Height="80"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center" 
+                                TextAlignment="Right"
+                                Padding="3,7"
+                            
+                                Text="4" 
+                                Foreground="Black" 
+                                FontSize="45" 
+                                FontFamily="Arial"
+                                Margin="0,0,40,0"
+                            />
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid
+                    Grid.Row="0"
+                    Width="1000"
+                    Height="130"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    Background="#c6cfca">
+
+                    <TextBlock
+                        TextWrapping="Wrap" 
+                        Width="900"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" 
+                        TextAlignment="Left"
+                        Text="Clasificación CIIU" 
+                        Foreground="#7a837e" 
+                        FontSize="45" 
+                        FontFamily="Arial"
+                        Margin="0,0,0,0"
+                    />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="4">
+                <TextBlock
+                    Grid.Column="0"
+                    TextWrapping="Wrap" 
+                    Width="200"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="CIIU"
+                    Foreground="Black" 
+                    FontSize="35" 
+                    FontFamily="Arial"
+                    Margin="60,0,0,0"
+                />
+                <TextBlock
+                    Grid.Column="0"
+                    TextWrapping="Wrap" 
+                    Width="200"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    FontWeight="Bold"
+                    Text="G4711"
+                    Foreground="Black" 
+                    FontSize="45" 
+                    FontFamily="Arial"
+                    Margin="0,0,60,0"
+                />
+            </Grid>
+            <Grid Grid.Row="5">
+                <TextBlock
+                    Grid.Column="0"
+                    TextWrapping="Wrap" 
+                    Width="400"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="Inicio actividad primaria"
+                    Foreground="Black" 
+                    FontSize="35" 
+                    FontFamily="Arial"
+                    Margin="60,0,0,0"
+                />
+                <TextBlock
+                    Grid.Column="0"
+                    TextWrapping="Wrap" 
+                    Width="400"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    FontWeight="Bold"
+                    Text="Ene 20, 2015"
+                    Foreground="Black" 
+                    FontSize="45" 
+                    FontFamily="Arial"
+                    Margin="0,0,60,0"
+                />
+            </Grid>
+            <Grid Grid.Row="6">
+                <TextBlock
+                    Grid.Column="0"
+                    TextWrapping="Wrap" 
+                    Width="200"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="CIIU 2"
+                    Foreground="Black" 
+                    FontSize="35" 
+                    FontFamily="Arial"
+                    Margin="60,0,0,0"
+                />
+                <TextBlock
+                    Grid.Column="0"
+                    TextWrapping="Wrap" 
+                    Width="200"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    FontWeight="Bold"
+                    Text=""
+                    Foreground="Black" 
+                    FontSize="45" 
+                    FontFamily="Arial"
+                    Margin="0,0,60,0"
+                />
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
