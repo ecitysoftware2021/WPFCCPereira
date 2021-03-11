@@ -14,10 +14,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="300" />
-            <RowDefinition Height="130" />
-            <RowDefinition Height="130" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="400" />
+            <RowDefinition Height="700" />
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="6">
             <Border
@@ -25,7 +25,7 @@
                 BorderThickness="0"
                 Background="#ffffff"
                 Width="900"
-                Height="1400"
+                Height="1000"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
@@ -56,19 +56,15 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="N° Liquidación" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="1682334" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <TextBlock
@@ -76,8 +72,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="N° Matrícula" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
@@ -85,15 +80,14 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="18130990" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <Image
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="800"
+                Width="900"
                 Margin="0,0,0,10" 
             />
         </Grid>
@@ -105,34 +99,34 @@
                 FontFamily="Arial"
                 Margin="0,0,0,0"
                 Width="830"
-                Height="100"
+                Height="60"
                 Background="#FFAEABAB"
             />
             <TextBlock
                 x:Name="UC"
                 TextWrapping="Wrap" 
-                Width="260"
+                Width="210"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center" 
                 TextAlignment="Center"
                 Text="UBICACIÓN NOTIFICACIÓN" 
                 Foreground="#FF104B6D"
                 FontWeight="Bold"
-                FontSize="35" 
-                Margin="0,0,100,0"
+                FontSize="20" 
+                Margin="0,0,200,0"
             />
             <TextBlock
                 x:Name="UN"
                 TextWrapping="Wrap" 
-                Width="260"
+                Width="210"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
                 TextAlignment="Center"
                 Text="UBICACIÓN COMERCIAL" 
                 Foreground="White" 
-                FontSize="35" 
+                FontSize="20" 
                 Background="#014c6c"
-                Margin="100,0,0,0"
+                Margin="200,0,0,0"
             />
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">
@@ -140,21 +134,21 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top" 
                 Text="Dirección" 
-                FontSize="30" 
+                FontSize="20" 
                 Margin="0,0,0,0"
             />
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
                 Text="CARRERA 8 NRO. 23-09" 
-                FontSize="40" 
+                FontSize="25" 
                 Margin="0,0,0,0"
             />
             <Image 
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="800"
+                Width="900"
                 Margin="0,0,0,20" 
             />
         </Grid>
@@ -169,153 +163,222 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock
-                Grid.Row="0"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Municipio" 
-                FontSize="30" 
-            />
-            <ComboBox
-                Width="550"
-                HorizontalContentAlignment="Right"
-                Grid.Row="0"
-                Grid.Column="1"
-                VerticalAlignment="Center"
-                Background="Transparent"
-                FontSize="40"
-                >
-                <ComboBoxItem IsSelected="True">PEREIRA</ComboBoxItem>
-                <ComboBoxItem>APÍA</ComboBoxItem>
-                <ComboBoxItem>BALBOA</ComboBoxItem>
-                <ComboBoxItem>BELÉN DE UMBR...</ComboBoxItem>
-                <ComboBoxItem>GUÁTICA</ComboBoxItem>
-            </ComboBox>
-            <TextBlock
-                Grid.Row="1"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Barrio" 
-                FontSize="30" 
-                FontFamily="Arial"
-            />
-            <TextBox
-                Width="550"
-                Grid.Row="1"
-                Grid.Column="1"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                FontSize="40"
-                HorizontalContentAlignment="Right"
-            />
-            <TextBlock
-                Grid.Row="2"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Zona" 
-                FontSize="30" 
-            />
-            <ComboBox
-                Grid.Row="2"
-                Grid.Column="1"
-                Width="550"
-                Background="Transparent"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Right"
-                FontSize="40" 
-                >
-                <ComboBoxItem IsSelected="True">Urbana</ComboBoxItem>
-                <ComboBoxItem>Rural</ComboBoxItem>
-            </ComboBox>
-            <TextBlock
-                Grid.Row="3"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Correo" 
-                FontSize="30" 
-            />
-            <TextBox
-                Grid.Row="3"
-                Grid.Column="1"
-                Width="550"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                HorizontalContentAlignment="Right"
-                Text="luzenid@camarapereira.org.co"
-                FontSize="35" 
-            />
-            <TextBlock
-                Grid.Row="4"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Text="Teléfono 1" 
-                FontSize="30" 
-                Margin="0,0,0,0"
-            />
-            <TextBox
-                Grid.Row="4"
-                Grid.Column="1"
-                Width="550"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                HorizontalContentAlignment="Right"
-                FontSize="40" 
-            />
-            <TextBlock
-                Grid.Row="5"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Text="Teléfono 2" 
-                FontSize="30" 
-            />
-            <TextBox
-                Grid.Row="5"
-                Grid.Column="1"
-                Width="550"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                HorizontalContentAlignment="Right"
-                FontSize="40" 
-                Margin="0,0,0,0"
-            />
-            <TextBlock
-                Grid.Row="6"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Teléfono 3" 
-                FontSize="30" 
-            />
-            <TextBox
-                Grid.Row="6"
-                Grid.Column="1"
-                Width="550"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                HorizontalContentAlignment="Right"
-                FontSize="40" 
-            />
-            <TextBlock
-                Grid.Row="7"
-                Grid.Column="0"
-                TextWrapping="Wrap"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Número de predial o cédula" 
-                FontSize="30" 
-            />
+            <Grid Grid.Row="0">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Municipio" 
+                    FontSize="25" 
+                />
+                <ComboBox
+                    Width="550"
+                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    FontSize="30"
+                    >
+                    <ComboBoxItem IsSelected="True">PEREIRA</ComboBoxItem>
+                    <ComboBoxItem>APÍA</ComboBoxItem>
+                    <ComboBoxItem>BALBOA</ComboBoxItem>
+                    <ComboBoxItem>BELÉN DE UMBR...</ComboBoxItem>
+                    <ComboBoxItem>GUÁTICA</ComboBoxItem>
+                </ComboBox>
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,2" 
+                />
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Barrio" 
+                    FontSize="25" 
+                    FontFamily="Arial"
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Right"
+                    VerticalAlignment="Center" 
+                    FontSize="30"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="2">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Zona" 
+                    FontSize="25" 
+                />
+                <ComboBox
+                    Width="550"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="30" 
+                    >
+                    <ComboBoxItem IsSelected="True">Urbana</ComboBoxItem>
+                    <ComboBoxItem>Rural</ComboBoxItem>
+                </ComboBox>
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,2" 
+                />
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Correo" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    Text="luzenid@camarapereira.org.co"
+                    FontSize="30" 
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="4">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Teléfono 1" 
+                    FontSize="25" 
+                    Margin="0,0,0,0"
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid> 
+            <Grid Grid.Row="5">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Teléfono 2" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="6">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Teléfono 3" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid> 
+            <Grid Grid.Row="7">
+                <TextBlock
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Número de predial o cédula" 
+                    FontSize="25" 
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="8">
+                <TextBlock
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="Tipo de propiedad" 
+                    FontSize="25" 
+                />
+                <ComboBox
+                    Width="550"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                    >
+                    <ComboBoxItem IsSelected="True">Local</ComboBoxItem>
+                    <ComboBoxItem>No reporta</ComboBoxItem>
+                    <ComboBoxItem>Oficina</ComboBoxItem>
+                    <ComboBoxItem>Local y Oficina</ComboBoxItem>
+                    <ComboBoxItem>Fábrica</ComboBoxItem>
+                </ComboBox>
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
             <!--<TextBlock
                 Grid.Row="8"
                 Grid.Column="0"
@@ -341,31 +404,6 @@
                 <ComboBoxItem>Comodato</ComboBoxItem>
                 <ComboBoxItem>Préstamo</ComboBoxItem>
             </ComboBox>-->
-            <TextBlock
-                Grid.Row="8"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                TextAlignment="Left"
-                Text="Tipo de propiedad" 
-                FontSize="30" 
-            />
-            <ComboBox
-                Grid.Row="8"
-                Grid.Column="1"
-                Width="550"
-                Background="Transparent"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Right"
-                FontSize="40" 
-                >
-                <ComboBoxItem IsSelected="True">Local</ComboBoxItem>
-                <ComboBoxItem>No reporta</ComboBoxItem>
-                <ComboBoxItem>Oficina</ComboBoxItem>
-                <ComboBoxItem>Local y Oficina</ComboBoxItem>
-                <ComboBoxItem>Fábrica</ComboBoxItem>
-            </ComboBox>
         </Grid>
         <Grid Grid.Row="5" Margin="110,0,110,0">
             <Image 
@@ -375,7 +413,7 @@
                 Height="70"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0,50,100,0"
+                Margin="0,0,100,0"
                 TouchDown="btnNext_TouchDown"
             />
             <Image 
@@ -385,7 +423,7 @@
                 Height="70"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="100,50,0,0"
+                Margin="100,0,0,0"
                 TouchDown="btnReturn_TouchDown"
             />
         </Grid>

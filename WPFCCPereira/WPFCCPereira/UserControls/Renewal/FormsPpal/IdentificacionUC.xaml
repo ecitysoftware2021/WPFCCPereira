@@ -14,9 +14,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="300" />
-            <RowDefinition Height="150" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="300" />
+            <RowDefinition Height="900" />
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="5">
             <Border
@@ -24,7 +23,7 @@
                 BorderThickness="0"
                 Background="#ffffff"
                 Width="900"
-                Height="1400"
+                Height="800"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
@@ -46,8 +45,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="top" 
                 TextAlignment="Center"
-                Text="IDENTIFICACIÓN" 
-                Foreground="Black" 
+                Text="IDENTIFICACIÓN"
                 FontSize="45" 
                 FontFamily="Arial"
                 Margin="0,40,0,0"
@@ -57,8 +55,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
                 Text="N° Liquidación" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
@@ -66,8 +63,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
                 Text="1682334" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <TextBlock
@@ -75,8 +71,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="N° Matrícula" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
@@ -84,8 +79,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="18130990" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <Image 
@@ -97,163 +91,161 @@
             />
         </Grid>
         <Grid Grid.Row="2" Margin="110,0,110,0">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" 
-                FontSize="35" 
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-                Width="830"
-                Height="100"
-                Background="#FFAEABAB"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Datos de identificación" 
-                FontSize="35" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="50,0,0,0"
-            />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    FontSize="35" 
+                    Width="870"
+                    Height="50"
+                    Background="#FFAEABAB"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Datos de identificación" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                    Margin="10,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" 
+                    Text="Nombre" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                    FontFamily="Arial"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    Text="ARCILA PALACIO MILENA" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                    FontFamily="Arial"
+                    Margin="0,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Tipo de identificación" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="Cédula de ciudadanía" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="3">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Identificación" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="1152465864" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="4">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Organización" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="Persona Natural" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="5">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Género" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <ComboBox 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Width="220"
+                    FontSize="30"
+                    HorizontalContentAlignment="Right"
+                    Height="60"
+                    Margin="0,0,0,0"
+                    Name="CmbDomains"
+                    SelectedIndex="0">
+                    <ComboBoxItem Content="Femenino" />
+                    <ComboBoxItem Content="Masculino" />
+                </ComboBox>
+            </Grid>
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                Text="Nombre" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,70,0,0"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                Text="ARCILA PALACIO MILENA" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,150,0,0"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,0,0,500"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Tipo de identificación" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,400"
-            />
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                Text="Cédula de ciudadanía" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,400"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,0,0,300"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Identificación" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,200"
-            />
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                Text="1152465864" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,200"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,0,0,100"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Organización" 
-                FontSize="30" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-            />
-            <TextBlock
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center" 
-                Text="Persona Natural" 
-                FontSize="40" 
-                Foreground="#FF424242"
-                FontFamily="Arial"
-                Margin="0,0,0,0"
-            />
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,100,0,0"
-            />
-            <TextBlock
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                Text="Género" 
-                FontSize="30" 
-                FontFamily="Arial"
-                Margin="0,200,0,0"
-            />
-            <ComboBox 
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Width="220"
-                FontSize="40"
-                HorizontalContentAlignment="Right"
-                Height="60"
-                Margin="0,180,0,0"
-                Name="CmbDomains"
-                SelectedIndex="0">
-                <ComboBoxItem Content="Femenino" />
-                <ComboBoxItem Content="Masculino" />
-            </ComboBox>
-            <Image 
-                Source="/Images/Others/img-split.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="800"
-                Margin="0,300,0,0"
-            />
             <Image 
                 x:Name="btnNext"
                 Source="/Images/Buttons/btnsiguiente.png"
                 Stretch="Uniform"
                 Height="70"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Margin="0,0,100,100"
+                VerticalAlignment="Top"
+                Margin="0,0,100,0"
                 TouchDown="btnNext_TouchDown"
             />
             <Image 
@@ -262,8 +254,8 @@
                 Stretch="Uniform"
                 Height="70"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                Margin="100,0,0,100"
+                VerticalAlignment="Top"
+                Margin="100,0,0,0"
                 TouchDown="btnReturn_TouchDown"
             />
         </Grid>

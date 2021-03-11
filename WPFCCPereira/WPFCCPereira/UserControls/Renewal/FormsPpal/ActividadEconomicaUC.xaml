@@ -15,7 +15,7 @@
             <RowDefinition Height="150"/>
             <RowDefinition Height="300"/>
             <RowDefinition Height="*" />
-            <RowDefinition Height="310"/>
+            <RowDefinition Height="650"/>
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="6">
             <Border
@@ -23,7 +23,7 @@
                 BorderThickness="0"
                 Background="#ffffff"
                 Width="900"
-                Height="1400"
+                Height="1060"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
@@ -55,19 +55,15 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="N° Liquidación" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="1682334" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <TextBlock
@@ -75,8 +71,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="N° Matrícula" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
@@ -84,15 +79,14 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="18130990" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <Image
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="800"
+                Width="900"
                 Margin="0,0,0,10" 
             />
         </Grid>
@@ -110,39 +104,38 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="80" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="20" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"  
-                    FontSize="30" 
+                    FontSize="25" 
                     Margin="0,0,0,0"
                     >
                     <Run Text="Fecha de Matríula  " Foreground="#b9bbba"></Run>
-                    <Run Text="enero 01, 2013"  FontSize="40" Foreground="#9ea09f"></Run>
+                    <Run Text="enero 01, 2013"  FontSize="30" Foreground="#9ea09f"></Run>
                 </TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <TextBlock
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center" 
-                    FontSize="35" 
+                    VerticalAlignment="Center"  
                     FontFamily="Arial"
                     Margin="0,0,0,0"
                     Width="870"
-                    Height="50"
+                    Height="40"
                     Background="#FFAEABAB"
                 />
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Actividad Económica" 
-                    FontSize="40" 
+                    FontSize="30" 
                     Foreground="#FF424242"
                     FontFamily="Arial"
                     Margin="10,0,0,0"
@@ -153,14 +146,14 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Descripción actividad económica" 
-                    FontSize="30" 
+                    FontSize="25" 
                     Margin="0,0,0,0"
                 />
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     Text="MISCELANEA" 
-                    FontSize="40" 
+                    FontSize="30" 
                     Margin="0,0,0,0"
                 />
             </Grid>
@@ -168,18 +161,17 @@
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center" 
-                    FontSize="35" 
                     FontFamily="Arial"
                     Margin="0,0,0,0"
                     Width="870"
-                    Height="50"
+                    Height="40"
                     Background="#FFAEABAB"
                 />
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Personal" 
-                    FontSize="40" 
+                    FontSize="30" 
                     Foreground="#FF424242"
                     FontFamily="Arial"
                     Margin="10,0,0,0"
@@ -190,7 +182,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Número de Mujeres Empleadas"
-                    FontSize="30" 
+                    FontSize="25" 
                 />
                 <Border
                     BorderBrush="#7a837e"
@@ -198,14 +190,14 @@
                     CornerRadius="15"
                     HorizontalAlignment="Right"
                     Width="300"
-                    Height="60"
+                    Height="40"
                     >
                     <TextBox
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center" 
                         TextAlignment="Right"
                         Text="4"  
-                        FontSize="40" 
+                        FontSize="25" 
                         Margin="0,0,40,0"
                     />
                 </Border>
@@ -213,19 +205,18 @@
             <Grid Grid.Row="5">
                 <TextBlock
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center" 
-                    FontSize="35" 
+                    VerticalAlignment="Center"  
                     FontFamily="Arial"
                     Margin="0,0,0,0"
                     Width="870"
-                    Height="50"
+                    Height="40"
                     Background="#FFAEABAB"
                 />
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Clasificación CIIU" 
-                    FontSize="40" 
+                    FontSize="30" 
                     Foreground="#FF424242"
                     FontFamily="Arial"
                     Margin="10,0,0,0"
@@ -236,7 +227,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="CIIU 1"
-                    FontSize="30" 
+                    FontSize="25" 
                 />
             </Grid>
             <Grid Grid.Row="7">
@@ -244,13 +235,20 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Inicio actividad primaria"
-                    FontSize="30" 
+                    FontSize="25" 
                 />
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     Text="Ene 20, 2015"
-                    FontSize="40" 
+                    FontSize="30" 
+                />
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
                 />
             </Grid> 
             <Grid Grid.Row="8">
@@ -258,7 +256,14 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="CIIU 2"
-                    FontSize="30" 
+                    FontSize="25" 
+                />
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
                 />
             </Grid>
             <Grid Grid.Row="9">
@@ -266,7 +271,14 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Inicio actividad secundaria"
-                    FontSize="30" 
+                    FontSize="25" 
+                />
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
                 />
             </Grid>
             <Grid Grid.Row="10">
@@ -274,7 +286,14 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="CIIU 3"
-                    FontSize="30" 
+                    FontSize="25" 
+                />
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
                 />
             </Grid>
             <Grid Grid.Row="11">
@@ -282,7 +301,14 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="CIIU 4"
-                    FontSize="30" 
+                    FontSize="25" 
+                />
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
                 />
             </Grid>
             <Grid Grid.Row="12">
@@ -292,7 +318,14 @@
                     Text="Si han relacionado en su actividad económica dos o más códigos CIIU, indique el CIIU por el cual recibió mayores ingresos por su actividad ordinaria. "
                     FontSize="25"
                     TextWrapping="Wrap"
-                    Width="800"
+                    Width="860"
+                />
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
                 />
             </Grid>
             <Grid Grid.Row="13">
@@ -300,7 +333,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="CIIU con mayores ingresos"
-                    FontSize="30" 
+                    FontSize="25" 
                 />
                 <ComboBox
                     Width="300"
@@ -310,10 +343,17 @@
                     Grid.Column="1"
                     VerticalAlignment="Center"
                     Background="Transparent"
-                    FontSize="40"
+                    FontSize="30"
                     >
                     <ComboBoxItem IsSelected="True">G4719</ComboBoxItem>
                 </ComboBox>
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
             </Grid>
             <Grid Grid.Row="14">
                 <TextBlock
@@ -323,14 +363,14 @@
                     FontFamily="Arial"
                     Margin="0,0,0,0"
                     Width="870"
-                    Height="50"
+                    Height="40"
                     Background="#FFAEABAB"
                 />
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Indicadores adicionales" 
-                    FontSize="40" 
+                    FontSize="30" 
                     Foreground="#FF424242"
                     FontFamily="Arial"
                     Margin="10,0,0,0"
@@ -341,7 +381,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Indique si importa o exporta"
-                    FontSize="30" 
+                    FontSize="25" 
                 />
                 <ComboBox
                     Width="300"
@@ -351,7 +391,7 @@
                     Grid.Column="1"
                     VerticalAlignment="Center"
                     Background="Transparent"
-                    FontSize="40"
+                    FontSize="30"
                     >
                     <ComboBoxItem IsSelected="True">No</ComboBoxItem>
                     <ComboBoxItem>Importador</ComboBoxItem>
@@ -368,7 +408,7 @@
                 Height="70"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0,10,100,0"
+                Margin="0,0,100,0"
                 TouchDown="btnNext_TouchDown"
             />
             <Image 
@@ -378,7 +418,7 @@
                 Height="70"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="100,10,0,0"
+                Margin="100,0,0,0"
                 TouchDown="btnReturn_TouchDown"
             />
         </Grid>

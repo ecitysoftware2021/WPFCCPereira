@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition Height="300"/>
-            <RowDefinition Height="200" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="*" />
             <RowDefinition Height="310"/>
         </Grid.RowDefinitions>
@@ -24,7 +24,7 @@
                 BorderThickness="0"
                 Background="#ffffff"
                 Width="900"
-                Height="500"
+                Height="400"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
@@ -55,20 +55,16 @@
             />
             <TextBlock
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
+                VerticalAlignment="Bottom"
                 Text="N° Liquidación" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Justify"
                 Text="1682334" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <TextBlock
@@ -76,8 +72,7 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="N° Matrícula" 
-                FontSize="30" 
-                FontFamily="Arial"
+                FontSize="25" 
                 Margin="0,0,0,70"
             />
             <TextBlock
@@ -85,15 +80,14 @@
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
                 Text="18130990" 
-                FontSize="35" 
-                FontFamily="Arial"
+                FontSize="30" 
                 Margin="0,0,0,30"
             />
             <Image
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="800"
+                Width="900"
                 Margin="0,0,0,10" 
             />
         </Grid>
@@ -102,7 +96,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
                 Text="¿Es Aportante?"
-                FontSize="30" 
+                FontSize="25" 
             />
             <ComboBox
                 Width="300"
@@ -112,7 +106,7 @@
                 Grid.Column="1"
                 VerticalAlignment="Center"
                 Background="Transparent"
-                FontSize="40"
+                FontSize="30"
                 >
                 <ComboBoxItem IsSelected="True">No</ComboBoxItem>
                 <ComboBoxItem>Si</ComboBoxItem>
