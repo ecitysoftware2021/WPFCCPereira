@@ -14,10 +14,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="450" />
+            <RowDefinition Height="380" />
+            <RowDefinition Height="380" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="300" />
         </Grid.RowDefinitions>
-
         <Grid Grid.Row="0">
             <Image 
                 Name="btn_exit"
@@ -43,8 +43,7 @@
                 Margin="0,100,0,0"
             />
         </Grid>
-        <Grid Grid.Row="2" Margin="32,0,32,0">
-            <!--TODO: DESCOMENTAR EL LIST VIEW-->
+        <!--TODO: DESCOMENTAR EL LIST VIEW-->
             <!--<ListView x:Name="lv_data_list" 
                     Margin="0,20,0,0"
                     Background="Red"
@@ -147,90 +146,100 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>-->
-
-            <!--TODO: BORRAR TODO LO DE ABAJO QUE SIRVE PARA MUESTRA-->
-
-            <Grid 
+        <Grid Grid.Row="2" Margin="110,0,110,0">
+                <Border
+                    BorderBrush="Red"
+                    BorderThickness="3"
+                    Background="#ffffff"
+                    Width="780"
+                    Height="340"
+                    CornerRadius="20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,0">
+                    <Grid Name="frmPpal" TouchDown="frmPpal_TouchDown">
+                        <TextBlock 
+                            FontSize="25"
+                            FontFamily="Arial"
+                            TextAlignment="Justify"
+                            TextWrapping="Wrap"
+                            Margin="50,50,0,0"
+                            Foreground="#FF104B6D"
+                            Height="60"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Grid.Column="0">
+                            <Run Text="Matrícula:" FontSize="30"/>
+                            <Run Text="18130990" FontWeight="Bold"/>
+                        </TextBlock>
+                        <TextBlock 
+                            Text="PERSONA NATURAL -"
+                            FontSize="30"
+                            FontFamily="Arial"
+                            TextAlignment="Justify"
+                            TextWrapping="Wrap"
+                            FontWeight="Bold"
+                            Margin="50,0,0,50"
+                            Foreground="#FF104B6D"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Grid.Column="0" 
+                        />
+                        <TextBlock 
+                            Text="GARCÍA TOBÓN SANDRA MARÍA"
+                            FontSize="30"
+                            FontFamily="Arial"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"
+                            FontWeight="Bold"
+                            Margin="50,40,0,0"
+                            Foreground="#FF104B6D"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" 
+                        />
+                        <TextBlock 
+                            FontSize="25"
+                            FontFamily="Arial"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"
+                            Margin="50,0,0,60"
+                            Foreground="#FF104B6D"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left" 
+                            >
+                            <Run Text="Incluye:" FontSize="30"/>
+                            <Run Text="2020/" FontWeight="Bold" FontSize="45"/>
+                        </TextBlock>
+                        <Image  
+                            Source="/Images/Others/img-select.png"
+                            Height="90"
+                            Margin="0,40,70,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Stretch="Uniform"
+                        />
+                        <Image  
+                            Source="/Images/Others/imgDigilenciar.png"
+                            Height="50"
+                            Margin="0,30,30,0"
+                            Stretch="Uniform"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                        />
+                    </Grid>
+                </Border>
+            </Grid>
+        <Grid Grid.Row="4" Margin="110,0,110,0">
+            <Image 
+                x:Name="btnReturn"
+                Source="/Images/Buttons/btnatras.png"
+                Stretch="Uniform"
+                Height="70"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Margin="0,0,0,0"
-                Width="1030"
-                Height="340" 
-                Tag="{Binding Data}"
-                >
-                <Grid.Background>
-                    <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-file.png"/>
-                </Grid.Background>
-                <TextBlock 
-                    FontSize="45"
-                    FontFamily="Arial"
-                    TextAlignment="Justify"
-                    TextWrapping="Wrap"
-                    Margin="50,50,0,0"
-                    Foreground="#FF104B6D"
-                    Height="60"
-                    Width="700"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    Grid.Column="0">
-                    <Run Text="Matrícula:" FontSize="30"/>
-                    <Run Text="18130990" FontWeight="Bold"/>
-                </TextBlock>
-                <TextBlock 
-                    Text="PERSONA NATURAL -"
-                    FontSize="40"
-                    FontFamily="Arial"
-                    TextAlignment="Justify"
-                    TextWrapping="Wrap"
-                    FontWeight="Bold"
-                    Margin="50,0,0,50"
-                    Foreground="#FF104B6D"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Grid.Column="0" 
-                />
-                <TextBlock 
-                    Text="GARCÍA TOBÓN SANDRA MARÍA"
-                    FontSize="40"
-                    FontFamily="Arial"
-                    TextAlignment="Center"
-                    TextWrapping="Wrap"
-                    FontWeight="Bold"
-                    Margin="50,40,0,0"
-                    Foreground="#FF104B6D"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left" 
-                />
-                <TextBlock 
-                    FontSize="28"
-                    FontFamily="Arial"
-                    TextAlignment="Center"
-                    TextWrapping="Wrap"
-                    Margin="50,0,0,60"
-                    Foreground="#FF104B6D"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left" 
-                    >
-                    <Run Text="Incluye:" FontSize="30"/>
-                    <Run Text="2020/" FontWeight="Bold" FontSize="45"/>
-                </TextBlock>
-                <Image  
-                    Source="/WPFCCPereira;component/Images/Others/img-select.png"
-                    Width="90"
-                    Height="90"
-                    Margin="0,40,70,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                />
-                <Image  
-                    Source="/Images/Others/imgGrabado.png"
-                    Width="200"
-                    Height="50"
-                    Margin="0,60,30,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                />
-            </Grid>
+                Margin="0,50,0,0"
+                TouchDown="btnReturn_TouchDown"
+            />
         </Grid>
     </Grid>
 </UserControl>

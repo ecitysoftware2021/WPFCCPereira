@@ -82,13 +82,14 @@ namespace WPFCCPereira.Classes
         ConsultRenovacion,
         ActiveCertificate,
         MenuRenovacion,
-            //begin-formsPpal
-            Ppal_Identificacion,
+        ListEstablecimientos,
+        //begin-formsPpal
+        Ppal_Identificacion,
             Ppal_UbicacionDatosGenerales,
             Ppal_ActividadEconomica,
             Ppal_InformacionFinanciera,
             Ppal_SistemaSeguridad,
-            //end---formsPpal
+        //end---formsPpal
         //End-Renovacion
     }
 

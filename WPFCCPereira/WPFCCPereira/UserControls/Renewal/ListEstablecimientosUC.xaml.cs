@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCCPereira.Classes;
+using WPFCCPereira.Models;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -20,14 +22,30 @@ namespace WPFCCPereira.UserControls.Renewal
     /// </summary>
     public partial class ListEstablecimientosUC : UserControl
     {
-        public ListEstablecimientosUC()
+        #region "Referencias"
+        private Transaction transaction;
+        #endregion
+
+        public ListEstablecimientosUC(Transaction ts)
         {
             InitializeComponent();
+
+            this.transaction = ts;
         }
 
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
+            Utilities.navigator.Navigate(UserControlView.Menu);
+        }
 
+        private void frmPpal_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
+        }
+
+        private void btnReturn_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
         }
     }
 }

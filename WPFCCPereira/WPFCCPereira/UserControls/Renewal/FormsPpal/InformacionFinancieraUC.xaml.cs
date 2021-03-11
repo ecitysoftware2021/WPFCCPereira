@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFCCPereira.Classes;
+using WPFCCPereira.Models;
 
 namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 {
@@ -21,19 +22,25 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
     /// </summary>
     public partial class InformacionFinancieraUC : UserControl
     {
-        public InformacionFinancieraUC()
+        #region "Referencias"
+        private Transaction transaction;
+        #endregion
+
+        public InformacionFinancieraUC(Transaction ts)
         {
             InitializeComponent();
+
+            this.transaction = ts;
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica);
+            Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
         }
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad);
+            Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad, data: transaction);
         }
     }
 }

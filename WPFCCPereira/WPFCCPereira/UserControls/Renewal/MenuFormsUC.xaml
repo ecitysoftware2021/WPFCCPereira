@@ -101,7 +101,7 @@
                 Source="/Images/Others/img-split.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Width="840"
+                Width="900"
                 Margin="0,0,0,0"
             />
         </Grid>
@@ -207,12 +207,14 @@
         </Grid>
         <Grid Grid.Row="3">
             <Image 
+                Name="btnDigilenciar"
                 Source="/Images/buttons/btnPaso1.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Height="100"
                 Margin="0,50,0,0"
                 Stretch="Uniform"
+                TouchDown="btnDigilenciar_TouchDown"
             />
             <Image 
                 Source="/Images/buttons/btnPaso2.png"

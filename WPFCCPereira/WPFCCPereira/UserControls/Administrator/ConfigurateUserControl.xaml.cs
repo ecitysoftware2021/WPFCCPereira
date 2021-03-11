@@ -72,7 +72,6 @@ namespace WPFCCPereira.UserControls.Administrator
                 }
                 else
                 {
-                    //Utilities.navigator.Navigate(UserControlView.Main);
                     Finish(result);
                 }
             }
@@ -91,8 +90,8 @@ namespace WPFCCPereira.UserControls.Administrator
 
                 if (state)
                 {
-                    //Utilities.navigator.Navigate(UserControlView.Main);
-                    Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion);
+                    Utilities.navigator.Navigate(UserControlView.Main);
+                    //Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion);
                 }
                 else
                 {

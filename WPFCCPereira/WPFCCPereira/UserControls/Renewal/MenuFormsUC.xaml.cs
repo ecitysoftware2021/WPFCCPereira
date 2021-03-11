@@ -46,6 +46,11 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             Utilities.navigator.Navigate(UserControlView.Menu);
         }
+
+        private void btnDigilenciar_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
+        }
         #endregion
     }
 }
