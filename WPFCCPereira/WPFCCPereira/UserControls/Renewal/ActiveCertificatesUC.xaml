@@ -74,7 +74,6 @@
                 Margin="30,60,0,0"
                 Foreground="Black"
                 FontWeight="SemiBold"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
             />
@@ -84,7 +83,6 @@
                 FontFamily="Arial"
                 Margin="30,100,0,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
             />
@@ -94,7 +92,6 @@
                 FontFamily="Arial"
                 Margin="0,100,30,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
             />
@@ -104,7 +101,6 @@
                 FontFamily="Arial"
                 Margin="30,145,0,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
             />
@@ -115,7 +111,6 @@
                 FontFamily="Arial"
                 Margin="0,145,30,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
             />
@@ -125,7 +120,6 @@
                 FontFamily="Arial"
                 Margin="30,185,0,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
             />
@@ -135,7 +129,6 @@
                 FontFamily="Cabri"
                 Margin="0,185,30,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
             />
@@ -145,7 +138,6 @@
                 FontFamily="Arial"
                 Margin="30,230,0,0"
                 Foreground="Black"
-                Height="60"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 />
@@ -175,7 +167,6 @@
                 FontFamily="Arial"
                 Margin="30,160,0,0"
                 Foreground="#FF78AD3C"
-                Height="60"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
             />
@@ -475,6 +466,7 @@
                                 Margin="30,0,0,100"
                                 Foreground="Black"
                                 Height="60"
+                                Visibility="Hidden"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
                             />
@@ -484,6 +476,7 @@
                                 Background="Transparent"
                                 Width="409"
                                 Height="89"
+                                Visibility="Hidden"
                                 CornerRadius="15"
                                 HorizontalAlignment="Right"
                                 Margin="0,347,30,0">

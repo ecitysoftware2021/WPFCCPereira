@@ -18,6 +18,20 @@
             <RowDefinition Height="380" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <Grid Grid.RowSpan="6">
+            <Border
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Background="#ffffff"
+                Width="900"
+                Height="1200"
+                CornerRadius="60"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,320,0,0">
+            </Border>
+        </Grid>
         <Grid Grid.Row="0">
             <Image 
                 Name="btn_exit"
@@ -30,15 +44,15 @@
                 TouchDown="Btn_exit_TouchDown" 
             />
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" >
             <TextBlock
                 TextWrapping="Wrap" 
-                Width="900"
+                Width="800"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" 
                 TextAlignment="Justify"
                 Text="A continuación se muestran los diferetes formularios que necesitan diligenciar para poder completar esta liquidación." 
-                FontSize="45" 
+                FontSize="40" 
                 FontFamily="Arial"
                 Margin="0,100,0,0"
             />
@@ -170,10 +184,10 @@
                             HorizontalAlignment="Left"
                             Grid.Column="0">
                             <Run Text="Matrícula:" FontSize="30"/>
-                            <Run Text="18130990" FontWeight="Bold"/>
+                            <Run Text="{Binding matricula}" FontWeight="Bold"/>
                         </TextBlock>
                         <TextBlock 
-                            Text="PERSONA NATURAL -"
+                            Text="{Binding organizacion}"
                             FontSize="30"
                             FontFamily="Arial"
                             TextAlignment="Justify"
@@ -186,7 +200,7 @@
                             Grid.Column="0" 
                         />
                         <TextBlock 
-                            Text="GARCÍA TOBÓN SANDRA MARÍA"
+                            Text="{Binding nombre}"
                             FontSize="30"
                             FontFamily="Arial"
                             TextAlignment="Center"
@@ -207,8 +221,8 @@
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Left" 
                             >
-                            <Run Text="Incluye:" FontSize="30"/>
-                            <Run Text="2020/" FontWeight="Bold" FontSize="45"/>
+                            <Run Text="Incluye:"/>
+                            <Run Text="{Binding anoporrenovar}" FontWeight="Bold" FontSize="30"/>
                         </TextBlock>
                         <Image  
                             Source="/Images/Others/img-select.png"

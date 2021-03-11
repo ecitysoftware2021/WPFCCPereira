@@ -148,13 +148,13 @@ namespace WPFCCPereira.UserControls.Renewal
                             item.bdActivos = "Red";
                             state = false;
                         }
-                        //else
-                        //if (item.numactivos < item.valorestablecimiento)
-                        //{
-                        //    item.mserroractivos = "Los activos deben ser mayor o iguales a los de " + item.ultanorenovado;
-                        //    item.bdActivos = "Red";
-                        //    state = false;
-                        //}
+                        else
+                        if (item.numactivos < item.valorestablecimiento)
+                        {
+                            item.mserroractivos = "Los activos deben ser mayor o iguales a los de " + item.ultanorenovado;
+                            item.bdActivos = "Red";
+                            state = false;
+                        }
                     }
                 }
 

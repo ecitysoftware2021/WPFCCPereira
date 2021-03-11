@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Reflection;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
+using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -31,6 +22,45 @@ namespace WPFCCPereira.UserControls.Renewal
             InitializeComponent();
 
             this.transaction = ts;
+
+            ConfigureViewList();
+        }
+
+
+        private void ConfigureViewList()
+        {
+            try
+            {
+                this.DataContext = transaction.ExpedientesMercantil;
+
+                //foreach (var item in transaction.ExpedientesMercantil.establecimientos)
+                //{
+                //    if ((item.ultanorenovado + 1) == DateTime.Now.Year)
+                //    {
+                //        item.anoporrenovar = item.ultanorenovado + 1;
+
+                //        DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+
+                //        item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+
+                //        item.status = true;
+
+                //        listEstablecimientos.Add(item);
+                //    }
+                //}
+
+                //if (listEstablecimientos.Count > 0)
+                //{
+                //    grvEstablecimientos.Visibility = Visibility.Visible;
+                //    lv_data_list.DataContext = listEstablecimientos;
+                //}
+
+
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
 
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
