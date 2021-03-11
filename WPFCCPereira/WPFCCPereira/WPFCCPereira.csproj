@@ -211,6 +211,9 @@
     <Compile Include="UserControls\Renewal\ConsultUC.xaml.cs">
       <DependentUpon>ConsultUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Renewal\DigitalSignatureUC.xaml.cs">
+      <DependentUpon>DigitalSignatureUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml.cs">
       <DependentUpon>ActividadEconomicaUC.xaml</DependentUpon>
     </Compile>
@@ -437,6 +440,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Renewal\ConsultUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Renewal\DigitalSignatureUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
