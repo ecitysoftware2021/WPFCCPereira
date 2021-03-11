@@ -305,7 +305,7 @@
                             Tag="{Binding Data}"
                             >
                             <Grid.Background>
-                                <ImageBrush ImageSource="/Images/Backgrounds/bg-active.png" Stretch="Fill"/>
+                                <ImageBrush ImageSource="/Images/Backgrounds/bg-active2.png" Stretch="Fill"/>
                             </Grid.Background>
                             <TextBlock 
                                 FontSize="25"

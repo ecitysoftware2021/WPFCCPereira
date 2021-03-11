@@ -135,12 +135,12 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     foreach (var item in listEstablecimientos)
                     {
-                        if (item.numempleados < MinEmpleados)
-                        {
-                            item.mserrorempleados = "Número empleados es requerido";
-                            item.bdEmpleados = "Red";
-                            state = false;
-                        }
+                        //if (item.numempleados < MinEmpleados)
+                        //{
+                        //    item.mserrorempleados = "Número empleados es requerido";
+                        //    item.bdEmpleados = "Red";
+                        //    state = false;
+                        //}
 
                         if (item.numactivos < MinActivos)
                         {
@@ -148,13 +148,13 @@ namespace WPFCCPereira.UserControls.Renewal
                             item.bdActivos = "Red";
                             state = false;
                         }
-                        else
-                        if (item.numactivos < item.valorestablecimiento)
-                        {
-                            item.mserroractivos = "Los activos deben ser mayor o iguales a los de " + item.ultanorenovado;
-                            item.bdActivos = "Red";
-                            state = false;
-                        }
+                        //else
+                        //if (item.numactivos < item.valorestablecimiento)
+                        //{
+                        //    item.mserroractivos = "Los activos deben ser mayor o iguales a los de " + item.ultanorenovado;
+                        //    item.bdActivos = "Red";
+                        //    state = false;
+                        //}
                     }
                 }
 
