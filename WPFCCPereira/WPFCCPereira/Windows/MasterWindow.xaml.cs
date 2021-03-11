@@ -29,6 +29,12 @@ namespace WPFCCPereira.Windows
                     Utilities.navigator = new Navigation();
                 }
 
+                string a = Encryptor.Encrypt("usrapli");
+                string b = Encryptor.Encrypt("1Cero12019$/*");
+                string c = Encryptor.Encrypt("Ecity.Software");
+                string d = Encryptor.Encrypt("Ecitysoftware2019#");
+                string e = Encryptor.Encrypt("https://e-citypay.co/");
+
                 Utilities.navigator.Navigate(UserControlView.Config);
 
                 DataContext = Utilities.navigator;
