@@ -7,7 +7,6 @@ using System.Windows.Data;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Classes.UseFull;
 using WPFCCPereira.DataModel;
-using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.ViewModel;

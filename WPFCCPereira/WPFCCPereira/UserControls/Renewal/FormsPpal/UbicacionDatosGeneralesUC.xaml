@@ -28,8 +28,8 @@
                 Height="1400"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Margin="0,0,0,200">
+                VerticalAlignment="Top"
+                Margin="0,320,0,0">
             </Border>
         </Grid>
         <Grid Grid.Row="0">
@@ -376,6 +376,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0,50,100,0"
+                TouchDown="btnNext_TouchDown"
             />
             <Image 
                 x:Name="btnReturn"
@@ -385,6 +386,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="100,50,0,0"
+                TouchDown="btnReturn_TouchDown"
             />
         </Grid>
     </Grid>

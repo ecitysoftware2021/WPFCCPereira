@@ -77,12 +77,19 @@ namespace WPFCCPereira.Classes
         Certificates,
         PrintFile,
         Menu,
-        //BeginRenovacion
+        //Begin-Renovacion
         LoginUser,
         ConsultRenovacion,
         ActiveCertificate,
         MenuRenovacion,
-        //EndRenovacion
+            //begin-formsPpal
+            Ppal_Identificacion,
+            Ppal_UbicacionDatosGenerales,
+            Ppal_ActividadEconomica,
+            Ppal_InformacionFinanciera,
+            Ppal_SistemaSeguridad,
+            //end---formsPpal
+        //End-Renovacion
     }
 
     public enum ETransactionState

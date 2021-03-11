@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WPFCCPereira.Classes;
-using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.UserControls.Administrator
@@ -88,10 +87,12 @@ namespace WPFCCPereira.UserControls.Administrator
         {
             Task.Run(() =>
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
+
                 if (state)
                 {
-                    Utilities.navigator.Navigate(UserControlView.Main);
+                    //Utilities.navigator.Navigate(UserControlView.Main);
+                    Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion);
                 }
                 else
                 {

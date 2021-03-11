@@ -1,6 +1,5 @@
 ﻿
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml;;
-FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\KeyboardNew\WKeyboard.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Administrator\AdministratorUserControl.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Administrator\ConfigurateUserControl.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Administrator\LoginAdministratorUserControl.xaml;;
@@ -13,8 +12,10 @@ FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFC
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\PrintFileUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\ActiveCertificatesUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\ConsultUC.xaml;;
-FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsAdd\UserControl1.xaml;;
+FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\IdentificacionUC.xaml;;
+FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml;;
+FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\ListEstablecimientosUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\LoginUC.xaml;;
@@ -26,6 +27,4 @@ FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFC
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\SussesUC.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\Windows\MasterWindow.xaml;;
 FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\Windows\ModalWindow.xaml;;
-FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml;;
-FC:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml;;
 

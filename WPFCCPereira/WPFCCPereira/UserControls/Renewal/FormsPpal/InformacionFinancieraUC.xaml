@@ -26,8 +26,8 @@
                 Height="1400"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Margin="0,0,0,200">
+                VerticalAlignment="Top"
+                Margin="0,320,0,0">
             </Border>
         </Grid>
         <Grid Grid.Row="0">
@@ -374,6 +374,20 @@
                     Text="Grupo NIIF" 
                     FontSize="30" 
                 />
+                <ComboBox
+                    Width="500"
+                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    FontSize="30"
+                    >
+                    <ComboBoxItem IsSelected="True">GRUPO III - MICR...</ComboBoxItem>
+                    <ComboBoxItem>RESOLUCIÓN 41...</ComboBoxItem>
+                    <ComboBoxItem>GRUPO II</ComboBoxItem>
+                    <ComboBoxItem>GRUPO I - NIIF P...</ComboBoxItem>
+                    <ComboBoxItem>NO REPORTA</ComboBoxItem>
+                </ComboBox>
             </Grid>
         </Grid>
         <Grid Grid.Row="5" Margin="110,0,110,0">
@@ -385,6 +399,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0,10,100,0"
+                TouchDown="btnNext_TouchDown"
             />
             <Image 
                 x:Name="btnReturn"
@@ -394,6 +409,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="100,10,0,0"
+                TouchDown="btnReturn_TouchDown"
             />
         </Grid>
     </Grid>

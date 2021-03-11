@@ -41,7 +41,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd {
     public partial class UserControl1 : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
-        #line 28 "..\..\..\..\..\UserControls\Renewal\FormsAdd\UserControl1.xaml"
+        #line 26 "..\..\..\..\..\UserControls\Renewal\FormsAdd\UserControl1.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Image btn_exit;
         

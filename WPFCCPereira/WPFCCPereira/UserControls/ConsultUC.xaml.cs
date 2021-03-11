@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using WPFCCPereira.Classes;
-using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;

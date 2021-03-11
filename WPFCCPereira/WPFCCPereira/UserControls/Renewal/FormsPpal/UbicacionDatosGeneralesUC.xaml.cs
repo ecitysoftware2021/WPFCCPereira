@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCCPereira.Classes;
 
 namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 {
@@ -23,6 +24,16 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         public UbicacionDatosGeneralesUC()
         {
             InitializeComponent();
+        }
+
+        private void btnNext_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica);
+        }
+
+        private void btnReturn_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion);
         }
     }
 }

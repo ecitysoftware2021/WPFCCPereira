@@ -149,10 +149,6 @@
     <Compile Include="DataModel\TRANSACTION_DESCRIPTIONs.cs" />
     <Compile Include="DataModel\TRANSACTION_DETAILs.cs" />
     <Compile Include="DataModel\TRANSACTION_ERROR_SERVICE.cs" />
-    <Compile Include="KeyboardNew\keyboard2.cs" />
-    <Compile Include="KeyboardNew\WKeyboard.xaml.cs">
-      <DependentUpon>WKeyboard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\DenominationMoney.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ModalModel.cs" />
@@ -215,9 +211,6 @@
     <Compile Include="UserControls\Renewal\ConsultUC.xaml.cs">
       <DependentUpon>ConsultUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Renewal\FormsAdd\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml.cs">
       <DependentUpon>ActividadEconomicaUC.xaml</DependentUpon>
     </Compile>
@@ -226,6 +219,9 @@
     </Compile>
     <Compile Include="UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml.cs">
       <DependentUpon>InformacionFinancieraUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml.cs">
+      <DependentUpon>SistemaSeguridadUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml.cs">
       <DependentUpon>UbicacionDatosGeneralesUC.xaml</DependentUpon>
@@ -396,10 +392,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="KeyboardNew\WKeyboard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\Administrator\AdministratorUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -448,10 +440,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Renewal\FormsAdd\UserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -461,6 +449,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -581,7 +573,9 @@
   <ItemGroup>
     <Resource Include="Images\Others\eyes.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserControls\Renewal\FormsAdd\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

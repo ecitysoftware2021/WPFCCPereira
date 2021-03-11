@@ -43,7 +43,7 @@ namespace WPFCCPereira.Models
                     case UserControlView.Consult:
                         View = new ConsultUC((ETransactionType)data);
                         break;
-                    //BEGIN RENOVACION//
+                   //<------------>BEGIN RENOVACION<-------------->
                     case UserControlView.LoginUser:
                         View = new UserControls.Renewal.LoginUC((ETransactionType)data);
                         break;
@@ -56,7 +56,26 @@ namespace WPFCCPereira.Models
                     case UserControlView.MenuRenovacion:
                         View = new UserControls.Renewal.MenuFormsUC((Transaction)data);
                         break;
-                        //END RENOVACION//
+                    //<------------>begin Formularios principal<-------------->
+                    case UserControlView.Ppal_Identificacion:
+                        View = new UserControls.Renewal.FormsPpal.IdentificacionUC();
+                        break;
+                    case UserControlView.Ppal_UbicacionDatosGenerales:
+                        View = new UserControls.Renewal.FormsPpal.UbicacionDatosGeneralesUC();
+                        break;
+                    case UserControlView.Ppal_ActividadEconomica:
+                        View = new UserControls.Renewal.FormsPpal.ActividadEconomicaUC();
+                        break;
+                    case UserControlView.Ppal_InformacionFinanciera:
+                        View = new UserControls.Renewal.FormsPpal.InformacionFinancieraUC();
+                        break;
+                    case UserControlView.Ppal_SistemaSeguridad:
+                        View = new UserControls.Renewal.FormsPpal.SistemaSeguridadUC();
+                        break;
+                    //<------------>end   Formularios principal<-------------->
+                    //<------------->END RENOVACION<--------------->
+
+
                     case UserControlView.PaySuccess:
                         View = new SussesUC((Transaction)data);
                         break;
