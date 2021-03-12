@@ -27,12 +27,15 @@ namespace WPFCCPereira.UserControls.Renewal
     {
         #region "Referencias"
         private DataListViewModel viewModel;
+        private Transaction transaction;
         #endregion
 
         #region "Constructor"
-        public ConsultUC(ETransactionType type)
+        public ConsultUC(ETransactionType type, Transaction ts)
         {
             InitializeComponent();
+
+            this.transaction = ts;
 
             ConfigurateView(type);
         }
@@ -114,13 +117,13 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     if (response != null)
                     {
-                        Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, new Transaction
-                        {
-                            File = viewModel,
-                            State = ETransactionState.Initial,
-                            Type = viewModel.TypeTransaction,
-                            ExpedientesMercantil = response
-                        });
+                        transaction.reference = reference;
+                        transaction.File = viewModel;
+                        transaction.State = ETransactionState.Initial;
+                        transaction.Type = viewModel.TypeTransaction;
+                        transaction.ExpedientesMercantil = response;
+
+                        Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, transaction);
                     }
                     else
                     {

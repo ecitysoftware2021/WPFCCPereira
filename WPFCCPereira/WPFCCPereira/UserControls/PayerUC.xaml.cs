@@ -159,7 +159,7 @@ namespace WPFCCPereira.UserControls
                             IDENTIFICATION = viewModel.Value1,
                             NAME = viewModel.Value2,
                             LAST_NAME = viewModel.Value4,
-                            PHONE = decimal.Parse(viewModel.Value3),
+                            PHONE = viewModel.Value3,
                             TYPE_PAYER = viewModel.TypePayer == ETypePayer.Person ? "Persona" : "Empresa",
                             TYPE_IDENTIFICATION = typeDocument
                         };

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFCCPereira.Classes;
+using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.ViewModel;
 
@@ -29,7 +30,9 @@ namespace WPFCCPereira.UserControls.Renewal
         private string Id;
         private string Email;
         private string Password;
+        private string Phone;
         private DetailViewModel viewModel;
+        private Transaction transaction;
         #endregion
 
         #region "Constructor"
@@ -41,6 +44,9 @@ namespace WPFCCPereira.UserControls.Renewal
             Id = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
+            Phone = string.Empty;
+
+            transaction = new Transaction();
 
             viewModel = new DetailViewModel
             {
@@ -58,12 +64,9 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                //TODO:aqui
-                return true;
-
                 string MS = string.Empty;
 
-                if (txtId.Text == string.Empty || txtEmail.Text == string.Empty || txtPassword.Password == string.Empty)
+                if (txtId.Text == string.Empty || txtEmail.Text == string.Empty || txtPassword.Password == string.Empty || txtPhone.Text == string.Empty)
                 {
                     MS = "Debe ingresar todos los campos.";
                 }
@@ -71,6 +74,11 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (txtId.Text.Length < 5)
                 {
                     MS = "Debe ingresar una identificación valida.";
+                }
+                else 
+                if (txtPhone.Text.Length < 9)
+                {
+                    MS = "Debe ingresar un teléfono valido.";
                 }
                 else 
                 if (!Utilities.IsValidEmailAddress(txtEmail.Text))
@@ -92,6 +100,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 Id = txtId.Text;
                 Email = txtEmail.Text;
                 Password = txtPassword.Password;
+                Phone = txtPhone.Text;
 
                 return true;
             }
@@ -122,40 +131,40 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
-                        //correo: jufeveos @utp.edu.co identificación: 1088285069 celular: 3176400841 clave: 5052438(con esta misma clave se firman electrónicamente las renovaciones(clave segura))
-
-                        Id = "1088285068";
-                        Email = "jufeveos@utp.edu.co";
-                        Password = Utilities.EncryptorData("5052438", Key: "c0nf3c4m4r4s");
-                        Password = "5052438";
-                        string phone = "3176400841";
-
-                        //Id = "1152465864";
-                        //Email = "jhonaxe2011@hotmail.com";
+                        //Id = "1088285069";
+                        //Email = "jufeveos@utp.edu.co";
                         //Password = Utilities.EncryptorData("5052438", Key: "c0nf3c4m4r4s");
-                        //string phone = "3024545468";
-
-                        //var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password, phone);
+                        //Password = "5052438";
+                        //string phone = "3176400841";
+                        var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password, Phone);
 
                         Utilities.CloseModal();
 
-                        //if (response != null)
-                        //{
-                            Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
-                        //}
-                        //else
-                        //{
-                        //    if (response != null && response.codigoerror == "0003")
-                        //    {
-                        //        Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
-                        //    }
-                        //    else
-                        //    {
-                        //        Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
-                        //    }
+                        if (response != null)
+                        {
+                            transaction.payer = new DataModel.PAYER
+                            {
+                                NAME = response.nombreusuario,
+                                IDENTIFICATION = Id,
+                                PHONE = Phone,
+                                EMAIL = Email
+                            };
 
-                        //    TimerService.Reset();
-                        //}
+                            Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type, transaction);
+                        }
+                        else
+                        {
+                            if (response != null && response.codigoerror == "0003")
+                            {
+                                Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
+                            }
+                            else
+                            {
+                                Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
+                            }
+
+                            TimerService.Reset();
+                        }
                     }
                 });
 
@@ -186,9 +195,24 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                if (txtId.Text.Length > 12)
+                if (txtId.Text != null & txtId.Text.Length > 12)
                 {
                     txtId.Text = txtId.Text.Substring(0, txtId.Text.Length - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+        
+        private void txtPhone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (txtPhone.Text != null & txtPhone.Text.Length > 10)
+                {
+                    txtPhone.Text = txtPhone.Text.Substring(0, txtPhone.Text.Length - 1);
                 }
             }
             catch (Exception ex)
@@ -201,7 +225,7 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                if (txtPassword.Password.Length > 10)
+                if (txtPassword.Password != null & txtPassword.Password.Length > 10)
                 {
                     txtPassword.Password = txtPassword.Password.Substring(0, txtPassword.Password.Length - 1);
                 }
@@ -216,7 +240,7 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                if (txtEmail.Text.Length > 30)
+                if (txtEmail.Text != null & txtEmail.Text.Length > 30)
                 {
                     txtEmail.Text = txtEmail.Text.Substring(0, txtEmail.Text.Length - 1);
                 }
@@ -228,6 +252,11 @@ namespace WPFCCPereira.UserControls.Renewal
         }
 
         private void txtId_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.OpenKeyboard(true, sender, this);
+        }
+        
+        private void txtPhone_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.OpenKeyboard(true, sender, this);
         }

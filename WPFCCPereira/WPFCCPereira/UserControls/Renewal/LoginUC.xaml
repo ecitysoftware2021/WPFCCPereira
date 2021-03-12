@@ -60,8 +60,8 @@
                         Source="/Images/others/user.png"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Height="200"
-                        Margin="0,50,0,0"
+                        Height="130"
+                        Margin="0,10,0,0"
                         Stretch="Uniform"
                     />
                     <Image 
@@ -69,8 +69,8 @@
                         Stretch="Uniform"
                         Height="80"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Margin="0,0,500,380"
+                        VerticalAlignment="Top"
+                        Margin="0,190,500,0"
                         TouchDown="btnLogin_TouchDown"
                     />
                     <TextBox 
@@ -79,16 +79,53 @@
                         md:HintAssist.IsFloating="True"
                         md:HintAssist.FloatingScale="0.3"
                         HorizontalAlignment="Center" 
-                        VerticalAlignment="Center"
+                        VerticalAlignment="Top"
                         TextAlignment="Center"
                         Height="110" 
+                        Text="1152465864"
                         Width="400"
-                        Margin="0,0,0,400"
+                        Margin="0,170,0,0"
                         FontSize="40"
                         Foreground="Black" 
                         VerticalContentAlignment="Center"
                         TextChanged="txtId_TextChanged"
                         TouchDown="txtId_TouchDown"
+                        >
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Background>
+                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Image 
+                        Source="/Images/others/phon.png"
+                        Stretch="Uniform"
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,500,380"
+                        TouchDown="btnLogin_TouchDown"
+                    />
+                    <TextBox 
+                        x:Name="txtPhone"
+                        md:HintAssist.Hint="             celular"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        TextAlignment="Center"
+                        Height="110" 
+                        Width="400"
+                        Text="3024545468"
+                        Margin="0,0,0,400"
+                        FontSize="40"
+                        Foreground="Black" 
+                        VerticalContentAlignment="Center"
+                        TextChanged="txtPhone_TextChanged"
+                        TouchDown="txtPhone_TouchDown"
                         >
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -118,6 +155,7 @@
                         TextAlignment="Center"
                         TextWrapping="Wrap"
                         Height="110" 
+                        Text="jhonaxe2011@hotmail.com"
                         Width="400"
                         Margin="0,0,0,100"
                         FontSize="35"
@@ -163,6 +201,7 @@
                         VerticalAlignment="Center"
                         Height="110" 
                         Width="400"
+                        Password="249229"
                         HorizontalContentAlignment="Center"
                         Margin="0,230,0,0"
                         FontSize="35"
