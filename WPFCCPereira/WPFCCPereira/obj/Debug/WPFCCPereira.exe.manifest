@@ -169,7 +169,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XBh9ZB5xx9QkgPfB/eMuZzZ9eeaL2UpLbsw+NtWiEhM=</dsig:DigestValue>
+        <dsig:DigestValue>KnCn7z1cWCdZfOUuWdDQdJRPWYmxo4i/YTcx+gGtfSQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -181,17 +181,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+yMatIIqfdeq3R+KxrjsR7ZS39p4F3dObLwkGpUrFqc=</dsig:DigestValue>
+        <dsig:DigestValue>QLkQ8AYqYOftR8J+BLrA8MvVdllIMnKMNA3Cv3etn34=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WPFCCPereira.exe.config" size="7381">
+  <file name="WPFCCPereira.exe.config" size="7453">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FIORm4Jg85hTe4NR6Yn9S24vbnyzdA5IfuebY6UDGIM=</dsig:DigestValue>
+      <dsig:DigestValue>ceQWeKP+ZhWXVL40JA4KP4y5I0cTUC5YJJxm6EKc30w=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
