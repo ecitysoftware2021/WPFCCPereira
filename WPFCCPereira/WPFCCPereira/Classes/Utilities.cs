@@ -1,10 +1,9 @@
-﻿    using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -17,6 +16,7 @@ using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
 using WPFCCPereira.Windows;
+using Encryptor.Ecity.Dll;
 
 namespace WPFCCPereira.Classes
 {
@@ -39,9 +39,29 @@ namespace WPFCCPereira.Classes
                 value = reader.GetValue(key, typeof(String)).ToString();
                 if (decodeString)
                 {
-                    value = Encryptor.Decrypt(value);
+                    value = EncryptorData(value,false);
                 }
                 return value;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex);
+                return string.Empty;
+            }
+        }
+
+        public static string EncryptorData(string plainText, bool encrypt = true, string key = null)
+        {
+            try
+            {
+                if (encrypt)
+                {
+                    return EncryptorEcity.Encrypt(plainText, key);
+                }
+                else
+                {
+                    return EncryptorEcity.Decrypt(plainText, key);
+                }
             }
             catch (Exception ex)
             {

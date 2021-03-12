@@ -54,6 +54,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Encryptor.Ecity.Dll.dll" size="5632">
+      <assemblyIdentity name="Encryptor.Ecity.Dll" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>H+mngoJ9zxGAN1mR2aV1V+2OSoo9qhXVIQLckaVXWuk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="5225168">
       <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -150,14 +162,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="6387160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="6389720">
       <assemblyIdentity name="WPFCCPereira" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NZ0Am7OQxDAWgnOILs4pIyIdAMMwMeQCB+KIDWIMfZU=</dsig:DigestValue>
+        <dsig:DigestValue>JHn+oo68kMJZ3N5LEGto32QwHpD3KYYqOvcuWu3Y3R8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -169,17 +181,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QLkQ8AYqYOftR8J+BLrA8MvVdllIMnKMNA3Cv3etn34=</dsig:DigestValue>
+        <dsig:DigestValue>+yMatIIqfdeq3R+KxrjsR7ZS39p4F3dObLwkGpUrFqc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WPFCCPereira.exe.config" size="7392">
+  <file name="WPFCCPereira.exe.config" size="7381">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ACcpnOMayovNsS2WBtAkxIHaPbAgI1Xf01SHijShfCs=</dsig:DigestValue>
+      <dsig:DigestValue>FIORm4Jg85hTe4NR6Yn9S24vbnyzdA5IfuebY6UDGIM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

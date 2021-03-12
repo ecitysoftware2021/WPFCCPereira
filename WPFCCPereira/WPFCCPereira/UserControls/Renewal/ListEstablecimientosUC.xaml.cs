@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.ObjectIntegration;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -15,13 +18,14 @@ namespace WPFCCPereira.UserControls.Renewal
     {
         #region "Referencias"
         private Transaction transaction;
+        private ObservableCollection<ListEstablecimientos> listEstablecimientos;
         #endregion
 
         public ListEstablecimientosUC(Transaction ts)
         {
             InitializeComponent();
 
-            this.transaction = ts;
+            this.listEstablecimientos = new ObservableCollection<ListEstablecimientos>();
 
             ConfigureViewList();
         }
@@ -33,29 +37,28 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 this.DataContext = transaction.ExpedientesMercantil;
 
-                //foreach (var item in transaction.ExpedientesMercantil.establecimientos)
-                //{
-                //    if ((item.ultanorenovado + 1) == DateTime.Now.Year)
-                //    {
-                //        item.anoporrenovar = item.ultanorenovado + 1;
+                foreach (var item in transaction.ExpedientesMercantil.establecimientos)
+                {
+                    if ((item.ultanorenovado + 1) == DateTime.Now.Year)
+                    {
+                        item.anoporrenovar = item.ultanorenovado + 1;
 
-                //        DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+                        DateTime dtm;
 
-                //        item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+                        DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
 
-                //        item.status = true;
+                        item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
 
-                //        listEstablecimientos.Add(item);
-                //    }
-                //}
+                        item.status = true;
 
-                //if (listEstablecimientos.Count > 0)
-                //{
-                //    grvEstablecimientos.Visibility = Visibility.Visible;
-                //    lv_data_list.DataContext = listEstablecimientos;
-                //}
+                        listEstablecimientos.Add(item);
+                    }
+                }
 
-
+                if (listEstablecimientos.Count > 0)
+                {
+                    lv_data_list.DataContext = listEstablecimientos;
+                }
             }
             catch (Exception ex)
             {

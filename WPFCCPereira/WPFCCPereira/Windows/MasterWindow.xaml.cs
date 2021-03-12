@@ -24,16 +24,17 @@ namespace WPFCCPereira.Windows
             try
             {
                 WPKeyboard.Keyboard.ConsttrucKeyyboard(WPKeyboard.Keyboard.EStyle.style_2);
+
                 if (Utilities.navigator == null)
                 {
                     Utilities.navigator = new Navigation();
                 }
 
-                string a = Encryptor.Encrypt("usrapli");
-                string b = Encryptor.Encrypt("1Cero12019$/*");
-                string c = Encryptor.Encrypt("Ecity.Software");
-                string d = Encryptor.Encrypt("Ecitysoftware2019#");
-                string e = Encryptor.Encrypt("https://e-citypay.co/");
+                string a = Utilities.EncryptorData("usrapli");
+                string b = Utilities.EncryptorData("1Cero12019$/*");
+                string c = Utilities.EncryptorData("Ecity.Software");
+                string d = Utilities.EncryptorData("Ecitysoftware2019#");
+                string e = Utilities.EncryptorData("https://e-citypay.co/");
 
                 Utilities.navigator.Navigate(UserControlView.Config);
 
