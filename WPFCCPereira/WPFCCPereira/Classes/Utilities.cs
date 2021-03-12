@@ -50,17 +50,22 @@ namespace WPFCCPereira.Classes
             }
         }
 
-        public static string EncryptorData(string plainText, bool encrypt = true, string key = null)
+        public static string EncryptorData(string plainText, bool encrypt = true, string Key = null)
         {
             try
             {
+                if (Key == null)
+                {
+                    Key = Assembly.GetExecutingAssembly().EntryPoint.DeclaringType.Namespace;
+                }
+
                 if (encrypt)
                 {
-                    return EncryptorEcity.Encrypt(plainText, key);
+                    return EncryptorEcity.Encrypt(plainText, Key);
                 }
                 else
                 {
-                    return EncryptorEcity.Decrypt(plainText, key);
+                    return EncryptorEcity.Decrypt(plainText, Key);
                 }
             }
             catch (Exception ex)

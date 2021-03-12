@@ -458,7 +458,7 @@ namespace WPFCCPereira.Services
         }
 
         //BEGIN RENOVACION 
-        public async Task<ResponseLogin> LoginUser(string id, string email, string password)
+        public async Task<ResponseLogin> LoginUser(string id, string email, string password, string phone)
         {
             try
             {
@@ -467,7 +467,7 @@ namespace WPFCCPereira.Services
                     codigoempresa = code,
                     usuariows = user,
                     token = token,
-                    celularusuario = "123456789",
+                    celularusuario = phone,
                     claveusuario = password,
                     emailusuario = email,
                     identificacionusuario = id

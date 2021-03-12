@@ -70,7 +70,8 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="Encryptor.Ecity.Dll">
+    <Reference Include="Encryptor.Ecity.Dll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\EcityEncryptor\Encryptor.Ecity.Dll\Encryptor.Ecity.Dll\bin\Debug\Encryptor.Ecity.Dll.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

@@ -124,31 +124,38 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         //correo: jufeveos @utp.edu.co identificación: 1088285069 celular: 3176400841 clave: 5052438(con esta misma clave se firman electrónicamente las renovaciones(clave segura))
 
-                        Id = "1088285069";
+                        Id = "1088285068";
                         Email = "jufeveos@utp.edu.co";
-                        Password = Utilities.EncryptorData("5052438", key:"c0nf3c4m4r4s");
+                        Password = Utilities.EncryptorData("5052438", Key: "c0nf3c4m4r4s");
+                        Password = "5052438";
+                        string phone = "3176400841";
 
-                        var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password);
+                        //Id = "1152465864";
+                        //Email = "jhonaxe2011@hotmail.com";
+                        //Password = Utilities.EncryptorData("5052438", Key: "c0nf3c4m4r4s");
+                        //string phone = "3024545468";
+
+                        //var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password, phone);
 
                         Utilities.CloseModal();
 
-                        if (response != null)
-                        {
+                        //if (response != null)
+                        //{
                             Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type);
-                        }
-                        else
-                        {
-                            if (response != null && response.codigoerror == "0003")
-                            {
-                                Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
-                            }
-                            else
-                            {
-                                Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
-                            }
+                        //}
+                        //else
+                        //{
+                        //    if (response != null && response.codigoerror == "0003")
+                        //    {
+                        //        Utilities.ShowModal("Clave incorrecta. Por favor vuelva a intentarlo.", EModalType.Error);
+                        //    }
+                        //    else
+                        //    {
+                        //        Utilities.ShowModal("No se pudo logear al sistema. Por favor intenta de nuevo.", EModalType.Error);
+                        //    }
 
-                            TimerService.Reset();
-                        }
+                        //    TimerService.Reset();
+                        //}
                     }
                 });
 

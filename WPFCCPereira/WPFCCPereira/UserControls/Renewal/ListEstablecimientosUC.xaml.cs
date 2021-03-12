@@ -27,6 +27,8 @@ namespace WPFCCPereira.UserControls.Renewal
 
             this.listEstablecimientos = new ObservableCollection<ListEstablecimientos>();
 
+            this.transaction = ts;
+            
             ConfigureViewList();
         }
 
