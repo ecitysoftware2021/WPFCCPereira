@@ -62,7 +62,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
-                Text="1682334" 
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}" 
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -78,7 +78,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
-                Text="18130990" 
+                Text="{Binding ExpedientesMercantil.matricula}" 
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -131,7 +131,7 @@
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom" 
-                    Text="ARCILA PALACIO MILENA" 
+                    Text="{Binding ExpedientesMercantil.nombre}" 
                     FontSize="30" 
                     Foreground="#FF424242"
                     FontFamily="Arial"
@@ -156,7 +156,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="Cédula de ciudadanía" 
+                    Text="{Binding ExpedientesMercantil.idclaseName}" 
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -179,7 +179,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="1152465864" 
+                    Text="{Binding ExpedientesMercantil.identificacion}" 
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -202,7 +202,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="Persona Natural" 
+                    Text="{Binding ExpedientesMercantil.organizacion}" 
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -215,7 +215,7 @@
                     Width="900"
                     Margin="0,0,0,0"
                 />
-                <TextBlock
+                <!--<TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Género" 
@@ -234,7 +234,7 @@
                     SelectedIndex="0">
                     <ComboBoxItem Content="Femenino" />
                     <ComboBoxItem Content="Masculino" />
-                </ComboBox>
+                </ComboBox>-->
             </Grid>
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">

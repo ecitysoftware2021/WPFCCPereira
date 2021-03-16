@@ -83,7 +83,7 @@
                         <Run Text="{Binding matricula}" FontWeight="Bold"/>
                     </TextBlock>
                     <TextBlock 
-                        Text="{Binding organizacion}"
+                        
                         FontSize="30"
                         FontFamily="Arial"
                         TextAlignment="Justify"
@@ -94,7 +94,10 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Left"
                         Grid.Column="0" 
-                    />
+                     >
+                        <Run Text="Principal - "/>
+                        <Run FontWeight="Bold" Text="{Binding organizacion}"/>
+                    </TextBlock>
                     <TextBlock 
                         Text="{Binding nombre}"
                         FontSize="30"
@@ -184,7 +187,7 @@
                                     <Run Text="{Binding matricula}" FontWeight="Bold"/>
                                 </TextBlock>
                                 <TextBlock 
-                                    Text="{Binding organizacion}"
+                                    Text="Establecimiento de Comercio -"
                                     FontSize="30"
                                     FontFamily="Arial"
                                     TextAlignment="Justify"

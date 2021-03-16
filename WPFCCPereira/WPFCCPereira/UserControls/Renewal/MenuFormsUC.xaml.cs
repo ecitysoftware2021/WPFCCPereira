@@ -69,6 +69,7 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
         }
+
         private void ShowDetail_TouchDown(object sender, TouchEventArgs e)
         {
             this.Opacity = 0.3;

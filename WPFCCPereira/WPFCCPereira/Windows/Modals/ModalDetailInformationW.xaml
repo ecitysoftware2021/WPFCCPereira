@@ -14,7 +14,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
-            <ImageBrush Opacity="0.6" ImageSource="/images/backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
+            <ImageBrush Opacity="0.5" ImageSource="/images/backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
@@ -35,7 +35,17 @@
                 Margin="0,0,0,200">
             </Border>
         </Grid>
-        
+        <Grid Grid.Row="0">
+            <Image 
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="250"
+                Margin="50,0,0,30"
+                Stretch="Uniform"
+                Opacity="0.4"
+            />
+        </Grid>
         <Grid Grid.Row="1">
             <TextBlock
                 TextWrapping="Wrap" 
@@ -130,7 +140,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center" 
-                                    Text="{Binding nservicio}" 
+                                    
                                     FontSize="30" 
                                     TextWrapping="Wrap"
                                     Width="700"
@@ -138,7 +148,12 @@
                                     FontFamily="Arial"
                                     FontWeight="Bold"
                                     Margin="10,0,0,0"
-                                />
+                                  >
+                                    <Run FontSize="25" Text="{Binding nservicio}" />
+                                    <Run FontSize="25" Text=" (AÑO: "/>
+                                    <Run FontWeight="Bold" Text="{Binding anorenovar}"/>
+                                    <Run FontWeight="Bold" Text=")"/>
+                                </TextBlock>
                             </Grid>
                             <Grid Grid.Row="1" >
                                 <TextBlock

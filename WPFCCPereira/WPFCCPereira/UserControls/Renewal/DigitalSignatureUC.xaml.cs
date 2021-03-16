@@ -20,11 +20,18 @@ namespace WPFCCPereira.UserControls.Renewal
     /// </summary>
     public partial class DigitalSignatureUC : UserControl
     {
+        #region "Referencias"
+
+        #endregion
+
+        #region "Constructor"
         public DigitalSignatureUC()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region "Eventos"
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
 
@@ -34,5 +41,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
 
         }
+        #endregion
     }
 }

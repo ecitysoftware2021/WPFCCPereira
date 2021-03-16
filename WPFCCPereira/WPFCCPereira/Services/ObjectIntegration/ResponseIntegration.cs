@@ -33,6 +33,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string apellido2 { get; set; }
         public string sigla { get; set; }
         public string idclase { get; set; }
+        public string idclaseName { get; set; }
         public string identificacion { get; set; }
         public object genero { get; set; }
         public string nit { get; set; }

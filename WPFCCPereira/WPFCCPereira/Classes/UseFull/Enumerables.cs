@@ -62,6 +62,18 @@ namespace WPFCCPereira.Classes
         Agrarias_de_transformacion = 17,
         OtrasPersonasJuridicas = 99
     }
+    
+    public enum ETypeIdentification
+    {
+        Cedula_de_ciudadania = 1,
+        NIT = 2,
+        Cedula_de_extranjeria = 3,
+        Tarjeta_de_identidad = 4,
+        Pasaporte = 5,
+        Personeria_juridica = 6,
+        Documento_extranjero = 7,
+        Registro_Civil = 8,
+    }
 
     public enum UserControlView
     {

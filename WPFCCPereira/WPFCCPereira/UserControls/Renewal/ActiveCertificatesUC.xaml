@@ -332,7 +332,7 @@
                                 HorizontalAlignment="Left"
                             />
                             <TextBlock 
-                                Text="{Binding organizacion}"
+                                Text="Establecimiento de Comercio"
                                 FontSize="30"
                                 FontFamily="Arial"
                                 Margin="0,100,30,0"
