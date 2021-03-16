@@ -219,7 +219,7 @@
                 Source="/Images/buttons/btnPaso2.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Height="120"
+                Height="123"
                 Margin="0,0,0,0"
                 IsEnabled="False"
                 Opacity="0.5"
@@ -229,7 +229,7 @@
                 Source="/Images/buttons/btnPaso3.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Height="120"
+                Height="121"
                 Margin="0,0,0,50"
                 IsEnabled="False"
                 Opacity="0.5"
@@ -241,7 +241,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Width="310"
-                Margin="0,20,140,0"
+                Margin="0,20,180,0"
             />
             <TextBlock
                 Width="250"
@@ -252,7 +252,7 @@
                 FontWeight="DemiBold"
                 FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,25,153,0"
+                Margin="0,25,193,0"
                 >
                 <Run FontSize="25" Text="Por Diligenciar: "/>
                 <Run FontWeight="Bold" Text="{Binding LiquidarRenovacionNormal.CantMatriculas}"/>

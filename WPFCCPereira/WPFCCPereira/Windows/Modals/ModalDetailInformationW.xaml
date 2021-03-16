@@ -9,10 +9,13 @@
         WindowStyle="None"
         Topmost="False"
         WindowState="Maximized"
-         Height="1920" 
-             Width="1080"
-        WindowStartupLocation="CenterScreen" Background="Transparent">
-    <Grid Background="Transparent">
+        Height="1920" 
+        Width="1080"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Opacity="0.6" ImageSource="/images/backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="450" />
@@ -32,7 +35,21 @@
                 Margin="0,0,0,200">
             </Border>
         </Grid>
+        
         <Grid Grid.Row="1">
+            <TextBlock
+                TextWrapping="Wrap" 
+                Width="900"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" 
+                TextAlignment="Justify"
+                Opacity="0.4"
+                Text="Para completar y pagar la renovación por favor verifique los datos y complete los pasos siguientes." 
+                Foreground="Black" 
+                FontSize="35" 
+                FontFamily="Arial"
+                Margin="0,100,0,20"
+            />
             <TextBlock 
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
@@ -85,7 +102,7 @@
             <ListView 
                 x:Name="lv_data_list" 
                 Margin="0,20,0,0"
-                Visibility="Hidden"
+                Visibility="Visible"
                 Background="Transparent"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center" 
@@ -103,7 +120,7 @@
                 </ItemsControl.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Height="0">
+                        <Grid Width="800" Margin="0,20,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
@@ -114,7 +131,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center" 
                                     Text="{Binding nservicio}" 
-                                    FontSize="35" 
+                                    FontSize="30" 
                                     TextWrapping="Wrap"
                                     Width="700"
                                     Foreground="#FF424242"
@@ -130,14 +147,14 @@
                                     FontFamily="Arial"
                                     Margin="0,0,0,0"
                                     Width="870"
-                                    Height="70"
+                                    Height="40"
                                     Background="#FFAEABAB"
                                 />
                                 <TextBlock
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center" 
                                     Text="{Binding servicio}" 
-                                    FontSize="30" 
+                                    FontSize="25" 
                                     FontFamily="Arial"
                                     Margin="10,0,0,0"
                                 />
@@ -148,8 +165,8 @@
                                     FontFamily="Arial"
                                     Margin="0,0,0,0"
                                     >
-                                    <Run FontSize="30" Text="Matrícula: "/>
-                                    <Run FontSize="35" FontWeight="Bold" Text="{Binding matricula}" />
+                                    <Run FontSize="25" Text="Matrícula: "/>
+                                    <Run FontSize="30" FontWeight="Bold" Text="{Binding matricula}" />
                                 </TextBlock>
                                 <TextBlock
                                     HorizontalAlignment="Right"
@@ -158,8 +175,8 @@
                                     FontFamily="Arial"
                                     Margin="0,0,10,0"
                                     >
-                                    <Run FontSize="30" Text="Cantidad: "/>
-                                    <Run FontSize="35" FontWeight="Bold" Text="{Binding cantidad}" />
+                                    <Run FontSize="25" Text="Cantidad: "/>
+                                    <Run FontSize="30" FontWeight="Bold" Text="{Binding cantidad}" />
                                 </TextBlock>
                             </Grid>
                             <Grid Grid.Row="2" >
@@ -167,9 +184,9 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"  
                                     FontFamily="Arial"
-                                    Margin="0,0,0,0"
+                                    Margin="0,10,0,0"
                                     Width="435"
-                                    Height="70"
+                                    Height="40"
                                     Background="#FFAEABAB"
                                 />
                                 <TextBlock
@@ -179,21 +196,28 @@
                                     FontFamily="Arial"
                                     Margin="0,0,10,0"
                                     >
-                                    <Run FontSize="30" Text="Base: "/>
-                                    <Run FontSize="35" Text="{Binding activos, StringFormat={}{0:C0}}" />
+                                    <Run FontSize="25" Text="Base: "/>
+                                    <Run FontSize="30" Text="{Binding activos, StringFormat={}{0:C0}}" />
                                 </TextBlock>
                                 <TextBlock
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center" 
                                     TextAlignment="Left"
                                     FontFamily="Arial"
-                                    Margin="0,0,10,0"
+                                    Margin="0,10,10,0"
                                     Width="400"
                                     >
-                                    <Run FontSize="30" Text="Valor: "/>
-                                    <Run FontSize="35" Text="{Binding valor, StringFormat={}{0:C0}}" />
+                                    <Run FontSize="25" Text="Valor: "/>
+                                    <Run FontSize="30" Text="{Binding valor, StringFormat={}{0:C0}}" />
                                 </TextBlock>
                             </Grid>
+                            <Image 
+                                Source="/Images/Others/img-split.png"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Width="900"
+                                Margin="0,0,0,0"
+                            />  
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -215,18 +239,18 @@
                 Foreground="White" 
                 FontSize="30" 
                 FontFamily="Arial"
-                Margin="80,120,0,0"
+                Margin="80,125,0,0"
             />
             <TextBlock
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top" 
                 TextAlignment="Right"
-                Text="{Binding LiquidarRenovacionNormal.valortotal}"
+                Text="{Binding LiquidarRenovacionNormal.valortotal, StringFormat={}{0:C0}}"
                 Foreground="White" 
                 FontWeight="DemiBold"
                 FontSize="40" 
                 FontFamily="Arial"
-                Margin="0,110,100,0"
+                Margin="0,120,100,0"
             />
         </Grid>
     </Grid>

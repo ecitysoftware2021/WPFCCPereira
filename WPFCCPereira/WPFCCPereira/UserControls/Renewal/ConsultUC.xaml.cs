@@ -193,12 +193,12 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                txt_error.Text = "";
 
-                if (viewModel.TypeConsult == EtypeConsult.Id)
+                if (viewModel !=null && viewModel.TypeConsult == EtypeConsult.Id)
                 {
                     if (txtReferencia.Text != null && txtReferencia.Text.Length > 12)
                     {
+                        txt_error.Text = "";
                         txtReferencia.Text = txtReferencia.Text.Substring(0, (txtReferencia.Text.Length - 1));
                     }
                 }
@@ -206,6 +206,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     if (txtReferencia.Text != null && txtReferencia.Text.Length > 12)
                     {
+                        txt_error.Text = "";
                         txtReferencia.Text = txtReferencia.Text.Substring(0, (txtReferencia.Text.Length - 1));
                     }
                 }

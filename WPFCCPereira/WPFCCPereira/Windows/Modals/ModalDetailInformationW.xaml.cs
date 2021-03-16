@@ -27,7 +27,7 @@ namespace WPFCCPereira.Windows.Modals
     {
         #region "Referencias"
         private Transaction transaction;
-        private ObservableCollection<Matricula> Matriculas;
+        private ObservableCollection<Liquidacion> Matriculas;
         #endregion
 
         #region "Constructor"
@@ -35,7 +35,7 @@ namespace WPFCCPereira.Windows.Modals
         {
             InitializeComponent();
 
-            this.Matriculas = new ObservableCollection<Matricula>();
+            this.Matriculas = new ObservableCollection<Liquidacion>();
 
             this.transaction = ts;
 
@@ -48,7 +48,7 @@ namespace WPFCCPereira.Windows.Modals
         {
             try
             {
-                foreach (var item in transaction.LiquidarRenovacionNormal.matriculas)
+                foreach (var item in transaction.LiquidarRenovacionNormal.liquidacion)
                 {
                     Matriculas.Add(item);
                 }
