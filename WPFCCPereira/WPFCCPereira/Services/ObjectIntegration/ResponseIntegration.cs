@@ -296,6 +296,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
     #endregion
 
     #region "RESPONSE-recuperarFormularioRenovacion"
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class Ciius
     {
         public string _1 { get; set; }
@@ -307,69 +308,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
     public class _1
     {
-        public string idtipoidentificacionreplegal { get; set; }
-        public string identificacionreplegal { get; set; }
-        public string nombrereplegal { get; set; }
-        public string nombre1replegal { get; set; }
-        public string nombre2replegal { get; set; }
-        public string apellido1replegal { get; set; }
-        public string apellido2replegal { get; set; }
-        public string emailreplegal { get; set; }
-        public string celularreplegal { get; set; }
-        public string cargoreplegal { get; set; }
-        public string vinculoreplegal { get; set; }
-        public string libroreplegal { get; set; }
-        public string inscripcionreplegal { get; set; }
-        public string fechareplegal { get; set; }
-        public string tipovinculo { get; set; }
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
         public string matriculaestablecimiento { get; set; }
         public string nombreestablecimiento { get; set; }
         public string estadodatosestablecimiento { get; set; }
@@ -385,746 +323,20 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string fecharenovacion { get; set; }
         public string ultanoren { get; set; }
         public string actvin { get; set; }
-        public string embargado { get; set; }
-        public List<object> embargos { get; set; }
-        public string valest { get; set; }
-        public string tipopropiedad { get; set; }
-        public string ideadministrador { get; set; }
-        public string nombreadministrador { get; set; }
-        public string idearrendatario { get; set; }
-        public string nombrearrendatario { get; set; }
-        public string solicitudcancelacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string libro { get; set; }
-        public string registro { get; set; }
-        public string tipoeconomia { get; set; }
-        public string pornaltot { get; set; }
-        public string pornalpri { get; set; }
-        public string pornalpub { get; set; }
-        public string porexttot { get; set; }
-        public string porextpri { get; set; }
-        public string porextpub { get; set; }
-        public string apoact { get; set; }
-        public string apodin { get; set; }
-        public string apolab { get; set; }
-        public string apolabadi { get; set; }
-        public string suscrito { get; set; }
-        public string autorizado { get; set; }
-        public string pagado { get; set; }
-        public string social { get; set; }
-        public string asigsuc { get; set; }
-        public string cuosuscrito { get; set; }
-        public string cuoautorizado { get; set; }
-        public string cuopagado { get; set; }
-        public string cuosocial { get; set; }
-        public string moneda { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-        public string acto { get; set; }
-        public string idclase { get; set; }
-        public string numid { get; set; }
-        public string nombre { get; set; }
-        public object idclasedemandante { get; set; }
-        public object numiddemandante { get; set; }
-        public string nombredemandante { get; set; }
-        public string tipdoc { get; set; }
-        public string numdoc { get; set; }
-        public string fecdoc { get; set; }
-        public string idorigen { get; set; }
-        public string txtorigen { get; set; }
-        public string fecrad { get; set; }
-        public string estado { get; set; }
-        public string numreg { get; set; }
-        public string codbarras { get; set; }
-        public string noticia { get; set; }
-        public string fecinscripcion { get; set; }
-        public string esembargo { get; set; }
-    }
-
-    public class _2
-    {
-        public string idtipoidentificacionreplegal { get; set; }
-        public string identificacionreplegal { get; set; }
-        public string nombrereplegal { get; set; }
-        public string nombre1replegal { get; set; }
-        public string nombre2replegal { get; set; }
-        public string apellido1replegal { get; set; }
-        public string apellido2replegal { get; set; }
-        public string emailreplegal { get; set; }
-        public string celularreplegal { get; set; }
-        public string cargoreplegal { get; set; }
-        public string vinculoreplegal { get; set; }
-        public string libroreplegal { get; set; }
-        public string inscripcionreplegal { get; set; }
-        public string fechareplegal { get; set; }
-        public string tipovinculo { get; set; }
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string embargado { get; set; }
-        public List<object> embargos { get; set; }
-        public string valest { get; set; }
-        public string tipopropiedad { get; set; }
-        public string ideadministrador { get; set; }
-        public string nombreadministrador { get; set; }
-        public string idearrendatario { get; set; }
-        public string nombrearrendatario { get; set; }
-        public string solicitudcancelacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-        public string acto { get; set; }
-        public string idclase { get; set; }
-        public string numid { get; set; }
-        public string nombre { get; set; }
-        public object idclasedemandante { get; set; }
-        public object numiddemandante { get; set; }
-        public string nombredemandante { get; set; }
-        public string tipdoc { get; set; }
-        public string numdoc { get; set; }
-        public string fecdoc { get; set; }
-        public string idorigen { get; set; }
-        public string txtorigen { get; set; }
-        public string fecrad { get; set; }
-        public string estado { get; set; }
-        public string libro { get; set; }
-        public string numreg { get; set; }
-        public string codbarras { get; set; }
-        public string noticia { get; set; }
-        public string fecinscripcion { get; set; }
-        public string esembargo { get; set; }
-    }
-
-    public class _3
-    {
-        public string idtipoidentificacionreplegal { get; set; }
-        public string identificacionreplegal { get; set; }
-        public string nombrereplegal { get; set; }
-        public string nombre1replegal { get; set; }
-        public string nombre2replegal { get; set; }
-        public string apellido1replegal { get; set; }
-        public string apellido2replegal { get; set; }
-        public string emailreplegal { get; set; }
-        public string celularreplegal { get; set; }
-        public string cargoreplegal { get; set; }
-        public string vinculoreplegal { get; set; }
-        public string libroreplegal { get; set; }
-        public string inscripcionreplegal { get; set; }
-        public string fechareplegal { get; set; }
-        public string tipovinculo { get; set; }
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class Replegal
-    {
-        public _1 _1 { get; set; }
-        public _2 _2 { get; set; }
-        public _3 _3 { get; set; }
-    }
-
-    public class _4
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _5
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _6
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _7
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
         public string ciiu1 { get; set; }
         public string ciiu2 { get; set; }
         public string ciiu3 { get; set; }
         public string ciiu4 { get; set; }
-        public string tipositcontrol { get; set; }
-        public string desactiv { get; set; }
-        public string fechaconfiguracion { get; set; }
-        public string codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
+        public string embargado { get; set; }
+        public List<object> embargos { get; set; }
+        public string valest { get; set; }
+        public string tipopropiedad { get; set; }
+        public string ideadministrador { get; set; }
+        public string nombreadministrador { get; set; }
+        public string idearrendatario { get; set; }
+        public string nombrearrendatario { get; set; }
+        public string solicitudcancelacion { get; set; }
         public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
         public string tipo { get; set; }
         public string recibo { get; set; }
         public string fecharecibo { get; set; }
@@ -1134,9 +346,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string anodatos { get; set; }
         public string fechadatos { get; set; }
         public string personal { get; set; }
-        public object personaltemp { get; set; }
+        public string personaltemp { get; set; }
         public string actcte { get; set; }
-        public object actnocte { get; set; }
+        public string actnocte { get; set; }
         public string actfij { get; set; }
         public string fijnet { get; set; }
         public string actotr { get; set; }
@@ -1149,632 +361,150 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string pastot { get; set; }
         public string pattot { get; set; }
         public string paspat { get; set; }
-        public object balsoc { get; set; }
+        public string balsoc { get; set; }
         public string ingope { get; set; }
         public string ingnoope { get; set; }
         public string gtoven { get; set; }
-        public object gtoadm { get; set; }
+        public string gtoadm { get; set; }
         public string cosven { get; set; }
         public int depamo { get; set; }
         public string gasint { get; set; }
-        public object gasimp { get; set; }
+        public string gasimp { get; set; }
         public string utiope { get; set; }
         public string utinet { get; set; }
-    }
-
-    public class _8
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _9
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string tipo { get; set; }
-        public string recibo { get; set; }
-        public string fecharecibo { get; set; }
-        public string ano { get; set; }
-        public string activos { get; set; }
-        public string valor { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _10
-    {
-        public string idtipoidentificacionotros { get; set; }
-        public string identificacionotros { get; set; }
-        public string nombreotros { get; set; }
-        public string apellido1otros { get; set; }
-        public string apellido2otros { get; set; }
-        public string nombre1otros { get; set; }
-        public string nombre2otros { get; set; }
-        public string direccionotros { get; set; }
-        public string municipiootros { get; set; }
-        public string paisotros { get; set; }
-        public string emailotros { get; set; }
-        public string celularotros { get; set; }
-        public string fechanacimientootros { get; set; }
-        public string idcargootros { get; set; }
-        public string cargootros { get; set; }
-        public string vinculootros { get; set; }
-        public string numtarprofotros { get; set; }
-        public string idclaseemp { get; set; }
-        public string numidemp { get; set; }
-        public string nombreemp { get; set; }
-        public string idvindianpnat { get; set; }
-        public string idvindianpjur { get; set; }
-        public string cuotasconst { get; set; }
-        public string cuotasref { get; set; }
-        public string valorconst { get; set; }
-        public string valorref { get; set; }
-        public string va1 { get; set; }
-        public string va2 { get; set; }
-        public string va3 { get; set; }
-        public string va4 { get; set; }
-        public string va5 { get; set; }
-        public string va6 { get; set; }
-        public string va7 { get; set; }
-        public string va8 { get; set; }
-        public string librootros { get; set; }
-        public string inscripcionotros { get; set; }
-        public string dupliotros { get; set; }
-        public string fechaotros { get; set; }
-        public object ciiu1 { get; set; }
-        public object ciiu2 { get; set; }
-        public object ciiu3 { get; set; }
-        public object ciiu4 { get; set; }
-        public object tipositcontrol { get; set; }
-        public object desactiv { get; set; }
-        public object fechaconfiguracion { get; set; }
-        public object codcertifica { get; set; }
-        public string tipovinculo { get; set; }
-        public string tipovinculoceresadl { get; set; }
-        public object renrem { get; set; }
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class Vinculos
-    {
-        public _1 _1 { get; set; }
-        public _2 _2 { get; set; }
-        public _3 _3 { get; set; }
-        public _4 _4 { get; set; }
-        public _5 _5 { get; set; }
-        public _6 _6 { get; set; }
-        public _7 _7 { get; set; }
-        public _8 _8 { get; set; }
-        public _9 _9 { get; set; }
-        public _10 _10 { get; set; }
-    }
-
-    public class Vinculosh
-    {
-        public _1 _1 { get; set; }
     }
 
     public class Establecimientos
     {
         public _1 _1 { get; set; }
-        public _2 _2 { get; set; }
-    }
-
-    public class _11
-    {
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string ciiu1 { get; set; }
-        public string ciiu2 { get; set; }
-        public string ciiu3 { get; set; }
-        public string ciiu4 { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _122
-    {
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string ciiu1 { get; set; }
-        public string ciiu2 { get; set; }
-        public string ciiu3 { get; set; }
-        public string ciiu4 { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _132
-    {
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string ciiu1 { get; set; }
-        public string ciiu2 { get; set; }
-        public string ciiu3 { get; set; }
-        public string ciiu4 { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public object personaltemp { get; set; }
-        public string actcte { get; set; }
-        public object actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public object balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public object gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public object gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _142
-    {
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string ciiu1 { get; set; }
-        public string ciiu2 { get; set; }
-        public string ciiu3 { get; set; }
-        public string ciiu4 { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public string personaltemp { get; set; }
-        public string actcte { get; set; }
-        public string actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public string balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public string gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public string gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
-    }
-
-    public class _152
-    {
-        public string matriculaestablecimiento { get; set; }
-        public string nombreestablecimiento { get; set; }
-        public string estadodatosestablecimiento { get; set; }
-        public string estadomatricula { get; set; }
-        public string dircom { get; set; }
-        public string barriocom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
-        public string telcom3 { get; set; }
-        public string muncom { get; set; }
-        public string emailcom { get; set; }
-        public string fechamatricula { get; set; }
-        public string fecharenovacion { get; set; }
-        public string fechacancelacion { get; set; }
-        public string ultanoren { get; set; }
-        public string actvin { get; set; }
-        public string ciiu1 { get; set; }
-        public string ciiu2 { get; set; }
-        public string ciiu3 { get; set; }
-        public string ciiu4 { get; set; }
-        public string anodatos { get; set; }
-        public string fechadatos { get; set; }
-        public string personal { get; set; }
-        public string personaltemp { get; set; }
-        public string actcte { get; set; }
-        public string actnocte { get; set; }
-        public string actfij { get; set; }
-        public string fijnet { get; set; }
-        public string actotr { get; set; }
-        public string actval { get; set; }
-        public string acttot { get; set; }
-        public int actsinaju { get; set; }
-        public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
-        public string balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
-        public string gtoven { get; set; }
-        public string gtoadm { get; set; }
-        public string cosven { get; set; }
-        public int depamo { get; set; }
-        public string gasint { get; set; }
-        public string gasimp { get; set; }
-        public string utiope { get; set; }
-        public string utinet { get; set; }
     }
 
     public class Establecimientosh
     {
         public _1 _1 { get; set; }
-        public _2 _2 { get; set; }
-        public _3 _3 { get; set; }
-        public _4 _4 { get; set; }
-        public _5 _5 { get; set; }
-        public _6 _6 { get; set; }
-        public _7 _7 { get; set; }
-        public _8 _8 { get; set; }
-        public _9 _9 { get; set; }
-        public _10 _10 { get; set; }
-        public _11 _11 { get; set; }
-        public _122 _12 { get; set; }
-        public _132 _13 { get; set; }
-        public _142 _14 { get; set; }
-        public _152 _15 { get; set; }
+    }
+
+    public class _2
+    {
+        public string tipo { get; set; }
+        public string recibo { get; set; }
+        public string fecharecibo { get; set; }
+        public string fecharenovacion { get; set; }
+        public string ano { get; set; }
+        public string activos { get; set; }
+        public string valor { get; set; }
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _3
+    {
+        public string tipo { get; set; }
+        public string recibo { get; set; }
+        public string fecharecibo { get; set; }
+        public string fecharenovacion { get; set; }
+        public string ano { get; set; }
+        public string activos { get; set; }
+        public string valor { get; set; }
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public object personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public object actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public object balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public object gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public object gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _4
+    {
+        public string tipo { get; set; }
+        public string recibo { get; set; }
+        public string fecharecibo { get; set; }
+        public string fecharenovacion { get; set; }
+        public string ano { get; set; }
+        public string activos { get; set; }
+        public string valor { get; set; }
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public object personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public object actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public object balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public object gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public object gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
     }
 
     public class Historicopagosrenovacion
@@ -1783,19 +513,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public _2 _2 { get; set; }
         public _3 _3 { get; set; }
         public _4 _4 { get; set; }
-        public _5 _5 { get; set; }
-        public _6 _6 { get; set; }
-        public _7 _7 { get; set; }
-        public _8 _8 { get; set; }
-        public _9 _9 { get; set; }
     }
 
-    public class Capitales
-    {
-        public _1 _1 { get; set; }
-    }
-
-    public class _162
+    public class _5
     {
         public string anodatos { get; set; }
         public string fechadatos { get; set; }
@@ -1829,7 +549,279 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string utinet { get; set; }
     }
 
-    public class _172
+    public class _6
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _7
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _8
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _9
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _10
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _11
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _122
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public string actvin { get; set; }
+        public string actcte { get; set; }
+        public string actnocte { get; set; }
+        public string actfij { get; set; }
+        public string fijnet { get; set; }
+        public string actotr { get; set; }
+        public string actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public string pascte { get; set; }
+        public string paslar { get; set; }
+        public string pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public string balsoc { get; set; }
+        public string ingope { get; set; }
+        public string ingnoope { get; set; }
+        public string gtoven { get; set; }
+        public string gtoadm { get; set; }
+        public string cosven { get; set; }
+        public int depamo { get; set; }
+        public string gasint { get; set; }
+        public string gasimp { get; set; }
+        public string utiope { get; set; }
+        public string utinet { get; set; }
+    }
+
+    public class _132
+    {
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public object personaltemp { get; set; }
+        public string actvin { get; set; }
+        public object actcte { get; set; }
+        public object actnocte { get; set; }
+        public object actfij { get; set; }
+        public object fijnet { get; set; }
+        public object actotr { get; set; }
+        public object actval { get; set; }
+        public string acttot { get; set; }
+        public int actsinaju { get; set; }
+        public int invent { get; set; }
+        public object pascte { get; set; }
+        public object paslar { get; set; }
+        public object pastot { get; set; }
+        public string pattot { get; set; }
+        public string paspat { get; set; }
+        public object balsoc { get; set; }
+        public object ingope { get; set; }
+        public object ingnoope { get; set; }
+        public object gtoven { get; set; }
+        public object gtoadm { get; set; }
+        public object cosven { get; set; }
+        public int depamo { get; set; }
+        public object gasint { get; set; }
+        public object gasimp { get; set; }
+        public object utiope { get; set; }
+        public object utinet { get; set; }
+    }
+
+    public class _142
     {
         public string anodatos { get; set; }
         public string fechadatos { get; set; }
@@ -1876,18 +868,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public _9 _9 { get; set; }
         public _10 _10 { get; set; }
         public _11 _11 { get; set; }
-        public _122 _12 { get; set; }
-        public _132 _13 { get; set; }
-        public _142 _14 { get; set; }
-        public _152 _15 { get; set; }
-        public _162 _16 { get; set; }
-        public _172 _17 { get; set; }
-    }
-
-    public class Ctrembargos
-    {
-        public _1 _1 { get; set; }
-        public _2 _2 { get; set; }
     }
 
     public class Datos
@@ -1979,7 +959,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string tipolocal { get; set; }
         public string tipogruemp { get; set; }
         public string nombregruemp { get; set; }
-        public object vigilanciasuperfinanciera { get; set; }
+        public string vigilanciasuperfinanciera { get; set; }
         public string vigcontrol { get; set; }
         public string fecperj { get; set; }
         public string idorigenperj { get; set; }
@@ -2134,15 +1114,15 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public int cap_apoact { get; set; }
         public int cap_apodin { get; set; }
         public string fecdatoscap { get; set; }
-        public string capsoc { get; set; }
-        public string capaut { get; set; }
-        public string capsus { get; set; }
-        public string cappag { get; set; }
-        public string cuosoc { get; set; }
-        public string cuoaut { get; set; }
-        public string cuosus { get; set; }
-        public string cuopag { get; set; }
-        public string capsuc { get; set; }
+        public int capsoc { get; set; }
+        public int capaut { get; set; }
+        public int capsus { get; set; }
+        public int cappag { get; set; }
+        public int cuosoc { get; set; }
+        public int cuoaut { get; set; }
+        public int cuosus { get; set; }
+        public int cuopag { get; set; }
+        public int capsuc { get; set; }
         public string cantidadmujeres { get; set; }
         public string cantidadmujerescargosdirectivos { get; set; }
         public string participacionmujeres { get; set; }
@@ -2277,9 +1257,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string datconst_mundoc { get; set; }
         public List<object> bienes { get; set; }
         public string existenvinculos { get; set; }
-        public Replegal replegal { get; set; }
-        public Vinculos vinculos { get; set; }
-        public Vinculosh vinculosh { get; set; }
+        public List<object> replegal { get; set; }
+        public List<object> vinculos { get; set; }
+        public List<object> vinculosh { get; set; }
         public List<object> vincuprop { get; set; }
         public List<object> propietarios { get; set; }
         public List<object> propietariosh { get; set; }
@@ -2291,11 +1271,10 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public Historicopagosrenovacion historicopagosrenovacion { get; set; }
         public List<object> rr { get; set; }
         public List<object> lcodigosbarras { get; set; }
-        public Capitales capitales { get; set; }
-        public string monedacap { get; set; }
+        public List<object> capitales { get; set; }
         public List<object> patrimoniosesadl { get; set; }
         public Hf hf { get; set; }
-        public Ctrembargos ctrembargos { get; set; }
+        public List<object> ctrembargos { get; set; }
         public string placaalcaldia { get; set; }
         public string placaalcaldiafecha { get; set; }
         public string reportealcaldia { get; set; }

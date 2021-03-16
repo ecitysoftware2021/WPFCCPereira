@@ -567,7 +567,7 @@ namespace WPFCCPereira.Services
                 request.usuariows = user;
                 request.token = token;
 
-                var response = await GetData(Request, "RenovacionNormal");
+                var response = await GetData(Request, "GetFormularioRenovacion");
 
                 if (response != null)
                 {
