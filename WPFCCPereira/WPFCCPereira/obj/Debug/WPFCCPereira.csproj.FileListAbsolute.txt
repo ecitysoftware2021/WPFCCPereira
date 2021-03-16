@@ -420,3 +420,8 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csproj.CopyComplete
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.exe
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.pdb
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csprojAssemblyReference.cache
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\example.g.cs
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\Windows\Modals\ModalDetailInformationW.g.cs
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\example.baml
+C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\Windows\Modals\ModalDetailInformationW.baml

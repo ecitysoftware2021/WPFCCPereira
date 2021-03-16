@@ -277,6 +277,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string nombrecontrol { get; set; }
         public string identificacioncontrol { get; set; }
         public List<Matricula> matriculas { get; set; }
+        public int CantMatriculas { get; set; }
         public string incluirafiliacion { get; set; }
         public string incluircertificado { get; set; }
         public string incluirformulario { get; set; }

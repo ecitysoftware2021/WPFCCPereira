@@ -11,7 +11,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg"/>
         </Grid.Background>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="450" />
@@ -19,7 +18,6 @@
             <RowDefinition Height="500" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
         <Grid Grid.RowSpan="5">
             <Border
                 BorderBrush="Transparent"
@@ -33,7 +31,6 @@
                 Margin="0,0,0,200">
             </Border>
         </Grid>
-        
         <Grid Grid.Row="0">
             <Image 
                 Name="btn_exit"
@@ -46,7 +43,6 @@
                 TouchDown="Btn_exit_TouchDown" 
             />
         </Grid>
-
         <Grid Grid.Row="1">
             <TextBlock
                 TextWrapping="Wrap" 
@@ -88,14 +84,17 @@
                 Margin="0,0,120,40" 
             />
             <TextBlock
+                Name="ShowDetail"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
-                TextAlignment="Right"
+                TextAlignment="Left"
                 Text="DETALLES DE LIQUDACIÓN" 
                 Foreground="White" 
                 FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,0,250,50"
+                Margin="0,0,120,53"
+                Width="530"
+                TouchDown="ShowDetail_TouchDown"
             />
             <Image 
                 Source="/Images/Others/img-split.png"
@@ -211,7 +210,7 @@
                 Source="/Images/buttons/btnPaso1.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Height="100"
+                Height="120"
                 Margin="0,50,0,0"
                 Stretch="Uniform"
                 TouchDown="btnDigilenciar_TouchDown"
@@ -220,7 +219,7 @@
                 Source="/Images/buttons/btnPaso2.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Height="100"
+                Height="120"
                 Margin="0,0,0,0"
                 IsEnabled="False"
                 Opacity="0.5"
@@ -230,32 +229,34 @@
                 Source="/Images/buttons/btnPaso3.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Height="100"
+                Height="120"
                 Margin="0,0,0,50"
                 IsEnabled="False"
                 Opacity="0.5"
                 Stretch="Uniform"
             />
-            <!--<Image 
+
+            <Image 
                 Source="/Images/Backgrounds/avisoDiligenciar.png"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Width="210"
-                Margin="0,30,254,0"
+                Width="310"
+                Margin="0,20,140,0"
             />
             <TextBlock
+                Width="250"
                 HorizontalAlignment="Right"
                 VerticalAlignment="top" 
-                TextAlignment="Right"
+                TextAlignment="Left"
                 Foreground="White" 
                 FontWeight="DemiBold"
                 FontSize="30" 
                 FontFamily="Arial"
-                Margin="0,15,153,0"
-            >
-                <Run FontSize="25" Text="Por Diligenciar:"/>
-                <Run FontWeight="Bold" Text="2 de 2"/>
-            </TextBlock>-->
-        </Grid>    
+                Margin="0,25,153,0"
+                >
+                <Run FontSize="25" Text="Por Diligenciar: "/>
+                <Run FontWeight="Bold" Text="{Binding LiquidarRenovacionNormal.CantMatriculas}"/>
+            </TextBlock>
+        </Grid>
     </Grid>
 </UserControl>

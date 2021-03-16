@@ -30,9 +30,9 @@ namespace WPFCCPereira.Windows
                     Utilities.navigator = new Navigation();
                 }
 
-                string a = Utilities.EncryptorData("usrapli");
-                string b = Utilities.EncryptorData("1Cero12019$/*");
-                string c = Utilities.EncryptorData("Ecity.Software");
+                string a = Utilities.EncryptorData("tj4ALHuT2IReSA94TXOTAxGFmbu4ziT+B4mRzsq56RY=",false,"WPFEmpresaEPM");
+                string b = Utilities.EncryptorData("Pay+ EPM Punto Facil Rionegro", true, "WPFEmpresaEPM");
+                string c = Utilities.EncryptorData("EmpresaPublicadeMedellin2021%",true, "WPFEmpresaEPM");
                 string d = Utilities.EncryptorData("Ecitysoftware2019#");
                 string e = Utilities.EncryptorData("https://e-citypay.co/");
 

@@ -21,6 +21,7 @@ namespace WPFCCPereira.UserControls.Renewal
         private ObservableCollection<ListEstablecimientos> listEstablecimientos;
         #endregion
 
+        #region "Constructor"
         public ListEstablecimientosUC(Transaction ts)
         {
             InitializeComponent();
@@ -28,11 +29,12 @@ namespace WPFCCPereira.UserControls.Renewal
             this.listEstablecimientos = new ObservableCollection<ListEstablecimientos>();
 
             this.transaction = ts;
-            
+
             ConfigureViewList();
         }
+        #endregion
 
-
+        #region "Métodos"
         private void ConfigureViewList()
         {
             try
@@ -67,7 +69,9 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+        #endregion
 
+        #region "Eventos"
         private void Btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Menu);
@@ -82,5 +86,7 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
         }
+        #endregion
+
     }
 }

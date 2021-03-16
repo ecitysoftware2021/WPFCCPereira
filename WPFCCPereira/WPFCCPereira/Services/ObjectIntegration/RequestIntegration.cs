@@ -22,8 +22,8 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string nmatricula { get; set; }
         public object anorenovar { get; set; }
         public int cantidad { get; set; }
-        public int activos { get; set; }
-        public object valor { get; set; }
+        public decimal activos { get; set; }
+        public decimal valor { get; set; }
         public string nservicio { get; set; }
     }
 

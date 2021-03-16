@@ -107,8 +107,8 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 Task.Run(async () =>
                 {
-                    reference = "18130990";
-                    reference = "14693801";//persona natural
+                    //reference = "18130990";
+                    //reference = "14693801";//persona natural
                     //reference = "8623304";//persona juridica 2 establecimientos
 
                     var response = await AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
@@ -197,14 +197,14 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 if (viewModel.TypeConsult == EtypeConsult.Id)
                 {
-                    if (txtReferencia.Text.Length > 12)
+                    if (txtReferencia.Text != null && txtReferencia.Text.Length > 12)
                     {
                         txtReferencia.Text = txtReferencia.Text.Substring(0, (txtReferencia.Text.Length - 1));
                     }
                 }
                 else
                 {
-                    if (txtReferencia.Text.Length > 12)
+                    if (txtReferencia.Text != null && txtReferencia.Text.Length > 12)
                     {
                         txtReferencia.Text = txtReferencia.Text.Substring(0, (txtReferencia.Text.Length - 1));
                     }

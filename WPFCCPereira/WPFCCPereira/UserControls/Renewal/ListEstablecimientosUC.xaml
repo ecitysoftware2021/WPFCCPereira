@@ -76,7 +76,6 @@
                         TextWrapping="Wrap"
                         Margin="50,50,0,0"
                         Foreground="#FF104B6D"
-                        Height="60"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
                         Grid.Column="0">
