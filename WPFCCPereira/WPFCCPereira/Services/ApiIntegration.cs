@@ -556,6 +556,36 @@ namespace WPFCCPereira.Services
 
             return null;
         }
+
+        public async Task<FormularioResponse> GetFormularioRenovacion(GetFormularioRenovacion request)
+        {
+            try
+            {
+                GetFormularioRenovacion Request = request;
+
+                request.codigoempresa = code;
+                request.usuariows = user;
+                request.token = token;
+
+                var response = await GetData(Request, "RenovacionNormal");
+
+                if (response != null)
+                {
+                    var data = JsonConvert.DeserializeObject<FormularioResponse>(response.ToString());
+
+                    if (data != null && data.codigoerror == "0000")
+                    {
+                        return data;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
         //END RENOVACION 
     }
 }

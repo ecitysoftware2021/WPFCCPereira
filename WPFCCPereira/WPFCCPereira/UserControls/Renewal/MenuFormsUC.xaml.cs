@@ -45,7 +45,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-
                 transaction.LiquidarRenovacionNormal.CantMatriculas = transaction.LiquidarRenovacionNormal.matriculas.Count();
 
                 transaction.payer.IDENTIFICATION = string.Concat("(", transaction.payer.IDENTIFICATION, ")");

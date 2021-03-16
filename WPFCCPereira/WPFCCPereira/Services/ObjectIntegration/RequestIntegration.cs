@@ -86,4 +86,16 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string claveusuario { get; set; }
     }
     #endregion
+
+    #region "REQUEST-recuperarFormularioRenovacion"
+    public class GetFormularioRenovacion
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public string token { get; set; }
+        public string idliquidacion { get; set; }
+        public string numerorecuperacion { get; set; }
+        public string expediente { get; set; }
+    }
+    #endregion
 }

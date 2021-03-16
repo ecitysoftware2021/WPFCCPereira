@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WPFCCPereira.Classes;
@@ -69,6 +70,46 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+
+        private void GetDataForm(UserControlView view, string matricula)
+        {
+            try
+            {
+                Task.Run(async () =>
+                {
+                    var response = await AdminPayPlus.ApiIntegration.GetFormularioRenovacion(new GetFormularioRenovacion 
+                    {
+                        expediente = matricula,
+                        idliquidacion = transaction.LiquidarRenovacionNormal.idliquidacion,
+                        numerorecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion
+                    });
+
+                    Utilities.CloseModal();
+
+                    if (response == null)
+                    {
+                        Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
+                    }
+                    else
+                    {
+                        if (view == UserControlView.Ppal_Identificacion)
+                        {
+                            Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                });
+
+                Utilities.ShowModal("Consultando información del formulario. Regálenos unos segundos.", EModalType.Preload);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
         #endregion
 
         #region "Eventos"
@@ -79,7 +120,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void frmPpal_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
+            GetDataForm(UserControlView.Ppal_Identificacion, transaction.ExpedientesMercantil.matricula);
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)

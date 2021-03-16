@@ -90,7 +90,7 @@
                 Margin="0,0,0,10"
             />
         </Grid>
-        <Grid Grid.Row="2" Margin="110,0,110,0">
+        <Grid Grid.Row="2" Margin="110,0,110,0" IsEnabled="False" Opacity="0.5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -114,7 +114,6 @@
                     VerticalAlignment="Center" 
                     Text="Datos de identificación" 
                     FontSize="30" 
-                    Foreground="#FF424242"
                     Margin="10,0,0,0"
                 />
             </Grid>
@@ -124,7 +123,6 @@
                     VerticalAlignment="Top" 
                     Text="Nombre" 
                     FontSize="25" 
-                    Foreground="#FF424242"
                     FontFamily="Arial"
                     Margin="0,0,0,0"
                 />
@@ -133,7 +131,6 @@
                     VerticalAlignment="Bottom" 
                     Text="{Binding ExpedientesMercantil.nombre}" 
                     FontSize="30" 
-                    Foreground="#FF424242"
                     FontFamily="Arial"
                     Margin="0,0,0,0"
                 />
@@ -151,14 +148,12 @@
                     VerticalAlignment="Center" 
                     Text="Tipo de identificación" 
                     FontSize="25" 
-                    Foreground="#FF424242"
                 />
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     Text="{Binding ExpedientesMercantil.idclaseName}" 
                     FontSize="30" 
-                    Foreground="#FF424242"
                 />
             </Grid>
             <Grid Grid.Row="3">
@@ -174,14 +169,12 @@
                     VerticalAlignment="Center" 
                     Text="Identificación" 
                     FontSize="25" 
-                    Foreground="#FF424242"
                 />
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     Text="{Binding ExpedientesMercantil.identificacion}" 
                     FontSize="30" 
-                    Foreground="#FF424242"
                 />
             </Grid>
             <Grid Grid.Row="4">
@@ -197,14 +190,12 @@
                     VerticalAlignment="Center" 
                     Text="Organización" 
                     FontSize="25" 
-                    Foreground="#FF424242"
                 />
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     Text="{Binding ExpedientesMercantil.organizacion}" 
                     FontSize="30" 
-                    Foreground="#FF424242"
                 />
             </Grid>
             <Grid Grid.Row="5">
