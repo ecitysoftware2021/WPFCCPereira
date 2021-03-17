@@ -19,7 +19,7 @@ namespace WPFCCPereira.Classes
 
         #region CommandsPorts
 
-        private string _StartBills = "OR:START";//Iniciar los billeteros
+        private string _StartPeripherals = "OR:START";//Iniciar los billeteros
 
         private string _AceptanceBillOn = "OR:ON:AP";//Operar billetero Aceptance
 
@@ -131,7 +131,7 @@ namespace WPFCCPereira.Classes
         {
             try
             {
-                if (!SendMessageBills(_StartBills))
+                if (!SendMessageBills(_StartPeripherals))
                 {
                     callbackError?.Invoke(Tuple.Create("", string.Concat("Error, Iniciando los perifericos", "No se pudo iniciar")));
                 }
@@ -150,19 +150,11 @@ namespace WPFCCPereira.Classes
 
             this.deliveryValue = 0;//Valor entregado
 
+            this.deliveryVal = 0;
+
             this.dispenserValue = 0;//Valor a dispensar
 
             this.stateError = false;
-
-            this.callbackTotalIn = null;
-
-            this.callbackTotalOut = null;
-
-            this.callbackValueIn = null;
-
-            this.callbackValueOut = null;
-
-            this.callbackOut = null;
         }
 
         /// <summary>
@@ -232,7 +224,6 @@ namespace WPFCCPereira.Classes
                 if (_serialPortBills.IsOpen)
                 {
                     Thread.Sleep(2000);
-                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Se envio mensaje al billetero:  ", message)));
                     _serialPortBills.Write(message);
                     return true;
                 }
@@ -249,21 +240,22 @@ namespace WPFCCPereira.Classes
         /// Método para enviar orden al puerto de los monederos
         /// </summary>
         /// <param name="message">mensaje a enviar</param>
-        private void SendMessageCoins(string message)
+        private bool SendMessageCoins(string message)
         {
             try
             {
                 if (_serialPortCoins.IsOpen)
                 {
                     Thread.Sleep(2000);
-                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Se envio mensaje al monedero:  ", message)));
                     _serialPortCoins.Write(message);
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 callbackError?.Invoke(Tuple.Create("AP", "Error, ha ocurrido una exepcion " + ex));
             }
+            return false;
         }
 
         #endregion
@@ -282,7 +274,6 @@ namespace WPFCCPereira.Classes
                 string response = _serialPortBills.ReadLine();
                 if (!string.IsNullOrEmpty(response))
                 {
-                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Respondio el billetero:  ", response)));
                     ProcessResponseBills(response.Replace("\r", string.Empty));
                 }
             }
@@ -304,7 +295,6 @@ namespace WPFCCPereira.Classes
                 string response = _serialPortCoins.ReadLine();
                 if (!string.IsNullOrEmpty(response))
                 {
-                    callbackError?.Invoke(Tuple.Create("Info", string.Concat("Info, Respondio el monedero:  ", response)));
                     ProcessResponseCoins(response.Replace("\r", string.Empty));
                 }
             }
@@ -391,8 +381,15 @@ namespace WPFCCPereira.Classes
                         if (response[3] == "HD" && !string.IsNullOrEmpty(response[4]))
                         {
                             TOKEN = response[4].Replace("\r", string.Empty);
-                            callbackToken?.Invoke(true);
+
+                            if (!SendMessageCoins(_StartPeripherals))
+                            {
+                                callbackError?.Invoke(Tuple.Create("", string.Concat("Error, Iniciando los perifericos", "No se pudo iniciar")));
+                            }
                         }
+                        break;
+                    case "MD":
+                        callbackToken?.Invoke(true);
                         break;
                     default:
                         break;
@@ -406,24 +403,24 @@ namespace WPFCCPereira.Classes
         /// <param name="response">respuesta</param>
         private void ProcessER(string[] response)
         {
-            if (response[2] == "FATAL")
+            if (response[1] == "DP" || response[1] == "MD")
             {
                 stateError = true;
-                callbackError?.Invoke(Tuple.Create(response[1], "Error, FATAL" + response[3]));
-            }
-            else if (response[1] == "DP" || response[1] == "MD")
-            {
-                stateError = true;
-                callbackError?.Invoke(Tuple.Create(response[1], string.Concat("Error, se alcanzó a entregar: ", deliveryValue, " Error: ", response[2])));
+                callbackError?.Invoke(Tuple.Create(response[1], string.Concat("Error, se alcanzó a entregar:", deliveryVal, " Error: ", response[2])));
 
                 //if (response[1] == "MD")
                 //{
                 //    ConfigDataDispenser(string.Concat(response[1], ":", response[2]));
                 //}
             }
-            else if (response[1] == "AP")
+            if (response[1] == "AP")
             {
+                stateError = true;
                 callbackError?.Invoke(Tuple.Create("AP", "Error, en el billetero Aceptador: " + response[2]));
+            }
+            else if (response[1] == "FATAL")
+            {
+                callbackError?.Invoke(Tuple.Create("FATAL", "Error, FATAL" + response[2]));
             }
         }
 
@@ -457,6 +454,19 @@ namespace WPFCCPereira.Classes
                 }
                 ValidateEnterValue();
             }
+        }
+
+        public void ClearValues()
+        {
+            deliveryValue = 0;
+            enterValue = 0;
+            deliveryVal = 0;
+
+            this.callbackTotalIn = null;
+            this.callbackTotalOut = null;
+            this.callbackValueIn = null;
+            this.callbackValueOut = null;
+            this.callbackOut = null;
         }
 
         /// <summary>
@@ -658,6 +668,7 @@ namespace WPFCCPereira.Classes
 
         #region Responses
 
+        public decimal deliveryVal;
         /// <summary>
         /// Procesa la respuesta de los dispenser M y B
         /// </summary>
@@ -674,7 +685,7 @@ namespace WPFCCPereira.Classes
                     {
                         int denominacion = int.Parse(value.Split('-')[0]);
                         int cantidad = int.Parse(value.Split('-')[1]);
-                        deliveryValue += denominacion * cantidad;
+                        deliveryVal += denominacion * cantidad;
                     }
                 }
 
@@ -686,11 +697,11 @@ namespace WPFCCPereira.Classes
 
                 if (!stateError)
                 {
-                    if (dispenserValue == deliveryValue)
+                    if (dispenserValue == deliveryVal)
                     {
                         if (typeDispend == 0)
                         {
-                            callbackTotalOut?.Invoke(deliveryValue);
+                            callbackTotalOut?.Invoke(deliveryVal);
                         }
                     }
                 }
@@ -698,7 +709,7 @@ namespace WPFCCPereira.Classes
                 {
                     if (typeDispend == 0)
                     {
-                        callbackOut?.Invoke(deliveryValue);
+                        callbackOut?.Invoke(deliveryVal);
                     }
                 }
             }
@@ -738,3 +749,5 @@ namespace WPFCCPereira.Classes
         #endregion
     }
 }
+
+
