@@ -22,7 +22,22 @@ namespace WPFCCPereira.Models
 
         public LiquidarRenovacionNormalResponse LiquidarRenovacionNormal{ get; set; }
         public FormularioResponse FormularioPpal { get; set; }
-        public FormularioPpalAux FormularioPpalAux { get; set; }
+        //public FormularioPpalAux FormularioPpalAux { get; set; }
+
+        private FormularioPpalAux _FormularioPpalAux;
+
+        public FormularioPpalAux FormularioPpalAux
+        {
+            get
+            {
+                return _FormularioPpalAux;
+            }
+            set
+            {
+                _FormularioPpalAux = value;
+                OnPropertyRaised("FormularioPpalAux");
+            }
+        }
         //END RENOVACION
 
         public string consecutive { get; set; }

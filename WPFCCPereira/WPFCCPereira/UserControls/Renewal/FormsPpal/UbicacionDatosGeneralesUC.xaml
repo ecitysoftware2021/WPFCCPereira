@@ -141,10 +141,19 @@
                 FontSize="20" 
                 Margin="0,0,0,0"
             />
+            <TextBox
+                Width="550"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                HorizontalContentAlignment="Right"
+                Text="{Binding FormularioPpalAux.municipio}"
+                FontSize="30"
+                TouchDown="TextAlfaNumerico_TouchDown"
+            />
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
-                Text="{Binding FormularioPpalAux.direccion, UpdateSourceTrigger=PropertyChanged}" 
+                Text="{Binding FormularioPpalAux.direccion}" 
                 FontSize="25" 
                 Margin="0,0,0,0"
                 TouchDown="TextAlfaNumerico_TouchDown"

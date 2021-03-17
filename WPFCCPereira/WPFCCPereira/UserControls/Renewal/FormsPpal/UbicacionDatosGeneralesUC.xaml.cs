@@ -18,6 +18,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
     {
         #region "Referencias"
         private Transaction transaction;
+        private FormularioPpalAux FormAux;
         private int tag;
         #endregion
 
@@ -39,7 +40,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             try
             {
-                FormularioPpalAux FormAux;
+               
                 System.Drawing.Color color = System.Drawing.Color.Black;
 
                 if (num == 1)
