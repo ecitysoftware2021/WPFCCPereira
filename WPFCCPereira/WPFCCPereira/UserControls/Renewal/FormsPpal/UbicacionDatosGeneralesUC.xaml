@@ -144,7 +144,7 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
-                Text="{Binding FormularioPpalAux.direccion}" 
+                Text="{Binding FormularioPpalAux.direccion, UpdateSourceTrigger=PropertyChanged}" 
                 FontSize="25" 
                 Margin="0,0,0,0"
                 TouchDown="TextAlfaNumerico_TouchDown"

@@ -58,7 +58,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     {
                         direccion = transaction.FormularioPpal.datos.dircom,
                         municipio = transaction.FormularioPpal.datos.muncomnombre,
-                        barrio = transaction.FormularioPpal.datos.barriocom,
+                        barrio = transaction.FormularioPpal.datos.barriocomnombre,
                         correo = transaction.FormularioPpal.datos.emailcom,
                         tel1 = transaction.FormularioPpal.datos.telcom1,
                         tel2 = transaction.FormularioPpal.datos.telcom2,
