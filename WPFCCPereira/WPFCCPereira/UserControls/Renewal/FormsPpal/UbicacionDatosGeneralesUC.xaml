@@ -144,9 +144,10 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
-                Text="CARRERA 8 NRO. 23-09" 
+                Text="{Binding FormularioPpalAux.direccion}" 
                 FontSize="25" 
                 Margin="0,0,0,0"
+                TouchDown="TextAlfaNumerico_TouchDown"
             />
             <Image 
                 Source="/Images/Others/img-split.png"
@@ -182,7 +183,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    Text="PEREIRA"
+                    Text="{Binding FormularioPpalAux.municipio}"
                     FontSize="30"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
@@ -208,6 +209,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalAlignment="Center" 
                     FontSize="30"
+                    Text="{Binding FormularioPpalAux.barrio}"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
                 <Image
@@ -256,7 +258,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    Text="luzenid@camarapereira.org.co"
+                    Text="{Binding FormularioPpalAux.correo}"
                     FontSize="30"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
@@ -282,6 +284,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
+                    Text="{Binding FormularioPpalAux.tel1}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -305,6 +308,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30" 
+                    Text="{Binding FormularioPpalAux.tel2}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -327,7 +331,8 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    FontSize="30" 
+                    FontSize="30"
+                    Text="{Binding FormularioPpalAux.tel3}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -345,6 +350,15 @@
                     VerticalAlignment="Center" 
                     Text="Número de predial o cédula" 
                     FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30"
+                    Text="{Binding FormularioPpalAux.numpredial}"
+                    TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
                     Source="/Images/Others/img-split.png"

@@ -94,6 +94,8 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         if (view == UserControlView.Ppal_Identificacion)
                         {
+                            transaction.FormularioPpal = response;
+
                             Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
                         }
                         else

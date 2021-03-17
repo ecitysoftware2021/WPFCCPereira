@@ -22,6 +22,8 @@ namespace WPFCCPereira.Models
         public ResponseIntegration ExpedientesMercantil { get; set; }
 
         public LiquidarRenovacionNormalResponse LiquidarRenovacionNormal{ get; set; }
+        public FormularioResponse FormularioPpal { get; set; }
+        public FormularioPpalAux FormularioPpalAux { get; set; }
         //END RENOVACION
 
         public string consecutive { get; set; }

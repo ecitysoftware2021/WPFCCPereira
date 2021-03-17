@@ -1291,5 +1291,23 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string expediente { get; set; }
         public Datos datos { get; set; }
     }
+    
+    public class FormularioPpalAux
+    {
+        public string direccion { get; set; }
+        public string municipio { get; set; }
+        public string barrio { get; set; }
+        public string zona { get; set; }
+        public string correo { get; set; }
+        public string tel1 { get; set; }
+        public string tel2 { get; set; }
+        public string tel3 { get; set; }
+        public string numpredial { get; set; }
+        public string tipopropiedad { get; set; }
+        public string tiposede { get; set; }
+        public bool autorizo { get; set; }
+    }
+
+
     #endregion
 }
