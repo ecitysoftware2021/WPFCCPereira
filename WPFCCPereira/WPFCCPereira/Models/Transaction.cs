@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using WPFCCPereira.Classes;
 using WPFCCPereira.DataModel;
-using WPFCCPereira.Services.Object;
 using WPFCCPereira.Services.ObjectIntegration;
 using WPFCCPereira.ViewModel;
 
