@@ -55,7 +55,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     btnUbicacionComercial.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#014c6c"));
                     
                     btnUbicacionNotificacion.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#014c6c"));
-                    btnUbicacionNotificacion.Background = new SolidColorBrush(Color.FromArgb(127,System.Drawing.Color.Black.R, System.Drawing.Color.Black.G, System.Drawing.Color.Black.B));
+                    btnUbicacionNotificacion.Background = new SolidColorBrush(Color.FromArgb(0,System.Drawing.Color.Black.R, System.Drawing.Color.Black.G, System.Drawing.Color.Black.B));
 
                     grvNotificacion.Visibility = Visibility.Hidden;
                     grvComercial.Visibility = Visibility.Visible;
@@ -67,7 +67,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     btnUbicacionNotificacion.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#014c6c"));
 
                     btnUbicacionComercial.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#014c6c"));
-                    btnUbicacionComercial.Background = new SolidColorBrush(Color.FromArgb(127, System.Drawing.Color.Black.R, System.Drawing.Color.Black.G, System.Drawing.Color.Black.B));
+                    btnUbicacionComercial.Background = new SolidColorBrush(Color.FromArgb(0, System.Drawing.Color.Black.R, System.Drawing.Color.Black.G, System.Drawing.Color.Black.B));
 
                     grvNotificacion.Visibility = Visibility.Visible;
                     grvComercial.Visibility = Visibility.Hidden;
@@ -104,7 +104,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         
         private void TextNumerico_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.OpenKeyboard(true, sender, this);
+            Utilities.OpenKeyboard(true, sender, this, 800);
         }
         #endregion
     }
