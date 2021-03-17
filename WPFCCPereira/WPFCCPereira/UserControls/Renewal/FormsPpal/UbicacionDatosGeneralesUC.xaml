@@ -63,7 +63,7 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                Text="1682334" 
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}"  
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -79,7 +79,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
-                Text="18130990" 
+                Text="{Binding ExpedientesMercantil.matricula}"
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -103,30 +103,34 @@
                 Background="#FFAEABAB"
             />
             <TextBlock
-                x:Name="UC"
+                x:Name="btnUbicacionNotificacion"
                 TextWrapping="Wrap" 
                 Width="210"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center" 
                 TextAlignment="Center"
+                Tag="2"
                 Text="UBICACIÓN NOTIFICACIÓN" 
                 Foreground="#FF104B6D"
                 FontWeight="Bold"
                 FontSize="20" 
                 Margin="0,0,200,0"
+                TouchDown="btnUbicacion_TouchDown"
             />
             <TextBlock
-                x:Name="UN"
+                x:Name="btnUbicacionComercial"
                 TextWrapping="Wrap" 
                 Width="210"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
                 TextAlignment="Center"
+                Tag="1"
                 Text="UBICACIÓN COMERCIAL" 
                 Foreground="White" 
                 FontSize="20" 
                 Background="#014c6c"
                 Margin="200,0,0,0"
+                TouchDown="btnUbicacion_TouchDown"
             />
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">
@@ -173,20 +177,15 @@
                     Text="Municipio" 
                     FontSize="25" 
                 />
-                <ComboBox
+                <TextBox
                     Width="550"
-                    HorizontalContentAlignment="Right"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Background="Transparent"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    Text="PEREIRA"
                     FontSize="30"
-                    >
-                    <ComboBoxItem IsSelected="True">PEREIRA</ComboBoxItem>
-                    <ComboBoxItem>APÍA</ComboBoxItem>
-                    <ComboBoxItem>BALBOA</ComboBoxItem>
-                    <ComboBoxItem>BELÉN DE UMBR...</ComboBoxItem>
-                    <ComboBoxItem>GUÁTICA</ComboBoxItem>
-                </ComboBox>
+                    TouchDown="TextAlfaNumerico_TouchDown"
+                />
                 <Image
                     Source="/Images/Others/img-split.png"
                     HorizontalAlignment="Center"
@@ -209,6 +208,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalAlignment="Center" 
                     FontSize="30"
+                    TouchDown="TextAlfaNumerico_TouchDown"
                 />
                 <Image
                     Source="/Images/Others/img-split.png"
@@ -257,7 +257,8 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     Text="luzenid@camarapereira.org.co"
-                    FontSize="30" 
+                    FontSize="30"
+                    TouchDown="TextAlfaNumerico_TouchDown"
                 />
                 <Image
                     Source="/Images/Others/img-split.png"
@@ -280,7 +281,8 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    FontSize="30" 
+                    FontSize="30"
+                    TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
                     Source="/Images/Others/img-split.png"
@@ -303,6 +305,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30" 
+                    TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
                     Source="/Images/Others/img-split.png"
@@ -325,6 +328,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30" 
+                    TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
                     Source="/Images/Others/img-split.png"
@@ -333,8 +337,8 @@
                     Width="900"
                     Margin="0,0,0,3" 
                 />
-            </Grid> 
-            <Grid Grid.Row="7">
+            </Grid>
+            <Grid x:Name="grvComercial" Grid.Row="7">
                 <TextBlock
                     TextWrapping="Wrap"
                     HorizontalAlignment="Left"
@@ -350,7 +354,41 @@
                     Margin="0,0,0,3" 
                 />
             </Grid>
-            <Grid Grid.Row="8">
+            <Grid x:Name="grvNotificacion" Grid.Row="7" Visibility="Hidden">
+                <TextBlock
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="Tipo Sede Administrativa" 
+                    FontSize="25" 
+                />
+                <ComboBox
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Width="550"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                    >
+                    <ComboBoxItem IsSelected="True">Arriendo</ComboBoxItem>
+                    <ComboBoxItem>Propia</ComboBoxItem>
+                    <ComboBoxItem>No Reporta</ComboBoxItem>
+                    <ComboBoxItem>Comodato</ComboBoxItem>
+                    <ComboBoxItem>Préstamo</ComboBoxItem>
+                </ComboBox>
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid x:Name="grvComercial2" Grid.Row="8">
                 <TextBlock
                     VerticalAlignment="Center" 
                     TextAlignment="Left"
@@ -379,31 +417,7 @@
                     Margin="0,0,0,3" 
                 />
             </Grid>
-            <!--<TextBlock
-                Grid.Row="8"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center" 
-                TextAlignment="Left"
-                Text="Tipo Sede Administrativa" 
-                FontSize="30" 
-            />
-            <ComboBox
-                Grid.Row="8"
-                Grid.Column="1"
-                Width="550"
-                Background="Transparent"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Right"
-                FontSize="40" 
-                >
-                <ComboBoxItem IsSelected="True">Arriendo</ComboBoxItem>
-                <ComboBoxItem>Propia</ComboBoxItem>
-                <ComboBoxItem>No Reporta</ComboBoxItem>
-                <ComboBoxItem>Comodato</ComboBoxItem>
-                <ComboBoxItem>Préstamo</ComboBoxItem>
-            </ComboBox>-->
+            
         </Grid>
         <Grid Grid.Row="5" Margin="110,0,110,0">
             <Image 
