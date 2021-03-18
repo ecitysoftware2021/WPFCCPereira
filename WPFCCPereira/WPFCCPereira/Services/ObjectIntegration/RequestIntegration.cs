@@ -98,4 +98,14 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string expediente { get; set; }
     }
     #endregion
+
+    #region "REQUEST-consultarCiius"
+    public class SearchCiuu
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public string token { get; set; }
+        public string palabras { get; set; }
+    }
+    #endregion
 }

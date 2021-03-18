@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -15,6 +16,7 @@ using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.ObjectIntegration;
 
 namespace WPFCCPereira.Windows.Modals
 {
@@ -25,6 +27,7 @@ namespace WPFCCPereira.Windows.Modals
     {
         #region "Referencias"
         public string CiiuSelect;
+        private ObservableCollection<CIIUS> ciuus;
         #endregion
 
         #region "Constructor"
@@ -33,6 +36,8 @@ namespace WPFCCPereira.Windows.Modals
             InitializeComponent();
 
             CiiuSelect = string.Empty;
+
+            ciuus = new ObservableCollection<CIIUS>();
 
             this.DataContext = ts;
         }
@@ -49,7 +54,46 @@ namespace WPFCCPereira.Windows.Modals
                 }
                 else
                 {
+                    string reference = txtCIIU.Text;
 
+                    Task.Run(async () =>
+                    {
+                        var response = await AdminPayPlus.ApiIntegration.SearchCiuus(reference);
+
+                        Utilities.CloseModal();
+
+                        if (response != null)
+                        {
+                            LoadView(response);
+                        }
+                        else
+                        {
+                            Utilities.ShowModal("No se encontrarón coincidencias. Por favor intenta de nuevo.", EModalType.Error);
+                        }
+                    });
+
+                    Utilities.ShowModal("Consultando coincidencias. Regálenos unos segundos.", EModalType.Preload);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void LoadView(CIIUS ciius)
+        {
+            try
+            {
+                foreach (var item in ciius.renglones)
+                {
+                    item.extraData = item.descripcion;
+                }
+
+                if (ciius.renglones.Count > 0)
+                {
+                    lv_data_list.DataContext = ciius.renglones;
+                    lv_data_list.Items.Refresh();
                 }
             }
             catch (Exception ex)
@@ -92,5 +136,34 @@ namespace WPFCCPereira.Windows.Modals
             DialogResult = false;
         }
         #endregion
+
+        private void TextBlock_TouchDown(object sender, TouchEventArgs e)
+        {
+            try
+            { //var service = (ProductsState)(sender as ListViewItem).Content;
+                var data = (sender as TextBlock).DataContext as Renglone;
+                int tag = Convert.ToInt32((sender as TextBlock).Tag);
+
+                if (tag == 1)
+                {
+                    data.extraData = data.detalle;
+                }
+                else 
+                if (tag == 2)
+                {
+                    data.extraData = data.incluye;
+                }
+                else
+                {
+                    data.extraData = data.excluye;
+                }
+
+                lv_data_list.Items.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
     }
 }

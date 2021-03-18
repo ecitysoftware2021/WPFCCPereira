@@ -597,6 +597,38 @@ namespace WPFCCPereira.Services
 
             return null;
         }
+
+        public async Task<CIIUS> SearchCiuus(string reference)
+        {
+            try
+            {
+                SearchCiuu request = new SearchCiuu
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    palabras = reference
+                };
+
+                var response = await GetData(request, "SearchCiuus");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<CIIUS>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
         //END RENOVACION 
     }
 }

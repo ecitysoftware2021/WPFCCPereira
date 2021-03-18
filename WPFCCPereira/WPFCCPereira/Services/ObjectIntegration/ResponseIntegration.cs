@@ -1297,6 +1297,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string excluye { get; set; }
         public object restriccionponal { get; set; }
         public string actividadcomercial { get; set; }
+        public string extraData { get; set; }
     }
 
     public class CIIUS
