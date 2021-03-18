@@ -1290,6 +1290,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
     #region "RESPONSE-consultarCiius"
     public class Renglone
     {
+        public bool expanded { get; set; }
         public string ciiu { get; set; }
         public string descripcion { get; set; }
         public string detalle { get; set; }
@@ -1298,6 +1299,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public object restriccionponal { get; set; }
         public string actividadcomercial { get; set; }
         public string extraData { get; set; }
+        public string title1 { get; set; }
+        public string title2 { get; set; }
+        public string title3 { get; set; }
     }
 
     public class CIIUS

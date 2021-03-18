@@ -44,6 +44,7 @@
                 Margin="50,0,0,30"
                 Stretch="Uniform"
                 Opacity="0.4"
+                TouchDown="CloseDetail_TouchDown"
             />
         </Grid>
         <Grid Grid.Row="1">

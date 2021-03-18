@@ -27,7 +27,7 @@ namespace WPFCCPereira.Windows.Modals
     {
         #region "Referencias"
         public string CiiuSelect;
-        private ObservableCollection<CIIUS> ciuus;
+        private ObservableCollection<Renglone> ciuus;
         #endregion
 
         #region "Constructor"
@@ -37,7 +37,7 @@ namespace WPFCCPereira.Windows.Modals
 
             CiiuSelect = string.Empty;
 
-            ciuus = new ObservableCollection<CIIUS>();
+            ciuus = new ObservableCollection<Renglone>();
 
             this.DataContext = ts;
         }
@@ -48,6 +48,9 @@ namespace WPFCCPereira.Windows.Modals
         {
             try
             {
+                lv_data_list.DataContext = null;
+                lv_data_list.Items.Refresh();
+
                 if (string.IsNullOrEmpty(txtCIIU.Text))
                 {
                     txt_error.Text = "Debe ingresar una referencia a consultar.";
@@ -81,20 +84,68 @@ namespace WPFCCPereira.Windows.Modals
             }
         }
 
-        private void LoadView(CIIUS ciius)
+        private void LoadView(CIIUS ciiu)
         {
             try
             {
-                foreach (var item in ciius.renglones)
+                Dispatcher.BeginInvoke((Action)delegate
                 {
-                    item.extraData = item.descripcion;
+                    foreach (var item in ciiu.renglones)
+                    {
+                        item.extraData = item.detalle;
+                        item.expanded = false;
+                        item.title1 = "Bold";
+                        item.title2 = "";
+                        item.title3 = "";
+
+                        ciuus.Add(item);
+                    }
+
+                    if (ciuus.Count > 0)
+                    {
+                        lv_data_list.DataContext = ciuus;
+                        lv_data_list.Items.Refresh();
+                    }
+                });
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void ChangeDescription(object sender)
+        {
+            try
+            { 
+                var data = (sender as TextBlock).DataContext as Renglone;
+                int tag = Convert.ToInt32((sender as TextBlock).Tag);
+
+                if (tag == 1)
+                {
+                    data.extraData = data.detalle;
+                    data.title1 = "Bold";
+                    data.title2 = "";
+                    data.title3 = "";
+                }
+                else
+                if (tag == 2)
+                {
+                    data.extraData = data.incluye;
+                    data.title1 = "";
+                    data.title2 = "Bold";
+                    data.title3 = "";
+                }
+                else
+                {
+                    data.extraData = data.excluye;
+                    data.title1 = "";
+                    data.title2 = "";
+                    data.title3 = "Bold";
                 }
 
-                if (ciius.renglones.Count > 0)
-                {
-                    lv_data_list.DataContext = ciius.renglones;
-                    lv_data_list.Items.Refresh();
-                }
+                lv_data_list.Items.Refresh();
             }
             catch (Exception ex)
             {
@@ -104,6 +155,30 @@ namespace WPFCCPereira.Windows.Modals
         #endregion
 
         #region "Eventos"
+        private void TextBlock_TouchDown(object sender, TouchEventArgs e)
+        {
+            ChangeDescription(sender);
+        }
+
+        private void Border_TouchDown(object sender, TouchEventArgs e)
+        {
+            try
+            {
+                var data = (sender as Border).DataContext as Renglone;
+
+                //if (data != null && !string.IsNullOrEmpty(data.ciiu))
+                //{
+                    CiiuSelect = data.ciiu;
+
+                    DialogResult = true;
+                //}
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
         private void Text_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.OpenKeyboard(false, sender, this);
@@ -136,34 +211,5 @@ namespace WPFCCPereira.Windows.Modals
             DialogResult = false;
         }
         #endregion
-
-        private void TextBlock_TouchDown(object sender, TouchEventArgs e)
-        {
-            try
-            { //var service = (ProductsState)(sender as ListViewItem).Content;
-                var data = (sender as TextBlock).DataContext as Renglone;
-                int tag = Convert.ToInt32((sender as TextBlock).Tag);
-
-                if (tag == 1)
-                {
-                    data.extraData = data.detalle;
-                }
-                else 
-                if (tag == 2)
-                {
-                    data.extraData = data.incluye;
-                }
-                else
-                {
-                    data.extraData = data.excluye;
-                }
-
-                lv_data_list.Items.Refresh();
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
     }
 }
