@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WPFCCPereira.Classes;
+using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.Windows.Modals
@@ -27,11 +28,13 @@ namespace WPFCCPereira.Windows.Modals
         #endregion
 
         #region "Constructor"
-        public ModalSearchCiiusW()
+        public ModalSearchCiiusW(Transaction ts)
         {
             InitializeComponent();
 
             CiiuSelect = string.Empty;
+
+            this.DataContext = ts;
         }
         #endregion
 
@@ -68,9 +71,10 @@ namespace WPFCCPereira.Windows.Modals
             {
                 if (txtCIIU.Text != null && txtCIIU.Text.Length > 20)
                 {
-                    txt_error.Text = string.Empty;
-                    txtCIIU.Text = txtCIIU.Text.Substring(0, (txtCIIU.Text.Length - 1));
+                    txtCIIU.Text = txtCIIU.Text.Substring(0, txtCIIU.Text.Length - 1);
                 }
+
+                txt_error.Text = string.Empty;
             }
             catch (Exception ex)
             {

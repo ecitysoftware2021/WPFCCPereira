@@ -101,10 +101,10 @@
         </Grid>
         <Grid Grid.Row="2" Margin="110,0,110,0">
             <Image 
-                Source="/Images/backgrounds/bg-search.png"
+                Source="/Images/backgrounds/bg-search2.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Width="700"
+                Width="650"
                 Margin="50,0,0,0"
                 Stretch="Uniform"
             />

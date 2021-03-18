@@ -229,6 +229,13 @@
                     Text="CIIU 1"
                     FontSize="25" 
                 />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="aa"
+                    FontSize="30" 
+                    TouchDown="TextCIIUS_TouchDown"
+                />
             </Grid>
             <Grid Grid.Row="7">
                 <TextBlock
