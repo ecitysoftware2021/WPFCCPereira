@@ -65,10 +65,20 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             try
             {
+                if (!string.IsNullOrEmpty(txtCiiu.Text))
+                {
+                    cmbCiius.Items.Remove(txtCiiu.Text);
+                }
+
                 ModalSearchCiiusW modal = new ModalSearchCiiusW(transaction);
                 modal.ShowDialog();
 
                 txtCiiu.Text = modal.CiiuSelect;
+
+                if (cmbCiius.Items.Count < 4 && !string.IsNullOrEmpty(txtCiiu.Text))
+                {
+                    cmbCiius.Items.Add(modal.CiiuSelect);
+                }
             }
             catch (Exception ex)
             {
@@ -93,5 +103,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.navigator.Navigate(UserControlView.Ppal_InformacionFinanciera, data: transaction);
         }
         #endregion
+
     }
 }

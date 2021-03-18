@@ -230,10 +230,11 @@
                     FontSize="25" 
                 />
                 <TextBlock
+                    Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="aa"
-                    FontSize="30" 
+                    TextAlignment="Right"
+                    FontSize="30"
                     TouchDown="TextCIIUS_TouchDown"
                 />
             </Grid>
@@ -265,6 +266,14 @@
                     Text="CIIU 2"
                     FontSize="25" 
                 />
+                <TextBlock
+                    Width="850"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    FontSize="30"
+                    TouchDown="TextCIIUS_TouchDown"
+                />
                 <Image 
                     Source="/Images/Others/img-split.png"
                     HorizontalAlignment="Center"
@@ -295,6 +304,14 @@
                     Text="CIIU 3"
                     FontSize="25" 
                 />
+                <TextBlock
+                    Width="850"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    FontSize="30"
+                    TouchDown="TextCIIUS_TouchDown"
+                />
                 <Image 
                     Source="/Images/Others/img-split.png"
                     HorizontalAlignment="Center"
@@ -309,6 +326,14 @@
                     VerticalAlignment="Center" 
                     Text="CIIU 4"
                     FontSize="25" 
+                />
+                <TextBlock
+                    Width="850"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Right"
+                    FontSize="30"
+                    TouchDown="TextCIIUS_TouchDown"
                 />
                 <Image 
                     Source="/Images/Others/img-split.png"
@@ -343,6 +368,7 @@
                     FontSize="25" 
                 />
                 <ComboBox
+                    Name="cmbCiius"
                     Width="300"
                     HorizontalContentAlignment="Right"
                     HorizontalAlignment="Right"
@@ -350,9 +376,8 @@
                     Grid.Column="1"
                     VerticalAlignment="Center"
                     Background="Transparent"
-                    FontSize="30"
+                    FontSize="30" 
                     >
-                    <ComboBoxItem IsSelected="True">G4719</ComboBoxItem>
                 </ComboBox>
                 <Image 
                     Source="/Images/Others/img-split.png"
