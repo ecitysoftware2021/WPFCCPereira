@@ -1286,4 +1286,25 @@ namespace WPFCCPereira.Services.ObjectIntegration
     }
 
     #endregion
+
+    #region "RESPONSE-consultarCiius"
+    public class Renglone
+    {
+        public string ciiu { get; set; }
+        public string descripcion { get; set; }
+        public string detalle { get; set; }
+        public string incluye { get; set; }
+        public string excluye { get; set; }
+        public object restriccionponal { get; set; }
+        public string actividadcomercial { get; set; }
+    }
+
+    public class CIIUS
+    {
+        public string codigoerror { get; set; }
+        public string mensajeerror { get; set; }
+        public string palabras { get; set; }
+        public List<Renglone> renglones { get; set; }
+    }
+    #endregion
 }

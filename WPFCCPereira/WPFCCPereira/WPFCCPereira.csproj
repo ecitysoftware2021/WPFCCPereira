@@ -285,6 +285,9 @@
     <Compile Include="Windows\Modals\ModalDetailInformationW.xaml.cs">
       <DependentUpon>ModalDetailInformationW.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Modals\ModalSearchCiiusW.xaml.cs">
+      <DependentUpon>ModalSearchCiiusW.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ModalWindow.xaml.cs">
       <DependentUpon>ModalWindow.xaml</DependentUpon>
     </Compile>
@@ -518,6 +521,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Modals\ModalDetailInformationW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Modals\ModalSearchCiiusW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

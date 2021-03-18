@@ -126,6 +126,10 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     transaction.FormularioPpal.datos.numpredial = transaction.FormularioPpalAux.numpredial;
                 }
 
+                //cmbxLocal.Text;
+                //cmbxSede.Text;
+                //cmbxZona.Text;
+
                 Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
             }
             catch (Exception ex)

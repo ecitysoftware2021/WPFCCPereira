@@ -62,7 +62,7 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                Text="1682334" 
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}" 
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -78,7 +78,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
-                Text="18130990" 
+                Text="{Binding ExpedientesMercantil.matricula}"
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -118,7 +118,7 @@
                     Margin="0,0,0,0"
                     >
                     <Run Text="Fecha de Matríula  " Foreground="#b9bbba"></Run>
-                    <Run Text="enero 01, 2013"  FontSize="30" Foreground="#9ea09f"></Run>
+                    <Run Text="{Binding FormularioPpal.datos.fechamatricula}"  FontSize="30" Foreground="#9ea09f"></Run>
                 </TextBlock>
             </Grid>
             <Grid Grid.Row="1">
@@ -152,7 +152,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="MISCELANEA" 
+                    Text="{Binding FormularioPpal.datos.desactiv}" 
                     FontSize="30" 
                     Margin="0,0,0,0"
                 />
@@ -196,7 +196,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center" 
                         TextAlignment="Right"
-                        Text="4"  
+                        Text="{Binding FormularioPpal.datos.cantidadmujeres}"  
                         FontSize="25" 
                         Margin="0,0,40,0"
                     />
@@ -240,7 +240,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="Ene 20, 2015"
+                    Text="{Binding FormularioPpal.datos.feciniact1}"
                     FontSize="30" 
                 />
                 <Image 

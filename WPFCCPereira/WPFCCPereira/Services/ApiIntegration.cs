@@ -473,7 +473,18 @@ namespace WPFCCPereira.Services
                     identificacionusuario = id
                 };
 
-                var response = await GetData(request, "LoginUser");
+                RequestLogin request2 = new RequestLogin
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    celularusuario = "3176400841",
+                    claveusuario = "5052438",
+                    emailusuario = "jufeveos@utp.edu.co",
+                    identificacionusuario = "1088285069"
+                };
+
+                var response = await GetData(request2, "LoginUser");
 
                 if (response != null)
                 {

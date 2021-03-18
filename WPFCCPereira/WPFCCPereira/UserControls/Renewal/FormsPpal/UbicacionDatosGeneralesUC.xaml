@@ -237,6 +237,7 @@
                     FontSize="25" 
                 />
                 <ComboBox
+                    Name="cmbxZona"
                     Width="550"
                     Background="Transparent"
                     HorizontalAlignment="Right"
@@ -388,6 +389,7 @@
                     FontSize="25" 
                 />
                 <ComboBox
+                    Name="cmbxSede"
                     Grid.Row="8"
                     Grid.Column="1"
                     Width="550"
@@ -419,6 +421,7 @@
                     FontSize="25" 
                 />
                 <ComboBox
+                    Name="cmbxLocal"
                     Width="550"
                     Background="Transparent"
                     HorizontalAlignment="Right"
