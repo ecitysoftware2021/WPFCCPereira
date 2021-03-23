@@ -15,6 +15,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
     #region "RESPONSE-consultarExpedienteMercantil"
     public class ResponseIntegration
     {
+        public string IMGgrabado { get; set; }
         public decimal numactivos { get; set; }
         public int numempleados { get; set; }
         public string codigoerror { get; set; }
@@ -865,6 +866,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
     public class Datos
     {
+        public bool FinishFormPPal { get; set; } = false;
         public string matricula { get; set; }
         public string proponente { get; set; }
         public string complementorazonsocial { get; set; }

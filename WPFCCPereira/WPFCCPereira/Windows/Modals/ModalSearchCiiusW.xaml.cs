@@ -48,15 +48,22 @@ namespace WPFCCPereira.Windows.Modals
         {
             try
             {
-                lv_data_list.DataContext = null;
-                lv_data_list.Items.Refresh();
 
                 if (string.IsNullOrEmpty(txtCIIU.Text))
                 {
                     txt_error.Text = "Debe ingresar una referencia a consultar.";
+
+                    grvExample.Visibility = Visibility.Visible;
+                    lv_data_list.Visibility = Visibility.Hidden;
                 }
                 else
                 {
+                    grvExample.Visibility = Visibility.Hidden;
+                    lv_data_list.Visibility = Visibility.Visible;
+
+                    lv_data_list.DataContext = null;
+                    lv_data_list.Items.Refresh();
+
                     string reference = txtCIIU.Text;
 
                     Task.Run(async () =>

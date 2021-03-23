@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Reflection;
+using System.Windows.Media;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -36,11 +37,28 @@ namespace WPFCCPereira.UserControls.Renewal
         #endregion
 
         #region "Métodos"
+
+
         private void ConfigureViewList()
         {
             try
             {
-                this.DataContext = transaction.ExpedientesMercantil;
+                if (transaction.FormularioPpal == null)
+                {
+                    transaction.FormularioPpal = new FormularioResponse();
+                }
+
+
+                if (!transaction.FormularioPpal.datos.FinishFormPPal)
+                {
+                    brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgGrabado.png";
+                }
+                else
+                {
+                    brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
+                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
+                }
 
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
                 {
@@ -64,6 +82,8 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     lv_data_list.DataContext = listEstablecimientos;
                 }
+
+                this.DataContext = transaction.ExpedientesMercantil;
             }
             catch (Exception ex)
             {
