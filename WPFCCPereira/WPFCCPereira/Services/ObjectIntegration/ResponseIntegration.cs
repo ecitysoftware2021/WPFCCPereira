@@ -873,6 +873,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
     public class Datos
     {
         public bool FinishFormPPal { get; set; } = false;
+        public Ciius ciius { get; set; }
         public string matricula { get; set; }
         public string proponente { get; set; }
         public string complementorazonsocial { get; set; }
@@ -1093,7 +1094,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string telcor2 { get; set; }
         public string muncor { get; set; }
         public List<object> ciius3 { get; set; }
-        public Ciius ciius { get; set; }
         public string versionciiu { get; set; }
         public string desactiv { get; set; }
         public string feciniact1 { get; set; }

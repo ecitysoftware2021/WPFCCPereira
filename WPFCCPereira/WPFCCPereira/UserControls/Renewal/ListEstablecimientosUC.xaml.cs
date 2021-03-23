@@ -37,8 +37,6 @@ namespace WPFCCPereira.UserControls.Renewal
         #endregion
 
         #region "Métodos"
-
-
         private void ConfigureViewList()
         {
             try
@@ -106,7 +104,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     Utilities.CloseModal();
 
-                    if (response == null)
+                    if (response == null || response.datos == null)
                     {
                         Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
                     }

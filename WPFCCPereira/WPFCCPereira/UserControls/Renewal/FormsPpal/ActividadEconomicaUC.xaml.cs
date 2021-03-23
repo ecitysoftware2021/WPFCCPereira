@@ -35,6 +35,29 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             try
             {
+                if (transaction.FormularioPpal.datos.ciius != null)
+                {
+                    if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.ciius._1))
+                    {
+                        cmbCiius.Items.Add(transaction.FormularioPpal.datos.ciius._1);
+                    }
+
+                    if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.ciius._2))
+                    {
+                        cmbCiius.Items.Add(transaction.FormularioPpal.datos.ciius._2);
+                    }
+
+                    if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.ciius._3))
+                    {
+                        cmbCiius.Items.Add(transaction.FormularioPpal.datos.ciius._3);
+                    }
+
+                    if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.ciius._4))
+                    {
+                        cmbCiius.Items.Add(transaction.FormularioPpal.datos.ciius._4);
+                    }
+                }
+
                 DateTime dtm;
                 DateTime.TryParseExact(transaction.FormularioPpal.datos.fechamatricula, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
                 transaction.FormularioPpal.datos.fechamatricula = dtm.ToString("MMMM dd, yyyy");

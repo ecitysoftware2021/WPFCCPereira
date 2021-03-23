@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 
@@ -26,15 +14,18 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         private Transaction transaction;
         #endregion
 
+        #region "Constructor"
         public SistemaSeguridadUC(Transaction ts)
         {
             InitializeComponent();
-
             this.transaction = ts;
         }
+        #endregion
 
+        #region "Eventos"
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
+            transaction.FormularioPpal.datos.FinishFormPPal = true;
             Utilities.navigator.Navigate(UserControlView.Ppal_InformacionFinanciera, data: transaction);
         }
 
@@ -42,5 +33,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
         }
+        #endregion
     }
 }
