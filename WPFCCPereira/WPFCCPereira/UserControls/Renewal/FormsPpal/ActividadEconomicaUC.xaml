@@ -230,6 +230,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
+                    Text="{Binding ciius._1}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -267,6 +268,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
+                    Text="{Binding ciius._2}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -305,6 +307,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
+                    Text="{Binding ciius._3}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -328,6 +331,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
+                    Text="{Binding ciius._4}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 

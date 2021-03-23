@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace WPFCCPereira.Services.ObjectIntegration
@@ -293,10 +294,15 @@ namespace WPFCCPereira.Services.ObjectIntegration
     #region "RESPONSE-recuperarFormularioRenovacion"
     public class Ciius
     {
+        [JsonProperty(PropertyName = "1")]
         public string _1 { get; set; }
+        [JsonProperty(PropertyName = "2")]
         public string _2 { get; set; }
+        [JsonProperty(PropertyName = "3")]
         public string _3 { get; set; }
+        [JsonProperty(PropertyName = "4")]
         public string _4 { get; set; }
+        [JsonProperty(PropertyName = "5")]
         public string _5 { get; set; }
     }
 
