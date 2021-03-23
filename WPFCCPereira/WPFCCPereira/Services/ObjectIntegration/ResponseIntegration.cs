@@ -292,18 +292,73 @@ namespace WPFCCPereira.Services.ObjectIntegration
     #endregion
 
     #region "RESPONSE-recuperarFormularioRenovacion"
-    public class Ciius
+    public class Ciius : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private string __1;
         [JsonProperty(PropertyName = "1")]
-        public string _1 { get; set; }
+        public string _1
+        {
+            get { return __1; }
+            set
+            {
+                __1 = value;
+                NotifyPropertyChanged("_1");
+            }
+        }
+
+        private string __2;
         [JsonProperty(PropertyName = "2")]
-        public string _2 { get; set; }
+        public string _2
+        {
+            get { return __2; }
+            set
+            {
+                __2 = value;
+                NotifyPropertyChanged("_2");
+            }
+        }
+
+        private string __3;
         [JsonProperty(PropertyName = "3")]
-        public string _3 { get; set; }
+        public string _3
+        {
+            get { return __3; }
+            set
+            {
+                __3 = value;
+                NotifyPropertyChanged("_3");
+            }
+        }
+
+        private string __4;
         [JsonProperty(PropertyName = "4")]
-        public string _4 { get; set; }
+        public string _4
+        {
+            get { return __4; }
+            set
+            {
+                __4 = value;
+                NotifyPropertyChanged("_4");
+            }
+        }
+
+        private string __5;
         [JsonProperty(PropertyName = "5")]
-        public string _5 { get; set; }
+        public string _5
+        {
+            get { return __5; }
+            set
+            {
+                __5 = value;
+                NotifyPropertyChanged("_5");
+            }
+        }
     }
 
     public class _1
