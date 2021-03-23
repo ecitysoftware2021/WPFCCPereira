@@ -46,18 +46,18 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (transaction.FormularioPpal == null)
                 {
                     transaction.FormularioPpal = new FormularioResponse();
+                    transaction.FormularioPpal.datos = new Datos();
                 }
-
 
                 if (!transaction.FormularioPpal.datos.FinishFormPPal)
                 {
                     brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgGrabado.png";
+                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
                 }
                 else
                 {
                     brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
-                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
+                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgGrabado.png";
                 }
 
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
