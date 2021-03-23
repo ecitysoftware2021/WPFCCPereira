@@ -870,10 +870,49 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public _11 _11 { get; set; }
     }
 
-    public class Datos
+    public class Datos : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// ///////////////////BEGIN-DATOS-A-UTILIZAR///////////////////////
+        /// </summary>
         public bool FinishFormPPal { get; set; } = false;
+        //-------------UbicaciónYDatosGenerales------------
+        public string telnot { get; set; }
+        public string telnot2 { get; set; }
+        public string emailnot { get; set; }
+        public string barrionotnombre { get; set; }
+        public string munnotnombre { get; set; }
+        public string dirnot { get; set; }
+        public string emailcom { get; set; }
+        public string muncomnombre { get; set; }
+        public string barriocom { get; set; }
+        public string dircom { get; set; }
+        public string telcom1 { get; set; }
+        public string telcom2 { get; set; }
+        public string numpredial { get; set; }
+        //-------------ActividadEconomicaClasificacionCIIU------------
+        public string versionciiu { get; set; }
+        public string fechamatricula { get; set; }
+        private string _cantidadmujeres;
+        public string cantidadmujeres
+    {
+            get { return _cantidadmujeres; }
+            set
+            {
+                _cantidadmujeres = value;
+                NotifyPropertyChanged("cantidadmujeres");
+            }
+        }
         public Ciius ciius { get; set; }
+        public string feciniact1 { get; set; }
+        /// <summary>
+        /// ///////////////////END-DATOS-A-UTILIZAR///////////////////////
+        /// </summary>
         public string matricula { get; set; }
         public string proponente { get; set; }
         public string complementorazonsocial { get; set; }
@@ -900,7 +939,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string paiori { get; set; }
         public string idetriextep { get; set; }
         public string ideext { get; set; }
-        public string fechamatricula { get; set; }
         public string fecharenovacion { get; set; }
         public string fecharenovacioninscritos { get; set; }
         public string fechavencimiento { get; set; }
@@ -1015,7 +1053,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string fecactaafliacan { get; set; }
         public string lggr { get; set; }
         public string nombrecomercial { get; set; }
-        public string dircom { get; set; }
         public string dircom_tipovia { get; set; }
         public string dircom_numvia { get; set; }
         public string dircom_apevia { get; set; }
@@ -1025,13 +1062,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string dircom_oricruce { get; set; }
         public string dircom_numplaca { get; set; }
         public string dircom_complemento { get; set; }
-        public string barriocom { get; set; }
         public string barriocomnombre { get; set; }
         public string muncom { get; set; }
         public string paicom { get; set; }
-        public string muncomnombre { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
         public string celcom { get; set; }
         public string telcomant1 { get; set; }
         public string telcomant2 { get; set; }
@@ -1039,17 +1072,14 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string faxcom { get; set; }
         public string aacom { get; set; }
         public string zonapostalcom { get; set; }
-        public string emailcom { get; set; }
         public string emailcom2 { get; set; }
         public string emailcom3 { get; set; }
         public string emailcomant { get; set; }
         public string nombresegundocontacto { get; set; }
         public string cargosegundocontacto { get; set; }
         public string urlcom { get; set; }
-        public string numpredial { get; set; }
         public string codigopostalcom { get; set; }
         public string codigozonacom { get; set; }
-        public string dirnot { get; set; }
         public string dirnot_tipovia { get; set; }
         public string dirnot_numvia { get; set; }
         public string dirnot_apevia { get; set; }
@@ -1060,12 +1090,8 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string dirnot_numplaca { get; set; }
         public string dirnot_complemento { get; set; }
         public string barrionot { get; set; }
-        public string barrionotnombre { get; set; }
         public string munnot { get; set; }
         public string painot { get; set; }
-        public string munnotnombre { get; set; }
-        public string telnot { get; set; }
-        public string telnot2 { get; set; }
         public string telnotant1 { get; set; }
         public string telnotant2 { get; set; }
         public string telnotant3 { get; set; }
@@ -1073,7 +1099,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string faxnot { get; set; }
         public string aanot { get; set; }
         public string zonapostalnot { get; set; }
-        public string emailnot { get; set; }
         public string emailnotant { get; set; }
         public string urlnot { get; set; }
         public string codigopostalnot { get; set; }
@@ -1094,9 +1119,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string telcor2 { get; set; }
         public string muncor { get; set; }
         public List<object> ciius3 { get; set; }
-        public string versionciiu { get; set; }
         public string desactiv { get; set; }
-        public string feciniact1 { get; set; }
         public string feciniact2 { get; set; }
         public string codaduaneros { get; set; }
         public string ingesperados { get; set; }
@@ -1124,7 +1147,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public int cuosus { get; set; }
         public int cuopag { get; set; }
         public int capsuc { get; set; }
-        public string cantidadmujeres { get; set; }
         public string cantidadmujerescargosdirectivos { get; set; }
         public string participacionmujeres { get; set; }
         public string ciiutamanoempresarial { get; set; }

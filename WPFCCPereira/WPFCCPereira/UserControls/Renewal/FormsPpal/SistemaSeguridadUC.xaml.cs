@@ -25,12 +25,12 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         #region "Eventos"
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
-            transaction.FormularioPpal.datos.FinishFormPPal = true;
             Utilities.navigator.Navigate(UserControlView.Ppal_InformacionFinanciera, data: transaction);
         }
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
+            transaction.FormularioPpal.datos.FinishFormPPal = true;
             Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
         }
         #endregion
