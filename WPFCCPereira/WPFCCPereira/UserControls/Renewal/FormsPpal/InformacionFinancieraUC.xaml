@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal.FormsPpal"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Height="1920" 
              Width="1080">
@@ -189,6 +190,22 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <TextBox 
+                        Name="txtNewAssets"
+                        md:HintAssist.Hint="$0"
+                        md:HintAssist.IsFloating="True"
+                        md:HintAssist.FloatingScale="0.3"
+                        Text="{Binding numactivos, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        FontFamily="Cabri"
+                        Margin="0,0,20,0"
+                        Foreground="Black"
+                        Tag="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        TextChanged="NuevosActivos_TextChanged"
+                        TouchDown="NuevosActivos_TouchDown"
+                    />
             </Grid>
             <Grid Grid.Row="4">
                 <TextBlock
@@ -495,10 +512,10 @@
                     Background="Transparent"
                     FontSize="30"
                     >
-                    <ComboBoxItem IsSelected="True">GRUPO III - MICR...</ComboBoxItem>
-                    <ComboBoxItem>RESOLUCIÓN 41...</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">GRUPO III - MICROEMPRESAS</ComboBoxItem>
+                    <ComboBoxItem>RESOLUCIÓN 414/2014</ComboBoxItem>
                     <ComboBoxItem>GRUPO II</ComboBoxItem>
-                    <ComboBoxItem>GRUPO I - NIIF P...</ComboBoxItem>
+                    <ComboBoxItem>GRUPO I - NIIF PLENAS RESOLUCIÓN 7</ComboBoxItem>
                     <ComboBoxItem>NO REPORTA</ComboBoxItem>
                 </ComboBox>
             </Grid>

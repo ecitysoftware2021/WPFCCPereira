@@ -144,7 +144,7 @@
             <TextBox
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
-                Text="{Binding FormularioPpalAux.direccion}" 
+                Text="{Binding FormularioPpalAux.direccion, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                 FontSize="25" 
                 Margin="0,0,0,0"
                 TouchDown="TextAlfaNumerico_TouchDown"
@@ -183,7 +183,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    Text="{Binding FormularioPpalAux.municipio}"
+                    Text="{Binding FormularioPpalAux.municipio, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     FontSize="30"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
@@ -209,7 +209,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalAlignment="Center" 
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.barrio}"
+                    Text="{Binding FormularioPpalAux.barrio, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
                 <Image
@@ -259,7 +259,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    Text="{Binding FormularioPpalAux.correo}"
+                    Text="{Binding FormularioPpalAux.correo, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     FontSize="30"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
@@ -285,7 +285,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.tel1}"
+                    Text="{Binding FormularioPpalAux.tel1, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -309,7 +309,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30" 
-                    Text="{Binding FormularioPpalAux.tel2}"
+                    Text="{Binding FormularioPpalAux.tel2, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -333,7 +333,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.tel3}"
+                    Text="{Binding FormularioPpalAux.tel3, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -358,7 +358,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.numpredial}"
+                    Text="{Binding FormularioPpalAux.numpredial, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
