@@ -131,11 +131,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
-                        //Id = "1088285069";
-                        //Email = "jufeveos@utp.edu.co";
-                        //Password = Utilities.EncryptorData("5052438", Key: "c0nf3c4m4r4s");
-                        //Password = "5052438";
-                        //string phone = "3176400841";
                         var response = await AdminPayPlus.ApiIntegration.LoginUser(Id, Email, Password, Phone);
 
                         Utilities.CloseModal();

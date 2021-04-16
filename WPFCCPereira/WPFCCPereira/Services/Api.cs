@@ -36,7 +36,7 @@ namespace WPFCCPereira.Services
                 requestApi = new RequestApi();
             }
 
-            basseAddress = Utilities.GetConfiguration("basseAddress", true);
+            basseAddress = Utilities.GetConfiguration("basseAddress");
         }
 
         public async Task<ResponseAuth> GetSecurityToken(CONFIGURATION_PAYDAD config)

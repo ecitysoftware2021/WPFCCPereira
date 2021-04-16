@@ -462,6 +462,7 @@ namespace WPFCCPereira.Services
         {
             try
             {
+                //TODO:Aquí
                 RequestLogin request = new RequestLogin
                 {
                     codigoempresa = code,
@@ -484,7 +485,7 @@ namespace WPFCCPereira.Services
                     identificacionusuario = "1088285069"
                 };
 
-                var response = await GetData(request2, "LoginUser");
+                var response = await GetData(request, "LoginUser");
 
                 if (response != null)
                 {

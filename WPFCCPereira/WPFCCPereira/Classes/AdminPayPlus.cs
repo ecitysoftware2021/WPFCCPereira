@@ -130,8 +130,8 @@ namespace WPFCCPereira.Classes
         {
             DescriptionStatusPayPlus = MessageResource.ComunicationServer;
 
-            if (await LoginPaypad() && await ApiIntegration.SecurityToken())
-            {
+            if (await LoginPaypad())
+            {// && await ApiIntegration.SecurityToken()
                 DescriptionStatusPayPlus = MessageResource.StatePayPlus;
 
                 if (await ValidatePaypad())
