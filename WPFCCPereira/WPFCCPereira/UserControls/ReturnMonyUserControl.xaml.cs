@@ -141,7 +141,7 @@ namespace WPFCCPereira.UserControls
                         AdminPayPlus.SaveDetailsTransaction(transaction.IdTransactionAPi, 0, 0, 0, string.Empty, log);
                     };
 
-                    AdminPayPlus.ControlPeripherals.StartDispenser(transaction.Payment.ValorSobrante);
+                    AdminPayPlus.ControlPeripherals.StartDispenser(transaction.Payment.ValorIngresado - transaction.Payment.ValorDispensado);
                 });
             }
             catch (Exception ex)
