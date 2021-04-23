@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
 using System.Windows;
@@ -404,5 +405,26 @@ namespace WPFCCPereira.Classes
             {
             }
         }
+
+        public static bool IsConnectedToInternet()
+        {
+            try
+            {
+                string host = "8.8.8.8";
+
+                Ping p = new Ping();
+
+                PingReply reply = p.Send(host, 3000);
+
+                if (reply.Status == IPStatus.Success)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            { }
+            return false;
+        }
+
     }
 }

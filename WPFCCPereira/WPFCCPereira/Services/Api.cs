@@ -2,6 +2,7 @@
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using WPFCCPereira.Classes;
@@ -87,43 +88,46 @@ namespace WPFCCPereira.Services
             }
             catch (Exception ex)
             {
-                return null;
             }
+            return null;
         }
 
         public async Task<object> CallApi(string controller, object data = null)
         {
             try
             {
-                client = new HttpClient();
-                client.BaseAddress = new Uri(basseAddress);
-
-                requestApi.Data = data;
-
-                var request = JsonConvert.SerializeObject(requestApi);
-                var content = new StringContent(request, Encoding.UTF8, "Application/json");
-                var url = Utilities.GetConfiguration(controller);
-
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-                var response = await client.PostAsync(url, content);
-
-                if (!response.IsSuccessStatusCode)
+                if (Utilities.IsConnectedToInternet())
                 {
-                    AdminPayPlus.SaveErrorControl(response.ReasonPhrase, "Error en el servicio", EError.Api, ELevelError.Medium);
-                    return null;
-                }
+                    client = new HttpClient();
+                    client.BaseAddress = new Uri(basseAddress);
 
-                var result = await response.Content.ReadAsStringAsync();
-                var responseApi = JsonConvert.DeserializeObject<ResponseApi>(result);
+                    requestApi.Data = data;
 
-                if (responseApi.CodeError == 200)
-                {
-                    if (responseApi.Data == null)
+                    var request = JsonConvert.SerializeObject(requestApi);
+                    var content = new StringContent(request, Encoding.UTF8, "Application/json");
+                    var url = Utilities.GetConfiguration(controller);
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var response = await client.PostAsync(url, content);
+
+                    if (!response.IsSuccessStatusCode)
                     {
-                        return "OK";
+                        AdminPayPlus.SaveErrorControl(response.ReasonPhrase, "Error en el servicio", EError.Api, ELevelError.Medium);
+                        return null;
                     }
-                    return responseApi.Data;
+
+                    var result = await response.Content.ReadAsStringAsync();
+                    var responseApi = JsonConvert.DeserializeObject<ResponseApi>(result);
+
+                    if (responseApi.CodeError == 200)
+                    {
+                        if (responseApi.Data == null)
+                        {
+                            return "OK";
+                        }
+                        return responseApi.Data;
+                    }
                 }
             }
             catch (Exception ex)

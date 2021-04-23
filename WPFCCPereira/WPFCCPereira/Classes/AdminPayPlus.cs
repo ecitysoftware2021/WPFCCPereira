@@ -130,26 +130,35 @@ namespace WPFCCPereira.Classes
         {
             DescriptionStatusPayPlus = MessageResource.ComunicationServer;
 
-            if (await LoginPaypad() && await ApiIntegration.SecurityToken())
+            if (Utilities.IsConnectedToInternet())
             {
-                DescriptionStatusPayPlus = MessageResource.StatePayPlus;
 
-                if (await ValidatePaypad())
+                if (await LoginPaypad() && await ApiIntegration.SecurityToken())
                 {
+                    DescriptionStatusPayPlus = MessageResource.StatePayPlus;
 
-                    DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
+                    if (await ValidatePaypad())
+                    {
 
-                    ValidatePeripherals();
+                        DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
+
+                        ValidatePeripherals();
+                    }
+                    else
+                    {
+                        DescriptionStatusPayPlus = MessageResource.StatePayPlusFail;
+                        callbackResult?.Invoke(false);
+                    }
                 }
                 else
                 {
-                    DescriptionStatusPayPlus = MessageResource.StatePayPlusFail;
+                    DescriptionStatusPayPlus = MessageResource.ComunicationServerFail;
                     callbackResult?.Invoke(false);
                 }
             }
             else
             {
-                DescriptionStatusPayPlus = MessageResource.ComunicationServerFail;
+                DescriptionStatusPayPlus = "Se ha perdido la conexión a internet.";
                 callbackResult?.Invoke(false);
             }
         }
