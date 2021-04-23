@@ -312,4 +312,10 @@
   <data name="UpdateAplication" xml:space="preserve">
     <value>Tiene una actualizacion pendiente por favor no manipule ni apague el PayPlus mientras termina la instalacion.</value>
   </data>
+  <data name="NoMoneyKiosco" xml:space="preserve">
+    <value>El kiosco no cuenta con suficiente dinero para operar.</value>
+  </data>
+  <data name="YesGoInitial" xml:space="preserve">
+    <value>El kiosco inicia correctamente</value>
+  </data>
 </root>

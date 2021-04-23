@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using WPFCCPereira.Classes;
 using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.Object;
 
 namespace WPFCCPereira.UserControls.Administrator
 {
@@ -95,8 +96,32 @@ namespace WPFCCPereira.UserControls.Administrator
                 }
                 else
                 {
-                    Utilities.ShowModal(string.Concat(init.DescriptionStatusPayPlus, " ", MessageResource.NoService), EModalType.Error, false);
-                    Initial();
+                    if (!string.IsNullOrEmpty(AdminPayPlus.DataPayPlus.Message))
+                    {
+                        AdminPayPlus.SaveLog(new RequestLog
+                        {
+                            Reference = "",
+                            Description = string.Concat(MessageResource.NoGoInitial, " ", init.DescriptionStatusPayPlus),
+                            State = 6,
+                            Date = DateTime.Now
+                        }, ELogType.General);
+
+                        Utilities.ShowModal(MessageResource.NoService + " " + MessageResource.NoMoneyKiosco, EModalType.Error);
+                        Initial();
+                    }
+                    else
+                    {
+                        AdminPayPlus.SaveLog(new RequestLog
+                        {
+                            Reference = "",
+                            Description = string.Concat(MessageResource.NoGoInitial, " ", init.DescriptionStatusPayPlus),
+                            State = 2,
+                            Date = DateTime.Now
+                        }, ELogType.General);
+
+                        Utilities.ShowModal(MessageResource.NoService + " " + init.DescriptionStatusPayPlus, EModalType.Error);
+                        Initial();
+                    }
                 }
             });
         }

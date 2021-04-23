@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.Object;
 
 namespace WPFCCPereira.UserControls
 {
@@ -164,9 +165,8 @@ namespace WPFCCPereira.UserControls
                 }
                 else
                 {
-                    _imageSleader.Stop();
-                    Utilities.ShowModal(string.Concat(MessageResource.StatePayPlusFail, "  ", MessageResource.OutService), EModalType.Error, false);
-                    Utilities.RestartApp();
+                    Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, null, AdminPayPlus.DataPayPlus.Message);
+                    Utilities.ShowModal(MessageResource.NoService + " " + MessageResource.NoMoneyKiosco, EModalType.Error);
                 }
             }
             catch (Exception ex)
@@ -178,14 +178,7 @@ namespace WPFCCPereira.UserControls
 
         private void Grid_TouchDown(object sender, TouchEventArgs e)
         {
-            try
-            {
-                ValidateStatus();
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
+            ValidateStatus();
         }
 
 
@@ -195,8 +188,17 @@ namespace WPFCCPereira.UserControls
             {
                 if (isSusses)
                 {
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = MessageResource.YesGoInitial,
+                        State = 1,
+                        Date = DateTime.Now
+                    }, ELogType.General);
+
                     _validatePaypad = false;
                     _imageSleader.Stop();
+
                     Utilities.navigator.Navigate(UserControlView.Menu, true);
                 }
             }

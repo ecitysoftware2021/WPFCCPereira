@@ -159,7 +159,7 @@ namespace WPFCCPereira.UserControls
                     this.viewModel.StatePay = true;
                     transaction.Payment = viewModel;
 
-                    AdminPayPlus.ControlPeripherals.ResetValues();
+                    AdminPayPlus.ControlPeripherals.ClearValues();
 
                     Task.Run(async () =>
                     {

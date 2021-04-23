@@ -150,14 +150,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="2936280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFCCPereira.exe" size="2937304">
       <assemblyIdentity name="WPFCCPereira" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5839G7/S+10/s9a7hCj+qQcMZDXCKIIPX1lCupTCSLY=</dsig:DigestValue>
+        <dsig:DigestValue>ItvA/tfc0FYSc6EKxR9T3hzS83k8/iOUxRjxZeYMaUY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -179,7 +179,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hsHTUhzlBIJRYZ7e8kvKQ+zMPzDoIc6AtUBOBCiBnuc=</dsig:DigestValue>
+      <dsig:DigestValue>9nNlP0UmD37N0FrRO5N1vZym5lDMaloXU7lPHE8Iqh4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

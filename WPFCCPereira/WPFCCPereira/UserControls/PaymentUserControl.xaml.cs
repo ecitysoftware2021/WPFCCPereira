@@ -35,8 +35,6 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                //InitTimer();
-
                 this.paymentViewModel = new PaymentViewModel
                 {
                     PayValue = transaction.Amount,
@@ -54,39 +52,6 @@ namespace WPFCCPereira.UserControls
                 this.DataContext = this.paymentViewModel;
 
                 ActivateWallet();
-
-                //SavePay();
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
-
-        private void InitTimer()
-        {
-            try
-            {
-                TimerService.Close();
-                TimerService.CallBackTimerOut = response =>
-                {
-                    AdminPayPlus.ControlPeripherals.StopAceptance();
-                    AdminPayPlus.ControlPeripherals.callbackLog = null;
-                    if (!this.paymentViewModel.StatePay)
-                    {
-                        if (paymentViewModel.ValorIngresado > 0)
-                        {
-                            transaction.Payment = paymentViewModel;
-                            Utilities.navigator.Navigate(UserControlView.ReturnMony, false, this.transaction);
-                        }
-                        else
-                        {
-                            Utilities.navigator.Navigate(UserControlView.Main);
-                        }
-                    }
-                };
-
-                TimerService.Start(int.Parse(Utilities.GetConfiguration("DurationAlert")));
             }
             catch (Exception ex)
             {
@@ -102,12 +67,12 @@ namespace WPFCCPereira.UserControls
                 {
                     AdminPayPlus.ControlPeripherals.callbackValueIn = enterValue =>
                     {
-                        TimerService.Reset();
                         if (enterValue.Item1 > 0)
                         {
                             if (!this.paymentViewModel.StatePay)
                             {
                                 paymentViewModel.ValorIngresado += enterValue.Item1;
+
                                 paymentViewModel.RefreshListDenomination(int.Parse(enterValue.Item1.ToString()), 1);
 
                                 AdminPayPlus.SaveDetailsTransaction(transaction.IdTransactionAPi, enterValue.Item1, 2, 1, enterValue.Item2, string.Empty);
@@ -118,7 +83,6 @@ namespace WPFCCPereira.UserControls
 
                     AdminPayPlus.ControlPeripherals.callbackTotalIn = enterTotal =>
                     {
-                        TimerService.Stop();
                         if (!this.paymentViewModel.StatePay)
                         {
                             this.paymentViewModel.ImgContinue = Visibility.Hidden;
@@ -142,41 +106,14 @@ namespace WPFCCPereira.UserControls
 
                     AdminPayPlus.ControlPeripherals.callbackError = error =>
                     {
-                        var log = new RequestLogDevice
+                        AdminPayPlus.SaveLog(new RequestLogDevice
                         {
                             Code = error.Item1,
                             Date = DateTime.Now,
                             Description = error.Item2,
                             Level = ELevelError.Medium,
                             TransactionId = transaction.IdTransactionAPi
-                        };
-
-                        if (error.Item1.Equals("Info"))
-                        {
-                            log.Level = ELevelError.Mild;
-                            log.Code = "";
-                            AdminPayPlus.SaveLog(log, ELogType.Device);
-                        }
-                        else
-                        {
-                            AdminPayPlus.SaveLog(log, ELogType.Device);
-                        }
-
-                        if (error.Item2.Contains("FATAL"))
-                        {
-                            transaction.Observation += MessageResource.NoContinue;
-                            transaction.State = ETransactionState.Error;
-                            if (error.Item1.Equals("AP") )
-                            {
-                                Utilities.ShowModal(MessageResource.ErrorPayment, EModalType.Error);
-                                AdminPayPlus.ControlPeripherals.StopAceptance();
-                                if (paymentViewModel.ValorIngresado > 0)
-                                {
-                                    transaction.Payment = paymentViewModel;
-                                    Utilities.navigator.Navigate(UserControlView.ReturnMony, false, this.transaction);
-                                }
-                            }
-                        }
+                        }, ELogType.Device);
                     };
 
                     AdminPayPlus.ControlPeripherals.StartAceptance(paymentViewModel.PayValue);
@@ -219,7 +156,7 @@ namespace WPFCCPereira.UserControls
                         }
                         else
                         {
-                            transaction.Observation += MessageResource.IncompleteMony;
+                            transaction.Observation += MessageResource.IncompleteMony + " " + "Devolvio: " + valueOut.ToString();
                             Utilities.ShowModal(MessageResource.IncompleteMony, EModalType.Error);
                             SavePay(ETransactionState.Error);
                         }
@@ -262,7 +199,7 @@ namespace WPFCCPereira.UserControls
                     transaction.Payment = paymentViewModel;
                     transaction.State = statePay;
 
-                    AdminPayPlus.ControlPeripherals.ResetValues();
+                    AdminPayPlus.ControlPeripherals.ClearValues();
 
                     if (transaction.IdTransactionAPi > 0)
                     {
@@ -282,35 +219,6 @@ namespace WPFCCPereira.UserControls
                             Utilities.navigator.Navigate(UserControlView.Main);
                         }
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
-
-        private void BtnConsult_TouchDown(object sender, System.Windows.Input.TouchEventArgs e)
-        {
-            try
-            {
-                this.paymentViewModel.ImgContinue = Visibility.Hidden;
-
-                this.paymentViewModel.ImgCancel = Visibility.Hidden;
-
-                if (Utilities.ShowModal(MessageResource.ConsignAmount, EModalType.Information))
-                {
-                    this.paymentViewModel.PayValue = this.paymentViewModel.ValorIngresado;
-
-                    AdminPayPlus.ControlPeripherals.StopAceptance();
-
-                    SavePay(ETransactionState.Success);
-                }
-                else
-                {
-                    this.paymentViewModel.ImgContinue = Visibility.Visible;
-
-                    this.paymentViewModel.ImgCancel = Visibility.Hidden;
                 }
             }
             catch (Exception ex)

@@ -241,31 +241,23 @@ namespace WPFCCPereira.Classes
             {
                 if (_controlPeripherals == null)
                 {
-                    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("PortBills"),
-                        Utilities.GetConfiguration("PortCoins"), Utilities.GetConfiguration("ValuesDispenser"));
+                    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("Port"),
+                        Utilities.GetConfiguration("ValuesDispenser"));
                 }
 
                 _controlPeripherals.callbackError = error =>
                 {
-                    var log = new RequestLogDevice
+                    SaveLog(new RequestLog
                     {
-                        Code = "",
-                        Date = DateTime.Now,
-                        Description = error.Item2,
-                        Level = ELevelError.Strong
-                    };
+                        Reference = "",
+                        Description = string.Concat(MessageResource.ValidatePeripheralsFail, " ", error.Item2),
+                        State = 1,
+                        Date = DateTime.Now
+                    }, ELogType.General);
 
-                    if (!error.Item1.Equals("Info"))
-                    {
-                        SaveLog(log, ELogType.Device);
-                        DescriptionStatusPayPlus = MessageResource.ValidatePeripheralsFail;
-                        Finish(false);
-                    }
-                    else
-                    {
-                        log.Level = ELevelError.Mild;
-                        SaveLog(log, ELogType.Device);
-                    }
+                    DescriptionStatusPayPlus = MessageResource.ValidatePeripheralsFail;
+
+                    Finish(false);
                 };
 
                 _controlPeripherals.callbackToken = isSucces =>
@@ -279,7 +271,7 @@ namespace WPFCCPereira.Classes
             }
             catch (Exception ex)
             {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "InitPaypad", ex, MessageResource.StandarError);
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "InitPaypad", ex, ex.ToString());
                 callbackResult?.Invoke(false);
             }
         }
@@ -737,8 +729,11 @@ namespace WPFCCPereira.Classes
                             Description = detail.DESCRIPTION
                         });
 
-                        detail.STATE = 1;
-                        SqliteDataAccess.UpdateTransactionDetailState(detail);
+                        if (response != null)
+                        {
+                            detail.STATE = 1;
+                            SqliteDataAccess.UpdateTransactionDetailState(detail);
+                        }
                     }
                 });
             }
