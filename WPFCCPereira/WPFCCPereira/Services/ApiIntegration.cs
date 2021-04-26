@@ -344,6 +344,14 @@ namespace WPFCCPereira.Services
 
                 if (response != null)
                 {
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = string.Concat("Respuesta del servicio SendPay: ", response.ToString()),
+                        State = 1,
+                        Date = DateTime.Now
+                    }, ELogType.General);
+
                     var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
 
                     if (requestresponse != null && requestresponse.certificados.Count > 0)

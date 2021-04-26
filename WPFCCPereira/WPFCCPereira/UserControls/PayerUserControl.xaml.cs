@@ -199,6 +199,7 @@ namespace WPFCCPereira.UserControls
                         Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
                     }
                 });
+
                 Utilities.ShowModal(MessageResource.LoadInformation, EModalType.Preload);
             }
             catch (Exception ex)

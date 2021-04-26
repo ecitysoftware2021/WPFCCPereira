@@ -90,6 +90,7 @@ namespace WPFCCPereira.UserControls.Administrator
             Task.Run(() =>
             {
                 Thread.Sleep(5000);
+
                 if (state)
                 {
                     Utilities.navigator.Navigate(UserControlView.Main);
