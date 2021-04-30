@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Data;
@@ -410,8 +411,9 @@ namespace WPFCCPereira.ViewModel
         {
             try
             {
+                string ruta = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Mokups", "Mockup_Type_Documents.json");
 
-                var response = Utilities.ConverJson<List<TypeDocument>>(Utilities.GetConfiguration("PathTypeDocument"));
+                var response = Utilities.ConverJson<List<TypeDocument>>(ruta);
                 if (response != null && response.Count > 0)
                 {
                     OptionsList.Clear();

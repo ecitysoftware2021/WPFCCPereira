@@ -20,13 +20,13 @@ namespace WPFCCPereira.Classes.UseFull
             }
         }
 
-        public void Start(string portReaderBarCode, int barcodeBaudRate)
+        public void Start()
         {
             try
             {
                 if (_serialBarCodeReader != null)
                 {
-                    InitializePortBarcode(portReaderBarCode, barcodeBaudRate);
+                    InitializePortBarcode(AdminPayPlus.DataPayPlus.PayPadConfiguration.scanneR_PORT, 9600);
                 }
             }
             catch (Exception ex)

@@ -201,7 +201,7 @@ namespace WPFCCPereira.ViewModel
 
         public int CuantityItems
         {
-            get { return int.Parse(Utilities.GetConfiguration("CuantityItemsList")); }
+            get { return int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.CuantityItemsList); }
         }
 
         private int _totalPage;

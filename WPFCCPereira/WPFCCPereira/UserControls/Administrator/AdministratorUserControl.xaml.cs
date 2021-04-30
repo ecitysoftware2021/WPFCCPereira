@@ -50,7 +50,7 @@ namespace WPFCCPereira.UserControls.Administrator
                     var responseApi = await AdminPayPlus.UpdateBalance(this.dataContol);
                     if (responseApi)
                     {
-                        Utilities.PrintVoucher(this.dataContol, typeOperation);
+                        //Utilities.PrintVoucher(this.dataContol, typeOperation);
 
                         Utilities.CloseModal();
 
