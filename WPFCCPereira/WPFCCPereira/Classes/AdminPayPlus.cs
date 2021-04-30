@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Windows;
 using WPFCCPereira.Classes.DB;
 using WPFCCPereira.Classes.Printer;
 using WPFCCPereira.Classes.UseFull;
@@ -222,9 +223,12 @@ namespace WPFCCPereira.Classes
                     {
                         _dataPayPlus.PayPadConfiguration.DeserializarExtraData();
                         _dataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.DefinirAmbiente(_dataPayPlus.PayPadConfiguration.iS_PRODUCTION);
-
-                        InitNext();
-
+                        
+                        Application.Current.Dispatcher.Invoke(delegate
+                        {
+                            InitNext();
+                        });
+                        
                         SqliteDataAccess.UpdateConfiguration(_dataConfiguration);
                     }
 
