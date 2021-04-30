@@ -355,10 +355,14 @@ namespace WPFCCPereira.Classes
             {
                 Task.Run(async () =>
                 {
-                    var saveResult = SqliteDataAccess.SaveLog(log, type);
+                    if (DataPayPlus != null && DataPayPlus.PayPadConfiguration != null)
+                    {
+                        var saveResult = SqliteDataAccess.SaveLog(log, type);
+                    }
+
                     object result = "false";
 
-                    if (log != null && saveResult != null)
+                    if (log != null)
                     {
                         if (type == ELogType.General)
                         {

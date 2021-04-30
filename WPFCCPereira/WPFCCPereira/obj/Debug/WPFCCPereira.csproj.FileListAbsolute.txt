@@ -239,7 +239,6 @@ C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\S
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WpfAnimatedGif.xml
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csprojAssemblyReference.cache
-C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.g.cs
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\AdministratorUserControl.g.cs
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\ConfigurateUserControl.g.cs
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\LoginAdministratorUserControl.g.cs
@@ -261,7 +260,6 @@ C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\A
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira_MarkupCompile.cache
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira_MarkupCompile.lref
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\App.baml
-C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.baml
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\AdministratorUserControl.baml
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\ConfigurateUserControl.baml
 C:\Users\H81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\LoginAdministratorUserControl.baml

@@ -65,7 +65,6 @@ namespace WPFCCPereira.Classes
 
                 if (type == EModalType.Error)
                 {
-                    timer = true;
                     model.ImageModal = ImagesUrlResource.AlertError;
                 }
                 else if (type == EModalType.Information)
