@@ -157,19 +157,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/XYHqSE7wgQGyot5bIGQBAm26eL3lABPHS4XnUc4ikQ=</dsig:DigestValue>
+        <dsig:DigestValue>SVnefO8HxsokU2u4BINMLRNG44EpBE/DJU+OaYajqZ4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPKeyboard.dll" size="96768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPKeyboard.dll" size="97792">
       <assemblyIdentity name="WPKeyboard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZrXp2i0wLmZinnwDZvIWYK9PGNbDvzBVV+idAaT8gSc=</dsig:DigestValue>
+        <dsig:DigestValue>4BaURe5CO4xTvpriYhZPEY1vEvbQAZY25RZAJ6nU2bw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
