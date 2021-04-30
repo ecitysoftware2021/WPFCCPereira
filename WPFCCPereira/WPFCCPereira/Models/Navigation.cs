@@ -90,7 +90,7 @@ namespace WPFCCPereira.Models
                         GC.Collect();
                     };
 
-                    TimerService.Start(int.Parse(Utilities.GetConfiguration("DurationView")));
+                    TimerService.Start(int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.generiC_TIMER));
                 }
             }
             catch (Exception ex)

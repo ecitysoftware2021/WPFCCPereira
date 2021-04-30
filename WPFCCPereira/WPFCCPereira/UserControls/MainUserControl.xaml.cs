@@ -63,28 +63,17 @@ namespace WPFCCPereira.UserControls
                     {
                         AdminPayPlus.ValidatePaypad();
 
-                        ValidateVersion();
+                        if (AdminPayPlus.DataPayPlus.StateUpdate)
+                        {
+                            Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, true);
+                            Utilities.UpdateApp();
+                            return;
+                        }
 
-                        Thread.Sleep(int.Parse(Utilities.GetConfiguration("DurationAlert")));
+                        int sleep = int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.DurationAlert);
+                        Thread.Sleep(sleep);
                     }
                 });
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
-
-        private void ValidateVersion()
-        {
-            try
-            {
-                if (AdminPayPlus.DataPayPlus.StateUpdate)
-                {
-                    _validatePaypad = false;
-                    Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, true);
-                    Utilities.UpdateApp();
-                }
             }
             catch (Exception ex)
             {
@@ -98,11 +87,13 @@ namespace WPFCCPereira.UserControls
             {
                 if (_imageSleader == null)
                 {
-                    _imageSleader = new ImageSleader((List<String>)AdminPayPlus.DataPayPlus.ListImages, Utilities.GetConfiguration("PathPublish"));
+                    string folder = string.Concat(AdminPayPlus.DataPayPlus.PayPadConfiguration.imageS_PATH, "Publish");
+
+                    _imageSleader = new ImageSleader((List<String>)AdminPayPlus.DataPayPlus.ListImages, folder);
 
                     this.DataContext = _imageSleader.imageModel;
 
-                    _imageSleader.time = int.Parse(Utilities.GetConfiguration("TimerPublish"));
+                    _imageSleader.time = int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.publicitY_TIMER);
 
                     _imageSleader.isRotate = true;
 
@@ -121,57 +112,54 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
+                if (!Utilities.IsConnectedToInternet())
+                {
+                    Utilities.ShowModal(string.Concat(MessageResource.NoService, " Se ha perdido la conexión a internet. Por favor intenta de nuevo."), EModalType.Error, true);
+                }
+                else
+                if (AdminPayPlus.DataPayPlus == null)
+                {
+                    Utilities.ShowModal(string.Concat(MessageResource.NoService, " No se pudo validar el Payplus. Por favor intenta de nuevo."), EModalType.Error, true);
+                }
+                else
                 if (AdminPayPlus.DataPayPlus.StateBalanece)
                 {
-                    _validatePaypad = false;
-                    Utilities.navigator.Navigate(UserControlView.Login, false, 1);
-                }
-                else if (AdminPayPlus.DataPayPlus.StateUpload)
-                {
-                    _validatePaypad = false;
-                    Utilities.navigator.Navigate(UserControlView.Login, false, 2);
-                }
-                else if (AdminPayPlus.DataPayPlus.State && AdminPayPlus.DataPayPlus.StateAceptance && AdminPayPlus.DataPayPlus.StateDispenser)
-                {
-                    int response = AdminPayPlus.PrintService.StatusPrint();
-
-                    if (response != 0)
+                    AdminPayPlus.SaveLog(new RequestLog
                     {
-                        if (response == 7 || response == 8)
-                        {
-                            AdminPayPlus.SaveErrorControl(AdminPayPlus.PrintService.MessageStatus(response), MessageResource.InformationError, EError.Nopapper, ELevelError.Medium);
-                        }
-                        else
-                        {
-                            AdminPayPlus.SaveErrorControl(AdminPayPlus.PrintService.MessageStatus(response), MessageResource.InformationError, EError.Printer, ELevelError.Medium);
-                        }
+                        Reference = "",
+                        Description = string.Concat(MessageResource.NoGoInitial, " ", MessageResource.ModoAdministrativo),
+                        State = 2,
+                        Date = DateTime.Now
+                    }, ELogType.General);
 
-                        if (response != 8)
-                        {
-                            if (Utilities.ShowModal(MessageResource.ErrorNoPaper, EModalType.Information, false))
-                            {
-                                Redirect(true);
-                            }
-                        }
-                        else
-                        {
-                            Redirect(true);
-                        }
-                    }
-                    else
+                    Utilities.ShowModal(string.Concat(MessageResource.NoGoInitial, " ", MessageResource.ModoAdministrativo), EModalType.Error, true);
+                }
+                else
+                if (AdminPayPlus.DataPayPlus.StateUpload)
+                {
+                    AdminPayPlus.SaveLog(new RequestLog
                     {
-                        Redirect(true);
-                    }
+                        Reference = "",
+                        Description = string.Concat(MessageResource.NoGoInitial, " ", MessageResource.ModoAdministrativo),
+                        State = 2,
+                        Date = DateTime.Now
+                    }, ELogType.General);
+
+                    Utilities.ShowModal(string.Concat(MessageResource.NoGoInitial, " ", MessageResource.ModoAdministrativo), EModalType.Error, true);
+                }
+                else
+                if (AdminPayPlus.DataPayPlus.State && AdminPayPlus.DataPayPlus.StateAceptance && AdminPayPlus.DataPayPlus.StateDispenser)
+                {
+                    Redirect(true);
                 }
                 else
                 {
-                    Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, null, AdminPayPlus.DataPayPlus.Message);
-                    Utilities.ShowModal(MessageResource.NoService + " " + MessageResource.NoMoneyKiosco, EModalType.Error);
+                    Redirect(false);
                 }
             }
             catch (Exception ex)
             {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
             }
         }
         #endregion

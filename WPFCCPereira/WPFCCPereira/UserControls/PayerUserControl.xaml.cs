@@ -7,7 +7,6 @@ using System.Windows.Data;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Classes.UseFull;
 using WPFCCPereira.DataModel;
-using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.ViewModel;
@@ -87,7 +86,7 @@ namespace WPFCCPereira.UserControls
 
                 };
 
-                readerBarCode.Start(Utilities.GetConfiguration("BarcodePort"), int.Parse(Utilities.GetConfiguration("BarcodeBaudRate")));
+                readerBarCode.Start();
             }
             catch (Exception ex)
             {
@@ -101,7 +100,15 @@ namespace WPFCCPereira.UserControls
             {
                 if (ValidateFields())
                 {
-                    SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Key);
+                    if (AdminPayPlus.DataPayPlus.PayPadConfiguration.enablE_VALIDATE_PERIPHERALS)
+                    {
+                        SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Key);
+                    }
+                    else
+                    {
+                        Utilities.ShowModal(string.Format("Estimado, los dispositivos no estan habilitados."), EModalType.Error);
+                        Utilities.RestartApp();
+                    }
                 }
                 else
                 {

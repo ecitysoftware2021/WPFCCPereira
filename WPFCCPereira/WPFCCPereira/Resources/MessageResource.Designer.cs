@@ -340,6 +340,15 @@ namespace WPFCCPereira.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El kiosco entro en modo administrativo.
+        /// </summary>
+        internal static string ModoAdministrativo {
+            get {
+                return ResourceManager.GetString("ModoAdministrativo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No se pudo continuar entregando el dineroç.
         /// </summary>
         internal static string NoContinue {

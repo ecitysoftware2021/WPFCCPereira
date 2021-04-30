@@ -29,13 +29,13 @@ namespace WPFCCPereira.Services
 
         public ApiIntegration()
         {
-            basseAddress = Utilities.GetConfiguration("basseAddressIntegration");
+            basseAddress = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.basseAddressIntegration;
 
-            user = Utilities.GetConfiguration("UserAPI");
+            user = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.UserAPI;
 
-            password = Utilities.GetConfiguration("PassAPI");
+            password = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.PassAPI;
 
-            code = Utilities.GetConfiguration("CodeCompany");
+            code = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.CodeCompany;
         }
 
         public async Task<bool> SecurityToken()
@@ -54,7 +54,7 @@ namespace WPFCCPereira.Services
 
                 var json = JsonConvert.SerializeObject(request);
                 var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-                var url = Utilities.GetConfiguration("GetTokenIntegration");
+                var url = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.GetTokenIntegration;
 
                 var response = await client.PostAsync(url, content);
 
@@ -86,7 +86,7 @@ namespace WPFCCPereira.Services
             return false;
         }
 
-        public async Task<object> GetData(object requestData, string controller)
+        public async Task<object> GetData(object requestData, string url)
         {
             try
             {
@@ -94,7 +94,6 @@ namespace WPFCCPereira.Services
                 var request = JsonConvert.SerializeObject(requestData);
                 var content = new StringContent(request, Encoding.UTF8, "Application/json");
                 client.BaseAddress = new Uri(basseAddress);
-                var url = Utilities.GetConfiguration(controller);
 
                 var response = await client.PostAsync(url, content);
 
@@ -135,7 +134,7 @@ namespace WPFCCPereira.Services
                 if (type == EtypeConsult.Settled)
                 {
                     request.radicado = reference;
-                    response = await GetData(request, "ConsultSettled");
+                    response = await GetData(request, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.ConsultSettled);
                     if (response != null)
                     {
                         var requestresponse = JsonConvert.DeserializeObject<ResponseTransact>(response.ToString());
@@ -149,7 +148,7 @@ namespace WPFCCPereira.Services
                 else
                 {
                     request.recibo = reference;
-                    response = await GetData(request, "ConsultReceipt");
+                    response = await GetData(request, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.ConsultReceipt);
                     if (response != null)
                     {
                         var requestresponse = JsonConvert.DeserializeObject<ResponseTransact>(response.ToString());
@@ -178,15 +177,15 @@ namespace WPFCCPereira.Services
                     codigoempresa = code,
                     usuariows = user,
                     token = token,
-                    idusuario = Utilities.GetConfiguration("OperadorControl"),
-                    emailcontrol = Utilities.GetConfiguration("EmailControl"),
-                    identificacioncontrol = Utilities.GetConfiguration("IdControl"),
-                    nombrecontrol = Utilities.GetConfiguration("NameControl"),
-                    celularcontrol = Utilities.GetConfiguration("PhoneControl"),
+                    idusuario = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.OperadorControl,
+                    emailcontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.EmailControl,
+                    identificacioncontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.IdControl,
+                    nombrecontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.NameControl,
+                    celularcontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.PhoneControl,
                     matrucula = transaction.Products
                 };
 
-                var response = await GetData(request, "LiquidateNormalRenewal");
+                var response = await GetData(request, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.LiquidateNormalRenewal);
 
                 if (response != null)
                 {
@@ -231,7 +230,7 @@ namespace WPFCCPereira.Services
                     request.nombreinicial = reference;
                 }
 
-                var response = await GetData(request , "SearchFiles");
+                var response = await GetData(request , AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.SearchFiles);
 
                 if (response != null)
                 {
@@ -266,12 +265,12 @@ namespace WPFCCPereira.Services
                         token = token,
                         usuariows = user,
                         codigoempresa = code,
-                        operador = Utilities.GetConfiguration("OperadorControl"),
-                        emailcontrol = Utilities.GetConfiguration("EmailControl"),
-                        identificacioncontrol = Utilities.GetConfiguration("IdControl"),
-                        nombrecontrol = Utilities.GetConfiguration("NameControl"),
-                        celularcontrol = Utilities.GetConfiguration("PhoneControl"),
-                        codificacionservicios = Utilities.GetConfiguration("CodificationService"),
+                        operador = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.OperadorControl,
+                        emailcontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.EmailControl,
+                        identificacioncontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.IdControl,
+                        nombrecontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.NameControl,
+                        celularcontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.PhoneControl,
+                        codificacionservicios = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.CodificationService,
                         tipoidentificacioncliente = transaction.payer.TYPE_IDENTIFICATION,
                         identificacioncliente = transaction.payer.IDENTIFICATION,
                         razonsocialcliente = transaction.payer.NAME ?? ((Noun)transaction.File).nombre,
@@ -279,20 +278,20 @@ namespace WPFCCPereira.Services
                         nombre2cliente = transaction.payer.NAME ?? string.Empty,
                         apellido1cliente = transaction.payer.LAST_NAME ?? string.Empty,
                         apellido2cliente = transaction.payer.LAST_NAME ?? string.Empty,
-                        emailcliente = transaction.payer.EMAIL?? Utilities.GetConfiguration("EmailControl"),
+                        emailcliente = transaction.payer.EMAIL?? AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.EmailControl,
                         direccioncliente = transaction.payer.ADDRESS ?? ((Noun)transaction.File).direccion,
-                        telefonocliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"),
-                        celularcliente = transaction.payer.PHONE.ToString() ?? Utilities.GetConfiguration("PhoneControl"), 
+                        telefonocliente = transaction.payer.PHONE.ToString() ?? AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.PhoneControl,
+                        celularcliente = transaction.payer.PHONE.ToString() ?? AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.PhoneControl, 
                         municipiocliente = ((Noun)transaction.File).municipio,
                         valorbruto = 0,
                         Valorbaseiva = 0,
                         Valoriva = 0,
                         valortotal = transaction.Amount,
-                        tipotramite = Utilities.GetConfiguration("TypeTransaction"),
-                        subtipotramite = Utilities.GetConfiguration("TypeTransaction"),
-                        proyecto = Utilities.GetConfiguration("Proyect"),
+                        tipotramite = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.TypeTransaction,
+                        subtipotramite = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.TypeTransaction,
+                        proyecto = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.Proyect,
                         servicios = transaction.Products
-                    }, "SendTransaction");
+                    }, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.SendTransaction);
 
                     if (response != null)
                     {
@@ -325,22 +324,22 @@ namespace WPFCCPereira.Services
                     token = token,
                     usuariows = user,
                     codigoempresa = code,
-                    operador = Utilities.GetConfiguration("OperadorControl"),
-                    emailcontrol = Utilities.GetConfiguration("EmailControl"),
-                    identificacioncontrol = Utilities.GetConfiguration("IdControl"),
-                    nombrecontrol = Utilities.GetConfiguration("NameControl"),
-                    celularcontrol = Utilities.GetConfiguration("PhoneControl"),
+                    operador = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.OperadorControl,
+                    emailcontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.EmailControl,
+                    identificacioncontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.IdControl,
+                    nombrecontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.NameControl,
+                    celularcontrol = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.PhoneControl,
                     idliquidacion = transaction.consecutive,
                     numerorecuperacion = transaction.reference,
                     valorpagado = Convert.ToInt32(transaction.Amount).ToString(),
                     fechapago = transaction.DateTransaction.ToString("yyyy-MM-dd"),
                     horapago = transaction.DateTransaction.ToString("hh:mm:ss"),
-                    formapago = Utilities.GetConfiguration("MethodPayment"),
+                    formapago = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.MethodPayment,
                     numeroautorizacion = string.Empty,
                     idbanco = string.Empty,
                     idfranquicia = string.Empty,
                     codigofirmapdf = string.Empty
-                }, "SendPay");
+                }, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.SendPay);
 
                 if (response != null)
                 {
@@ -403,7 +402,7 @@ namespace WPFCCPereira.Services
                             contentType.StartsWith("application/pdf", StringComparison.OrdinalIgnoreCase))
                         {
                             stateDownload = true;
-                            var path = Utilities.SaveFile(nameFile, Utilities.GetConfiguration("DirectoryFile"), response);
+                            var path = Utilities.SaveFile(nameFile, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.DirectoryFile, response);
                             if (!string.IsNullOrEmpty(path))
                             {
                                 return path;
@@ -416,7 +415,7 @@ namespace WPFCCPereira.Services
                         else
                         {
                             countIntents++;
-                            if (countIntents >= int.Parse(Utilities.GetConfiguration("IntentsDownload").ToString()))
+                            if (countIntents >= int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.IntentsDownload))
                             {
                                 break;
                             }

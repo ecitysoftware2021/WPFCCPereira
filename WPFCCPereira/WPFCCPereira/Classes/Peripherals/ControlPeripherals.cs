@@ -156,6 +156,14 @@ namespace WPFCCPereira.Classes
             }
             catch (Exception ex)
             {
+                AdminPayPlus.SaveLog(new RequestLog
+                {
+                    Reference = "",
+                    Description = "El puerto de los perisfericos esta ocupado. " + portName + " " + ex.ToString(),
+                    State = 1,
+                    Date = DateTime.Now
+                }, ELogType.General);
+
                 throw ex;
             }
         }
@@ -172,18 +180,30 @@ namespace WPFCCPereira.Classes
             {
                 if (_serialPort.IsOpen)
                 {
-                    Thread.Sleep(2000);
-                    _serialPort.Write(message);
-
                     AdminPayPlus.SaveLog(new RequestLog
                     {
                         Reference = "",
-                        Description = "Mensaje al billetero " + message,
+                        Description = "Mensaje a los perisfericos: " + message,
                         State = 1,
                         Date = DateTime.Now
                     }, ELogType.General);
 
+                    Thread.Sleep(2000);
+                    _serialPort.Write(message);
+
                     return true;
+                }
+                else
+                {
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = "El puerto de los perisfericos esta cerrado. " + message,
+                        State = 1,
+                        Date = DateTime.Now
+                    }, ELogType.General);
+
+                    return false;
                 }
 
             }
@@ -617,7 +637,7 @@ namespace WPFCCPereira.Classes
         {
             try
             {
-                string timerInactividad = Utilities.GetConfiguration("TimerInactividad");
+                string timerInactividad = AdminPayPlus.DataPayPlus.PayPadConfiguration.inactivitY_TIMER;
                 timer = new TimerGeneric(timerInactividad);
                 timer.CallBackClose = response =>
                 {

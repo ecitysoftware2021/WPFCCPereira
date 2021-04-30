@@ -86,7 +86,7 @@ namespace WPFCCPereira.Classes
                         CloseModal();
                     };
 
-                    TimerService.Start(int.Parse(Utilities.GetConfiguration("DurationAlert")));
+                    TimerService.Start(int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.modaL_TIMER));
                 }
 
                 Application.Current.Dispatcher.Invoke(delegate
@@ -133,7 +133,30 @@ namespace WPFCCPereira.Classes
                     Process pc = new Process();
                     Process pn = new Process();
                     ProcessStartInfo si = new ProcessStartInfo();
-                    si.FileName = Path.Combine(Directory.GetCurrentDirectory(), GetConfiguration("NAME_APLICATION"));
+                    si.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.NAME_APLICATION);
+                    pn.StartInfo = si;
+                    pn.Start();
+                    pc = Process.GetCurrentProcess();
+                    pc.Kill();
+                }));
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
+            }
+        }
+
+        public static void UpdateApp()
+        {
+            try
+            {
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
+                {
+                    Process pc = new Process();
+                    Process pn = new Process();
+                    ProcessStartInfo si = new ProcessStartInfo();
+                    si.FileName = AdminPayPlus.DataPayPlus.PayPadConfiguration.keyS_PATH;
                     pn.StartInfo = si;
                     pn.Start();
                     pc = Process.GetCurrentProcess();
@@ -161,15 +184,18 @@ namespace WPFCCPereira.Classes
                         int x = 150;
                         int xKey = 20;
 
-                        var data = new List<DataPrinter>()
+                    string Boucher = AdminPayPlus.DataPayPlus.PayPadConfiguration.imageS_PATH;
+                    string im1 = Path.Combine(Boucher, "Others", "img-boucher.png");
+
+                    var data = new List<DataPrinter>()
                         {
-                            new DataPrinter{ image = GetConfiguration("ImageBoucher"),  x = 2, y = 2 },
+                            new DataPrinter{ image = im1,  x = 2, y = 2 },
                             new DataPrinter{ brush = color, font = fontKey, value = "NIT:", x = xKey, y = y+=120 },
                             new DataPrinter{ brush = color, font = fontValue,
-                                value = GetConfiguration("NIT") ?? string.Empty, x = x, y = y },
+                                value = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.NIT ?? string.Empty, x = x, y = y },
                             new DataPrinter{ brush = color, font = fontKey, value = "Trámite:", x = xKey, y = y+=sum },
                             new DataPrinter{ brush = color, font = fontValue,
-                                value = GetConfiguration("ProductName") ?? string.Empty, x = x, y = y },
+                                value = AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.ProductName ?? string.Empty, x = x, y = y },
                             new DataPrinter{ brush = color, font = fontKey, value = "Estado:", x = xKey, y = y+=sum },
                             new DataPrinter{ brush = color, font = fontValue,
                                 value = (transaction.State == ETransactionState.Success || transaction.State == ETransactionState.Error)
@@ -211,57 +237,6 @@ namespace WPFCCPereira.Classes
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "PrintVoucher", ex);
-            }
-        }
-
-        public static void PrintVoucher(PaypadOperationControl dataControl, ETypeAdministrator type)
-        {
-            try
-            {
-                SolidBrush color = new SolidBrush(Color.Black);
-                Font fontKey = new Font("Arial", 8, System.Drawing.FontStyle.Bold);
-                Font fontValue = new Font("Arial", 8, System.Drawing.FontStyle.Regular);
-                int y = 0;
-                int sum = 30;
-                int x = 150;
-                int xKey = 10;
-
-                var data = new List<DataPrinter>()
-                {
-                    new DataPrinter{ image = GetConfiguration("ImageBoucher"),  x = 2, y = 2 },
-                };
-                if (type == ETypeAdministrator.Balancing)
-                {
-                    data.Add(new DataPrinter { brush = color, font = fontKey, value = "DISMINUCIÓN DE EFECTIVO", x = 80, y = y += sum });
-                }
-                else
-                {
-                    data.Add(new DataPrinter { brush = color, font = fontKey, value = "PROVISIÓN DE EFECTIVO", x = 80, y = y += sum });
-                }
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "USUARIO:", x = xKey, y = y += sum });
-                data.Add(new DataPrinter { brush = color, font = fontValue, value = "PayPlus" ?? string.Empty, x = x, y = y });
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "OFI", x = 30, y = y += sum });
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "FECHA", x = 100, y = y });
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "HORA", x = 170, y = y });
-                data.Add(new DataPrinter { brush = color, font = fontValue, value = GetConfiguration("Terminal") ?? string.Empty, x = 30, y = y += 15 });
-                data.Add(new DataPrinter { brush = color, font = fontValue, value = DateTime.Now.ToString("yyyy/MM/dd"), x = 100, y = y });
-                data.Add(new DataPrinter { brush = color, font = fontValue, value = DateTime.Now.ToString("hh:mm:ss"), x = 170, y = y });
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "DENOMINACION", x = 10, y = y += 15 });
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "CANT", x = 130, y = y });
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "MONTO", x = 230, y = y });
-                foreach (var item in dataControl.DATALIST_FILTER())
-                {
-                    data.Add(new DataPrinter { brush = color, font = fontValue, value = string.Format("{0:C0}", item.Denominacion), x = 10, y = y += 18 });
-                    data.Add(new DataPrinter { brush = color, font = fontValue, value = item.Quantity.ToString(), x = 130, y = y });
-                    data.Add(new DataPrinter { brush = color, font = fontValue, value = string.Format("{0:C0}", item.Total), x = 230, y = y });
-                }
-                data.Add(new DataPrinter { brush = color, font = fontKey, value = "TOTAL TRANSACCIÓN  : ", x = xKey, y = y += sum });
-                data.Add(new DataPrinter { brush = color, font = fontValue, value = string.Format("{0:C0}", dataControl.TOTAL), x = y, y = y });
-                AdminPayPlus.PrintService.Start(data);
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex);
             }
         }
 
@@ -364,30 +339,7 @@ namespace WPFCCPereira.Classes
             return string.Empty;
         }
 
-        public static void UpdateApp()
-        {
-            try
-            {
-                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                {
-                    Process pc = new Process();
-                    Process pn = new Process();
-                    ProcessStartInfo si = new ProcessStartInfo();
-                    si.FileName = GetConfiguration("APLICATION_UPDATE");
-                    pn.StartInfo = si;
-                    pn.Start();
-                    pc = Process.GetCurrentProcess();
-                    pc.Kill();
-                }));
-                GC.Collect();
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
-            }
-        }
-
-        public static void OpenKeyboard(bool keyBoard_Numeric, TextBox textBox, object thisView,int x = 0,int y = 0)
+        public static void OpenKeyboard(bool keyBoard_Numeric, TextBox textBox, object thisView, int x = 0, int y = 0)
         {
             try
             {

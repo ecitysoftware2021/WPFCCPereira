@@ -34,25 +34,6 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                if (transaction.State == ETransactionState.Success)
-                {
-                    AdminPayPlus.SaveLog(new RequestLog
-                    {
-                        Description = MessageResource.SussesTransaction,
-                        Reference = transaction.reference
-                    }, ELogType.General);
-                }
-                else
-                {
-                    AdminPayPlus.SaveLog(new RequestLog
-                    {
-                        Description = MessageResource.NoveltyTransation,
-                        Reference = transaction.reference
-                    }, ELogType.General);
-                }
-
-                GC.Collect();
-
                 Task.Run(() =>
                 {
                     AdminPayPlus.UpdateTransaction(this.transaction);

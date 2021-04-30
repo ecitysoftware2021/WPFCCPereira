@@ -99,32 +99,34 @@ namespace WPFCCPereira.Classes
                 api = new Api();
             }
 
-            if (_apiIntegration == null)
-            {
-                _apiIntegration = new ApiIntegration();
-            }
-
-            if (_printService == null)
-            {
-                _printService = new PrintService();
-            }
-
             if (_dataPayPlus == null)
             {
                 _dataPayPlus = new DataPayPlus();
             }
-
-            if (_printerFile == null)
-            {
-                _printerFile = new PrinterFile(Utilities.GetConfiguration("PrinterName").Trim(), true);
-            }
-
-            if (_readerBarCode == null)
-            {
-                _readerBarCode = new ReaderBarCode();
-            }
         }
         #endregion
+        private static void InitNext()
+        {
+            //if (_printService == null)
+            //{
+            _printService = new PrintService();
+            //}
+
+            //if (_readerBarCode == null)
+            //{
+            _apiIntegration = new ApiIntegration();
+            //}
+
+            //if (_cootregua == null)
+            //{
+            _readerBarCode = new ReaderBarCode();
+            //}
+
+            //if (_cootregua == null)
+            //{
+            _printerFile = new PrinterFile(AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.PrinterName.Trim(), true);
+            //}
+        }
 
         public async void Start()
         {
@@ -132,17 +134,22 @@ namespace WPFCCPereira.Classes
 
             if (Utilities.IsConnectedToInternet())
             {
-
-                if (await LoginPaypad() && await ApiIntegration.SecurityToken())
+                if (await LoginPaypad())
                 {
                     DescriptionStatusPayPlus = MessageResource.StatePayPlus;
 
                     if (await ValidatePaypad())
                     {
-
                         DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
 
-                        ValidatePeripherals();
+                        if (_dataPayPlus.PayPadConfiguration.enablE_VALIDATE_PERIPHERALS)
+                        {
+                            ValidatePeripherals();
+                        }
+                        else
+                        {
+                            callbackResult?.Invoke(true);
+                        }
                     }
                     else
                     {
@@ -179,15 +186,19 @@ namespace WPFCCPereira.Classes
                         config.ID_SESSION = Convert.ToInt32(result.Session);
                         config.TOKEN_API = result.Token;
 
-                        if (SqliteDataAccess.UpdateConfiguration(config))
-                        {
-                            _dataConfiguration = config;
-                            return true;
-                        }
+                        _dataConfiguration = config;
+
+                        return true;
                     }
                     else
                     {
-                        SaveErrorControl(MessageResource.ErrorServiceLogin, MessageResource.NoGoInitial, EError.Api, ELevelError.Strong);
+                        SaveLog(new RequestLog
+                        {
+                            Reference = "",
+                            Description = "No se logro obtener el token",
+                            State = 2,
+                            Date = DateTime.Now
+                        }, ELogType.General);
                     }
                 }
             }
@@ -207,7 +218,16 @@ namespace WPFCCPereira.Classes
                 {
                     _dataPayPlus = JsonConvert.DeserializeObject<DataPayPlus>(response.ToString());
 
-                    //Utilities.ImagesSlider = JsonConvert.DeserializeObject<List<string>>(data.ListImages.ToString());
+                    if (_dataPayPlus != null && _dataPayPlus.PayPadConfiguration != null)
+                    {
+                        _dataPayPlus.PayPadConfiguration.DeserializarExtraData();
+                        _dataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.DefinirAmbiente(_dataPayPlus.PayPadConfiguration.iS_PRODUCTION);
+
+                        InitNext();
+
+                        SqliteDataAccess.UpdateConfiguration(_dataConfiguration);
+                    }
+
                     if (_dataPayPlus.StateBalanece || _dataPayPlus.StateUpload)
                     {
                         SaveLog(new RequestLog
@@ -217,7 +237,6 @@ namespace WPFCCPereira.Classes
                             State = 4,
                             Date = DateTime.Now
                         }, ELogType.General);
-                        return true;
                     }
                     if (_dataPayPlus.State && _dataPayPlus.StateAceptance && _dataPayPlus.StateDispenser)
                     {
@@ -232,8 +251,6 @@ namespace WPFCCPereira.Classes
                             State = 6,
                             Date = DateTime.Now
                         }, ELogType.General);
-
-                        SaveErrorControl(MessageResource.NoGoInitial, _dataPayPlus.Message, EError.Aplication, ELevelError.Strong);
                     }
                 }
             }
@@ -250,8 +267,8 @@ namespace WPFCCPereira.Classes
             {
                 if (_controlPeripherals == null)
                 {
-                    _controlPeripherals = new ControlPeripherals(Utilities.GetConfiguration("Port"),
-                        Utilities.GetConfiguration("ValuesDispenser"));
+                    _controlPeripherals = new ControlPeripherals(_dataPayPlus.PayPadConfiguration.unifieD_PORT,
+                        _dataPayPlus.PayPadConfiguration.dispenseR_CONFIGURATION);
                 }
 
                 _controlPeripherals.callbackError = error =>
@@ -303,11 +320,12 @@ namespace WPFCCPereira.Classes
 
             callbackResult?.Invoke(isSucces);
         }
+
         private CONFIGURATION_PAYDAD LoadInformation()
         {
             try
             {
-                string[] keys = Utilities.ReadFile(@"" + ConstantsResource.PathKeys);
+                string[] keys = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), ConstantsResource.PathKeys));
 
                 if (keys.Length > 0)
                 {
@@ -316,10 +334,10 @@ namespace WPFCCPereira.Classes
 
                     return new CONFIGURATION_PAYDAD
                     {
-                        USER_API = Encryptor.Decrypt(server[0].Split(':')[1]),
-                        PASSWORD_API = Encryptor.Decrypt(server[1].Split(':')[1]),
-                        USER = Encryptor.Decrypt(payplus[0].Split(':')[1]),
-                        PASSWORD = Encryptor.Decrypt(payplus[1].Split(':')[1]),
+                        USER_API = server[0].Split(':')[1],
+                        PASSWORD_API = server[1].Split(':')[1],
+                        USER = payplus[0].Split(':')[1],
+                        PASSWORD = payplus[1].Split(':')[1],
                         TYPE = Convert.ToInt32(payplus[2].Split(':')[1])
                     };
                 }
@@ -427,8 +445,8 @@ namespace WPFCCPereira.Classes
                     payer = new PAYER
                     {
                         IDENTIFICATION = _dataConfiguration.ID_PAYPAD.ToString(),
-                        NAME = Utilities.GetConfiguration("NAME_PAYPAD"),
-                        LAST_NAME = Utilities.GetConfiguration("LAST_NAME_PAYPAD")
+                        NAME = DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.NAME_PAYPAD,
+                        LAST_NAME = DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.LAST_NAME_PAYPAD,
                     };
                 }
 

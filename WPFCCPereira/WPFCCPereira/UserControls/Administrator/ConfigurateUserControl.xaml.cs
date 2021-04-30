@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WPFCCPereira.Classes;
-using WPFCCPereira.KeyboardNew;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
 
@@ -30,6 +30,7 @@ namespace WPFCCPereira.UserControls.Administrator
 
                 txt_description.DataContext = init;
 
+                ExtraData();
                 Initial();
             }
             catch (Exception ex)
@@ -89,7 +90,7 @@ namespace WPFCCPereira.UserControls.Administrator
         {
             Task.Run(() =>
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(4000);
 
                 if (state)
                 {
@@ -125,6 +126,76 @@ namespace WPFCCPereira.UserControls.Administrator
                     }
                 }
             });
+        }
+
+        private void ExtraData()
+        {
+            try
+            {
+                string a = "usrapli", b = "1Cero12019$/*", c = "PayPlus C.C  Pereira Ed. Camara de comercio", d = "CamaradeComerciodePereira2020*";
+
+                ExtraData data = new ExtraData();
+
+                data.dataIntegration = new DataIntegration
+                {
+                    ambiente = new AMBIENTE
+                    {
+                        //controlers
+                        GetTokenIntegration = "solicitarToken",
+                        ConsultFileMercantil = "consultarExpedienteMercantil",
+                        LiquidateNormalRenewal = "liquidarRenovacionNormal",
+                        SearchFiles = "busquedaExpedientes",
+                        SendTransaction = "reportarTransaccion",
+                        SendPay = "reportarPago",
+                        ConsultSettled = "consultarRadicado",
+                        ConsultReceipt = "consultarRecibo",
+                        BuyCancel = "CamaraComercio/BuyCancel",
+                        //extra...
+                        CodeCompany = "27",
+                        OperadorControl = "KIOSKO01",
+                        EmailControl = "jnietot@gmail.com",
+                        IdControl = "79048506",
+                        NameControl = "KIOSKO 1 CERO1",
+                        PhoneControl = "3106896601",
+                        CodificationService = "S",
+                        TypeTransaction = "certificadosvirtuales",
+                        Proyect = "1",
+                        MethodPayment = "01"
+                    },
+                    desarrollo = new DESARROLLO
+                    {
+                        basseAddressIntegration = "https://siidesarrollo.confecamaras.co/librerias/wsRestSII/v1/",
+                        UserAPI = "1cero1",
+                        PassAPI = "1cero1per2020*"
+                    },
+                    produccion = new PRODUCCION
+                    {
+                        basseAddressIntegration = "https://siipereira.confecamaras.co/librerias/wsRestSII/v1/",
+                        UserAPI = "dispenpant",
+                        PassAPI = "E9k58R1ekhjikhyDokR7"
+                    }
+                };
+
+                data.dataComplementary = new DataComplementary
+                {
+                    DurationAlert = "10000",
+                    NAME_PAYPAD = "Pay+ Pereira",
+                    LAST_NAME_PAYPAD = "Pereira",
+                    NAME_APLICATION = "WPFPereira.exe",
+                    NIT = "891.400.669-6",
+                    ProductName = "Certificados Electrónicos",
+                    DirectoryFile = "C:/CertificadosElectronicos",
+                    CuantityItemsList = "5",
+                    IntentsDownload = "3",
+                    PrinterName = "Microsoft Print to PDF"
+                };
+
+                string json = JsonConvert.SerializeObject(data);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
         }
     }
 }

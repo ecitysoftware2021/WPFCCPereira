@@ -318,4 +318,7 @@
   <data name="YesGoInitial" xml:space="preserve">
     <value>El kiosco inicia correctamente</value>
   </data>
+  <data name="ModoAdministrativo" xml:space="preserve">
+    <value>El kiosco entro en modo administrativo</value>
+  </data>
 </root>
