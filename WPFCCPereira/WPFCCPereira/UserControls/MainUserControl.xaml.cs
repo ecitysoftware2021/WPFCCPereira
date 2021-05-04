@@ -189,6 +189,18 @@ namespace WPFCCPereira.UserControls
 
                     Utilities.navigator.Navigate(UserControlView.Menu, true);
                 }
+                else
+                {
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = string.Concat(MessageResource.NoGoInitial, " ", AdminPayPlus.DataPayPlus.Message),
+                        State = 2,
+                        Date = DateTime.Now
+                    }, ELogType.General);
+
+                    Utilities.ShowModal(string.Concat(MessageResource.NoService, " ", MessageResource.NoMoneyKiosco), EModalType.Error, true);
+                }
             }
             catch (Exception ex)
             {

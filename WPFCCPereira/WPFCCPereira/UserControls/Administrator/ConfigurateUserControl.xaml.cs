@@ -60,22 +60,37 @@ namespace WPFCCPereira.UserControls.Administrator
         {
             try
             {
+                if (AdminPayPlus.DataPayPlus == null)
+                {
+                    Finish(result);
+                }
                 if (AdminPayPlus.DataPayPlus.StateUpdate)
                 {
-                    Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, false);
+                    Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, true);
                     Utilities.UpdateApp();
                 }
                 else if (AdminPayPlus.DataPayPlus.StateBalanece)
                 {
-                    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Balancing);
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = string.Concat(MessageResource.NoGoInitial, " ", MessageResource.ModoAdministrativo),
+                        State = 2,
+                        Date = DateTime.Now
+                    }, ELogType.General);
                 }
                 else if (AdminPayPlus.DataPayPlus.StateUpload)
                 {
-                    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Upload);
+                    AdminPayPlus.SaveLog(new RequestLog
+                    {
+                        Reference = "",
+                        Description = string.Concat(MessageResource.NoGoInitial, " ", MessageResource.ModoAdministrativo),
+                        State = 2,
+                        Date = DateTime.Now
+                    }, ELogType.General);
                 }
                 else
                 {
-                    //Utilities.navigator.Navigate(UserControlView.Main);
                     Finish(result);
                 }
             }

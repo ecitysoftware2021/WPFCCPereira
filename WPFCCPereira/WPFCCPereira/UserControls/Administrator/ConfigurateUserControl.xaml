@@ -37,7 +37,7 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <TextBlock Text="Espere mientras se configura el dispositivo para iniciar"
+            <TextBlock Text="Espere mientras se configura el dispositivo para iniciar."
                        FontFamily="Arial"
                        FontSize="60"
                        VerticalAlignment="Top"
