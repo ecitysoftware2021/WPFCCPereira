@@ -133,6 +133,8 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 if (listEstablecimientos.Count > 0)
                 {
+                    decimal amoutEstablecimientos = 0;
+
                     foreach (var item in listEstablecimientos)
                     {
                         //if (item.numempleados < MinEmpleados)
@@ -141,6 +143,7 @@ namespace WPFCCPereira.UserControls.Renewal
                         //    item.bdEmpleados = "Red";
                         //    state = false;
                         //}
+                        amoutEstablecimientos += item.numactivos;
 
                         if (item.numactivos < MinActivos)
                         {
@@ -155,6 +158,13 @@ namespace WPFCCPereira.UserControls.Renewal
                             item.bdActivos = "Red";
                             state = false;
                         }
+                    }
+
+                    if (amoutEstablecimientos > transaction.ExpedientesMercantil.numactivos)
+                    {
+                        txtErrorActivos.Text = "El valor de los activos de los establecimientos supera el valor de la persona";
+                        bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                        state = false;
                     }
                 }
 
