@@ -130,7 +130,8 @@ namespace WPFCCPereira.UserControls.Renewal
                         else
                         {
                             Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
-                            Utilities.navigator.Navigate(UserControlView.Menu);
+
+                            TimerService.Reset();
                         }
                     }
                     else

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
+using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 {
@@ -27,19 +28,63 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         private Transaction transaction;
         #endregion
 
+        #region "Constructor"
         public InformacionFinancieraUC(Transaction ts)
         {
             InitializeComponent();
 
             this.transaction = ts;
-        }
 
+            LoadView();
+        }
+        #endregion
+
+        #region "Métodos"
+        private void LoadView()
+        {
+            try
+            {
+                object 
+                 a = transaction.FormularioPpal.datos.anodatos;//Año de los datos
+                 a = transaction.FormularioPpal.datos.fechadatos;//Fecha de reporte de los datos
+
+                 a = transaction.FormularioPpal.datos.actcte;//Activos corrientes
+                 a = transaction.FormularioPpal.datos.actnocte;//Activos no corrientes
+                 a = transaction.FormularioPpal.datos.acttot;//Activos totales
+                 
+                 a = transaction.FormularioPpal.datos.pascte;//Pasivos corrientes
+                 a = transaction.FormularioPpal.datos.paslar;//Pasivos no corrientes o a largo plazo
+                 a = transaction.FormularioPpal.datos.pastot;//Pasivos totales
+                 a = transaction.FormularioPpal.datos.pattot;//Patrimonio (patrimonio neto)
+                 a = transaction.FormularioPpal.datos.paspat;//Pasivos + patrimonios
+                 
+                 a = transaction.FormularioPpal.datos.ingope;//Ingresos operacionales
+                 a = transaction.FormularioPpal.datos.ingnoope;//Otros ingresos o no operacionales
+                 a = transaction.FormularioPpal.datos.cosven;//Costo de ventas
+                 //a = transaction.FormularioPpal.datos.gasope;//Gastos operacionales o de ventas
+                 //a = transaction.FormularioPpal.datos.gasnoope;//Gastos no operacionales(OTROS GASTOS)
+                 a = transaction.FormularioPpal.datos.utiope;//Utilidad operacional EJE: PERDIDA = -1000, UTILIDAD=10000
+                
+                 a = transaction.FormularioPpal.datos.personal;//Personal
+                 a = transaction.FormularioPpal.datos.personaltemp;//Porcentaje personal temporal
+                 a = transaction.FormularioPpal.datos.gruponiif;//Grupo NIIF
+
+                this.DataContext = this.transaction;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+        #endregion
+
+        #region "Eventos"
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
         }
 
-        private void btnNext_TouchDown(object sender, TouchEventArgs e)
+        private void btnNext_TouchDown(object sender, TouchEventArgs e) 
         {
             Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad, data: transaction);
         }
@@ -78,5 +123,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             Utilities.OpenKeyboard(true, sender as TextBox, this);
         }
+        #endregion
     }
 }
