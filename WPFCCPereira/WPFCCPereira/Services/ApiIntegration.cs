@@ -559,6 +559,11 @@ namespace WPFCCPereira.Services
                     {
                         return data;
                     }
+                    else
+                    if (data != null && data.mensajeerror != string.Empty) 
+                    { 
+                        //TODO:guardar error
+                    }
                 }
             }
             catch (Exception ex)

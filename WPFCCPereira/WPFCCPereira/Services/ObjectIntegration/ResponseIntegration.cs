@@ -95,12 +95,12 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string fechadatostamanoempresarial { get; set; }
         public List<ListEstablecimientos> establecimientos { get; set; }
         public string actcte { get; set; }
-        public object actnocte { get; set; }
+        public decimal actnocte { get; set; }
         public string acttot { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
+        public decimal pascte { get; set; }
+        public decimal paslar { get; set; }
         public string pastot { get; set; }
-        public string pattot { get; set; }
+        public decimal pattot { get; set; }
         public string paspat { get; set; }
         public object balsoc { get; set; }
         public string ingope { get; set; }
@@ -1210,7 +1210,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string fechadatostamanoempresarial { get; set; }
         public string tamanoempresarial957codigo { get; set; }
         public string tamanoempresarial957 { get; set; }
-        public double tamanoempresarial957uvts { get; set; }
+        public decimal tamanoempresarial957uvts { get; set; }
         public string tamanoempresarial957codigoanterior { get; set; }
         public string cntestab01 { get; set; }
         public string cntestab02 { get; set; }
@@ -1243,30 +1243,30 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string personaltemp { get; set; }
         public string actvin { get; set; }
         public string valest { get; set; }
-        public string actcte { get; set; }
-        public string actnocte { get; set; }
+        public decimal actcte { get; set; }
+        public decimal actnocte { get; set; }
         public string actfij { get; set; }
         public string fijnet { get; set; }
         public string actotr { get; set; }
         public string actval { get; set; }
-        public string acttot { get; set; }
+        public decimal acttot { get; set; }
         public int actsinaju { get; set; }
         public int invent { get; set; }
-        public string pascte { get; set; }
-        public string paslar { get; set; }
-        public string pastot { get; set; }
-        public string pattot { get; set; }
-        public string paspat { get; set; }
+        public decimal pascte { get; set; }
+        public decimal paslar { get; set; }
+        public decimal pastot { get; set; }
+        public decimal pattot { get; set; }
+        public decimal paspat { get; set; }
         public string balsoc { get; set; }
-        public string ingope { get; set; }
-        public string ingnoope { get; set; }
+        public decimal ingope { get; set; }
+        public decimal ingnoope { get; set; }
         public string gtoven { get; set; }
         public string gtoadm { get; set; }
-        public string cosven { get; set; }
+        public decimal cosven { get; set; }
         public int depamo { get; set; }
         public string gasint { get; set; }
         public string gasimp { get; set; }
-        public string utiope { get; set; }
+        public decimal utiope { get; set; }
         public string utinet { get; set; }
         public string apolab { get; set; }
         public string apolabadi { get; set; }

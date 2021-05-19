@@ -40,6 +40,7 @@
                 Width="250"
                 Margin="50,0,0,30"
                 Stretch="Uniform"
+                TouchDown="btn_exit_TouchDown"
             />
         </Grid>
         <Grid Grid.Row="1" Margin="110,0,110,0">
@@ -63,7 +64,7 @@
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
-                Text="1682334" 
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}"
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -79,7 +80,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
-                Text="18130990" 
+                Text="{Binding ExpedientesMercantil.matricula}" 
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -144,7 +145,7 @@
                 <TextBox
                     VerticalAlignment="Center" 
                     TextAlignment="Center"
-                    Text="2020"
+                    Text="{Binding FormularioPpal.datos.anodatos}"
                     FontSize="25" 
                 />
             </Grid>
@@ -162,11 +163,12 @@
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
-                    Text="Estado de Situación Fincanciera 2020" 
                     Foreground="#FF0F5463" 
                     FontSize="25" 
-                    Margin="10,0,0,0"
-                />
+                    Margin="10,0,0,0">
+                <Run Text="Estado de Situación Fincanciera"/>
+                <Run Text="{Binding FormularioPpal.datos.anodatos}"/>
+                </TextBlock>
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -190,22 +192,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
-                <TextBox 
-                        Name="txtNewAssets"
-                        md:HintAssist.Hint="$0"
-                        md:HintAssist.IsFloating="True"
-                        md:HintAssist.FloatingScale="0.3"
-                        Text="{Binding numactivos, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                <Border
+                    Name="brd_actcte"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.actcte, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
                         FontSize="25"
-                        FontFamily="Cabri"
-                        Margin="0,0,20,0"
-                        Foreground="Black"
-                        Tag="0"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Right"
-                        TextChanged="NuevosActivos_TextChanged"
-                        TouchDown="NuevosActivos_TouchDown"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
                     />
+                </Border>
             </Grid>
             <Grid Grid.Row="4">
                 <TextBlock
@@ -221,6 +227,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    Name="brd_actnocte"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.actnocte, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="5">
                 <TextBlock
@@ -229,6 +255,24 @@
                     Text="Activo Total" 
                     FontSize="25" 
                 />
+                <Border
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    IsEnabled="False"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.acttot, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="6">
                 <TextBlock
@@ -265,6 +309,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    x:Name="brd_pascte"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.pascte, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="8">
                 <TextBlock
@@ -280,6 +344,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    x:Name="brd_paslar"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.paslar, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="9">
                 <TextBlock
@@ -295,6 +379,25 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    Name="brd_pastot"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    IsEnabled="False"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.pastot, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="10">
                 <TextBlock
@@ -310,6 +413,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    Name="brd_pattot"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.pattot, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="11">
                 <TextBlock
@@ -318,6 +441,25 @@
                     Text="Pasivo+Patrim" 
                     FontSize="25" 
                 />
+                <Border
+                    Name="brd_paspat"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    IsEnabled="False"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.paspat, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="12">
                 <TextBlock
@@ -354,6 +496,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    x:Name="brd_ingope"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.ingope, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="14">
                 <TextBlock
@@ -369,6 +531,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    x:Name="brd_ingnoope"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.ingnoope, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="15">
                 <TextBlock
@@ -384,6 +566,26 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    x:Name="brd_cosven"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.cosven, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="16">
                 <TextBlock
@@ -437,6 +639,26 @@
                     Text="Utilidad / Perd" 
                     FontSize="25" 
                 />
+                <Border
+                    x:Name="brd_utiope"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.utiope, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextChanged="Amount_TextChanged"
+                        TouchDown="Amount_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="20">
                 <TextBlock
@@ -481,6 +703,25 @@
                     Width="900"
                     Margin="0,0,0,0" 
                 />
+                <Border
+                    x:Name="brd_personal"
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    Width="300"
+                    Height="40"
+                    IsEnabled="False"
+                    >
+                    <TextBox 
+                        Text="{Binding FormularioPpal.datos.personal}"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"
+                        Width="270"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="22">
                 <TextBlock
@@ -512,11 +753,11 @@
                     Background="Transparent"
                     FontSize="30"
                     >
-                    <ComboBoxItem IsSelected="True">GRUPO III - MICROEMPRESAS</ComboBoxItem>
-                    <ComboBoxItem>RESOLUCIÓN 414/2014</ComboBoxItem>
-                    <ComboBoxItem>GRUPO II</ComboBoxItem>
-                    <ComboBoxItem>GRUPO I - NIIF PLENAS RESOLUCIÓN 7</ComboBoxItem>
-                    <ComboBoxItem>NO REPORTA</ComboBoxItem>
+                    <ComboBoxItem Tag="4">RESOLUCIÓN 414/2014</ComboBoxItem>
+                    <ComboBoxItem Tag="3">GRUPO III - MICROEMPRESAS</ComboBoxItem>
+                    <ComboBoxItem Tag="2">GRUPO II</ComboBoxItem>
+                    <ComboBoxItem Tag="1">GRUPO I - NIIF PLENAS</ComboBoxItem>
+                    <ComboBoxItem Tag="0" IsSelected="True">NO REPORTA</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>

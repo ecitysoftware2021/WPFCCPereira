@@ -123,16 +123,17 @@ namespace WPFCCPereira.UserControls.Renewal
                         transaction.Type = viewModel.TypeTransaction;
                         transaction.ExpedientesMercantil = response;
 
-                        if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
-                        {
+                        //TODO:aquí
+                        //if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
+                        //{
                             Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, transaction);
-                        }
-                        else
-                        {
-                            Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
+                        //}
+                        //else
+                        //{
+                        //    Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
 
-                            TimerService.Reset();
-                        }
+                        //    TimerService.Reset();
+                        //}
                     }
                     else
                     {

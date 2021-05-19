@@ -35,6 +35,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
             this.transaction = ts;
 
+            this.DataContext = this.transaction;
+
             LoadView();
         }
         #endregion
@@ -44,6 +46,13 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             try
             {
+                transaction.FormularioPpal.datos.anodatos = DateTime.Now.Year.ToString();
+                transaction.FormularioPpal.datos.acttot = transaction.ExpedientesMercantil.numactivos;
+                transaction.FormularioPpal.datos.personal = transaction.ExpedientesMercantil.numempleados.ToString();
+
+                transaction.FormularioPpal.datos.pastot = transaction.FormularioPpal.datos.paslar + transaction.FormularioPpal.datos.pascte;
+                transaction.FormularioPpal.datos.paspat = transaction.FormularioPpal.datos.pattot + transaction.FormularioPpal.datos.pastot;
+
                 object 
                  a = transaction.FormularioPpal.datos.anodatos;//Año de los datos
                  a = transaction.FormularioPpal.datos.fechadatos;//Fecha de reporte de los datos
@@ -69,11 +78,62 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                  a = transaction.FormularioPpal.datos.personaltemp;//Porcentaje personal temporal
                  a = transaction.FormularioPpal.datos.gruponiif;//Grupo NIIF
 
-                this.DataContext = this.transaction;
             }
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private bool Validate()
+        {
+            try
+            {
+                bool state = true;
+
+                //if (transaction.FormularioPpal.datos.actcte == 0)//Activos corrientes
+                //{
+                //    brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                //    state = false;
+                //}
+                
+                //if (transaction.FormularioPpal.datos.actnocte == 0)//Activos no corrientes
+                //{
+                //    brd_actnocte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                //    state = false;
+                //}
+
+                if ((transaction.FormularioPpal.datos.actnocte + transaction.FormularioPpal.datos.actcte) != transaction.FormularioPpal.datos.acttot)
+                {
+                    brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    brd_actnocte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    state = false;
+                }
+                
+                //if (transaction.ExpedientesMercantil.pascte == 0)//Pasivos corrientes
+                //{
+                //    brd_pascte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                //    state = false;
+                //}
+                
+                //if (transaction.ExpedientesMercantil.paslar == 0)//Pasivos no corrientes o a largo plazo
+                //{
+                //    brd_paslar.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                //    state = false;
+                //}
+
+                if (transaction.FormularioPpal.datos.pattot == 0)//Patrimonio (patrimonio neto)
+                {
+                    brd_pattot.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    state = false;
+                }
+
+                return state;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+                return false;
             }
         }
         #endregion
@@ -86,10 +146,13 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e) 
         {
-            Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad, data: transaction);
+            if (Validate())
+            {
+                Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad, data: transaction);
+            }
         }
 
-        private void NuevosActivos_TextChanged(object sender, TextChangedEventArgs e)
+        private void Amount_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
@@ -99,19 +162,18 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 {
                     text.Text = text.Text.Remove(text.Text.Length - 1);
                 }
+                else 
+                if (text.Text.Length < 2)
+                {
+                    text.Text = "0";
+                }
 
-                //if (text.Tag.ToString() == "0")
-                //{
-                //    txtErrorActivos.Text = string.Empty;
-                //    bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
-                //}
-                //else
-                //{
-                //    var service = text.DataContext as ListEstablecimientos;
+                brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
+                brd_actnocte.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
+                brd_pattot.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
 
-                //    service.bdActivos = "Transparent";
-                //    service.mserroractivos = string.Empty;
-                //}
+                Validate();
+                LoadView();
             }
             catch (Exception ex)
             {
@@ -119,10 +181,15 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             }
         }
 
-        private void NuevosActivos_TouchDown(object sender, TouchEventArgs e)
+        private void Amount_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.OpenKeyboard(true, sender as TextBox, this);
         }
         #endregion
+
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
+        }
     }
 }
