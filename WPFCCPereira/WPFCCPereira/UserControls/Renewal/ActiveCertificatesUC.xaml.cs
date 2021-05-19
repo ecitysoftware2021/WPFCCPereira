@@ -56,46 +56,39 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
+                transaction.ExpedientesMercantil.anoporrenovar = transaction.ExpedientesMercantil.ultanorenovado + 1;
+
+                var organizacion = (EOrganizacion)Convert.ToUInt32(transaction.ExpedientesMercantil.organizacion);
+
+                transaction.ExpedientesMercantil.organizacion = organizacion.ToString();
+
+                DateTime dtm;
+                DateTime.TryParseExact(transaction.ExpedientesMercantil.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+
+                transaction.ExpedientesMercantil.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+
+                this.DataContext = transaction.ExpedientesMercantil;
+
+                foreach (var item in transaction.ExpedientesMercantil.establecimientos)
                 {
-                    transaction.ExpedientesMercantil.anoporrenovar = transaction.ExpedientesMercantil.ultanorenovado + 1;
-
-                    var organizacion = (EOrganizacion)Convert.ToUInt32(transaction.ExpedientesMercantil.organizacion);
-
-                    transaction.ExpedientesMercantil.organizacion = organizacion.ToString();
-
-                    DateTime dtm;
-                    DateTime.TryParseExact(transaction.ExpedientesMercantil.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-
-                    transaction.ExpedientesMercantil.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
-
-                    this.DataContext = transaction.ExpedientesMercantil;
-
-                    foreach (var item in transaction.ExpedientesMercantil.establecimientos)
+                    if ((item.ultanorenovado + 1) == DateTime.Now.Year)
                     {
-                        if ((item.ultanorenovado + 1) == DateTime.Now.Year)
-                        {
-                            item.anoporrenovar = item.ultanorenovado + 1;
+                        item.anoporrenovar = item.ultanorenovado + 1;
 
-                            DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+                        DateTime.TryParseExact(item.fecharenovacion, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
 
-                            item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
+                        item.fecharenovacion = dtm.ToString("MMMM dd, yyyy");
 
-                            item.status = true;
+                        item.status = true;
 
-                            listEstablecimientos.Add(item);
-                        }
-                    }
-
-                    if (listEstablecimientos.Count > 0)
-                    {
-                        grvEstablecimientos.Visibility = Visibility.Visible;
-                        lv_data_list.DataContext = listEstablecimientos;
+                        listEstablecimientos.Add(item);
                     }
                 }
-                else
+
+                if (listEstablecimientos.Count > 0)
                 {
-                    Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
+                    grvEstablecimientos.Visibility = Visibility.Visible;
+                    lv_data_list.DataContext = listEstablecimientos;
                 }
             }
             catch (Exception ex)
@@ -116,10 +109,10 @@ namespace WPFCCPereira.UserControls.Renewal
                     bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
-                else 
+                else
                 if (transaction.ExpedientesMercantil.numactivos < transaction.ExpedientesMercantil.activos)
                 {
-                    txtErrorActivos.Text = "Los activos deben ser mayor o iguales a los de "+ transaction.ExpedientesMercantil.ultanorenovado;
+                    txtErrorActivos.Text = "Los activos deben ser mayor o iguales a los de " + transaction.ExpedientesMercantil.ultanorenovado;
                     bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }

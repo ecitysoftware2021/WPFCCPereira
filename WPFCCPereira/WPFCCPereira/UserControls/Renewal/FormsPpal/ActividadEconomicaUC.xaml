@@ -298,6 +298,12 @@
                     Width="900"
                     Margin="0,0,0,0"
                 />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="{Binding FormularioPpal.datos.feciniact2}"
+                    FontSize="30" 
+                />
             </Grid>
             <Grid Grid.Row="10">
                 <TextBlock
@@ -429,10 +435,10 @@
                     Background="Transparent"
                     FontSize="30"
                     >
-                    <ComboBoxItem IsSelected="True">No</ComboBoxItem>
-                    <ComboBoxItem>Importador</ComboBoxItem>
-                    <ComboBoxItem>Exportador</ComboBoxItem>
-                    <ComboBoxItem>Ambos</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True" Tag="0">No</ComboBoxItem>
+                    <ComboBoxItem Tag="1">Importador</ComboBoxItem>
+                    <ComboBoxItem Tag="2">Exportador</ComboBoxItem>
+                    <ComboBoxItem Tag="3">Ambos</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>

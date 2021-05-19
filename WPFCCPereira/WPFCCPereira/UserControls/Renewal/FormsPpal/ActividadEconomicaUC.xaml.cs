@@ -60,10 +60,13 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
                 DateTime dtm;
                 DateTime.TryParseExact(transaction.FormularioPpal.datos.fechamatricula, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-                transaction.FormularioPpal.datos.fechamatricula = dtm.ToString("MMMM dd, yyyy");
-                
+                transaction.FormularioPpal.datos.fechamatricula = transaction.FormularioPpal.datos.fechamatricula != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
+
                 DateTime.TryParseExact(transaction.FormularioPpal.datos.feciniact1, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-                transaction.FormularioPpal.datos.feciniact1 = dtm.ToString("MMMM dd, yyyy");
+                transaction.FormularioPpal.datos.feciniact1 = transaction.FormularioPpal.datos.feciniact1 != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
+
+                DateTime.TryParseExact(transaction.FormularioPpal.datos.feciniact2, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+                transaction.FormularioPpal.datos.feciniact2 = transaction.FormularioPpal.datos.feciniact2 != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
 
                 this.DataContext = this.transaction;
             }
