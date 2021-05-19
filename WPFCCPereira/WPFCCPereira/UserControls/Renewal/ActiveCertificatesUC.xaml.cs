@@ -162,7 +162,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     if (amoutEstablecimientos > transaction.ExpedientesMercantil.numactivos)
                     {
-                        txtErrorActivos.Text = "El valor de los activos de los establecimientos supera el valor de la persona";
+                        txtErrorActivos.Text = "El valor total de los establecimientos supera el valor de la persona";
                         bdrActivos.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                         state = false;
                     }
