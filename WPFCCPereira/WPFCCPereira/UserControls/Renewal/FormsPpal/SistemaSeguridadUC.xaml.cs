@@ -34,5 +34,12 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
         }
         #endregion
+
+
+        private void cbxAportante_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            string s = cbxAportante.Items.GetItemAt(cbxAportante.SelectedIndex).ToString();
+            grvAportante.Visibility = cbxAportante.Text.ToUpper() == "SI" ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+        }
     }
 }

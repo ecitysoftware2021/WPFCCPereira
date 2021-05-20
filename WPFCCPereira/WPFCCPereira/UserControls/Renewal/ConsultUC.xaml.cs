@@ -31,18 +31,18 @@ namespace WPFCCPereira.UserControls.Renewal
         #endregion
 
         #region "Constructor"
-        public ConsultUC(ETransactionType type, Transaction ts)
+        public ConsultUC(Transaction ts)
         {
             InitializeComponent();
 
             this.transaction = ts;
 
-            ConfigurateView(type);
+            ConfigurateView();
         }
         #endregion
 
         #region "Métodos"
-        private void ConfigurateView(ETransactionType type)
+        private void ConfigurateView()
         {
             try
             {

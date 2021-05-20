@@ -26,7 +26,7 @@ namespace WPFCCPereira.UserControls
                 {
                     if (tag == (int)ETransactionType.Renovacion)
                     {
-                        Utilities.navigator.Navigate(UserControlView.LoginUser, true, tag);
+                        Utilities.navigator.Navigate(UserControlView.LoginUser, true);
                     }
                     else
                     {

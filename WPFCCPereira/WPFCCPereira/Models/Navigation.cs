@@ -45,10 +45,10 @@ namespace WPFCCPereira.Models
                         break;
                    //<------------>BEGIN RENOVACION<-------------->
                     case UserControlView.LoginUser:
-                        View = new UserControls.Renewal.LoginUC((ETransactionType)data);
+                        View = new UserControls.Renewal.LoginUC();
                         break;
                     case UserControlView.ConsultRenovacion:
-                        View = new UserControls.Renewal.ConsultUC((ETransactionType)data, (Transaction)complement);
+                        View = new UserControls.Renewal.ConsultUC((Transaction)data);
                         break;
                     case UserControlView.ActiveCertificate:
                         View = new UserControls.Renewal.ActiveCertificatesUC((Transaction)data);

@@ -257,21 +257,12 @@
                     />
                 </Grid>
             </Border>
-            <Image 
-                x:Name="btnNext"
-                Source="/Images/Buttons/btnsiguiente.png"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Width="250"
-                Margin="30,0,0,10"
-                TouchDown="btnNext_TouchDown"
-            />
         </Grid>
 
         <Grid Name="grvEstablecimientos" Grid.Row="3" Visibility="Hidden">
             <ListView 
                 x:Name="lv_data_list" 
-                Margin="0,0,0,0"
+                Margin="0,0,0,200"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Top"
@@ -511,6 +502,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Image 
+                x:Name="btnNext"
+                Source="/Images/Buttons/btnsiguiente.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="300"
+                Margin="0,0,0,120"
+                TouchDown="btnNext_TouchDown"
+            />
         </Grid>
     </Grid>
 </UserControl>

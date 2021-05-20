@@ -222,6 +222,13 @@ namespace WPFCCPereira.UserControls.Renewal
 
                         TimerService.Reset();
                     }
+                    else 
+                    if (response.mensajeerror != string.Empty)
+                    {
+                        Utilities.ShowModal(string.Concat("Ha ocurrido un error al procesar la solicitud. ",response.mensajeerror ," Por favor intenta de nuevo."), EModalType.Error);
+
+                        TimerService.Reset();
+                    }
                     else
                     {
                         transaction.LiquidarRenovacionNormal = response;

@@ -24,7 +24,7 @@
                 BorderThickness="0"
                 Background="#ffffff"
                 Width="900"
-                Height="400"
+                Height="500"
                 CornerRadius="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
@@ -99,6 +99,7 @@
                 FontSize="25" 
             />
             <ComboBox
+                Name="cbxAportante"
                 Width="300"
                 HorizontalContentAlignment="Right"
                 HorizontalAlignment="Right"
@@ -107,12 +108,38 @@
                 VerticalAlignment="Center"
                 Background="Transparent"
                 FontSize="30"
+                SelectionChanged="cbxAportante_Selected"
                 >
-                <ComboBoxItem IsSelected="True">No</ComboBoxItem>
-                <ComboBoxItem>Si</ComboBoxItem>
+                <ComboBoxItem Name="no" IsSelected="True">No</ComboBoxItem>
+                <ComboBoxItem Name="si">Si</ComboBoxItem>
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">
+            <Grid x:Name="grvAportante" Visibility="Hidden">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" 
+                    Text="Seleccione el tipo de aportante"
+                    FontSize="25" 
+                    Margin="0,30,0,0"
+                />
+                <ComboBox
+                    Width="300"
+                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
+                    Grid.Row="0"
+                    Margin="0,30,0,0"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    FontSize="30"
+                    >
+                    <ComboBoxItem IsSelected="True">1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                </ComboBox>
+            </Grid>
             <Image 
                 x:Name="btnNext"
                 Source="/Images/Buttons/btnsiguiente.png"
@@ -120,7 +147,7 @@
                 Height="70"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0,50,100,0"
+                Margin="0,200,100,0"
                 TouchDown="btnNext_TouchDown"
             />
             <Image 
@@ -130,7 +157,7 @@
                 Height="70"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="100,50,0,0"
+                Margin="100,200,0,0"
                 TouchDown="btnReturn_TouchDown"
             />
         </Grid>

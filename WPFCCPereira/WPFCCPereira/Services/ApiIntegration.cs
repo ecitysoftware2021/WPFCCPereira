@@ -555,14 +555,9 @@ namespace WPFCCPereira.Services
                 {
                     var data = JsonConvert.DeserializeObject<LiquidarRenovacionNormalResponse>(response.ToString());
 
-                    if (data != null && data.codigoerror == "0000")
+                    if (data != null)
                     {
                         return data;
-                    }
-                    else
-                    if (data != null && data.mensajeerror != string.Empty) 
-                    { 
-                        //TODO:guardar error
                     }
                 }
             }
@@ -593,6 +588,11 @@ namespace WPFCCPereira.Services
                     if (data != null && data.codigoerror == "0000")
                     {
                         return data;
+                    }
+                    else
+                    if (data != null && data.mensajeerror != string.Empty)
+                    {
+                        //TODO:guardar error
                     }
                 }
             }

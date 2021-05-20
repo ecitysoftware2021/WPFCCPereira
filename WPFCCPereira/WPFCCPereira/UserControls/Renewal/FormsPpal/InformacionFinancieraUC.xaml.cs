@@ -91,36 +91,12 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             {
                 bool state = true;
 
-                //if (transaction.FormularioPpal.datos.actcte == 0)//Activos corrientes
-                //{
-                //    brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                //    state = false;
-                //}
-                
-                //if (transaction.FormularioPpal.datos.actnocte == 0)//Activos no corrientes
-                //{
-                //    brd_actnocte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                //    state = false;
-                //}
-
                 if ((transaction.FormularioPpal.datos.actnocte + transaction.FormularioPpal.datos.actcte) != transaction.FormularioPpal.datos.acttot)
                 {
                     brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     brd_actnocte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
-                
-                //if (transaction.ExpedientesMercantil.pascte == 0)//Pasivos corrientes
-                //{
-                //    brd_pascte.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                //    state = false;
-                //}
-                
-                //if (transaction.ExpedientesMercantil.paslar == 0)//Pasivos no corrientes o a largo plazo
-                //{
-                //    brd_paslar.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                //    state = false;
-                //}
 
                 if (transaction.FormularioPpal.datos.pattot == 0)//Patrimonio (patrimonio neto)
                 {
@@ -136,9 +112,42 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 return false;
             }
         }
+
+        private void ChangeUtilPerdi()
+        {
+            try
+            {
+                var run1 = txtUtilidadPerdida.Inlines.FirstInline as Run;
+                var run2 = txtUtilidadPerdida.Inlines.LastInline as Run;
+
+                run1.FontWeight = run1.FontWeight == FontWeights.Bold ? FontWeights.Normal : FontWeights.Bold;
+                run2.FontWeight = run2.FontWeight == FontWeights.Bold ? FontWeights.Normal : FontWeights.Bold;
+
+                imgUtilidadPerdida.Source = run1.FontWeight == FontWeights.Bold ? new BitmapImage(new Uri("pack://application:,,,/Images/Others/sum.png", UriKind.Absolute)) : new BitmapImage(new Uri("pack://application:,,,/Images/Others/subtract.png", UriKind.Absolute));
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
         #endregion
 
         #region "Eventos"
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
+        }
+
+        private void txtUtilidadPerdida_TouchDown(object sender, TouchEventArgs e)
+        {
+            ChangeUtilPerdi();
+        }
+
+        private void imgUtilidadPerdida_TouchDown(object sender, TouchEventArgs e)
+        {
+            ChangeUtilPerdi();
+        }
+
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
@@ -148,6 +157,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             if (Validate())
             {
+                LoadView();
                 Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad, data: transaction);
             }
         }
@@ -158,7 +168,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             {
                 TextBox text = (TextBox)sender;
 
-                if (text.Text.Length > 13)
+                if (text.Text.Length > 16)
                 {
                     text.Text = text.Text.Remove(text.Text.Length - 1);
                 }
@@ -186,10 +196,5 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.OpenKeyboard(true, sender as TextBox, this);
         }
         #endregion
-
-        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
-        {
-            Utilities.navigator.Navigate(UserControlView.Main);
-        }
     }
 }

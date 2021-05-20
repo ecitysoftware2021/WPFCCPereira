@@ -1254,9 +1254,27 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public int invent { get; set; }
         public decimal pascte { get; set; }
         public decimal paslar { get; set; }
-        public decimal pastot { get; set; }
+        private decimal _pastot;
+        public decimal pastot
+        {
+            get { return _pastot; }
+            set
+            {
+                _pastot = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(pastot)));
+            }
+        }
         public decimal pattot { get; set; }
-        public decimal paspat { get; set; }
+        private decimal _paspat;
+        public decimal paspat
+        {
+            get { return _paspat; }
+            set
+            {
+                _paspat = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(paspat)));
+            }
+        }
         public string balsoc { get; set; }
         public decimal ingope { get; set; }
         public decimal ingnoope { get; set; }

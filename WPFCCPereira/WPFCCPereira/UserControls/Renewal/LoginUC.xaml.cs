@@ -36,11 +36,10 @@ namespace WPFCCPereira.UserControls.Renewal
         #endregion
 
         #region "Constructor"
-        public LoginUC(ETransactionType type)
+        public LoginUC()
         {
             InitializeComponent();
 
-            Type = type;
             Id = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
@@ -145,7 +144,7 @@ namespace WPFCCPereira.UserControls.Renewal
                                 EMAIL = Email
                             };
 
-                            Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, Type, transaction);
+                            Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
                         }
                         else
                         {

@@ -107,6 +107,8 @@ namespace WPFCCPereira.UserControls.Renewal
                     if (response == null || response.datos == null)
                     {
                         Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
+
+                        Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
                     }
                     else
                     {

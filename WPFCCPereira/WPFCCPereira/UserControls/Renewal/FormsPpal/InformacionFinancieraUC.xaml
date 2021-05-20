@@ -634,10 +634,25 @@
             </Grid>
             <Grid Grid.Row="19">
                 <TextBlock
+                    Name="txtUtilidadPerdida"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
-                    Text="Utilidad / Perd" 
-                    FontSize="25" 
+                    FontSize="25"
+                    TouchDown="txtUtilidadPerdida_TouchDown"
+                    >
+                <Run Text="Utilidad" FontWeight="Bold"/>
+                <Run Text=" / "/>
+                <Run Text="Perdida" FontWeight="Normal"/>
+                </TextBlock>
+                <Image 
+                    x:Name="imgUtilidadPerdida"
+                    Source="/Images/others/sum.png"
+                    Stretch="Uniform"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,0,265,0"
+                    TouchDown="imgUtilidadPerdida_TouchDown"
                 />
                 <Border
                     x:Name="brd_utiope"
@@ -652,7 +667,7 @@
                         Text="{Binding FormularioPpal.datos.utiope, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
                         FontSize="25"
                         HorizontalContentAlignment="Center"
-                        Width="270"
+                        Width="220"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         TextChanged="Amount_TextChanged"
@@ -660,14 +675,14 @@
                     />
                 </Border>
             </Grid>
-            <Grid Grid.Row="20">
+            <!--<Grid Grid.Row="20">
                 <TextBlock
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
                     Text="Resultado del Pe..." 
                     FontSize="25" 
                 />
-            </Grid>
+            </Grid>-->
             <Grid Grid.Row="20">
                 <TextBlock
                     HorizontalAlignment="Center"
