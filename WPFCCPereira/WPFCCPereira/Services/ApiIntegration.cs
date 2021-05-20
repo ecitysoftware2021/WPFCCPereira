@@ -604,6 +604,41 @@ namespace WPFCCPereira.Services
             return null;
         }
 
+        public async Task<FormularioResponse> SetFormularioRenovacion(SetFormularioRenovacion request)
+        {
+            try
+            {
+                SetFormularioRenovacion Request = request;
+
+                request.codigoempresa = code;
+                request.usuariows = user;
+                request.token = token;
+
+                var response = await GetData(Request, "SetFormularioRenovacion");
+
+                if (response != null)
+                {
+                    var data = JsonConvert.DeserializeObject<FormularioResponse>(response.ToString());
+
+                    if (data != null && data.codigoerror == "0000")
+                    {
+                        return data;
+                    }
+                    else
+                    if (data != null && data.mensajeerror != string.Empty)
+                    {
+                        //TODO:guardar error
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
         public async Task<CIIUS> SearchCiuus(string reference)
         {
             try

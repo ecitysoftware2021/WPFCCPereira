@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -1042,7 +1043,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string recursostramite { get; set; }
         public string tamanoempresa { get; set; }
         public string emprendedor28 { get; set; }
-        public int pemprendedor28 { get; set; }
+        public Nullable<int> pemprendedor28 { get; set; }
         public string organizacion { get; set; }
         public string organizaciontexto { get; set; }
         public string categoria { get; set; }

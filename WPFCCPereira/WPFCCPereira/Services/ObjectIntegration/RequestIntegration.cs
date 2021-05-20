@@ -97,6 +97,19 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string numerorecuperacion { get; set; }
         public string expediente { get; set; }
     }
+    #endregion 
+    
+    #region "REQUEST-almacenarFormularioRenovacion"
+    public class SetFormularioRenovacion
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public string token { get; set; }
+        public string idliquidacion { get; set; }
+        public string numerorecuperacion { get; set; }
+        public string expediente { get; set; }
+        public List<Datos> datos { get; set; }
+    }
     #endregion
 
     #region "REQUEST-consultarCiius"

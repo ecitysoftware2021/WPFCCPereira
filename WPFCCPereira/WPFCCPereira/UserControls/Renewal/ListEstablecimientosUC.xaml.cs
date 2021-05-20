@@ -89,7 +89,7 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
-        private void GetDataForm(UserControlView view, string matricula)
+        private void GetDataForm(UserControlView view)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     var response = await AdminPayPlus.ApiIntegration.GetFormularioRenovacion(new GetFormularioRenovacion 
                     {
-                        expediente = matricula,
+                        expediente = transaction.ExpedientesMercantil.matricula,
                         idliquidacion = transaction.LiquidarRenovacionNormal.idliquidacion,
                         numerorecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion
                     });
@@ -142,7 +142,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void frmPpal_TouchDown(object sender, TouchEventArgs e)
         {
-            GetDataForm(UserControlView.Ppal_Identificacion, transaction.ExpedientesMercantil.matricula);
+            GetDataForm(UserControlView.Ppal_Identificacion);
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
