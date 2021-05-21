@@ -1372,6 +1372,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public List<object> patrimoniosesadl { get; set; }
         public Hf hf { get; set; }
         public List<object> ctrembargos { get; set; }
+        public List<ArrayF> f { get; set; }
         public string placaalcaldia { get; set; }
         public string placaalcaldiafecha { get; set; }
         public string reportealcaldia { get; set; }

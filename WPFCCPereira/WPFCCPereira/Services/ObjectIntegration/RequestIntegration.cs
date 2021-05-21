@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,6 +110,65 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string numerorecuperacion { get; set; }
         public string expediente { get; set; }
         public List<Datos> datos { get; set; }
+    }
+
+    public class ArrayF : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public string anodatos { get; set; }
+        public string fechadatos { get; set; }
+        public string personal { get; set; }
+        public string personaltemp { get; set; }
+        public decimal actvin { get; set; }
+        public decimal actcte { get; set; }
+        public decimal actnocte { get; set; }
+        public decimal actfij { get; set; }
+        public decimal fijnet { get; set; }
+        public decimal actotr { get; set; }
+        public decimal actval { get; set; }
+        public decimal acttot { get; set; }
+        public decimal actsinaju { get; set; }
+        public decimal invent { get; set; }
+        public decimal pascte { get; set; }
+        public decimal paslar { get; set; }
+        private decimal _pastot;
+        public decimal pastot
+        {
+            get { return _pastot; }
+            set
+            {
+                _pastot = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(pastot)));
+            }
+        }
+        public decimal pattot { get; set; }
+        private decimal _paspat;
+        public decimal paspat
+        {
+            get { return _paspat; }
+            set
+            {
+                _paspat = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(paspat)));
+            }
+        }
+        public decimal balsoc { get; set; }
+        public decimal ingope { get; set; }
+        public decimal ingnoope { get; set; }
+        public decimal gtoven { get; set; }
+        public decimal gtoadm { get; set; }
+        public decimal gasope { get; set; }
+        public decimal gasnoope { get; set; }
+        public decimal cosven { get; set; }
+        public decimal gasint { get; set; }
+        public decimal gasimp { get; set; }
+        public decimal depamo { get; set; }
+        public decimal utiope { get; set; }
+        public decimal utinet { get; set; }
     }
     #endregion
 

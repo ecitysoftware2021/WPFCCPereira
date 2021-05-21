@@ -34,15 +34,16 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             {
                 Task.Run(async () =>
                 {
-                    var datos = new System.Collections.Generic.List<Datos>();
-                    datos.Add(transaction.FormularioPpal.datos);
+
+                    var a = new System.Collections.Generic.List<Datos>();
+                    a.Add(transaction.FormularioPpal.datos);
 
                     var response = await AdminPayPlus.ApiIntegration.SetFormularioRenovacion(new SetFormularioRenovacion
                     {
                         expediente = transaction.ExpedientesMercantil.matricula,
                         idliquidacion = transaction.LiquidarRenovacionNormal.idliquidacion,
                         numerorecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion,
-                        datos = datos
+                        datos =  a
                     });
 
                     Utilities.CloseModal();

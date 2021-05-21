@@ -40,6 +40,8 @@ namespace WPFCCPereira.Models
         }
         //END RENOVACION
 
+        
+        public ArrayF arrayF { get; set; }
         public string consecutive { get; set; }
 
         public string reference { get; set; }
