@@ -668,6 +668,7 @@
                         FontSize="25"
                         HorizontalContentAlignment="Center"
                         Width="220"
+                        Tag="u/p"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         TextChanged="Amount_TextChanged"

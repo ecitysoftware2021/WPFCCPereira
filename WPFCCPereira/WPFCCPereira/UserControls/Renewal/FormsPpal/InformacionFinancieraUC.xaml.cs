@@ -137,7 +137,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     brd_pattot.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
-                
+
                 if (transaction.FormularioPpal.datos.paspat != transaction.FormularioPpal.datos.acttot)
                 {
                     brd_paspat.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
@@ -164,6 +164,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 run2.FontWeight = run2.FontWeight == FontWeights.Bold ? FontWeights.Normal : FontWeights.Bold;
 
                 imgUtilidadPerdida.Source = run1.FontWeight == FontWeights.Bold ? new BitmapImage(new Uri("pack://application:,,,/Images/Others/sum.png", UriKind.Absolute)) : new BitmapImage(new Uri("pack://application:,,,/Images/Others/subtract.png", UriKind.Absolute));
+
+                transaction.FormularioPpal.datos.utiope *= -1;
             }
             catch (Exception ex)
             {
@@ -217,6 +219,16 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 if (text.Text.Length < 2)
                 {
                     text.Text = "0";
+                }
+
+                if (text.Tag != null && text.Tag.ToString() == "u/p")
+                {
+                    var run2 = txtUtilidadPerdida.Inlines.LastInline as Run;
+
+                    if (transaction.FormularioPpal.datos.utiope > 0 && run2.FontWeight == FontWeights.Bold)
+                    {
+                        transaction.FormularioPpal.datos.utiope *= -1; 
+                    }
                 }
 
                 brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
