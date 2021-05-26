@@ -36,7 +36,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
             this.transaction = ts;
 
-            //this.transaction.arrayF = new Services.ObjectIntegration.ArrayF();
             this.transaction.FormularioPpal.datos.f = new List<Services.ObjectIntegration.ArrayF>();
 
             this.DataContext = this.transaction;
