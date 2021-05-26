@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -109,7 +110,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string idliquidacion { get; set; }
         public string numerorecuperacion { get; set; }
         public string expediente { get; set; }
-        public List<Datos> datos { get; set; }
+        public Datos datos { get; set; }
     }
 
     public class ArrayF : INotifyPropertyChanged
@@ -119,6 +120,16 @@ namespace WPFCCPereira.Services.ObjectIntegration
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        //ArrayF(string data)
+        //{
+
+        //}
+
+        //JsonPropertyAttribute aaa = new JsonPropertyAttribute(DateTime.Now.Year.ToString());
+
+        //[JsonPropertyAttribute(DateTime.Now.Year.ToString())]
+        //public string datos { get; set; }
         public string anodatos { get; set; }
         public string fechadatos { get; set; }
         public string personal { get; set; }

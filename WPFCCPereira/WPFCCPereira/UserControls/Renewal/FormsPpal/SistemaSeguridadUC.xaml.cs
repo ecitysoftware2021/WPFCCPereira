@@ -28,41 +28,35 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         #endregion
 
         #region "Métodos"
-        private void GetDataForm()
+        private void SaveDataForm()
         {
             try
             {
                 Task.Run(async () =>
                 {
 
-                    var a = new System.Collections.Generic.List<Datos>();
-                    a.Add(transaction.FormularioPpal.datos);
-
                     var response = await AdminPayPlus.ApiIntegration.SetFormularioRenovacion(new SetFormularioRenovacion
                     {
                         expediente = transaction.ExpedientesMercantil.matricula,
                         idliquidacion = transaction.LiquidarRenovacionNormal.idliquidacion,
                         numerorecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion,
-                        datos =  a
+                        datos = transaction.FormularioPpal.datos
                     });
 
                     Utilities.CloseModal();
 
-                    //if (response == null || response.datos == null)
-                    //{
-                    //    Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
+                    if (response == null || response.codigoerror != "0000")
+                    {
+                        Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
 
-                    //    Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
-                    //}
-                    //else
-                    //{
+                        Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
+                    }
+                    else
+                    {
+                        transaction.FormularioPpal.datos.FinishFormPPal = true;
 
                         Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
-                        //transaction.FormularioPpal = response;
-
-                        //Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
-
-                    //}
+                    }
                 });
 
                 Utilities.ShowModal("Guardando información del formulario. Regálenos unos segundos.", EModalType.Preload);
@@ -99,9 +93,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            GetDataForm();
-            //transaction.FormularioPpal.datos.FinishFormPPal = true;
-            //Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
+            SaveDataForm();
         }
         #endregion
     }

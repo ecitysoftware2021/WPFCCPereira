@@ -142,7 +142,22 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void frmPpal_TouchDown(object sender, TouchEventArgs e)
         {
-            GetDataForm(UserControlView.Ppal_Identificacion);
+            try
+            {
+                if (transaction.FormularioPpal != null && transaction.FormularioPpal.datos != null)
+                { 
+                    transaction.FormularioPpal.datos.FinishFormPPal = false;
+                    Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
+                }
+                else
+                {
+                    GetDataForm(UserControlView.Ppal_Identificacion);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)

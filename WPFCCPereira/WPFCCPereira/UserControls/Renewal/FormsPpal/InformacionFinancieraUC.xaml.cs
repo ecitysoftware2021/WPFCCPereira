@@ -137,6 +137,12 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     brd_pattot.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     state = false;
                 }
+                
+                if (transaction.FormularioPpal.datos.paspat != transaction.FormularioPpal.datos.acttot)
+                {
+                    brd_paspat.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    state = false;
+                }
 
                 return state;
             }
@@ -191,7 +197,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             if (Validate())
             {
-                LoadView();
+                //LoadView();
                 addData();
                 Utilities.navigator.Navigate(UserControlView.Ppal_SistemaSeguridad, data: transaction);
             }
@@ -216,6 +222,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 brd_actcte.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
                 brd_actnocte.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
                 brd_pattot.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
+                brd_paspat.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
 
                 Validate();
                 LoadView();
