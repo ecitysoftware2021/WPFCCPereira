@@ -75,7 +75,24 @@ namespace WPFCCPereira.Models
                     case UserControlView.Ppal_SistemaSeguridad:
                         View = new UserControls.Renewal.FormsPpal.SistemaSeguridadUC((Transaction)data);
                         break;
-                    //<------------>end   Formularios principal<-------------->
+                    //<------------>end   Formularios principal<-------------->  
+                    //<------------>begin Formularios secundarios<-------------->
+                    case UserControlView.Add_Identificacion:
+                        View = new UserControls.Renewal.FormsAdd.Identificacion2UC((Transaction)data);
+                        break;
+                    case UserControlView.Add_UbicacionDatosGenerales:
+                        View = new UserControls.Renewal.FormsAdd.UbicacionDatosGenerales2UC((Transaction)data);
+                        break;
+                    //case UserControlView.Add_ActividadEconomica:
+                    //    View = new UserControls.Renewal.FormsPpal.ActividadEconomicaUC((Transaction)data);
+                    //    break;
+                    //case UserControlView.Add_InformacionFinanciera:
+                    //    View = new UserControls.Renewal.FormsPpal.InformacionFinancieraUC((Transaction)data);
+                    //    break;
+                    //case UserControlView.Add_SistemaSeguridad:
+                    //    View = new UserControls.Renewal.FormsPpal.SistemaSeguridadUC((Transaction)data);
+                    //    break;
+                    //<------------>end   Formularios secundarios<-------------->
                     //<------------->END RENOVACION<--------------->
 
 

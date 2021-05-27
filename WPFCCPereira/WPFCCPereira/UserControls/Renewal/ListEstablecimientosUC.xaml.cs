@@ -10,6 +10,8 @@ using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.ObjectIntegration;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WPFCCPereira.UserControls.Renewal
 {
@@ -44,18 +46,22 @@ namespace WPFCCPereira.UserControls.Renewal
                 if (transaction.FormularioPpal == null)
                 {
                     transaction.FormularioPpal = new FormularioResponse();
-                    transaction.FormularioPpal.datos = new Datos();
+                }
+                
+                if (transaction.FormularioAdd == null)
+                {
+                    transaction.FormularioAdd = new List<FormularioResponse>();
                 }
 
-                if (!transaction.FormularioPpal.datos.FinishFormPPal)
-                {
-                    brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
-                }
-                else
+                if (transaction.FormularioPpal.datos != null && transaction.FormularioPpal.datos.FinishFormPPal)
                 {
                     brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
                     transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgGrabado.png";
+                }
+                else
+                {
+                    brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
                 }
 
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
@@ -91,7 +97,7 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
-        private void GetDataForm(UserControlView view)
+        private void GetDataForm(UserControlView view, string matricula)
         {
             try
             {
@@ -99,7 +105,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     var response = await AdminPayPlus.ApiIntegration.GetFormularioRenovacion(new GetFormularioRenovacion 
                     {
-                        expediente = transaction.ExpedientesMercantil.matricula,
+                        expediente = matricula,
                         idliquidacion = transaction.LiquidarRenovacionNormal.idliquidacion,
                         numerorecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion
                     });
@@ -122,7 +128,9 @@ namespace WPFCCPereira.UserControls.Renewal
                         }
                         else
                         {
-
+                            transaction.FormularioAdd.Add(response);
+                            
+                            Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction);
                         }
                     }
                 });
@@ -153,7 +161,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 }
                 else
                 {
-                    GetDataForm(UserControlView.Ppal_Identificacion);
+                    GetDataForm(UserControlView.Ppal_Identificacion, transaction.ExpedientesMercantil.matricula);
                 }
             }
             catch (Exception ex)
@@ -168,13 +176,24 @@ namespace WPFCCPereira.UserControls.Renewal
         }
         #endregion
 
-        private void lstEstblecimientoSelect_TouchDown(object sender, TouchEventArgs e)
+        private void frmAdd_TouchDown(object sender, TouchEventArgs e)
         {
             try
             {
-                if (((Grid)sender).Tag != null)
-                {
+                var data = ((Grid)sender).Tag as ListEstablecimientos;
 
+                if (data != null)
+                {
+                    var result = transaction.FormularioAdd.Where(x => x.datos.matricula == data.matricula).FirstOrDefault();
+
+                    if (result == null)
+                    {
+                        GetDataForm(UserControlView.Add_Identificacion, data.matricula);
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
             catch (Exception ex)

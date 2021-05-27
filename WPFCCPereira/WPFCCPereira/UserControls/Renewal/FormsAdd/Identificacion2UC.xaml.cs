@@ -42,7 +42,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
         #region "Eventos"
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            //Utilities.navigator.Navigate(UserControlView.Ppal_UbicacionDatosGenerales, data: transaction);
+            Utilities.navigator.Navigate(UserControlView.Add_UbicacionDatosGenerales, data: transaction);
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)

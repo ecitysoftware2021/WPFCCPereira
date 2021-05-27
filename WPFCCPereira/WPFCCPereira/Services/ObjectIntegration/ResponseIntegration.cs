@@ -750,7 +750,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string fechadatostamanoempresarial { get; set; }
         public string tamanoempresarial957codigo { get; set; }
         public string tamanoempresarial957 { get; set; }
-        public decimal tamanoempresarial957uvts { get; set; }
+        public Nullable<decimal> tamanoempresarial957uvts { get; set; }
         public string tamanoempresarial957codigoanterior { get; set; }
         public string cntestab01 { get; set; }
         public string cntestab02 { get; set; }
@@ -891,22 +891,22 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string datconst_numdoc { get; set; }
         public string datconst_oridoc { get; set; }
         public string datconst_mundoc { get; set; }
-        public List<object> bienes { get; set; }
+        //public List<object> bienes { get; set; }
         public string existenvinculos { get; set; }
-        public List<object> replegal { get; set; }
-        public List<object> vinculos { get; set; }
-        public List<object> vinculosh { get; set; }
-        public List<object> vincuprop { get; set; }
-        public List<object> propietarios { get; set; }
-        public List<object> propietariosh { get; set; }
-        public List<object> sucursalesagencias { get; set; }
-        public List<object> establecimientosarrendados { get; set; }
-        public List<object> establecimientosnacionales { get; set; }
-        public List<object> rr { get; set; }
-        public List<object> lcodigosbarras { get; set; }
-        public List<object> capitales { get; set; }
-        public List<object> patrimoniosesadl { get; set; }
-        public List<object> ctrembargos { get; set; }
+        //public List<object> replegal { get; set; }
+        //public List<object> vinculos { get; set; }
+        //public List<object> vinculosh { get; set; }
+        //public List<object> vincuprop { get; set; }
+        //public List<object> propietarios { get; set; }
+        //public List<object> propietariosh { get; set; }
+        //public List<object> sucursalesagencias { get; set; }
+        //public List<object> establecimientosarrendados { get; set; }
+        //public List<object> establecimientosnacionales { get; set; }
+        //public List<object> rr { get; set; }
+        //public List<object> lcodigosbarras { get; set; }
+        //public List<object> capitales { get; set; }
+        //public List<object> patrimoniosesadl { get; set; }
+        //public List<object> ctrembargos { get; set; }
         public List<ArrayF> f { get; set; }
         public string placaalcaldia { get; set; }
         public string placaalcaldiafecha { get; set; }

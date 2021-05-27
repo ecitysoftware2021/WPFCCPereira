@@ -172,7 +172,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Margin="0,0,0,0">
-                            <Grid Name="lstEstblecimientoSelect" Tag="{Binding Data}" TouchDown="lstEstblecimientoSelect_TouchDown">
+                            <Grid Name="frmAdd" Tag="{Binding Data}" TouchDown="frmAdd_TouchDown">
                                 <TextBlock 
                                     FontSize="25"
                                     FontFamily="Arial"

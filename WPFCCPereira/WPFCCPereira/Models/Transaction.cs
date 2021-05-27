@@ -21,8 +21,9 @@ namespace WPFCCPereira.Models
         public ResponseIntegration ExpedientesMercantil { get; set; }
 
         public LiquidarRenovacionNormalResponse LiquidarRenovacionNormal{ get; set; }
+
         public FormularioResponse FormularioPpal { get; set; }
-        //public FormularioPpalAux FormularioPpalAux { get; set; }
+        
 
         private FormularioPpalAux _FormularioPpalAux;
 
@@ -38,10 +39,28 @@ namespace WPFCCPereira.Models
                 OnPropertyRaised("FormularioPpalAux");
             }
         }
+
+
+        public List<FormularioResponse> FormularioAdd { get; set; }
+
+
+        private List<FormularioPpalAux> _FormularioAddAux;
+
+        public List<FormularioPpalAux> FormularioAddAux
+        {
+            get
+            {
+                return _FormularioAddAux;
+            }
+            set
+            {
+                _FormularioAddAux = value;
+                OnPropertyRaised("FormularioAddAux");
+            }
+        }
         //END RENOVACION
 
-        
-        public ArrayF arrayF { get; set; }
+
         public string consecutive { get; set; }
 
         public string reference { get; set; }

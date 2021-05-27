@@ -262,7 +262,7 @@
                         Height="3"
                         Stretch="Fill"
                     />
-                    <TextBlock
+                    <!--<TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom" 
                         Text="He olvidado mi contraseña" 
@@ -278,7 +278,7 @@
                         VerticalAlignment="Bottom" 
                         HorizontalAlignment="Center" 
                         Height="80"
-                    />
+                    />-->
                 </Grid>
             </Border>
             
