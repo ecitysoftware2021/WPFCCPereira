@@ -62,6 +62,8 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     if ((item.ultanorenovado + 1) == DateTime.Now.Year)
                     {
+                        item.Data = item;
+
                         item.anoporrenovar = item.ultanorenovado + 1;
 
                         DateTime dtm;
@@ -166,5 +168,19 @@ namespace WPFCCPereira.UserControls.Renewal
         }
         #endregion
 
+        private void lstEstblecimientoSelect_TouchDown(object sender, TouchEventArgs e)
+        {
+            try
+            {
+                if (((Grid)sender).Tag != null)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
     }
 }

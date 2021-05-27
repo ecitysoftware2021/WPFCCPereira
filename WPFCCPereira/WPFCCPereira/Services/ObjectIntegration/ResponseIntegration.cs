@@ -120,8 +120,9 @@ namespace WPFCCPereira.Services.ObjectIntegration
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private int _numempleados;
+        public object Data { get; set; }
 
+        private int _numempleados;
         public int numempleados
         {
             get
