@@ -77,7 +77,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 transaction.LiquidarRenovacionNormal.CantMatriculas = cant;
 
-                transaction.payer.IDENTIFICATION = string.Concat("(", transaction.payer.IDENTIFICATION, ")");
+                transaction.payer.ID = string.Concat("(", transaction.payer.IDENTIFICATION, ")");
 
                 this.DataContext = transaction;
             }

@@ -10,6 +10,7 @@ namespace WPFCCPereira.DataModel
     {
         public int PAYER_ID { get; set; }
         public string IDENTIFICATION { get; set; }
+        public string ID { get; set; }
         public string NAME { get; set; }
         public string LAST_NAME { get; set; }
         public string PHONE { get; set; }

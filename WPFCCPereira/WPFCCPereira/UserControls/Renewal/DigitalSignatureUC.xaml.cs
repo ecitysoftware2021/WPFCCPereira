@@ -70,7 +70,7 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         transaction.urlFirmaElectronica = response;
 
-                        Utilities.ShowModal("La firma ha quedado guardada. Toca la pantalla para continuar.", EModalType.Error); 
+                        Utilities.ShowModal("La firma ha quedado guardada.", EModalType.Error); 
 
                         Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
                     }

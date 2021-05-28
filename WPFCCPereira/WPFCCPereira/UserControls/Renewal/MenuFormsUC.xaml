@@ -149,7 +149,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
                 TextAlignment="Justify"
-                Text="{Binding payer.IDENTIFICATION}" 
+                Text="{Binding payer.ID}" 
                 Foreground="Black" 
                 FontWeight="Bold"
                 FontSize="30" 
