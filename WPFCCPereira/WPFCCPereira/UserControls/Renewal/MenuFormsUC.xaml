@@ -216,23 +216,26 @@
                 TouchDown="btnDigilenciar_TouchDown"
             />
             <Image 
+                Name="btnFirma"
                 Source="/Images/buttons/btnPaso2.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Height="123"
                 Margin="0,0,0,0"
                 IsEnabled="False"
-                Opacity="0.5"
+                Opacity="0.4"
                 Stretch="Uniform"
+                TouchDown="btnFirma_TouchDown"
             />
             <Image 
+                Name="btnPago"
                 Source="/Images/buttons/btnPaso3.png"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Height="121"
                 Margin="0,0,0,50"
                 IsEnabled="False"
-                Opacity="0.5"
+                Opacity="0.4"
                 Stretch="Uniform"
             />
 

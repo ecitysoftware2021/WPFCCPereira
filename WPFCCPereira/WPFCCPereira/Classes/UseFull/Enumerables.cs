@@ -95,19 +95,20 @@ namespace WPFCCPereira.Classes
         ActiveCertificate,
         MenuRenovacion,
         ListEstablecimientos,
+        DigitalSignature,
         //begin-formsPpal
-        Ppal_Identificacion,
-        Ppal_UbicacionDatosGenerales,
-        Ppal_ActividadEconomica,
-        Ppal_InformacionFinanciera,
-        Ppal_SistemaSeguridad,
+            Ppal_Identificacion,
+            Ppal_UbicacionDatosGenerales,
+            Ppal_ActividadEconomica,
+            Ppal_InformacionFinanciera,
+            Ppal_SistemaSeguridad,
         //end---formsPpal
         //begin-formsAdd
-        Add_Identificacion,
-        Add_UbicacionDatosGenerales,
-        Add_ActividadEconomica,
-        Add_InformacionFinanciera,
-        Add_SistemaSeguridad,
+            Add_Identificacion,
+            Add_UbicacionDatosGenerales,
+            Add_ActividadEconomica,
+            Add_InformacionFinanciera,
+            Add_SistemaSeguridad,
         //end---formsAdd
         //End-Renovacion
     }

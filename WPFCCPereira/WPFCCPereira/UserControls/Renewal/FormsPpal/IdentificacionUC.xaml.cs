@@ -35,6 +35,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
             this.transaction = ts;
 
+            this.transaction.FormularioPpal.datos.FinishFormPPal = false;
+
             LoadView();
         }
         #endregion

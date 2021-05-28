@@ -156,7 +156,6 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 if (transaction.FormularioPpal != null && transaction.FormularioPpal.datos != null)
                 { 
-                    transaction.FormularioPpal.datos.FinishFormPPal = false;
                     Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
                 }
                 else

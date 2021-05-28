@@ -45,7 +45,25 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                transaction.LiquidarRenovacionNormal.CantMatriculas = transaction.LiquidarRenovacionNormal.matriculas.Count();
+                int cant = transaction.LiquidarRenovacionNormal.matriculas.Count();
+
+                if (transaction.FormularioPpal != null && transaction.FormularioPpal.datos != null)
+                {
+                    if (transaction.FormularioPpal.datos.FinishFormPPal)
+                    {
+                        btnFirma.IsEnabled = true;
+                        btnFirma.Opacity = 1;
+
+                        cant--;
+                    }
+                    else
+                    {
+                        btnFirma.IsEnabled = false;
+                        btnFirma.Opacity = 0.4;
+                    }
+                }
+
+                transaction.LiquidarRenovacionNormal.CantMatriculas = cant;
 
                 transaction.payer.IDENTIFICATION = string.Concat("(", transaction.payer.IDENTIFICATION, ")");
 
@@ -75,6 +93,11 @@ namespace WPFCCPereira.UserControls.Renewal
             ModalDetailInformationW modal = new ModalDetailInformationW(transaction);
             modal.ShowDialog();
             this.Opacity = 1;
+        }
+
+        private void btnFirma_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.DigitalSignature, data: transaction);
         }
         #endregion
     }

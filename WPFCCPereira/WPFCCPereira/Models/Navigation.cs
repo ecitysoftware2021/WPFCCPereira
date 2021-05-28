@@ -58,6 +58,9 @@ namespace WPFCCPereira.Models
                         break;
                     case UserControlView.ListEstablecimientos:
                         View = new UserControls.Renewal.ListEstablecimientosUC((Transaction)data);
+                        break; 
+                    case UserControlView.DigitalSignature:
+                        View = new UserControls.Renewal.DigitalSignatureUC((Transaction)data);
                         break;
                     //<------------>begin Formularios principal<-------------->
                     case UserControlView.Ppal_Identificacion:
