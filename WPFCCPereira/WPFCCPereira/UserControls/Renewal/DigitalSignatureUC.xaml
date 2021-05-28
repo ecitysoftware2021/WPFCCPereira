@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Height="1920" 
              Width="1080" >
@@ -62,7 +63,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Justify"
-                Text="1682334" 
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}"  
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -78,7 +79,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
-                Text="18130990" 
+                Text="{Binding ExpedientesMercantil.matricula}"  
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -117,7 +118,7 @@
                    Text="Por favor confirme los datos del firmante a contiuación e ingrese su clave de usuario registrado para completar la firma electrónica." 
                      FontSize="30" 
                     TextWrapping="Wrap" 
-                    Width="800"
+                    Width="850"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center" 
                     TextAlignment="Justify"
@@ -142,7 +143,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="BRICEÑO QUINTANA LUZ" 
+                    Text="{Binding payer.NAME}" 
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -165,7 +166,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="1152465864" 
+                    Text="{Binding payer.IDENTIFICATION}" 
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -188,7 +189,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="luzenid@camarapereira.org.co" 
+                    Text="{Binding payer.EMAIL}"  
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -211,7 +212,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="3024545486" 
+                    Text="{Binding payer.PHONE}"  
                     FontSize="30" 
                     Foreground="#FF424242"
                 />
@@ -229,26 +230,75 @@
                     FontWeight="Bold"
                     Text="Introduzca la clave:" 
                     FontSize="30" 
-                    Margin="120,0,0,0"
+                    Margin="0,0,0,0"
                 />
-                <Border
-                    BorderBrush="#7a837e"
-                    BorderThickness="2"
-                    CornerRadius="15"
-                    HorizontalAlignment="Right"
+                <Image 
+                    Source="{Binding detailViewModel.Value2}"
+                    Stretch="Uniform"
+                    Height="70"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,180,0"
+                />
+                <Image 
+                    Source="/Images/others/eyes.png"
+                    x:Name="btn_show_id"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Center" 
+                    Margin="0,0,50,0"                  
+                    Width="60"
+                    TouchEnter="Btn_show_id_TouchEnter"
+                    TouchLeave="Btn_show_id_TouchLeave"
+                />
+                <PasswordBox 
+                    x:Name="txtPassword"
+                    md:HintAssist.Hint="Contraseña"
+                    md:HintAssist.IsFloating="True"
+                    md:HintAssist.FloatingScale="0.3"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Height="70" 
                     Width="300"
-                    Height="50"
-                    Margin="0,0,120,0"
+                    Password="6932625"
+                    HorizontalContentAlignment="Center"
+                    Margin="220,0,0,0"
+                    FontSize="35"
+                    Foreground="Black" 
+                    VerticalContentAlignment="Center"
+                    Visibility="{Binding detailViewModel.VisibleId}"
+                    PasswordChanged="txtPassword_PasswordChanged"
+                    TouchDown="txtPassword_TouchDown"
                     >
-                    <TextBox
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center" 
-                        TextAlignment="Right"
-                        Text="********"  
-                        FontSize="30" 
-                        Margin="0,0,40,0"
-                    />
-                </Border>
+                <PasswordBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </PasswordBox.Resources>
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+                <TextBox 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Height="70" 
+                    Width="300"
+                    Margin="220,0,0,0"
+                    FontSize="35"
+                    Foreground="Black" 
+                    Visibility="{Binding detailViewModel.VisibleInput}"
+                    Text="{Binding detailViewModel.Value1}"
+                    VerticalContentAlignment="Center"
+                    >
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                </TextBox.Background>
+            </TextBox>
             </Grid>
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">

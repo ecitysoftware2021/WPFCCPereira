@@ -10,7 +10,7 @@ using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.ViewModel
 {
-    class DetailViewModel : INotifyPropertyChanged
+    public class DetailViewModel : INotifyPropertyChanged
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;

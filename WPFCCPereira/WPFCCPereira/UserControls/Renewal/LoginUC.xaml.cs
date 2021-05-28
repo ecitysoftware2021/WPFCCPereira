@@ -31,7 +31,6 @@ namespace WPFCCPereira.UserControls.Renewal
         private string Email;
         private string Password;
         private string Phone;
-        private DetailViewModel viewModel;
         private Transaction transaction;
         #endregion
 
@@ -47,14 +46,14 @@ namespace WPFCCPereira.UserControls.Renewal
 
             transaction = new Transaction();
 
-            viewModel = new DetailViewModel
+            transaction.detailViewModel = new DetailViewModel
             {
                 VisibleId = Visibility.Visible,
                 VisibleInput = Visibility.Hidden,
                 Value2 = "/Images/others/passclosed.png"
             };
 
-            this.DataContext = viewModel;
+            this.DataContext = transaction;
         }
         #endregion
 
@@ -141,7 +140,8 @@ namespace WPFCCPereira.UserControls.Renewal
                                 NAME = response.nombreusuario,
                                 IDENTIFICATION = Id,
                                 PHONE = Phone,
-                                EMAIL = Email
+                                EMAIL = Email,
+                                PASSWORD = Password
                             };
 
                             Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
@@ -271,10 +271,10 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 if (!string.IsNullOrEmpty(txtPassword.Password))
                 {
-                    viewModel.Value1 = txtPassword.Password;
-                    viewModel.VisibleId = Visibility.Hidden;
-                    viewModel.VisibleInput = Visibility.Visible;
-                    viewModel.Value2 = "/Images/others/passOpen.png";
+                    transaction.detailViewModel.Value1 = txtPassword.Password;
+                    transaction.detailViewModel.VisibleId = Visibility.Hidden;
+                    transaction.detailViewModel.VisibleInput = Visibility.Visible;
+                    transaction.detailViewModel.Value2 = "/Images/others/passOpen.png";
 
                 }
             }
@@ -288,9 +288,9 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                viewModel.VisibleId = Visibility.Visible;
-                viewModel.VisibleInput = Visibility.Hidden;
-                viewModel.Value2 = "/Images/others/passclosed.png";
+                transaction.detailViewModel.VisibleId = Visibility.Visible;
+                transaction.detailViewModel.VisibleInput = Visibility.Hidden;
+                transaction.detailViewModel.Value2 = "/Images/others/passclosed.png";
             }
             catch (Exception ex)
             {

@@ -61,6 +61,7 @@ namespace WPFCCPereira.Models
         //END RENOVACION
 
 
+        public DetailViewModel detailViewModel { get; set; }
         public string consecutive { get; set; }
 
         public string reference { get; set; }

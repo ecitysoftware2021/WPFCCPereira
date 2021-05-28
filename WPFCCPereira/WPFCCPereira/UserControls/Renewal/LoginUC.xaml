@@ -174,13 +174,12 @@
                         </TextBox.Background>
                     </TextBox>
                     <Image 
-                        Source="{Binding Value2}"
+                        Source="{Binding detailViewModel.Value2}"
                         Stretch="Uniform"
                         Height="80"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="0,240,500,0"
-                        TouchDown="btnLogin_TouchDown"
                     />
                     <Image 
                         Source="/Images/others/eyes.png"
@@ -207,7 +206,7 @@
                         FontSize="35"
                         Foreground="Black" 
                         VerticalContentAlignment="Center"
-                        Visibility="{Binding VisibleId}"
+                        Visibility="{Binding detailViewModel.VisibleId}"
                         PasswordChanged="txtPassword_PasswordChanged"
                         TouchDown="txtPassword_TouchDown"
                         >
@@ -230,8 +229,8 @@
                         Margin="0,230,0,0"
                         FontSize="35"
                         Foreground="Black" 
-                        Visibility="{Binding VisibleInput}"
-                        Text="{Binding Value1}"
+                        Visibility="{Binding detailViewModel.VisibleInput}"
+                        Text="{Binding detailViewModel.Value1}"
                         VerticalContentAlignment="Center"
                         >
                         <TextBox.Resources>

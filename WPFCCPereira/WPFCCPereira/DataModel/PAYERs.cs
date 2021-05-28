@@ -14,6 +14,7 @@ namespace WPFCCPereira.DataModel
         public string LAST_NAME { get; set; }
         public string PHONE { get; set; }
         public string EMAIL { get; set; }
+        public string PASSWORD { get; set; }
         public string ADDRESS { get; set; }
         public bool STATE { get; set; }
         public string TYPE_PAYER { get; set; }
