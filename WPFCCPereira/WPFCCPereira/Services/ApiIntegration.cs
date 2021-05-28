@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WPFCCPereira.Classes;
+using WPFCCPereira.DataModel;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
@@ -669,6 +670,43 @@ namespace WPFCCPereira.Services
             }
 
             return null;
+        }
+
+        public async Task<string> FirmaElectronica(FirmaElectronica firma)
+        {
+            try
+            {
+                FirmaElectronica request = new FirmaElectronica
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idusuario = "USUPUBXX",
+                    idliquidacion = firma.idliquidacion,
+                    identificacioncontrol = firma.identificacioncontrol,
+                    emailcontrol = firma.emailcontrol,
+                    celularcontrol = firma.celularcontrol,
+                    clavefirmado = firma.clavefirmado
+                };
+
+                var response = await GetData(request, "FirmaElectronica");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RFirmaElectronica>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse.url;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return string.Empty;
         }
         //END RENOVACION 
     }

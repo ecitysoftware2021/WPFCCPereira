@@ -952,4 +952,13 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public List<Renglone> renglones { get; set; }
     }
     #endregion
+
+    #region "RESPONSE-firmarElectronicamenteTramite"
+    public class RFirmaElectronica
+    {
+        public string codigoerror { get; set; }
+        public string mensajeerror { get; set; }
+        public string url { get; set; }
+    }
+    #endregion
 }

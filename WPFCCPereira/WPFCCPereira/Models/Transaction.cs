@@ -58,6 +58,8 @@ namespace WPFCCPereira.Models
                 OnPropertyRaised("FormularioAddAux");
             }
         }
+
+        public string urlFirmaElectronica { get; set; }
         //END RENOVACION
 
 

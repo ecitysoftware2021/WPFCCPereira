@@ -192,4 +192,19 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string palabras { get; set; }
     }
     #endregion
+
+    #region "REQUEST-firmarElectronicamenteTramite"
+    public class FirmaElectronica
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public string token { get; set; }
+        public string idusuario { get; set; }
+        public int idliquidacion { get; set; }
+        public string identificacioncontrol { get; set; }
+        public string emailcontrol { get; set; }
+        public string celularcontrol { get; set; }
+        public string clavefirmado { get; set; }
+    }
+    #endregion
 }

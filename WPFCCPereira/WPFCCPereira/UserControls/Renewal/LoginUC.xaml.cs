@@ -275,7 +275,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     transaction.detailViewModel.VisibleId = Visibility.Hidden;
                     transaction.detailViewModel.VisibleInput = Visibility.Visible;
                     transaction.detailViewModel.Value2 = "/Images/others/passOpen.png";
-
                 }
             }
             catch (Exception ex)

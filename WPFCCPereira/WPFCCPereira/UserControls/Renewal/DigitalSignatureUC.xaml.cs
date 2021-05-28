@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.ObjectIntegration;
 using WPFCCPereira.ViewModel;
 
 namespace WPFCCPereira.UserControls.Renewal
@@ -47,7 +48,53 @@ namespace WPFCCPereira.UserControls.Renewal
         }
         #endregion
 
+        #region "Métodos"
+        private void Savefirm()
+        {
+            try
+            {
+                Task.Run(async () =>
+                {
+                    var response = await AdminPayPlus.ApiIntegration.FirmaElectronica(new FirmaElectronica 
+                    {
+                        idliquidacion = Convert.ToInt32(transaction.LiquidarRenovacionNormal.idliquidacion),
+                        identificacioncontrol = transaction.payer.IDENTIFICATION,
+                        emailcontrol = transaction.payer.EMAIL,
+                        celularcontrol = transaction.payer.PHONE,
+                        clavefirmado = transaction.payer.PASSWORD,
+                    });
+
+                    Utilities.CloseModal();
+
+                    if (!string.IsNullOrEmpty(response))
+                    {
+                        transaction.urlFirmaElectronica = response;
+
+                        Utilities.ShowModal("La firma ha quedado guardada. Toca la pantalla para continuar.", EModalType.Error); 
+
+                        Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
+                    }
+                    else
+                    {
+                        Utilities.ShowModal("No se pudo guardar la firma. Por favor intenta de nuevo.", EModalType.Error);
+                    }
+                });
+
+                Utilities.ShowModal("Guardando firma electronica. Regálenos unos segundos.", EModalType.Preload);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+        #endregion
+
         #region "Eventos"
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Menu);
+        }
+
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
@@ -55,7 +102,21 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-
+            try
+            {
+                if (transaction.payer.PASSWORD == txtPassword.Password)
+                {
+                    Savefirm();
+                }
+                else
+                {
+                    Utilities.ShowModal("La contraseña no coincide. Por favor intenta de nuevo", EModalType.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
 
         private void Btn_show_id_TouchEnter(object sender, TouchEventArgs e)
@@ -68,7 +129,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     transaction.detailViewModel.VisibleId = Visibility.Hidden;
                     transaction.detailViewModel.VisibleInput = Visibility.Visible;
                     transaction.detailViewModel.Value2 = "/Images/others/passOpen.png";
-
                 }
             }
             catch (Exception ex)
