@@ -237,6 +237,7 @@
                 IsEnabled="False"
                 Opacity="0.4"
                 Stretch="Uniform"
+                TouchDown="btnPago_TouchDown"
             />
 
             <Image 

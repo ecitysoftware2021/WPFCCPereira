@@ -57,7 +57,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     var response = await AdminPayPlus.ApiIntegration.FirmaElectronica(new FirmaElectronica 
                     {
-                        idliquidacion = Convert.ToInt32(transaction.LiquidarRenovacionNormal.idliquidacion),
+                        idliquidacion = Convert.ToInt32(transaction.idLiquidacion),
                         identificacioncontrol = transaction.payer.IDENTIFICATION,
                         emailcontrol = transaction.payer.EMAIL,
                         celularcontrol = transaction.payer.PHONE,

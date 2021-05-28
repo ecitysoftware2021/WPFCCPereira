@@ -77,6 +77,10 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 transaction.LiquidarRenovacionNormal.CantMatriculas = cant;
 
+                transaction.numeroRecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion;
+
+                transaction.idLiquidacion = transaction.LiquidarRenovacionNormal.idliquidacion;
+
                 transaction.payer.ID = string.Concat("(", transaction.payer.IDENTIFICATION, ")");
 
                 this.DataContext = transaction;
@@ -86,6 +90,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+
         #endregion
 
         #region "Eventos"
@@ -110,6 +115,11 @@ namespace WPFCCPereira.UserControls.Renewal
         private void btnFirma_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.DigitalSignature, data: transaction);
+        }
+
+        private void btnPago_TouchDown(object sender, TouchEventArgs e)
+        {
+
         }
         #endregion
     }
