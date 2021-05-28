@@ -285,6 +285,7 @@
                     Width="300"
                     Margin="220,0,0,0"
                     FontSize="35"
+                    HorizontalContentAlignment="Center"
                     Foreground="Black" 
                     Visibility="{Binding detailViewModel.VisibleInput}"
                     Text="{Binding detailViewModel.Value1}"

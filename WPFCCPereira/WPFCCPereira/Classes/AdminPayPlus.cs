@@ -129,7 +129,7 @@ namespace WPFCCPereira.Classes
         public async void Start()
         {
             DescriptionStatusPayPlus = MessageResource.ComunicationServer;
-            var token = await AdminPayPlus.ApiIntegration.SecurityToken();
+            //var token = await AdminPayPlus.ApiIntegration.SecurityToken();
             if (await LoginPaypad())
             {// && await ApiIntegration.SecurityToken()
                 DescriptionStatusPayPlus = MessageResource.StatePayPlus;
