@@ -207,4 +207,30 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string clavefirmado { get; set; }
     }
     #endregion
+
+    #region "REQUEST-consultarLiquidacion"
+    public class ConsultarLiquidacion
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public string token { get; set; }
+        public string idusuario { get; set; }
+        public string identificacioncontrol { get; set; }
+        public string nombrecontrol { get; set; }
+        public string emailcontrol { get; set; }
+        public string celularcontrol { get; set; }
+        public string idliquidacion { get; set; }
+        public string numerorecuperacion { get; set; }
+    }
+    #endregion
+
+    #region "REQUEST-aplicar1756Liquidacion"
+    public class AplicarDescuento
+    {
+        public string codigoempresa { get; set; }
+        public string usuariows { get; set; }
+        public string token { get; set; }
+        public int idliquidacion { get; set; }
+    }
+    #endregion
 }

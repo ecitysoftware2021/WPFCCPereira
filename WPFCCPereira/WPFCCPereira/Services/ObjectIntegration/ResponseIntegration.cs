@@ -961,4 +961,79 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string url { get; set; }
     }
     #endregion
+
+    #region "RESPONSE-consultarLiquidacion"
+    public class Liquidaciondetalle
+    {
+        public string secuencia { get; set; }
+        public string idsec { get; set; }
+        public string idservicio { get; set; }
+        public string txtservicio { get; set; }
+        public string cc { get; set; }
+        public string expediente { get; set; }
+        public string nombre { get; set; }
+        public string ano { get; set; }
+        public string cantidad { get; set; }
+        public string valorbase { get; set; }
+        public string porcentaje { get; set; }
+        public string valorservicio { get; set; }
+        public string benart7 { get; set; }
+        public string benley1780 { get; set; }
+        public string reliquidacion { get; set; }
+        public string serviciobase { get; set; }
+        public string pagoafiliacion { get; set; }
+        public string ir { get; set; }
+        public string iva { get; set; }
+        public string idalerta { get; set; }
+        public string expedienteafiliado { get; set; }
+        public string porcentajeiva { get; set; }
+        public string valoriva { get; set; }
+        public string servicioiva { get; set; }
+        public string porcentajedescuento { get; set; }
+        public string valordescuento { get; set; }
+        public string serviciodescuento { get; set; }
+        public string clavecontrol { get; set; }
+    }
+
+    public class RConsultarLiquidacion
+    {
+        public string codigoerror { get; set; }
+        public string mensajeerror { get; set; }
+        public string idusuario { get; set; }
+        public string identificacioncontrol { get; set; }
+        public string nombrecontrol { get; set; }
+        public string emailcontrol { get; set; }
+        public string celularcontrol { get; set; }
+        public string idliquidacion { get; set; }
+        public string numerorecuperacion { get; set; }
+        public string fecha { get; set; }
+        public string hora { get; set; }
+        public string tipotramite { get; set; }
+        public string subtipotramite { get; set; }
+        public string idestado { get; set; }
+        public string matricula { get; set; }
+        public string proponente { get; set; }
+        public string tipoidentificacion { get; set; }
+        public string identificacion { get; set; }
+        public string nombre { get; set; }
+        public string email { get; set; }
+        public string celular { get; set; }
+        public string valor { get; set; }
+        public string recibo { get; set; }
+        public string fecharecibo { get; set; }
+        public string horarecibo { get; set; }
+        public string radicacion { get; set; }
+        public string operacion { get; set; }
+        public List<Liquidaciondetalle> liquidaciondetalle { get; set; }
+    }
+    #endregion
+
+    #region "RESPONSE-aplicar1756Liquidacion"
+    public class RAplicarDescuento
+    {
+        public string codigoerror { get; set; }
+        public string mensajeerror { get; set; }
+        public decimal descuentoaplicado { get; set; }
+    }
+    #endregion
 }

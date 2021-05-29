@@ -708,6 +708,76 @@ namespace WPFCCPereira.Services
 
             return string.Empty;
         }
+
+        public async Task<RConsultarLiquidacion> ConsultarLiquidacion(ConsultarLiquidacion cl)
+        {
+            try
+            {
+                ConsultarLiquidacion request = new ConsultarLiquidacion
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idusuario = "USUPUBXX",
+                    identificacioncontrol = cl.identificacioncontrol,
+                    nombrecontrol = cl.nombrecontrol,
+                    emailcontrol = cl.emailcontrol,
+                    celularcontrol = cl.celularcontrol,
+                    idliquidacion = cl.idliquidacion,
+                    numerorecuperacion = cl.numerorecuperacion
+                };
+
+                var response = await GetData(request, "ConsultarLiquidacion");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RConsultarLiquidacion>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<RAplicarDescuento> AplicarDescuento1756(int idLiquidacion)
+        {
+            try
+            {
+                AplicarDescuento request = new AplicarDescuento
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idliquidacion = idLiquidacion
+                };
+
+                var response = await GetData(request, "AplicarDescuento");
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RAplicarDescuento>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
         //END RENOVACION 
     }
 }

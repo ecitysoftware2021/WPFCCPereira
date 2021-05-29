@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
+using WPFCCPereira.Services.ObjectIntegration;
 using WPFCCPereira.Windows.Modals;
 
 namespace WPFCCPereira.UserControls.Renewal
@@ -91,6 +92,93 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
+        private void ConsultarLiquidacion()
+        {
+            try
+            {
+                Task.Run(async () =>
+                {
+                    var response = await AdminPayPlus.ApiIntegration.ConsultarLiquidacion(new ConsultarLiquidacion
+                    {
+                        identificacioncontrol = transaction.payer.IDENTIFICATION,
+                        nombrecontrol = transaction.payer.NAME,
+                        emailcontrol = transaction.payer.EMAIL,
+                        celularcontrol = transaction.payer.PHONE,
+                        idliquidacion = transaction.idLiquidacion,
+                        numerorecuperacion = transaction.numeroRecuperacion
+                    });
+
+                    Utilities.CloseModal();
+
+                    if (response != null)
+                    { 
+                        //TODO:validar que haya quedado firmado
+                        if (true)
+                        {
+                            AplicarDescuento();
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        Utilities.ShowModal(". Por favor intenta de nuevo.", EModalType.Error);
+                    }
+                });
+
+                Utilities.ShowModal("Guardando información. Regálenos unos segundos.", EModalType.Preload);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void AplicarDescuento()
+        {
+            try
+            {
+                //Task.Run(async () =>
+                //{
+                //    var response = await AdminPayPlus.ApiIntegration.FirmaElectronica(new AplicarDescuento
+                //    {
+                //        idliquidacion = Convert.ToInt32(transaction.idLiquidacion),
+                //        identificacioncontrol = transaction.payer.IDENTIFICATION,
+                //        emailcontrol = transaction.payer.EMAIL,
+                //        celularcontrol = transaction.payer.PHONE,
+                //        clavefirmado = transaction.payer.PASSWORD,
+                //    });
+
+                //    Utilities.CloseModal();
+
+                //    if (!string.IsNullOrEmpty(response))
+                //    {
+                //        transaction.urlFirmaElectronica = response;
+
+                //        Utilities.ShowModal("La firma ha quedado guardada.", EModalType.Error);
+
+                //        Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
+                //    }
+                //    else
+                //    {
+                //        Utilities.ShowModal("No se pudo guardar la firma. Por favor intenta de nuevo.", EModalType.Error);
+                //    }
+                //});
+
+                //Utilities.ShowModal("Guardando firma electronica. Regálenos unos segundos.", EModalType.Preload);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
+
+        private void SaveTransaction()
+        {
+
+        }
         #endregion
 
         #region "Eventos"
@@ -119,7 +207,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
         private void btnPago_TouchDown(object sender, TouchEventArgs e)
         {
-
+            ConsultarLiquidacion();
         }
         #endregion
     }
