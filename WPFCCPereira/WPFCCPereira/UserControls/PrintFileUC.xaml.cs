@@ -33,6 +33,7 @@ namespace WPFCCPereira.UserControls
                 Task.Run(async () =>
                 {
                     var pathsCertificates = await AdminPayPlus.ApiIntegration.ReportPayment(transaction);
+
                     if (pathsCertificates != null && pathsCertificates.Count > 0)
                     {
                         PrintCertificates(pathsCertificates);

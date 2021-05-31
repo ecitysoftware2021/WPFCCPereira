@@ -365,8 +365,9 @@ namespace WPFCCPereira.Services
                     identificacioncontrol = Utilities.GetConfiguration("IdControl"),
                     nombrecontrol = Utilities.GetConfiguration("NameControl"),
                     celularcontrol = Utilities.GetConfiguration("PhoneControl"),
-                    idliquidacion = transaction.consecutive,
-                    numerorecuperacion = transaction.reference,
+                    //TODO:aqui
+                    idliquidacion = transaction.idLiquidacion,//transaction.consecutive,
+                    numerorecuperacion = transaction.numeroRecuperacion,//transaction.reference,
                     valorpagado = Convert.ToInt32(transaction.Amount).ToString(),
                     fechapago = transaction.DateTransaction.ToString("yyyy-MM-dd"),
                     horapago = transaction.DateTransaction.ToString("hh:mm:ss"),

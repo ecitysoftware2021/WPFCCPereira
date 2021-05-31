@@ -180,6 +180,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 }
                 else
                 {
+                    Utilities.navigator.Navigate(UserControlView.PrintFile, false, this.transaction);
                     //Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
                 }
             }
