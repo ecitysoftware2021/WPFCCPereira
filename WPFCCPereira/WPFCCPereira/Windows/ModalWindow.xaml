@@ -60,7 +60,7 @@
                            HorizontalAlignment="Center"
                            Margin="0,320,0,0" 
                            FontSize="50" 
-                           Width="500"
+                           Width="600"
                            FontFamily="Myriad Pro"
                            Foreground="#FF606060"
                            TextWrapping="WrapWithOverflow"

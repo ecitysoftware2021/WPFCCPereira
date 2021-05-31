@@ -34,7 +34,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             {
                 Task.Run(async () =>
                 {
-
                     var response = await AdminPayPlus.ApiIntegration.SetFormularioRenovacion(new SetFormularioRenovacion
                     {
                         expediente = transaction.ExpedientesMercantil.matricula,

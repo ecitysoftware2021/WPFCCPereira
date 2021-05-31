@@ -95,7 +95,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 transaction.FormularioPpal.datos.f.Add(new ArrayF
                 {
                     anodatos = transaction.FormularioPpal.datos.anodatos,
-                    fechadatos = transaction.FormularioPpal.datos.fechadatos,
+                    fechadatos = string.Concat(DateTime.Now.Year - 1,"1231"),
+                    //fechadatos = transaction.FormularioPpal.datos.fechadatos,
                     actcte = transaction.FormularioPpal.datos.actcte,
                     actnocte = transaction.FormularioPpal.datos.actnocte,
                     acttot = transaction.FormularioPpal.datos.acttot,
