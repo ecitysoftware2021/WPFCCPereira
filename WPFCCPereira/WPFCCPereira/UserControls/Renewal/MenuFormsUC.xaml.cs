@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
@@ -36,6 +27,8 @@ namespace WPFCCPereira.UserControls.Renewal
             InitializeComponent();
 
             this.transaction = ts;
+
+            this.transaction.Amount = Convert.ToDecimal(ts.LiquidarRenovacionNormal.valortotal);
 
             LoadView();
         }
@@ -142,8 +135,6 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 var response = await AdminPayPlus.ApiIntegration.AplicarDescuento1756(Convert.ToInt32(transaction.idLiquidacion));
 
-                Utilities.CloseModal();
-
                 if (response != null)
                 {
                     if (response.descuentoaplicado > 0)
@@ -151,14 +142,18 @@ namespace WPFCCPereira.UserControls.Renewal
                         transaction.Amount = transaction.Amount - response.descuentoaplicado;
                     }
 
+                    if (transaction.Amount < 100)
+                    {
+                        transaction.Amount = 100;
+                    }
+
+                    transaction.Amount = Utilities.RoundValue(transaction.Amount, true);
+
                     SaveTransaction();
-
-                    //Utilities.ShowModal("La firma ha quedado guardada.", EModalType.Error);
-
-                    //Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
                 }
                 else
                 {
+                    Utilities.CloseModal();
                     Utilities.ShowModal("No se pudo validar la ley 1756. Por favor intenta de nuevo.", EModalType.Error);
                 }
             }
@@ -168,9 +163,30 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
-        private void SaveTransaction()
+        private async void SaveTransaction()
         {
+            try
+            {
+                transaction.Type = ETransactionType.PaymentFile;
+                transaction.State = ETransactionState.Initial;
 
+                await AdminPayPlus.SaveTransactions(this.transaction, true);
+
+                Utilities.CloseModal();
+
+                if (this.transaction.IdTransactionAPi == 0)
+                {
+                    Utilities.ShowModal("No se pudo crear la transacción. Por favor intenta de nuevo.", EModalType.Error);
+                }
+                else
+                {
+                    //Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
         #endregion
 

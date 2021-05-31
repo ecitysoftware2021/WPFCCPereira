@@ -318,10 +318,10 @@ namespace WPFCCPereira.Classes
 
                     return new CONFIGURATION_PAYDAD
                     {
-                        USER_API = Utilities.EncryptorData(server[0].Split(':')[1],false),
-                        PASSWORD_API = Utilities.EncryptorData(server[1].Split(':')[1], false),
-                        USER = Utilities.EncryptorData(payplus[0].Split(':')[1], false),
-                        PASSWORD = Utilities.EncryptorData(payplus[1].Split(':')[1], false),
+                        USER_API = server[0].Split(':')[1],
+                        PASSWORD_API = server[1].Split(':')[1],
+                        USER = payplus[0].Split(':')[1],
+                        PASSWORD = payplus[1].Split(':')[1],
                         TYPE = Convert.ToInt32(payplus[2].Split(':')[1])
                     };
                 }
@@ -450,7 +450,7 @@ namespace WPFCCPereira.Classes
             return 0;
         }
 
-        public static async Task SaveTransactions(Transaction transaction, bool getConsecutive)
+        public static async Task SaveTransactions(Transaction transaction, bool renovacion = false)
         {
             try
             {
@@ -458,17 +458,46 @@ namespace WPFCCPereira.Classes
                 {
                     transaction.IsReturn = await ValidateMoney(transaction);
 
-                    if (getConsecutive)
-                    {
-                        transaction.consecutive = (await GetConsecutive()).ToString();
-                    }
+                    transaction.payer.PAYER_ID = await SavePayer(transaction.payer);
 
-                    if ((getConsecutive && int.Parse(transaction.consecutive) > 0) || !getConsecutive)
+                    if (transaction.payer.PAYER_ID > 0)
                     {
-                        transaction.payer.PAYER_ID = await SavePayer(transaction.payer);
-                        if (transaction.payer.PAYER_ID > 0)
+                        TRANSACTION data;
+
+                        if (renovacion)
                         {
-                            var data = new TRANSACTION
+                            data = new TRANSACTION
+                            {
+                                TYPE_TRANSACTION_ID = Convert.ToInt32(transaction.Type),
+                                PAYER_ID = transaction.payer.PAYER_ID,
+                                STATE_TRANSACTION_ID = Convert.ToInt32(transaction.State),
+                                TOTAL_AMOUNT = transaction.Amount,
+                                DATE_END = DateTime.Now,
+                                TRANSACTION_ID = 0,
+                                RETURN_AMOUNT = 0,
+                                INCOME_AMOUNT = 0,
+                                PAYPAD_ID = 0,
+                                DATE_BEGIN = DateTime.Now,
+                                STATE_NOTIFICATION = 0,
+                                STATE = 0,
+                                DESCRIPTION = "Transaccion iniciada",
+                                TRANSACTION_REFERENCE = transaction.idLiquidacion
+                            };
+
+                            data.TRANSACTION_DESCRIPTION.Add(new TRANSACTION_DESCRIPTION
+                            {
+                                AMOUNT = transaction.Amount,
+                                TRANSACTION_ID = data.ID,
+                                TRANSACTION_PRODUCT_ID = (int)ETypeProduct.renovacion,
+                                DESCRIPTION = string.Concat("Matricula: ", transaction.ExpedientesMercantil.matricula ?? string.Empty),
+                                EXTRA_DATA = string.Concat("Numero de recuperacion: ", transaction.numeroRecuperacion),
+                                TRANSACTION_DESCRIPTION_ID = 0,
+                                STATE = true
+                            });
+                        }
+                        else
+                        {
+                            data = new TRANSACTION
                             {
                                 TYPE_TRANSACTION_ID = Convert.ToInt32(transaction.Type),
                                 PAYER_ID = transaction.payer.PAYER_ID,
@@ -496,10 +525,32 @@ namespace WPFCCPereira.Classes
                                 TRANSACTION_DESCRIPTION_ID = 0,
                                 STATE = true
                             });
+                        }
 
-                            if (data != null)
+                        if (data != null)
+                        {
+                            var responseTransaction = await api.CallApi("SaveTransaction", data);
+                            if (responseTransaction != null)
                             {
-                                var responseTransaction = await api.CallApi("SaveTransaction", data);
+                                transaction.IdTransactionAPi = JsonConvert.DeserializeObject<int>(responseTransaction.ToString());
+
+                                if (transaction.IdTransactionAPi > 0)
+                                {
+                                    data.TRANSACTION_ID = transaction.IdTransactionAPi;
+                                    transaction.TransactionId = SqliteDataAccess.SaveTransaction(data);
+                                }
+                            }
+                            else
+                            {
+                                SaveLog(new RequestLog
+                                {
+                                    Reference = transaction.reference,
+                                    Description = string.Concat(MessageResource.NoInsertTransaction, " en su primer intente "),
+                                    State = 1,
+                                    Date = DateTime.Now
+                                }, ELogType.General);
+
+                                responseTransaction = await api.CallApi("SaveTransaction", data);
                                 if (responseTransaction != null)
                                 {
                                     transaction.IdTransactionAPi = JsonConvert.DeserializeObject<int>(responseTransaction.ToString());
@@ -515,45 +566,23 @@ namespace WPFCCPereira.Classes
                                     SaveLog(new RequestLog
                                     {
                                         Reference = transaction.reference,
-                                        Description = string.Concat(MessageResource.NoInsertTransaction, " en su primer intente "),
+                                        Description = string.Concat(MessageResource.NoInsertTransaction, " en su segundo intente "),
                                         State = 1,
                                         Date = DateTime.Now
                                     }, ELogType.General);
-
-                                    responseTransaction = await api.CallApi("SaveTransaction", data);
-                                    if (responseTransaction != null)
-                                    {
-                                        transaction.IdTransactionAPi = JsonConvert.DeserializeObject<int>(responseTransaction.ToString());
-
-                                        if (transaction.IdTransactionAPi > 0)
-                                        {
-                                            data.TRANSACTION_ID = transaction.IdTransactionAPi;
-                                            transaction.TransactionId = SqliteDataAccess.SaveTransaction(data);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        SaveLog(new RequestLog
-                                        {
-                                            Reference = transaction.reference,
-                                            Description = string.Concat(MessageResource.NoInsertTransaction, " en su segundo intente "),
-                                            State = 1,
-                                            Date = DateTime.Now
-                                        }, ELogType.General);
-                                    }
                                 }
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        SaveLog(new RequestLog
                         {
-                            SaveLog(new RequestLog
-                            {
-                                Reference = transaction.reference,
-                                Description = MessageResource.NoInsertPayment + transaction.payer.IDENTIFICATION,
-                                State = 1,
-                                Date = DateTime.Now
-                            }, ELogType.General);
-                        }
+                            Reference = transaction.reference,
+                            Description = MessageResource.NoInsertPayment + transaction.payer.IDENTIFICATION,
+                            State = 1,
+                            Date = DateTime.Now
+                        }, ELogType.General);
                     }
                 }
             }

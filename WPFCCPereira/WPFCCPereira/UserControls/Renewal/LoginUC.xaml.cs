@@ -141,7 +141,8 @@ namespace WPFCCPereira.UserControls.Renewal
                                 IDENTIFICATION = Id,
                                 PHONE = Phone,
                                 EMAIL = Email,
-                                PASSWORD = Password
+                                PASSWORD = Password,
+                                TYPE_PAYER = "Persona"
                             };
 
                             Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);

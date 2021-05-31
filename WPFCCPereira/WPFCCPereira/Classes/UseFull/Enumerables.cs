@@ -172,5 +172,6 @@ namespace WPFCCPereira.Classes
     {
         Existence = 11,
         commercialRegister = 12,
+        renovacion = 31
     }
 }
