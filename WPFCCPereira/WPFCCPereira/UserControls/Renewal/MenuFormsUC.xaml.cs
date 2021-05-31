@@ -70,7 +70,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
                         btnDigilenciar.IsEnabled = false;
                         btnDigilenciar.Opacity = 0.4;
-                        
+
                         btnPago.IsEnabled = true;
                         btnPago.Opacity = 1;
                     }
@@ -108,10 +108,8 @@ namespace WPFCCPereira.UserControls.Renewal
                         numerorecuperacion = transaction.numeroRecuperacion
                     });
 
-                    Utilities.CloseModal();
-
                     if (response != null)
-                    { 
+                    {
                         //TODO:validar que haya quedado firmado
                         if (true)
                         {
@@ -119,12 +117,14 @@ namespace WPFCCPereira.UserControls.Renewal
                         }
                         else
                         {
-
+                            Utilities.CloseModal();
+                            Utilities.ShowModal("No se encontró la firma en el sistema. Por favor intenta de nuevo.", EModalType.Error);
                         }
                     }
                     else
                     {
-                        Utilities.ShowModal(". Por favor intenta de nuevo.", EModalType.Error);
+                        Utilities.CloseModal();
+                        Utilities.ShowModal("No se encontró la firma en el sistema. Por favor intenta de nuevo.", EModalType.Error);
                     }
                 });
 
@@ -136,38 +136,31 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
-        private void AplicarDescuento()
+        private async void AplicarDescuento()
         {
             try
             {
-                //Task.Run(async () =>
-                //{
-                //    var response = await AdminPayPlus.ApiIntegration.FirmaElectronica(new AplicarDescuento
-                //    {
-                //        idliquidacion = Convert.ToInt32(transaction.idLiquidacion),
-                //        identificacioncontrol = transaction.payer.IDENTIFICATION,
-                //        emailcontrol = transaction.payer.EMAIL,
-                //        celularcontrol = transaction.payer.PHONE,
-                //        clavefirmado = transaction.payer.PASSWORD,
-                //    });
+                var response = await AdminPayPlus.ApiIntegration.AplicarDescuento1756(Convert.ToInt32(transaction.idLiquidacion));
 
-                //    Utilities.CloseModal();
+                Utilities.CloseModal();
 
-                //    if (!string.IsNullOrEmpty(response))
-                //    {
-                //        transaction.urlFirmaElectronica = response;
+                if (response != null)
+                {
+                    if (response.descuentoaplicado > 0)
+                    {
+                        transaction.Amount = transaction.Amount - response.descuentoaplicado;
+                    }
 
-                //        Utilities.ShowModal("La firma ha quedado guardada.", EModalType.Error);
+                    SaveTransaction();
 
-                //        Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
-                //    }
-                //    else
-                //    {
-                //        Utilities.ShowModal("No se pudo guardar la firma. Por favor intenta de nuevo.", EModalType.Error);
-                //    }
-                //});
+                    //Utilities.ShowModal("La firma ha quedado guardada.", EModalType.Error);
 
-                //Utilities.ShowModal("Guardando firma electronica. Regálenos unos segundos.", EModalType.Preload);
+                    //Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
+                }
+                else
+                {
+                    Utilities.ShowModal("No se pudo validar la ley 1756. Por favor intenta de nuevo.", EModalType.Error);
+                }
             }
             catch (Exception ex)
             {
