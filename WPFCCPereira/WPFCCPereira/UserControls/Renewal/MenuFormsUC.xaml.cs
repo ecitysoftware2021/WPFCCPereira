@@ -110,8 +110,8 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     if (response != null)
                     {
-                        //TODO:validar que haya quedado firmado
-                        if (true)
+                        //=>19 firmada electronicamente
+                        if (response.idestado == "19")
                         {
                             AplicarDescuento();
                         }

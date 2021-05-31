@@ -235,8 +235,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 brd_pattot.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
                 brd_paspat.BorderBrush = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xFF, 0xFF));
 
-                Validate();
                 LoadView();
+                Validate();
             }
             catch (Exception ex)
             {
