@@ -21,6 +21,9 @@ namespace WPFCCPereira.UserControls.Administrator
             {
                 InitializeComponent();
 
+                //https://siidesarrollo.confecamaras.co/disparador.php
+                //En empresa, busca Pereira, en correo JFVO (todas mayúsculas) identificación 1088285069 y la clave 6530861
+
                 if (init == null)
                 {
                     init = new AdminPayPlus();
@@ -91,7 +94,6 @@ namespace WPFCCPereira.UserControls.Administrator
                 if (state)
                 {
                     Utilities.navigator.Navigate(UserControlView.Main);
-                    //Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion);
                 }
                 else
                 {
