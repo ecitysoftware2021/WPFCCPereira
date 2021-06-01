@@ -107,10 +107,6 @@ namespace WPFCCPereira.UserControls.Renewal
 
                 Task.Run(async () =>
                 {
-                    //reference = "18130990";
-                    //reference = "14693801";//persona natural
-                    //reference = "8623304";//persona juridica 2 establecimientos
-
                     var response = await AdminPayPlus.ApiIntegration.ConsultarExpedienteMercantil(reference, viewModel.TypeConsult);
 
                     Utilities.CloseModal();
@@ -123,25 +119,31 @@ namespace WPFCCPereira.UserControls.Renewal
                         transaction.Type = viewModel.TypeTransaction;
                         transaction.ExpedientesMercantil = response;
 
-                        //TODO:aquí
-                        //if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
-                        //{
+                        if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
+                        {
+                            //TODO:aquí
+                            if (transaction.ExpedientesMercantil.establecimientos.Count > 0)
+                            {
+                                Utilities.ShowModal("Por ahora el trámite de renovación esta habilitado solo para personas que no tengan 1 o más establecimientos. Muy pronto estará disponible.", EModalType.Error);
+                            }
+                            else
+                            {
+                                Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, transaction);
+                            }
+                        }
+                        else
+                        if(transaction.ExpedientesMercantil.ultanorenovado == DateTime.Now.Year)
+                        {
+                            Utilities.ShowModal("Ya renovo este año.", EModalType.Error);
 
-                        //if (transaction.ExpedientesMercantil.establecimientos.Count > 0)
-                        //{
-                        //    Utilities.ShowModal("Por ahora el trámite de renovación esta habilitado solo para personas que no tengan 1 o más establecimientos. Muy pronto estará disponible.", EModalType.Error);
-                        //}
-                        //else
-                        //{
-                            Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, transaction);
-                        //}
-                        //}
-                        //else
-                        //{
-                        //    Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
+                            TimerService.Reset();
+                        }
+                        else
+                        {
+                            Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
 
-                        //    TimerService.Reset();
-                        //}
+                            TimerService.Reset();
+                        }
                     }
                     else
                     {
