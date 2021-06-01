@@ -36,7 +36,14 @@ namespace WPFCCPereira.UserControls
 
                     if (pathsCertificates != null && pathsCertificates.Count > 0)
                     {
-                        PrintCertificates(pathsCertificates);
+                        if (transaction.isRenovacion)
+                        {
+                            FinishTransaction(true);
+                        }
+                        else
+                        {
+                            PrintCertificates(pathsCertificates);
+                        }
                     }
                     else
                     {

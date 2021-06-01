@@ -164,24 +164,13 @@ namespace WPFCCPereira.UserControls
                                     {
                                         File = response,
                                         State = ETransactionState.Initial,
-                                        Type = viewModel.TypeTransaction
+                                        Type = viewModel.TypeTransaction,
+                                        isRenovacion = false
                                     });
                                 }
                                 else
                                 {
-                                    if (viewModel.TypeTransaction == ETransactionType.Renovacion)
-                                    {
-                                        Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, new Transaction
-                                        {
-                                            File = viewModel,
-                                            State = ETransactionState.Initial,
-                                            Type = viewModel.TypeTransaction
-                                        });
-                                    }
-                                    else
-                                    {
-                                        ConfigureViewList();
-                                    }
+                                    ConfigureViewList();
                                 }
                             }
                             else
@@ -381,7 +370,8 @@ namespace WPFCCPereira.UserControls
                 {
                     File = (Noun)((Grid)sender).Tag,
                     State = ETransactionState.Initial,
-                    Type = viewModel.TypeTransaction
+                    Type = viewModel.TypeTransaction,
+                    isRenovacion = false
                 });
             }
         }

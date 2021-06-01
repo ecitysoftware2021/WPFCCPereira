@@ -365,9 +365,8 @@ namespace WPFCCPereira.Services
                     identificacioncontrol = Utilities.GetConfiguration("IdControl"),
                     nombrecontrol = Utilities.GetConfiguration("NameControl"),
                     celularcontrol = Utilities.GetConfiguration("PhoneControl"),
-                    //TODO:aqui
-                    idliquidacion = transaction.idLiquidacion,//transaction.consecutive,
-                    numerorecuperacion = transaction.numeroRecuperacion,//transaction.reference,
+                    idliquidacion = transaction.consecutive,
+                    numerorecuperacion = transaction.reference,
                     valorpagado = Convert.ToInt32(transaction.Amount).ToString(),
                     fechapago = transaction.DateTransaction.ToString("yyyy-MM-dd"),
                     horapago = transaction.DateTransaction.ToString("hh:mm:ss"),
@@ -382,26 +381,38 @@ namespace WPFCCPereira.Services
                 {
                     var requestresponse = JsonConvert.DeserializeObject<Object.Response>(response.ToString());
 
-                    if (requestresponse != null && requestresponse.certificados.Count > 0)
+                    if (transaction.isRenovacion)
                     {
-                        foreach (var certificate in requestresponse.certificados)
+                        if (requestresponse != null && requestresponse.codigoerror == "0000")
                         {
-                            countCertificates += 1;
-                            if (!string.IsNullOrEmpty(certificate.path))
+                            pathCertificates.Add("OK");
+
+                            return pathCertificates;
+                        }
+                    }
+                    else
+                    {
+                        if (requestresponse != null && requestresponse.certificados.Count > 0)
+                        {
+                            foreach (var certificate in requestresponse.certificados)
                             {
-                                var nameFile = $"{transaction.IdTransactionAPi}-{certificate.codigoverificacion}" +
-                                     $"-{transaction.consecutive}-{DateTime.Now.ToString("yyyy-MM-dd")}";
-                                string path = DownloadFile(certificate.path, nameFile);
-                                if (!string.IsNullOrEmpty(path))
+                                countCertificates += 1;
+                                if (!string.IsNullOrEmpty(certificate.path))
                                 {
-                                    pathCertificates.Add(path);
+                                    var nameFile = $"{transaction.IdTransactionAPi}-{certificate.codigoverificacion}" +
+                                         $"-{transaction.consecutive}-{DateTime.Now.ToString("yyyy-MM-dd")}";
+                                    string path = DownloadFile(certificate.path, nameFile);
+                                    if (!string.IsNullOrEmpty(path))
+                                    {
+                                        pathCertificates.Add(path);
+                                    }
                                 }
                             }
-                        }
 
-                        if (pathCertificates.Count == countCertificates)
-                        {
-                            return pathCertificates;
+                            if (pathCertificates.Count == countCertificates)
+                            {
+                                return pathCertificates;
+                            }
                         }
                     }
                 }

@@ -169,8 +169,10 @@ namespace WPFCCPereira.UserControls.Renewal
             {
                 transaction.Type = ETransactionType.PaymentFile;
                 transaction.State = ETransactionState.Initial;
+                transaction.consecutive = transaction.idLiquidacion;
+                transaction.reference = transaction.numeroRecuperacion;
 
-                await AdminPayPlus.SaveTransactions(this.transaction, true);
+                await AdminPayPlus.SaveTransactions(this.transaction);
 
                 Utilities.CloseModal();
 

@@ -172,7 +172,7 @@ namespace WPFCCPereira.UserControls
                         
                         if (response != null && !string.IsNullOrEmpty(response.consecutive) && !string.IsNullOrEmpty(response.reference))
                         {
-                            await AdminPayPlus.SaveTransactions(this.transaction, false);
+                            await AdminPayPlus.SaveTransactions(this.transaction);
 
                             Utilities.CloseModal();
                             readerBarCode.Stop();

@@ -46,6 +46,8 @@ namespace WPFCCPereira.UserControls.Renewal
 
             transaction = new Transaction();
 
+            transaction.isRenovacion = true;
+
             transaction.detailViewModel = new DetailViewModel
             {
                 VisibleId = Visibility.Visible,

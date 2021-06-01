@@ -62,6 +62,8 @@ namespace WPFCCPereira.Models
         public string urlFirmaElectronica { get; set; }
         public string numeroRecuperacion { get; set; }
         public string idLiquidacion { get; set; }
+
+        public bool isRenovacion { get; set; } = false;
         //END RENOVACION
 
 
