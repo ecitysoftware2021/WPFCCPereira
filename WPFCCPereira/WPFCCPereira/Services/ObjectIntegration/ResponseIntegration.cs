@@ -493,6 +493,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         //-------------ActividadEconomicaClasificacionCIIU------------
         public string versionciiu { get; set; }
         public string fechamatricula { get; set; }
+        public string fechamatriculaAux { get; set; }
         private string _cantidadmujeres;
         public string cantidadmujeres
     {
@@ -505,6 +506,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         }
         public Ciius ciius { get; set; }
         public string feciniact1 { get; set; }
+        public string feciniact1Aux { get; set; }
         /// <summary>
         /// ///////////////////END-DATOS-A-UTILIZAR///////////////////////
         /// </summary>
@@ -716,6 +718,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public List<object> ciius3 { get; set; }
         public string desactiv { get; set; }
         public string feciniact2 { get; set; }
+        public string feciniact2Aux { get; set; }
         public string codaduaneros { get; set; }
         public string ingesperados { get; set; }
         public string gruponiif { get; set; }
