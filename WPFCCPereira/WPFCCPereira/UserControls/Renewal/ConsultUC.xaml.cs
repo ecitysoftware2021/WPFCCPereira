@@ -132,13 +132,6 @@ namespace WPFCCPereira.UserControls.Renewal
                             }
                         }
                         else
-                        if(transaction.ExpedientesMercantil.ultanorenovado == DateTime.Now.Year)
-                        {
-                            Utilities.ShowModal("Ya renovo este año.", EModalType.Error);
-
-                            TimerService.Reset();
-                        }
-                        else
                         {
                             Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
 
