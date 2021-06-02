@@ -132,8 +132,34 @@ namespace WPFCCPereira.UserControls.Renewal
                             }
                         }
                         else
+                        if (transaction.ExpedientesMercantil.ultanorenovado == DateTime.Now.Year)
                         {
-                            Utilities.ShowModal("No cuenta con el ultimo año para renovar.", EModalType.Error);
+                            string[] type = new string[2];
+
+                            type[0] = "Matrícula";
+                            type[1] = "Identificación";
+
+                            string ms = $"La {(viewModel.TypeConsult == EtypeConsult.Matricula ? type[0] : type[1])} No. {reference} " +
+                            $"ya esta renovada en el año {DateTime.Now.Year} ";
+
+                            Utilities.ShowModal(ms, EModalType.Error);
+
+                            TimerService.Reset();
+                        }
+                        else
+                        {
+                            //18156797
+                            //18167255
+                            string[] type = new string[2];
+
+                            type[0] = "Matrícula";
+                            type[1] = "Identificación";
+
+                            string ms = $"La {(viewModel.TypeConsult == EtypeConsult.Matricula ? type[0] : type[1] )} No. {reference} " +
+                            $"tiene más de 1 años por renovar, por lo tanto no puede ser renovada desde el kiosco. Le invitamos a " +
+                            $"realizar esta renovación desde el sitio web del SII o acercarse a nuestras oficinas.";
+
+                            Utilities.ShowModal(ms, EModalType.Error);
 
                             TimerService.Reset();
                         }
