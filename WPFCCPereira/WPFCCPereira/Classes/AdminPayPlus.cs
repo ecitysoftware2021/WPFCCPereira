@@ -125,7 +125,7 @@ namespace WPFCCPereira.Classes
 
             //if (_cootregua == null)
             //{
-            _printerFile = new PrinterFile(AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.PrinterName.Trim(), true);
+            _printerFile = new PrinterFile(AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.PrinterName, true);
             //}
         }
 
