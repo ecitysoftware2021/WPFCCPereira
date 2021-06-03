@@ -132,6 +132,7 @@ namespace WPFCCPereira.Services.Object
         public string SearchFiles { get; set; }
         public string SendTransaction { get; set; }
         public string SendPay { get; set; }
+        public string GetDiscount { get; set; }
         public string ConsultSettled { get; set; }
         public string ConsultReceipt { get; set; }
         public string BuyCancel { get; set; }

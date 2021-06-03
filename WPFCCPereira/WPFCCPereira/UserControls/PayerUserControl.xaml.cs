@@ -173,7 +173,11 @@ namespace WPFCCPereira.UserControls
                         };
 
                         var response = await AdminPayPlus.ApiIntegration.NotifycTransaction(this.transaction);
-                        
+
+                        var amountDiscount = await AdminPayPlus.ApiIntegration.GetDiscount(this.transaction);
+
+                        transaction.Amount = transaction.Amount - amountDiscount;
+
                         if (response != null && !string.IsNullOrEmpty(response.consecutive) && !string.IsNullOrEmpty(response.reference))
                         {
                             await AdminPayPlus.SaveTransactions(this.transaction, false);

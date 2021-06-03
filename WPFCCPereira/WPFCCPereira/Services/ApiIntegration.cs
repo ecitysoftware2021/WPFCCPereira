@@ -429,5 +429,36 @@ namespace WPFCCPereira.Services
             }
             return string.Empty;
         }
+
+        public async Task<decimal> GetDiscount(Transaction transaction)
+        {
+            try
+            {
+                RequestDiscount request = new RequestDiscount
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idliquidacion = transaction.consecutive
+                };
+
+                var response = await GetData(request, AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataIntegration.ambiente.GetDiscount);
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<Object.Response>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse.descuentoaplicado;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "GetData", ex, MessageResource.StandarError);
+            }
+            return 0;
+        }
     }
 }
