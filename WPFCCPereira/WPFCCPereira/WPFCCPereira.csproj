@@ -218,8 +218,14 @@
     <Compile Include="UserControls\Renewal\DigitalSignatureUC.xaml.cs">
       <DependentUpon>DigitalSignatureUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Renewal\FormsAdd\ActividadEconomica2UC.xaml.cs">
+      <DependentUpon>ActividadEconomica2UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Renewal\FormsAdd\Identificacion2UC.xaml.cs">
       <DependentUpon>Identificacion2UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.xaml.cs">
+      <DependentUpon>InformacionFinanciera2UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.xaml.cs">
       <DependentUpon>UbicacionDatosGenerales2UC.xaml</DependentUpon>
@@ -463,7 +469,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Renewal\FormsAdd\ActividadEconomica2UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Renewal\FormsAdd\Identificacion2UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

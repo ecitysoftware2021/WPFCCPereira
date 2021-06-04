@@ -23,6 +23,13 @@ namespace WPFCCPereira.UserControls.Administrator
 
                 //https://siidesarrollo.confecamaras.co/disparador.php
                 //En empresa, busca Pereira, en correo JFVO (todas mayúsculas) identificación 1088285069 y la clave 6530861
+                //18167001
+                //18167255
+                //18167202
+
+                //11703601
+                //16297303
+
 
                 if (init == null)
                 {
