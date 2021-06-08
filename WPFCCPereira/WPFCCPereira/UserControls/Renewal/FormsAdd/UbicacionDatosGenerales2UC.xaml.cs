@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
@@ -27,47 +17,48 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
         #region "Referencias"
         private Transaction transaction;
         private FormularioPpalAux FormAux;
-        private int tag;
+        private string matricula;
         #endregion
 
         #region "Constructor"
-        public UbicacionDatosGenerales2UC(Transaction ts)
+        public UbicacionDatosGenerales2UC(Transaction ts, string mt)
         {
             InitializeComponent();
 
             this.transaction = ts;
 
-            this.tag = 1;
+            this.matricula = mt;
 
-            ChangeView();
+            LoadView();
         }
         #endregion
 
         #region "Métodos"
-        private void ChangeView()
+        private void LoadView()
         {
             try
             {
-                System.Drawing.Color color = System.Drawing.Color.Black;
+                var result = transaction.FormularioAdd.Where(x => x.datos.matricula == matricula).FirstOrDefault();
 
-                grvNotificacion.Visibility = Visibility.Hidden;
-                grvComercial.Visibility = Visibility.Visible;
-                grvComercial2.Visibility = Visibility.Visible;
-
-                FormAux = new FormularioPpalAux
+                if (result != null)
                 {
-                    direccion = transaction.FormularioPpal.datos.dircom,
-                    municipio = transaction.FormularioPpal.datos.muncomnombre,
-                    barrio = transaction.FormularioPpal.datos.barriocomnombre,
-                    correo = transaction.FormularioPpal.datos.emailcom,
-                    tel1 = transaction.FormularioPpal.datos.telcom1,
-                    tel2 = transaction.FormularioPpal.datos.telcom2,
-                    tel3 = string.Empty,
-                    numpredial = transaction.FormularioPpal.datos.numpredial,
-                };
+                    this.DataContext = result.datos;
+                }
 
-                transaction.FormularioPpalAux = FormAux;
-                this.DataContext = transaction;
+                //FormAux = new FormularioPpalAux
+                //{
+                //    direccion = transaction.FormularioPpal.datos.dircom,
+                //    municipio = transaction.FormularioPpal.datos.muncomnombre,
+                //    barrio = transaction.FormularioPpal.datos.barriocomnombre,
+                //    correo = transaction.FormularioPpal.datos.emailcom,
+                //    tel1 = transaction.FormularioPpal.datos.telcom1,
+                //    tel2 = transaction.FormularioPpal.datos.telcom2,
+                //    tel3 = string.Empty,
+                //    numpredial = transaction.FormularioPpal.datos.numpredial,
+                //};
+
+                //transaction.FormularioPpalAux = FormAux;
+                //this.DataContext = transaction;
             }
             catch (Exception ex)
             {
@@ -79,32 +70,19 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
         {
             try
             {
-                if (tag == 1)
-                {
-                    transaction.FormularioPpal.datos.dircom = transaction.FormularioPpalAux.direccion;
-                    transaction.FormularioPpal.datos.muncomnombre = transaction.FormularioPpalAux.municipio;
-                    transaction.FormularioPpal.datos.barriocom = transaction.FormularioPpalAux.barrio;
-                    transaction.FormularioPpal.datos.emailcom = transaction.FormularioPpalAux.correo;
-                    transaction.FormularioPpal.datos.telcom1 = transaction.FormularioPpalAux.tel1;
-                    transaction.FormularioPpal.datos.telcom2 = transaction.FormularioPpalAux.tel2;
-                    transaction.FormularioPpal.datos.numpredial = transaction.FormularioPpalAux.numpredial;
-                }
-                else
-                {
-                    transaction.FormularioPpal.datos.dirnot = transaction.FormularioPpalAux.direccion;
-                    transaction.FormularioPpal.datos.munnotnombre = transaction.FormularioPpalAux.municipio;
-                    transaction.FormularioPpal.datos.barrionotnombre = transaction.FormularioPpalAux.barrio;
-                    transaction.FormularioPpal.datos.emailnot = transaction.FormularioPpalAux.correo;
-                    transaction.FormularioPpal.datos.telnot = transaction.FormularioPpalAux.tel1;
-                    transaction.FormularioPpal.datos.telnot2 = transaction.FormularioPpalAux.tel2;
-                    transaction.FormularioPpal.datos.numpredial = transaction.FormularioPpalAux.numpredial;
-                }
+                //transaction.FormularioPpal.datos.dircom = transaction.FormularioPpalAux.direccion;
+                //transaction.FormularioPpal.datos.muncomnombre = transaction.FormularioPpalAux.municipio;
+                //transaction.FormularioPpal.datos.barriocom = transaction.FormularioPpalAux.barrio;
+                //transaction.FormularioPpal.datos.emailcom = transaction.FormularioPpalAux.correo;
+                //transaction.FormularioPpal.datos.telcom1 = transaction.FormularioPpalAux.tel1;
+                //transaction.FormularioPpal.datos.telcom2 = transaction.FormularioPpalAux.tel2;
+                //transaction.FormularioPpal.datos.numpredial = transaction.FormularioPpalAux.numpredial;
 
                 //cmbxLocal.Text;
                 //cmbxSede.Text;
                 //cmbxZona.Text;
 
-                Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
+                Utilities.navigator.Navigate(UserControlView.Add_ActividadEconomica, data: transaction, complement: matricula);
             }
             catch (Exception ex)
             {
@@ -116,12 +94,12 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
         #region "Eventos"
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            //NextView();
+            NextView();
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction);
+            Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction, complement: matricula);
         }
 
         private void TextAlfaNumerico_TouchDown(object sender, TouchEventArgs e)

@@ -26,23 +26,45 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
     {
         #region "Referencias"
         private Transaction transaction;
+        private string matricula;
         #endregion
 
         #region "Constructor"
-        public Identificacion2UC(Transaction ts)
+        public Identificacion2UC(Transaction ts, string mt)
         {
             InitializeComponent();
 
             this.transaction = ts;
 
-            this.DataContext = transaction;
+            this.matricula = mt;
+
+            LoadView();
+        }
+        #endregion
+        
+        #region "Métodos"
+        private void LoadView()
+        {
+            try
+            {
+                var result = transaction.FormularioAdd.Where(x => x.datos.matricula == matricula).FirstOrDefault();
+
+                if (result != null)
+                {
+                    this.DataContext = result.datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
         }
         #endregion
 
         #region "Eventos"
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Add_UbicacionDatosGenerales, data: transaction);
+            Utilities.navigator.Navigate(UserControlView.Add_UbicacionDatosGenerales, data: transaction, complement: matricula);
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)

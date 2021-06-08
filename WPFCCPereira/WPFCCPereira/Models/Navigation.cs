@@ -81,14 +81,14 @@ namespace WPFCCPereira.Models
                     //<------------>end   Formularios principal<-------------->  
                     //<------------>begin Formularios secundarios<-------------->
                     case UserControlView.Add_Identificacion:
-                        View = new UserControls.Renewal.FormsAdd.Identificacion2UC((Transaction)data);
+                        View = new UserControls.Renewal.FormsAdd.Identificacion2UC((Transaction)data, (string)complement);
                         break;
                     case UserControlView.Add_UbicacionDatosGenerales:
-                        View = new UserControls.Renewal.FormsAdd.UbicacionDatosGenerales2UC((Transaction)data);
+                        View = new UserControls.Renewal.FormsAdd.UbicacionDatosGenerales2UC((Transaction)data, (string)complement);
                         break;
-                    //case UserControlView.Add_ActividadEconomica:
-                    //    View = new UserControls.Renewal.FormsPpal.ActividadEconomicaUC((Transaction)data);
-                    //    break;
+                    case UserControlView.Add_ActividadEconomica:
+                        View = new UserControls.Renewal.FormsAdd.ActividadEconomica2UC((Transaction)data, (string)complement);
+                        break;
                     //case UserControlView.Add_InformacionFinanciera:
                     //    View = new UserControls.Renewal.FormsPpal.InformacionFinancieraUC((Transaction)data);
                     //    break;

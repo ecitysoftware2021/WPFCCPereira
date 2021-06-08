@@ -476,6 +476,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         /// ///////////////////BEGIN-DATOS-A-UTILIZAR///////////////////////
         /// </summary>
         public bool FinishFormPPal { get; set; } = false;
+        public bool FinishFormAdd { get; set; } = false;
         //-------------UbicaciónYDatosGenerales------------
         public string telnot { get; set; }
         public string telnot2 { get; set; }

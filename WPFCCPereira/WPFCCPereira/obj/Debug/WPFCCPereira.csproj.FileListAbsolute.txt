@@ -325,7 +325,6 @@ C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.g.cs
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\Identificacion2UC.baml
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.baml
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csprojAssemblyReference.cache
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csprojAssemblyReference.cache
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\AdministratorUserControl.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Administrator\ConfigurateUserControl.g.cs
@@ -439,3 +438,8 @@ C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCC
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.pdb
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\ActividadEconomica2UC.g.cs
 C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.g.cs
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\ActividadEconomica2UC.g.cs
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.g.cs
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\ActividadEconomica2UC.baml
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.baml
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csprojAssemblyReference.cache

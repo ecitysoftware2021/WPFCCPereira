@@ -130,7 +130,7 @@ namespace WPFCCPereira.UserControls.Renewal
                         {
                             transaction.FormularioAdd.Add(response);
                             
-                            Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction);
+                            Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction, complement: matricula);
                         }
                     }
                 });
@@ -191,7 +191,7 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                     else
                     {
-
+                        GetDataForm(UserControlView.Add_Identificacion, data.matricula);
                     }
                 }
             }

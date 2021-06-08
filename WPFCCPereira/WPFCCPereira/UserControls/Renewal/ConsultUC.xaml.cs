@@ -126,15 +126,15 @@ namespace WPFCCPereira.UserControls.Renewal
 
                         if ((transaction.ExpedientesMercantil.ultanorenovado + 1) == DateTime.Now.Year)
                         {
-                            //TODO:aquí
-                            if (transaction.ExpedientesMercantil.establecimientos.Count > 0)
-                            {
-                                Utilities.ShowModal("Por ahora el trámite de renovación esta habilitado solo para personas que no tengan 1 o más establecimientos. Muy pronto estará disponible.", EModalType.Error);
-                            }
-                            else
-                            {
+                            ////TODO:aquí
+                            //if (transaction.ExpedientesMercantil.establecimientos.Count > 0)
+                            //{
+                            //    Utilities.ShowModal("Por ahora el trámite de renovación esta habilitado solo para personas que no tengan 1 o más establecimientos. Muy pronto estará disponible.", EModalType.Error);
+                            //}
+                            //else
+                            //{
                                 Utilities.navigator.Navigate(UserControlView.ActiveCertificate, false, transaction);
-                            }
+                            //}
                         }
                         else
                         if (transaction.ExpedientesMercantil.ultanorenovado == DateTime.Now.Year)

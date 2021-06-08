@@ -78,7 +78,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" 
                 TextAlignment="Right"
-                Text="{Binding ExpedientesMercantil.matricula}"
+                Text="{Binding matricula}"
                 FontSize="30" 
                 Margin="0,0,0,30"
             />
@@ -137,7 +137,7 @@
                 <TextBlock
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Text="{Binding FormularioPpal.datos.desactiv}" 
+                    Text="{Binding desactiv}" 
                     FontSize="20" 
                     TextWrapping="Wrap"
                     Width="480"
@@ -172,7 +172,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
-                    Text="{Binding FormularioPpal.datos.ciius._1, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding ciius._1, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -189,7 +189,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
-                    Text="{Binding FormularioPpal.datos.ciius._2, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding ciius._2, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -213,7 +213,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
-                    Text="{Binding FormularioPpal.datos.ciius._3, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding ciius._3, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
@@ -237,7 +237,7 @@
                     FontSize="25" 
                 />
                 <TextBlock
-                    Text="{Binding FormularioPpal.datos.ciius._4, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding ciius._4, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     Width="850"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
