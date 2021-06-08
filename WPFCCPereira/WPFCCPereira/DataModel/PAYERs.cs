@@ -17,6 +17,6 @@ namespace WPFCCPereira.DataModel
         public string ADDRESS { get; set; }
         public bool STATE { get; set; }
         public string TYPE_PAYER { get; set; }
-        public string TYPE_IDENTIFICATION { get; set; }
+        public int TYPE_IDENTIFICATION { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace WPFCCPereira.UserControls
 
         private ReaderBarCode readerBarCode;
 
-        public PayerUserControl(Transaction transaction)
+        public PayerUserControl(Transaction transaction) 
         {
             InitializeComponent();
 
@@ -103,7 +103,7 @@ namespace WPFCCPereira.UserControls
                 {
                     if (AdminPayPlus.DataPayPlus.PayPadConfiguration.enablE_VALIDATE_PERIPHERALS)
                     {
-                        SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Key);
+                        SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Type);
                     }
                     else
                     {
@@ -155,7 +155,7 @@ namespace WPFCCPereira.UserControls
             }
         }
 
-        private void SaveTransaction(string typeDocument)
+        private void SaveTransaction(int typeDocument)
         {
             try
             {
