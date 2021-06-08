@@ -76,8 +76,9 @@ namespace WPFCCPereira.UserControls
                     if (data != null && viewModel.TypePayer == ETypePayer.Person)
                     {
                         viewModel.Value1 = data.Document;
-                        viewModel.Value2 = string.Concat(data.FirstName, " ", data.LastName, " ", data.SecondLastName);
-                        viewModel.Value3 = string.Empty;
+                        viewModel.Value2 = string.Concat(data.FirstName, " ", data.LastName);
+                        viewModel.Value4 = string.Concat(data.SecondName, " ", data.SecondLastName);
+                        viewModel.Value3 = "";
                     }
                 };
 

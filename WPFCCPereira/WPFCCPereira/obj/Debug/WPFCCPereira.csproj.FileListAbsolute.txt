@@ -196,8 +196,6 @@ C:\Users\1Cero1SAS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\D
 C:\Users\1Cero1SAS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.csproj.CopyComplete
 C:\Users\1Cero1SAS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.exe
 C:\Users\1Cero1SAS\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.pdb
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.g.cs
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\KeyboardNew\WKeyboard.baml
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\MenuUserControl.g.cs
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\MenuUserControl.baml
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\UserControls\DetailFile\DescriptionUserControl.g.cs
@@ -208,7 +206,6 @@ C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\System.Data.SQLite.xml
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.Resources.ConstantsResource.resources
-C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPKeyboard.dll
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPFCCPereira.exe.manifest
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\bin\Debug\WPFCCPereira.application
 C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\WPFCCPereira.exe.manifest
