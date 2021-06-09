@@ -999,7 +999,6 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string numerorecuperacion { get; set; }
         public string expediente { get; set; }
         public Datos datos { get; set; }
-        public Border border { get; set; }
     }
 
     #endregion

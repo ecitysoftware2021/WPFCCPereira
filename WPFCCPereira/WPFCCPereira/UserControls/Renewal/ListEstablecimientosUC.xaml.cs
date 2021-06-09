@@ -64,18 +64,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
                 }
 
-                foreach (var item in transaction.FormularioAdd)
-                {
-                    if (item.datos != null && item.datos.FinishFormAdd)
-                    {
-                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
-                    }
-                    else
-                    {
-                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                    }
-                }
-
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
                 {
                     if ((item.ultanorenovado + 1) == DateTime.Now.Year)
@@ -125,7 +113,7 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
-        private void GetDataForm(UserControlView view, string matricula, object sender = null)
+        private void GetDataForm(UserControlView view, string matricula)
         {
             try
             {
@@ -156,8 +144,6 @@ namespace WPFCCPereira.UserControls.Renewal
                         }
                         else
                         {
-                            response.border = ((Grid)sender).Parent as Border;
-
                             transaction.FormularioAdd.Add(response);
                             
                             Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction, complement: matricula);
@@ -203,7 +189,6 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             Utilities.navigator.Navigate(UserControlView.MenuRenovacion, data: transaction);
         }
-        #endregion
 
         private void frmAdd_TouchDown(object sender, TouchEventArgs e)
         {
@@ -217,7 +202,7 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     if (result == null)
                     {
-                        GetDataForm(UserControlView.Add_Identificacion, data.matricula, sender);
+                        GetDataForm(UserControlView.Add_Identificacion, data.matricula);
                     }
                     else
                     {
@@ -230,5 +215,6 @@ namespace WPFCCPereira.UserControls.Renewal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
+        #endregion
     }
 }
