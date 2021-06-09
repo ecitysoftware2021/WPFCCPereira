@@ -64,6 +64,18 @@ namespace WPFCCPereira.UserControls.Renewal
                     transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
                 }
 
+                foreach (var item in transaction.FormularioAdd)
+                {
+                    if (item.datos != null && item.datos.FinishFormAdd)
+                    {
+                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
+                    }
+                    else
+                    {
+                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    }
+                }
+
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
                 {
                     if ((item.ultanorenovado + 1) == DateTime.Now.Year)
@@ -82,6 +94,20 @@ namespace WPFCCPereira.UserControls.Renewal
 
                         item.imgGrabado = "/Images/Others/imgDigilenciar.png";
 
+                        item.ColorBorder = "Red";
+
+                        var mat = transaction.FormularioAdd.Where(x => x.datos.matricula == item.matricula).FirstOrDefault();
+
+                        if (mat != null)
+                        {
+                            if (mat.datos.FinishFormAdd)
+                            {
+                                item.imgGrabado = "/Images/Others/imgGrabado.png";
+
+                                item.ColorBorder = "Green";
+                            }
+                        }
+
                         listEstablecimientos.Add(item);
                     }
                 }
@@ -92,20 +118,6 @@ namespace WPFCCPereira.UserControls.Renewal
                 }
 
                 this.DataContext = transaction.ExpedientesMercantil;
-
-                foreach (var item in transaction.FormularioAdd)
-                {
-                    if (item.datos != null && item.datos.FinishFormAdd)
-                    {
-                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
-                    }
-                    else
-                    {
-                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
-                    }
-                }
-
-                lv_data_list.Items.Refresh();
             }
             catch (Exception ex)
             {

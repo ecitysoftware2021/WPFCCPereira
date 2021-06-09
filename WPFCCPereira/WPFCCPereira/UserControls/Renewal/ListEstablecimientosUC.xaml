@@ -163,7 +163,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border
-                            BorderBrush="Red"
+                            BorderBrush="{Binding ColorBorder}"
                             BorderThickness="3"
                             Background="#ffffff"
                             Width="780"

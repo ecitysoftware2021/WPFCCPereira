@@ -45,15 +45,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     if (transaction.FormularioPpal.datos.FinishFormPPal)
                     {
-                        btnFirma.IsEnabled = true;
-                        btnFirma.Opacity = 1;
-
                         cant--;
-                    }
-                    else
-                    {
-                        btnFirma.IsEnabled = false;
-                        btnFirma.Opacity = 0.4;
                     }
 
                     if (!string.IsNullOrEmpty(transaction.urlFirmaElectronica))
@@ -67,6 +59,25 @@ namespace WPFCCPereira.UserControls.Renewal
                         btnPago.IsEnabled = true;
                         btnPago.Opacity = 1;
                     }
+                }
+
+                foreach (var item in transaction.FormularioAdd)
+                {
+                    if (item.datos.FinishFormAdd)
+                    {
+                        cant--;
+                    }
+                }
+
+                if (cant == 0)
+                {
+                    btnFirma.IsEnabled = true;
+                    btnFirma.Opacity = 1;
+                }
+                else
+                {
+                    btnFirma.IsEnabled = false;
+                    btnFirma.Opacity = 0.4;
                 }
 
                 transaction.LiquidarRenovacionNormal.CantMatriculas = cant;

@@ -123,6 +123,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
 
         public object Data { get; set; }
         public string imgGrabado { get; set; }
+        public string ColorBorder { get; set; }
 
         private int _numempleados;
         public int numempleados
