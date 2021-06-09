@@ -23,11 +23,9 @@ namespace WPFCCPereira.Classes
     public class Utilities
     {
         #region "Referencias"
-
         public static Navigation navigator { get; set; }
 
         private static ModalWindow modal { get; set; }
-
         #endregion
 
         public static string GetConfiguration(string key, bool decodeString = false)

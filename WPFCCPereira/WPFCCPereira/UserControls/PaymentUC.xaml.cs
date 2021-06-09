@@ -266,7 +266,7 @@ namespace WPFCCPereira.UserControls
 
                     if (transaction.IdTransactionAPi > 0)
                     {
-                            Utilities.navigator.Navigate(UserControlView.PrintFile, false, this.transaction);
+                        Utilities.navigator.Navigate(UserControlView.PrintFile, false, this.transaction);
                     }
                     else
                     {

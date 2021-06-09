@@ -80,8 +80,13 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            //Utilities.navigator.Navigate(UserControlView.Ppal_InformacionFinanciera, data: transaction);
+            Utilities.navigator.Navigate(UserControlView.Add_InformacionFinanciera, data: transaction, complement: matricula);
         }
         #endregion
+
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
+        }
     }
 }

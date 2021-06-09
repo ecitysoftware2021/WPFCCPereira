@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
@@ -382,7 +383,7 @@ namespace WPFCCPereira.Classes
         {
             try
             {
-                Task.Run(() =>
+                Task.Run(async () =>
                 {
                     if (_dataConfiguration != null)
                     {
@@ -396,6 +397,22 @@ namespace WPFCCPereira.Classes
                         {
                             level = ELevelError.Strong;
                         }
+
+                        List<PAYPAD_ERROR_CONSOLE> consoleErro = new List<PAYPAD_ERROR_CONSOLE>()
+                        {
+                            new PAYPAD_ERROR_CONSOLE
+                            {
+                                PAYPAD_ID = (int)idPaypad,
+                                DATE = DateTime.Now,
+                                STATE = 1,
+                                DESCRIPTION = desciption,
+                                OBSERVATION = observation,
+                                ERROR_ID = (int)error,
+                                ERROR_LEVEL_ID = (int)level
+                            }
+                        };
+
+                        await api.CallApi("SaveErrorConsole", consoleErro);
 
                         PAYPAD_CONSOLE_ERROR consoleError = new PAYPAD_CONSOLE_ERROR
                         {

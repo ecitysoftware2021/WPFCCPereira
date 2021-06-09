@@ -80,6 +80,8 @@ namespace WPFCCPereira.UserControls.Renewal
 
                         item.status = true;
 
+                        item.imgGrabado = "/Images/Others/imgDigilenciar.png";
+
                         listEstablecimientos.Add(item);
                     }
                 }
@@ -90,6 +92,20 @@ namespace WPFCCPereira.UserControls.Renewal
                 }
 
                 this.DataContext = transaction.ExpedientesMercantil;
+
+                foreach (var item in transaction.FormularioAdd)
+                {
+                    if (item.datos != null && item.datos.FinishFormAdd)
+                    {
+                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
+                    }
+                    else
+                    {
+                        item.border.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
+                    }
+                }
+
+                lv_data_list.Items.Refresh();
             }
             catch (Exception ex)
             {
@@ -97,7 +113,7 @@ namespace WPFCCPereira.UserControls.Renewal
             }
         }
 
-        private void GetDataForm(UserControlView view, string matricula)
+        private void GetDataForm(UserControlView view, string matricula, object sender = null)
         {
             try
             {
@@ -128,6 +144,8 @@ namespace WPFCCPereira.UserControls.Renewal
                         }
                         else
                         {
+                            response.border = ((Grid)sender).Parent as Border;
+
                             transaction.FormularioAdd.Add(response);
                             
                             Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction, complement: matricula);
@@ -187,11 +205,11 @@ namespace WPFCCPereira.UserControls.Renewal
 
                     if (result == null)
                     {
-                        GetDataForm(UserControlView.Add_Identificacion, data.matricula);
+                        GetDataForm(UserControlView.Add_Identificacion, data.matricula, sender);
                     }
                     else
                     {
-                        GetDataForm(UserControlView.Add_Identificacion, data.matricula);
+                        Utilities.navigator.Navigate(UserControlView.Add_Identificacion, data: transaction, complement: data.matricula);
                     }
                 }
             }

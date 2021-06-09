@@ -51,6 +51,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
 
                 if (result != null)
                 {
+                    result.datos.FinishFormAdd = false;
                     this.DataContext = result.datos;
                 }
             }
@@ -70,6 +71,11 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.ListEstablecimientos, data: transaction);
+        }
+
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
         }
         #endregion
     }

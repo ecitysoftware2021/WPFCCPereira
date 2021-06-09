@@ -38,6 +38,7 @@
                 VerticalAlignment="Center"
                 Width="250"
                 Margin="50,0,0,30"
+                TouchDown="btn_exit_TouchDown"
             />
         </Grid>
         <Grid Grid.Row="1" Margin="110,0,110,0">

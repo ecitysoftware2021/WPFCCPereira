@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace WPFCCPereira.Services.ObjectIntegration
 {
@@ -121,6 +122,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public event PropertyChangedEventHandler PropertyChanged;
 
         public object Data { get; set; }
+        public string imgGrabado { get; set; }
 
         private int _numempleados;
         public int numempleados
@@ -484,12 +486,71 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string barrionotnombre { get; set; }
         public string munnotnombre { get; set; }
         public string dirnot { get; set; }
-        public string emailcom { get; set; }
-        public string muncomnombre { get; set; }
-        public string barriocom { get; set; }
-        public string dircom { get; set; }
-        public string telcom1 { get; set; }
-        public string telcom2 { get; set; }
+        
+        private string _emailcom;
+        public string emailcom
+        {
+            get { return _emailcom; }
+            set
+            {
+                _emailcom = value;
+                NotifyPropertyChanged("emailcom");
+            }
+        }
+
+        private string _muncomnombre;
+        public string muncomnombre
+        {
+            get { return _muncomnombre; }
+            set
+            {
+                _muncomnombre = value;
+                NotifyPropertyChanged("muncomnombre");
+            }
+        }
+
+        private string _barriocom;
+        public string barriocom
+        {
+            get { return _barriocom; }
+            set
+            {
+                _barriocom = value;
+                NotifyPropertyChanged("barriocom");
+            }
+        }
+
+        private string _dircom;
+        public string dircom
+        {
+            get { return _dircom; }
+            set
+            {
+                _dircom = value;
+                NotifyPropertyChanged("dircom");
+            }
+        }
+        private string _telcom1;
+        public string telcom1
+        {
+            get { return _telcom1; }
+            set
+            {
+                _telcom1 = value;
+                NotifyPropertyChanged("telcom1");
+            }
+        }
+        
+        private string _telcom2;
+        public string telcom2
+        {
+            get { return _telcom2; }
+            set
+            {
+                _telcom2 = value;
+                NotifyPropertyChanged("telcom2");
+            }
+        }
         public string numpredial { get; set; }
         //-------------ActividadEconomicaClasificacionCIIU------------
         public string versionciiu { get; set; }
@@ -497,7 +558,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string fechamatriculaAux { get; set; }
         private string _cantidadmujeres;
         public string cantidadmujeres
-    {
+        {
             get { return _cantidadmujeres; }
             set
             {
@@ -783,9 +844,19 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string ultimosactivosvinculados { get; set; }
         public string anodatos { get; set; }
         public string fechadatos { get; set; }
-        public string personal { get; set; }
+        
+        private string _personal;
+        public string personal
+        {
+            get { return _personal; }
+            set
+            {
+                _personal = value;
+                NotifyPropertyChanged("personal");
+            }
+        }
         public string personaltemp { get; set; }
-        public string actvin { get; set; }
+        public decimal actvin { get; set; }
         public string valest { get; set; }
         public decimal actcte { get; set; }
         public decimal actnocte { get; set; }
@@ -927,6 +998,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string numerorecuperacion { get; set; }
         public string expediente { get; set; }
         public Datos datos { get; set; }
+        public Border border { get; set; }
     }
 
     #endregion

@@ -59,6 +59,8 @@ namespace WPFCCPereira.Services
                 var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
                 var url = Utilities.GetConfiguration("GetTokenIntegration");
 
+                AdminPayPlus.SaveErrorControl($"DATA ENVIADA {url}: " + json, "", EError.Api, ELevelError.Medium);
+
                 var response = await client.PostAsync(url, content);
 
                 if (!response.IsSuccessStatusCode)
@@ -71,6 +73,8 @@ namespace WPFCCPereira.Services
 
                 if (result != null)
                 {
+                    AdminPayPlus.SaveErrorControl($"DATA RECIBIDA {url}: " + result, "", EError.Api, ELevelError.Medium);
+
                     var requestresponse = JsonConvert.DeserializeObject<Object.Response>(result);
 
                     if (requestresponse != null && !string.IsNullOrEmpty(requestresponse.token))
@@ -80,11 +84,12 @@ namespace WPFCCPereira.Services
                     }
                 }
 
-                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente", "", EError.Customer, ELevelError.Medium);
+                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente. content null", "", EError.Customer, ELevelError.Medium);
             }
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "SecurityToken", ex, MessageResource.StandarError);
+                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente. " + ex.ToString(), "", EError.Customer, ELevelError.Medium);
             }
             return false;
         }
@@ -99,6 +104,8 @@ namespace WPFCCPereira.Services
                 client.BaseAddress = new Uri(basseAddress);
                 var url = Utilities.GetConfiguration(controller);
 
+                AdminPayPlus.SaveErrorControl($"DATA ENVIADA {url}: " + request, "", EError.Api, ELevelError.Medium);
+
                 var response = await client.PostAsync(url, content);
 
                 if (!response.IsSuccessStatusCode)
@@ -108,16 +115,20 @@ namespace WPFCCPereira.Services
                 }
 
                 var result = await response.Content.ReadAsStringAsync();
+
                 if (result != null)
                 {
+                    AdminPayPlus.SaveErrorControl($"DATA RECIBIDA {url}: " + result, "", EError.Api, ELevelError.Medium);
+
                     return result;
                 }
 
-                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente", "", EError.Customer, ELevelError.Medium);
+                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente. content null", "", EError.Customer, ELevelError.Medium);
             }
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "GetData", ex, MessageResource.StandarError);
+                AdminPayPlus.SaveErrorControl("Error en el serviocio del cliente. "+ex.ToString(), "", EError.Customer, ELevelError.Medium);
             }
             return null;
         }
@@ -602,11 +613,6 @@ namespace WPFCCPereira.Services
                     {
                         return data;
                     }
-                    else
-                    if (data != null && data.mensajeerror != string.Empty)
-                    {
-                        //TODO:guardar error
-                    }
                 }
             }
             catch (Exception ex)
@@ -636,11 +642,6 @@ namespace WPFCCPereira.Services
                     if (data != null && data.codigoerror == "0000")
                     {
                         return data;
-                    }
-                    else
-                    if (data != null && data.mensajeerror != string.Empty)
-                    {
-                        //TODO:guardar error
                     }
                 }
             }

@@ -131,7 +131,7 @@
                 <TextBox
                     VerticalAlignment="Center" 
                     TextAlignment="Center"
-                    Text="{Binding FormularioPpal.datos.anodatos}"
+                    Text="{Binding anodatos}"
                     FontSize="35" 
                 />
             </Grid>
@@ -159,7 +159,7 @@
                     Height="60"
                     >
                     <TextBox 
-                        Text="{Binding FormularioPpal.datos.actcte, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding actvin, Mode=TwoWay, StringFormat={}{0:C0}, UpdateSourceTrigger=PropertyChanged}"
                         FontSize="30"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
@@ -212,15 +212,15 @@
                     HorizontalAlignment="Right"
                     Width="300"
                     Height="60"
-                    IsEnabled="False"
                     >
                     <TextBox 
-                        Text="{Binding FormularioPpal.datos.personal}"
+                        Text="{Binding personal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         FontSize="30"
                         HorizontalContentAlignment="Center"
                         Width="270"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
+                        TouchDown="TextBox_TouchDown"
                     />
                 </Border>
             </Grid>

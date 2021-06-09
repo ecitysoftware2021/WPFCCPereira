@@ -94,11 +94,11 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             SaveDataForm();
         }
-        #endregion
 
         private void btn_exit_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Main);
         }
+        #endregion
     }
 }
