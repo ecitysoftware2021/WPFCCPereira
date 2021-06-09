@@ -61,11 +61,14 @@ namespace WPFCCPereira.UserControls.Renewal
                     }
                 }
 
-                foreach (var item in transaction.FormularioAdd)
+                if (transaction.FormularioAdd != null)
                 {
-                    if (item.datos.FinishFormAdd)
+                    foreach (var item in transaction.FormularioAdd)
                     {
-                        cant--;
+                        if (item.datos.FinishFormAdd)
+                        {
+                            cant--;
+                        }
                     }
                 }
 
