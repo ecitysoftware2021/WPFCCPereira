@@ -47,18 +47,6 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         cant--;
                     }
-
-                    if (!string.IsNullOrEmpty(transaction.urlFirmaElectronica))
-                    {
-                        btnFirma.IsEnabled = false;
-                        btnFirma.Opacity = 0.4;
-
-                        btnDigilenciar.IsEnabled = false;
-                        btnDigilenciar.Opacity = 0.4;
-
-                        btnPago.IsEnabled = true;
-                        btnPago.Opacity = 1;
-                    }
                 }
 
                 if (transaction.FormularioAdd != null)
@@ -81,6 +69,18 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     btnFirma.IsEnabled = false;
                     btnFirma.Opacity = 0.4;
+                }
+
+                if (!string.IsNullOrEmpty(transaction.urlFirmaElectronica))
+                {
+                    btnFirma.IsEnabled = false;
+                    btnFirma.Opacity = 0.4;
+
+                    btnDigilenciar.IsEnabled = false;
+                    btnDigilenciar.Opacity = 0.4;
+
+                    btnPago.IsEnabled = true;
+                    btnPago.Opacity = 1;
                 }
 
                 transaction.LiquidarRenovacionNormal.CantMatriculas = cant;

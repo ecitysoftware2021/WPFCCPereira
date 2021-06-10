@@ -57,11 +57,17 @@ namespace WPFCCPereira.UserControls.Renewal
                 {
                     brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0xFF, 0x00));
                     transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgGrabado.png";
+
+                    lv_data_list.Opacity = 1;
+                    lv_data_list.IsEnabled = true;
                 }
                 else
                 {
                     brdPpal.BorderBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x00, 0x00));
                     transaction.ExpedientesMercantil.IMGgrabado = "/Images/Others/imgDigilenciar.png";
+
+                    lv_data_list.Opacity = 0.3;
+                    lv_data_list.IsEnabled = false;
                 }
 
                 foreach (var item in transaction.ExpedientesMercantil.establecimientos)
@@ -132,7 +138,7 @@ namespace WPFCCPereira.UserControls.Renewal
                     {
                         Utilities.ShowModal("Ha ocurrido un error al procesar la solicitud. Por favor intenta de nuevo.", EModalType.Error);
 
-                        Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
+                        //Utilities.navigator.Navigate(UserControlView.ConsultRenovacion, false, transaction);
                     }
                     else
                     {

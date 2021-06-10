@@ -147,6 +147,8 @@
         <Grid Grid.Row="3" Margin="110,0,110,0">
             <ListView x:Name="lv_data_list" 
                     Margin="0,20,0,0"
+                    IsEnabled="False"
+                    Opacity="0.3"
                     Background="Transparent"
                     BorderBrush="Transparent"
                     HorizontalAlignment="Center" 
