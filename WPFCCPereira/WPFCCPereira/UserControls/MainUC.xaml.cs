@@ -42,9 +42,9 @@ namespace WPFCCPereira.UserControls
             try
             {
                 ConfiguratePublish();
-                AdminPayPlus.NotificateInformation();
+                //AdminPayPlus.NotificateInformation();
                 //AdminPayPlus.VerifyTransaction();
-                InitValidation();
+                //InitValidation();
             }
             catch (Exception ex)
             {
@@ -180,7 +180,8 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                ValidateStatus();
+                _imageSleader.Stop();
+                Utilities.navigator.Navigate(UserControlView.Menu, true);
             }
             catch (Exception ex)
             {

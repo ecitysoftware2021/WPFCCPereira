@@ -38,6 +38,7 @@ namespace WPFCCPereira.UserControls
                     {
                         if (transaction.isRenovacion)
                         {
+                            Utilities.ShowModal("Renovación exitosa", EModalType.Error);
                             FinishTransaction(true);
                         }
                         else
@@ -47,6 +48,7 @@ namespace WPFCCPereira.UserControls
                     }
                     else
                     {
+                        Utilities.ShowModal("Renovación fallida", EModalType.Error);
                         FinishTransaction(false);
                     }
                 });
@@ -115,19 +117,20 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                if (statePrint)
-                {
-                    if (transaction.State == ETransactionState.Initial)
-                    {
-                        transaction.State = ETransactionState.Success;
-                    }
+                Utilities.navigator.Navigate(UserControlView.Main);
+                //if (statePrint)
+                //{
+                //    if (transaction.State == ETransactionState.Initial)
+                //    {
+                //        transaction.State = ETransactionState.Success;
+                //    }
 
-                    Utilities.navigator.Navigate(UserControlView.PaySuccess, false, transaction);
-                }
-                else
-                {
-                    Utilities.navigator.Navigate(UserControlView.ReturnMony, false, transaction);
-                }
+                //    Utilities.navigator.Navigate(UserControlView.PaySuccess, false, transaction);
+                //}
+                //else
+                //{
+                //    Utilities.navigator.Navigate(UserControlView.ReturnMony, false, transaction);
+                //}
             }
             catch (Exception ex)
             {
