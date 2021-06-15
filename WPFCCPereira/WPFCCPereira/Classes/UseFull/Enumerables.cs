@@ -116,4 +116,21 @@ namespace WPFCCPereira.Classes
         Existence = 11,
         commercialRegister = 12,
     }
+    
+    public enum ETypeEstados
+    {
+        Radicado = 1,
+        Asignado_a_estudio = 4,
+        Devuelto = 5,
+        Entregado_al_usuario = 6,
+        Reingresado = 9,
+        Inscrito = 11,
+        Enviado_a_archivo = 15,
+        Archivado = 16,
+        En_digitacion = 23,
+        En_proceso_de_firma = 34,
+        En_control_de_calidad = 38,
+        Desistido = 39,
+        Anulado = 99,
+    }
 }

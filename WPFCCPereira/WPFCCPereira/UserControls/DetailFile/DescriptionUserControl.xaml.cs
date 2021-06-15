@@ -45,7 +45,15 @@ namespace WPFCCPereira.UserControls.DetailFile
 
                     foreach (var state in file.estados)
                     {
-                        viewModel.DataList.Add(new ItemList { Item1 = state.estado,
+                        string description = "";
+
+                        if (state.estado != null && int.Parse(state.estado) > 0)
+                        {
+                            description = ((ETypeEstados)int.Parse(state.estado)).ToString();
+                        }
+
+                        viewModel.DataList.Add(new ItemList { 
+                            Item1 = string.Concat(state.estado," - ",description),
                             Item2 = string.Concat("Operador: ", state.usuariofinal),
                             Item3 = string.Concat(DateTime.ParseExact(state.fecha, "yyyyMMdd", null).ToString("yyyy-MM-dd")," ", DateTime.ParseExact(state.hora, "HHmmss", null).ToString("HH:mm:ss"))
                         });

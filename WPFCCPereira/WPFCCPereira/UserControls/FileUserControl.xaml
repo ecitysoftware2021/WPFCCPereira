@@ -20,11 +20,11 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Image Source="/Images/Buttons/btn-exit.png"
+            <Image Source="/Images/Buttons/btn-back.png"
                    Name="btn_exit"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
-                   Width="550"
+                   Width="200"
                    Margin="80,0,0,20"
                    TouchDown="Btn_exit_TouchDown" />
         </Grid>

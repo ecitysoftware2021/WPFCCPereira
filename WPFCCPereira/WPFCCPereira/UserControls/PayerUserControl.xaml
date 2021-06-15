@@ -32,7 +32,6 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-
             <Grid Grid.Row="1">
                 <TextBlock  HorizontalAlignment="Left"
                    VerticalAlignment="Top"
