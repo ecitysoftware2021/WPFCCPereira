@@ -9,19 +9,19 @@
         Width="1080" >
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/Backgrounds/bg-blanck.jpg"/>
+            <ImageBrush ImageSource="/Images/Backgrounds/bg-alert-blanck.png"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="350" />
-            <RowDefinition Height="950" />
+            <RowDefinition Height="1150" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1" Name="gd_payer" Margin="50,0,50,0">
-            <Grid.Background>
+            <!--<Grid.Background>
                 <ImageBrush ImageSource="/WPFCCPereira;component/Images/Backgrounds/bg-info-payer.png"/>
-            </Grid.Background>
+            </Grid.Background>-->
             <Grid.RowDefinitions>
                 <RowDefinition Height="145"/>
                 <RowDefinition Height="125"/>
@@ -30,8 +30,20 @@
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0">
+                <TextBlock  HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="0,0,0,0"
+                   FontFamily="Arial"
+                   FontWeight="Bold"
+                   FontSize="45"
+                   Foreground="#FF203064"
+                   Text="DATOS DE FACTURACIÓN" />
+            </Grid>
+            
             <Grid Grid.Row="1">
                 <TextBlock  HorizontalAlignment="Left"
                    VerticalAlignment="Top"
@@ -174,8 +186,38 @@
 
                 <TextBox TabIndex="5" Height="0" Width="0" />
             </Grid>
-
+            
             <Grid Grid.Row="6">
+                <TextBlock
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="50,5,0,0"
+                   FontFamily="Arial"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   FontSize="38"  
+                   Foreground="#FF706F6F"
+                   Text="{Binding Row5}"/>
+
+                <TextBox 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="42,0,0,8"
+                    FontFamily="Arial"
+                    TextAlignment="Left"
+                    FontSize="48"
+                    Width="885"
+                    TabIndex="5"
+                    FontWeight="Medium"
+                    Foreground="#FF104B6D"
+                    TextWrapping="Wrap"
+                    TouchDown="TbxData1_TouchDown"
+                    Text="{Binding Value5, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBox TabIndex="6" Height="0" Width="0" />
+            </Grid>
+
+            <Grid Grid.Row="7">
                 <Image Source="/Images/Buttons/btn-pay.png"
                     x:Name="btn_payment"
                     HorizontalAlignment="Right" 

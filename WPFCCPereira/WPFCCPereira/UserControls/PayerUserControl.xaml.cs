@@ -46,8 +46,9 @@ namespace WPFCCPereira.UserControls
                 {
                     Row1 = "Identificación *",
                     Row2 = "Nombres *",
-                    Row4 = "Apellidos* ",
                     Row3 = "Celular * ",
+                    Row4 = "Apellidos* ",
+                    Row5 = "Correo* ",
                     OptionsEntries = new CollectionViewSource(),
                     OptionsList = new List<TypeDocument>(),
                     TypePayer = ETypePayer.Person,
@@ -77,8 +78,8 @@ namespace WPFCCPereira.UserControls
                     {
                         viewModel.Value1 = data.Document;
                         viewModel.Value2 = string.Concat(data.FirstName, " ", data.LastName);
-                        viewModel.Value4 = string.Concat(data.SecondName, " ", data.SecondLastName);
                         viewModel.Value3 = "";
+                        viewModel.Value4 = string.Concat(data.SecondName, " ", data.SecondLastName);
                     }
                 };
 
@@ -136,16 +137,26 @@ namespace WPFCCPereira.UserControls
                     return false;
                 }
 
+                if (viewModel.Value3.Length < 6)
+                {
+                    return false;
+                }
 
                 if (string.IsNullOrEmpty(viewModel.Value4) && viewModel.TypePayer == ETypePayer.Person)
                 {
                     return false;
                 }
 
-                if (viewModel.Value3.Length < 6)
+                if (string.IsNullOrEmpty(viewModel.Value5) || viewModel.Value5.Length < 6)
                 {
                     return false;
                 }
+                
+                if (!Utilities.IsValidEmailAddress(viewModel.Value5))
+                {
+                    return false;
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -169,6 +180,7 @@ namespace WPFCCPereira.UserControls
                             NAME = viewModel.Value2,
                             LAST_NAME = viewModel.Value4,
                             PHONE = decimal.Parse(viewModel.Value3),
+                            EMAIL = viewModel.Value5,
                             TYPE_PAYER = viewModel.TypePayer == ETypePayer.Person ? "Persona" : "Empresa",
                             TYPE_IDENTIFICATION = typeDocument
                         };
@@ -258,6 +270,7 @@ namespace WPFCCPereira.UserControls
                     viewModel.Value2 = string.Empty;
                     viewModel.Value3 = string.Empty;
                     viewModel.Value4 = string.Empty;
+                    viewModel.Value5 = string.Empty;
                 }
             }
             catch (Exception ex)

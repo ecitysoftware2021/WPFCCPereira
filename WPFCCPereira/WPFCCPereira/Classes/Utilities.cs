@@ -9,6 +9,7 @@ using System.IO;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -143,6 +144,20 @@ namespace WPFCCPereira.Classes
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
+            }
+        }
+
+        public static bool IsValidEmailAddress(string email)
+        {
+            try
+            {
+                Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,8}$");
+                return regex.IsMatch(email);
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, ex.ToString());
+                return false;
             }
         }
 
