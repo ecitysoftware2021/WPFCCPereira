@@ -1,2 +1,2 @@
-u:usrapli;p:1Cero12019$/*
-u:PayPlus C.C  Pereira Ed. Camara de comercio;p:CamaradeComerciodePereira2020*;t:1
+u:userapli;p:1Cero12019$/*
+u:Ecity.Software;p:Ecitysoftware2019#;t:1

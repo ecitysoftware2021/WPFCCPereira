@@ -72,7 +72,6 @@
                             <TextBlock Text="{Binding Item2}"
                                        FontSize="30"                                
                                        TextAlignment="Justify"
-                                       TextWrapping="Wrap"
                                        FontWeight="Medium"
                                        Margin="50,0,0,0"
                                        Foreground="#FF104B6D"
