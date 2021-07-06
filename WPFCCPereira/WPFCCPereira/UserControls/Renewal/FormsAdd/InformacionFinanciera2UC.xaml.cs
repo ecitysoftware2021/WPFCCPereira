@@ -103,7 +103,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
                 {
                     var response = await AdminPayPlus.ApiIntegration.SetFormularioRenovacion(new SetFormularioRenovacion
                     {
-                        expediente = transaction.ExpedientesMercantil.matricula,
+                        expediente = matricula,//transaction.ExpedientesMercantil.matricula,
                         idliquidacion = transaction.LiquidarRenovacionNormal.idliquidacion,
                         numerorecuperacion = transaction.LiquidarRenovacionNormal.numerorecuperacion,
                         datos = form.datos
