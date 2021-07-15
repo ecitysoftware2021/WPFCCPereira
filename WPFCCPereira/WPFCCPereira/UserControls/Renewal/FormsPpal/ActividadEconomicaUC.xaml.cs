@@ -63,15 +63,36 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 DateTime.TryParseExact(transaction.FormularioPpal.datos.fechamatriculaAux, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
                 transaction.FormularioPpal.datos.fechamatriculaAux = transaction.FormularioPpal.datos.fechamatriculaAux != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
                 
-                transaction.FormularioPpal.datos.feciniact1Aux = transaction.FormularioPpal.datos.feciniact1;
-                DateTime.TryParseExact(transaction.FormularioPpal.datos.feciniact1Aux, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-                transaction.FormularioPpal.datos.feciniact1Aux = transaction.FormularioPpal.datos.feciniact1Aux != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
+              
+                if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.feciniact1))
+                {
+                    string date = transaction.FormularioPpal.datos.feciniact1;
 
-                transaction.FormularioPpal.datos.feciniact2Aux = transaction.FormularioPpal.datos.feciniact2;
-                DateTime.TryParseExact(transaction.FormularioPpal.datos.feciniact2Aux, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
-                transaction.FormularioPpal.datos.feciniact2Aux = transaction.FormularioPpal.datos.feciniact2Aux != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
+                    date = date.Insert(4, "-").Insert(7, "-");
+
+                    transaction.FormularioPpal.datos.feciniact1Aux = date;
+                }
+                
+                if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.feciniact2))
+                {
+                    string date = transaction.FormularioPpal.datos.feciniact2;
+
+                    date = date.Insert(4, "-").Insert(7, "-");
+
+                    transaction.FormularioPpal.datos.feciniact2Aux = date;
+                }
+
+                //transaction.FormularioPpal.datos.feciniact1Aux = transaction.FormularioPpal.datos.feciniact1;
+                //DateTime.TryParseExact(transaction.FormularioPpal.datos.feciniact1Aux, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+                //transaction.FormularioPpal.datos.feciniact1Aux = transaction.FormularioPpal.datos.feciniact1Aux != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
+
+
+                //transaction.FormularioPpal.datos.feciniact2Aux = transaction.FormularioPpal.datos.feciniact2;
+                //DateTime.TryParseExact(transaction.FormularioPpal.datos.feciniact2Aux, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
+                //transaction.FormularioPpal.datos.feciniact2Aux = transaction.FormularioPpal.datos.feciniact2Aux != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
 
                 this.DataContext = this.transaction;
+
             }
             catch (Exception ex)
             {
@@ -91,11 +112,14 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 ModalSearchCiiusW modal = new ModalSearchCiiusW(transaction);
                 modal.ShowDialog();
 
-                txtCiiu.Text = modal.CiiuSelect;
-
-                if (cmbCiius.Items.Count < 4 && !string.IsNullOrEmpty(txtCiiu.Text))
+                if (!string.IsNullOrEmpty(modal.CiiuSelect))
                 {
-                    cmbCiius.Items.Add(modal.CiiuSelect);
+                    txtCiiu.Text = modal.CiiuSelect;
+
+                    if (cmbCiius.Items.Count < 4)
+                    {
+                        cmbCiius.Items.Add(modal.CiiuSelect);
+                    }
                 }
             }
             catch (Exception ex)
@@ -120,7 +144,30 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             Utilities.navigator.Navigate(UserControlView.Ppal_InformacionFinanciera, data: transaction);
         }
+
+        private void txtgirls_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.OpenKeyboard(true, sender, this);
+        }
+
+        private void txtDescription_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.OpenKeyboard(false, sender, this);
+        }
         #endregion
 
+        private void DpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                DateTime d = Convert.ToDateTime(DpDate.Text);
+                string date = string.Concat(d.Year, d.Month, d.Day);
+                transaction.FormularioPpal.datos.feciniact2 = date;
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+        }
     }
 }

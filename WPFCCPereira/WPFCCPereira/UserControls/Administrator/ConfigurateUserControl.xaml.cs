@@ -67,23 +67,23 @@ namespace WPFCCPereira.UserControls.Administrator
         {
             try
             {
-                if (AdminPayPlus.DataPayPlus.StateUpdate)
-                {
-                    Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, false);
-                    Utilities.UpdateApp();
-                }
-                else if (AdminPayPlus.DataPayPlus.StateBalanece)
-                {
-                    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Balancing);
-                }
-                else if (AdminPayPlus.DataPayPlus.StateUpload)
-                {
-                    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Upload);
-                }
-                else
-                {
+                //if (AdminPayPlus.DataPayPlus.StateUpdate)
+                //{
+                //    Utilities.ShowModal(MessageResource.UpdateAplication, EModalType.Error, false);
+                //    Utilities.UpdateApp();
+                //}
+                //else if (AdminPayPlus.DataPayPlus.StateBalanece)
+                //{
+                //    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Balancing);
+                //}
+                //else if (AdminPayPlus.DataPayPlus.StateUpload)
+                //{
+                //    Utilities.navigator.Navigate(UserControlView.Login, false, ETypeAdministrator.Upload);
+                //}
+                //else
+                //{
                     Finish(result);
-                }
+                //}
             }
             catch (Exception ex)
             {

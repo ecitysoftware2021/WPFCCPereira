@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal.FormsPpal"
              mc:Ignorable="d" 
              Height="1920" 
-             Width="1080">
+             Width="1080"
+             Loaded="UserControl_Loaded">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg"/>
@@ -14,7 +15,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition Height="300"/>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="310"/>
         </Grid.RowDefinitions>
@@ -116,6 +118,29 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                Text="¿Desea recibir notificaciones via correo?"
+                FontSize="25" 
+            />
+            <ComboBox
+                Name="cbxNotifications"
+                Width="300"
+                HorizontalContentAlignment="Right"
+                HorizontalAlignment="Right"
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                FontSize="25"
+                SelectionChanged="cbxNotifications_Selected"
+                >
+                <ComboBoxItem Name="not">No</ComboBoxItem>
+                <ComboBoxItem Name="yes" IsSelected="True">Si</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="4" Margin="110,0,110,0">
             <Grid x:Name="grvAportante" Visibility="Hidden">
                 <TextBlock
                     HorizontalAlignment="Left"

@@ -149,15 +149,26 @@
                     FontSize="25" 
                     Margin="0,0,0,0"
                 />
-                <TextBlock
+                <Border
+                    BorderBrush="#7a837e"
+                    BorderThickness="2"
+                    CornerRadius="15"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Text="{Binding FormularioPpal.datos.desactiv}" 
-                    FontSize="20" 
-                    TextWrapping="Wrap"
-                    Width="480"
-                    Margin="0,0,0,0"
-                />
+                    Width="450"
+                    Height="40"
+                    >
+                    <TextBox
+                        x:Name="txtDescription"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" 
+                        Text="{Binding FormularioPpal.datos.desactiv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="20" 
+                        TextWrapping="Wrap"
+                        Margin="0,0,0,0"
+                        Width="420"
+                        TouchDown="txtDescription_TouchDown"
+                    />
+                </Border>
             </Grid>
             <Grid Grid.Row="3">
                 <TextBlock
@@ -195,12 +206,14 @@
                     Height="40"
                     >
                     <TextBox
+                        Name="txtgirls"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center" 
                         TextAlignment="Right"
                         Text="{Binding FormularioPpal.datos.cantidadmujeres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
                         FontSize="25" 
                         Margin="0,0,40,0"
+                        TouchDown="txtgirls_TouchDown"
                     />
                 </Border>
             </Grid> 
@@ -248,11 +261,18 @@
                     Text="Inicio actividad primaria"
                     FontSize="25" 
                 />
-                <TextBlock
+                <DatePicker
+                    Name="DpDate1"
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Text="{Binding FormularioPpal.datos.feciniact1Aux}"
-                    FontSize="30" 
+                    HorizontalContentAlignment="Right"
+                    Width="450"
+                    SelectedDateFormat="Long"
+                    Height="45"
+                    FontSize="25"
+                    Margin="0,0,0,0"
+                    IsEnabled="False"
+                    SelectedDate="{Binding FormularioPpal.datos.feciniact1Aux}"
                 />
                 <Image 
                     Source="/Images/Others/img-split.png"
@@ -300,12 +320,19 @@
                     Width="900"
                     Margin="0,0,0,0"
                 />
-                <TextBlock
+                <DatePicker
+                    Name="DpDate"
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Text="{Binding FormularioPpal.datos.feciniact2Aux}"
-                    FontSize="30" 
-                />
+                    HorizontalContentAlignment="Right"
+                    Width="450"
+                    SelectedDateFormat="Long"
+                    Height="45"
+                    FontSize="25"
+                    Margin="0,0,0,0"
+                    SelectedDate="{Binding FormularioPpal.datos.feciniact2Aux}"
+                    SelectedDateChanged="DpDate_SelectedDateChanged"
+                />  
             </Grid>
             <Grid Grid.Row="10">
                 <TextBlock

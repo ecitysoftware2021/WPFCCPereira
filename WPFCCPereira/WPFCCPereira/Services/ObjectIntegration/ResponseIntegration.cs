@@ -779,7 +779,17 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string telcor2 { get; set; }
         public string muncor { get; set; }
         public List<object> ciius3 { get; set; }
-        public string desactiv { get; set; }
+        
+        private string _desactiv;
+        public string desactiv
+        {
+            get { return _desactiv; }
+            set
+            {
+                _desactiv = value;
+                NotifyPropertyChanged("desactiv");
+            }
+        }
         public string feciniact2 { get; set; }
         public string feciniact2Aux { get; set; }
         public string codaduaneros { get; set; }

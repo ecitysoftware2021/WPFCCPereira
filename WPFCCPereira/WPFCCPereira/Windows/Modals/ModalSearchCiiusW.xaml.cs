@@ -48,7 +48,6 @@ namespace WPFCCPereira.Windows.Modals
         {
             try
             {
-
                 if (string.IsNullOrEmpty(txtCIIU.Text))
                 {
                     txt_error.Text = "Debe ingresar una referencia a consultar.";
@@ -173,12 +172,24 @@ namespace WPFCCPereira.Windows.Modals
             {
                 var data = (sender as Border).DataContext as Renglone;
 
-                //if (data != null && !string.IsNullOrEmpty(data.ciiu))
-                //{
-                    CiiuSelect = data.ciiu;
+                if (data != null)
+                {
+                    if (data.ciiu == "I5630" || data.ciiu == "S9609")
+                    {
+                        Utilities.ShowModal("Esté es un ciiu de alto impacto. Lo invitamos a hacer la renovación en la sede principal.",EModalType.Error);
+                        DialogResult = false;
+                    }
+                    else
+                    {
+                        CiiuSelect = data.ciiu;
 
-                    DialogResult = true;
-                //}
+                        DialogResult = true;
+                    }
+                }
+                else
+                {
+                    DialogResult = false;
+                }
             }
             catch (Exception ex)
             {

@@ -84,6 +84,23 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
             }
         }
+        
+        private void cbxNotifications_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cbxNotifications.SelectedItem;
+
+                if (transaction != null)
+                {
+                    transaction.FormularioPpal.datos.ctrmennot = ComboItem.Name.ToUpper() == "YES" ? "S" : "N";
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
@@ -100,5 +117,17 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.navigator.Navigate(UserControlView.Main);
         }
         #endregion
+
+        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+                transaction.FormularioPpal.datos.ctrmennot = "S";
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
     }
 }
