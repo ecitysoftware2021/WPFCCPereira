@@ -120,7 +120,8 @@ namespace WPFCCPereira.UserControls.Renewal
                         //=>19 firmada electronicamente
                         if (response.idestado == "19")
                         {
-                            AplicarDescuento();
+                            SaveTransaction();
+                            //AplicarDescuento();
                         }
                         else
                         {
@@ -191,7 +192,7 @@ namespace WPFCCPereira.UserControls.Renewal
                 Utilities.CloseModal();
 
                 if (this.transaction.IdTransactionAPi == 0)
-                {
+                {//TODO:si ya firmo electronicamente...solamente llamar a este metodo
                     Utilities.ShowModal("No se pudo crear la transacción. Por favor intenta de nuevo.", EModalType.Error);
                 }
                 else
