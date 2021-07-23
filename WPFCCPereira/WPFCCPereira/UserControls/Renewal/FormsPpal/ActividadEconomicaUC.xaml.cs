@@ -62,8 +62,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 transaction.FormularioPpal.datos.fechamatriculaAux = transaction.FormularioPpal.datos.fechamatricula;
                 DateTime.TryParseExact(transaction.FormularioPpal.datos.fechamatriculaAux, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dtm);
                 transaction.FormularioPpal.datos.fechamatriculaAux = transaction.FormularioPpal.datos.fechamatriculaAux != string.Empty ? dtm.ToString("MMMM dd, yyyy") : string.Empty;
-                
-              
+
+
                 if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.feciniact1))
                 {
                     string date = transaction.FormularioPpal.datos.feciniact1;
@@ -72,7 +72,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
                     transaction.FormularioPpal.datos.feciniact1Aux = date;
                 }
-                
+
                 if (!string.IsNullOrEmpty(transaction.FormularioPpal.datos.feciniact2))
                 {
                     string date = transaction.FormularioPpal.datos.feciniact2;

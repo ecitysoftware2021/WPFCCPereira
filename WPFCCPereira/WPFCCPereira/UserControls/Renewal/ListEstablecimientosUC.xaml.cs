@@ -146,7 +146,23 @@ namespace WPFCCPereira.UserControls.Renewal
                         {
                             transaction.FormularioPpal = response;
 
-                            Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
+                            if (transaction.FormularioPpal.datos.ciius._1 == "I5630" ||
+                                transaction.FormularioPpal.datos.ciius._1 == "S9609" ||
+                                transaction.FormularioPpal.datos.ciius._2 == "I5630" ||
+                                transaction.FormularioPpal.datos.ciius._2 == "S9609" ||
+                                transaction.FormularioPpal.datos.ciius._3 == "I5630" ||
+                                transaction.FormularioPpal.datos.ciius._3 == "S9609" ||
+                                transaction.FormularioPpal.datos.ciius._4 == "I5630" ||
+                                transaction.FormularioPpal.datos.ciius._4 == "S9609")
+                            {
+                                Utilities.ShowModal("Tiene un ciiu de alto impacto. Lo invitamos a hacer la renovación en la sede principal.", EModalType.Error);
+
+                                Utilities.navigator.Navigate(UserControlView.Main);
+                            }
+                            else
+                            {
+                                Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
+                            }
                         }
                         else
                         {

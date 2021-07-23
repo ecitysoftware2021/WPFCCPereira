@@ -120,7 +120,7 @@ namespace WPFCCPereira.UserControls.Renewal
                         //=>19 firmada electronicamente
                         if (response.idestado == "19")
                         {
-                            SaveTransaction();
+                            SaveTransaction(); 
                             //AplicarDescuento();
                         }
                         else
