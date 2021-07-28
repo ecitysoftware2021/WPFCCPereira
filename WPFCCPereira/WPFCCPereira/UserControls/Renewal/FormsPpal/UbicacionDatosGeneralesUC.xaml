@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal.FormsPpal"
              mc:Ignorable="d" 
              Height="1920" 
-             Width="1080">
+             Width="1080"
+             Loaded="UserControl_Loaded">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg"/>
@@ -41,6 +42,7 @@
                 Width="250"
                 Margin="50,0,0,30"
                 Stretch="Uniform"
+                TouchDown="btn_exit_TouchDown"
             />
         </Grid>
         <Grid Grid.Row="1" Margin="110,0,110,0">

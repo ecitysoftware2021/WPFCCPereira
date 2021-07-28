@@ -67,6 +67,8 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     grvNotificacion1.Visibility = Visibility.Visible;
                     grvNotificacion2.Visibility = Visibility.Visible;
                 }
+
+                this.DataContext = transaction;
             }
             catch (Exception ex)
             {
@@ -78,26 +80,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             try
             {
-                if (tag == 1)
-                {
-                    transaction.FormularioPpal.datos.dircom = "";
-                    transaction.FormularioPpal.datos.muncomnombre = "";
-                    transaction.FormularioPpal.datos.barriocom = "";
-                    transaction.FormularioPpal.datos.emailcom ="";
-                    transaction.FormularioPpal.datos.telcom1 ="";
-                    transaction.FormularioPpal.datos.telcom2 = "";
-                    transaction.FormularioPpal.datos.numpredial = "";
-                }
-                else
-                {
-                    transaction.FormularioPpal.datos.dirnot = "";
-                    transaction.FormularioPpal.datos.munnotnombre ="";
-                    transaction.FormularioPpal.datos.barrionotnombre = "";
-                    transaction.FormularioPpal.datos.emailnot = "";
-                    transaction.FormularioPpal.datos.telnot = "";
-                    transaction.FormularioPpal.datos.telnot2 = "";
-                }
-
+                
                 //cmbxLocal.Text;
                 //cmbxSede.Text;
                 //cmbxZona.Text;
@@ -134,6 +117,11 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             }
         }
 
+        private void btn_exit_TouchDown(object sender, TouchEventArgs e)
+        {
+            Utilities.navigator.Navigate(UserControlView.Main);
+        }
+
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)
         {
             Utilities.navigator.Navigate(UserControlView.Ppal_Identificacion, data: transaction);
@@ -155,5 +143,17 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.OpenKeyboard(true, sender, this, 800);
         }
         #endregion
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                transaction.FormularioPpal.datos.tipopropiedad = "0";
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
     }
 }
