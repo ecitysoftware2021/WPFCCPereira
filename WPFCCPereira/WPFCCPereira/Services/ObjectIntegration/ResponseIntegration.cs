@@ -481,13 +481,72 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public bool FinishFormPPal { get; set; } = false;
         public bool FinishFormAdd { get; set; } = false;
         //-------------UbicaciónYDatosGenerales------------
-        public string telnot { get; set; }
-        public string telnot2 { get; set; }
-        public string emailnot { get; set; }
-        public string barrionotnombre { get; set; }
-        public string munnotnombre { get; set; }
-        public string dirnot { get; set; }
-        
+        private string _telnot;
+        public string telnot
+        {
+            get { return _telnot; }
+            set
+            {
+                _telnot = value;
+                NotifyPropertyChanged("telnot");
+            }
+        }
+
+        private string _telnot2;
+        public string telnot2
+        {
+            get { return _telnot2; }
+            set
+            {
+                _telnot2 = value;
+                NotifyPropertyChanged("telnot2");
+            }
+        }
+
+        private string _emailnot;
+        public string emailnot
+        {
+            get { return _emailnot; }
+            set
+            {
+                _emailnot = value;
+                NotifyPropertyChanged("emailnot");
+            }
+        }
+
+        private string _barrionotnombre;
+        public string barrionotnombre
+        {
+            get { return _barrionotnombre; }
+            set
+            {
+                _barrionotnombre = value;
+                NotifyPropertyChanged("barrionotnombre");
+            }
+        }
+
+        private string _munnotnombre;
+        public string munnotnombre
+        {
+            get { return _munnotnombre; }
+            set
+            {
+                _munnotnombre = value;
+                NotifyPropertyChanged("munnotnombre");
+            }
+        }
+
+        private string _dirnot;
+        public string dirnot
+        {
+            get { return _dirnot; }
+            set
+            {
+                _dirnot = value;
+                NotifyPropertyChanged("dirnot");
+            }
+        }
+
         private string _emailcom;
         public string emailcom
         {
@@ -541,7 +600,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
                 NotifyPropertyChanged("telcom1");
             }
         }
-        
+
         private string _telcom2;
         public string telcom2
         {
@@ -552,7 +611,17 @@ namespace WPFCCPereira.Services.ObjectIntegration
                 NotifyPropertyChanged("telcom2");
             }
         }
-        public string numpredial { get; set; }
+
+        private string _numpredial;
+        public string numpredial
+        {
+            get { return _numpredial; }
+            set
+            {
+                _numpredial = value;
+                NotifyPropertyChanged("numpredial");
+            }
+        }
         //-------------ActividadEconomicaClasificacionCIIU------------
         public string versionciiu { get; set; }
         public string fechamatricula { get; set; }
@@ -779,7 +848,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string telcor2 { get; set; }
         public string muncor { get; set; }
         public List<object> ciius3 { get; set; }
-        
+
         private string _desactiv;
         public string desactiv
         {
@@ -855,7 +924,7 @@ namespace WPFCCPereira.Services.ObjectIntegration
         public string ultimosactivosvinculados { get; set; }
         public string anodatos { get; set; }
         public string fechadatos { get; set; }
-        
+
         private string _personal;
         public string personal
         {

@@ -16,7 +16,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsAdd
     {
         #region "Referencias"
         private Transaction transaction;
-        private FormularioPpalAux FormAux;
         private string matricula;
         #endregion
 

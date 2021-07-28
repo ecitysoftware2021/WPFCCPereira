@@ -18,7 +18,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
     {
         #region "Referencias"
         private Transaction transaction;
-        private FormularioPpalAux FormAux;
         private int tag;
         #endregion
 
@@ -40,7 +39,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             try
             {
-               
                 System.Drawing.Color color = System.Drawing.Color.Black;
 
                 if (num == 1)
@@ -51,21 +49,10 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     btnUbicacionNotificacion.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#014c6c"));
                     btnUbicacionNotificacion.Background = new SolidColorBrush(Color.FromArgb(0, color.R, color.G, color.B));
 
-                    grvNotificacion.Visibility = Visibility.Hidden;
-                    grvComercial.Visibility = Visibility.Visible;
+                    grvComercial1.Visibility = Visibility.Visible;
                     grvComercial2.Visibility = Visibility.Visible;
-
-                    FormAux = new FormularioPpalAux
-                    {
-                        direccion = transaction.FormularioPpal.datos.dircom,
-                        municipio = transaction.FormularioPpal.datos.muncomnombre,
-                        barrio = transaction.FormularioPpal.datos.barriocomnombre,
-                        correo = transaction.FormularioPpal.datos.emailcom,
-                        tel1 = transaction.FormularioPpal.datos.telcom1,
-                        tel2 = transaction.FormularioPpal.datos.telcom2,
-                        tel3 = string.Empty,
-                        numpredial = transaction.FormularioPpal.datos.numpredial,
-                    };
+                    grvNotificacion1.Visibility = Visibility.Hidden;
+                    grvNotificacion2.Visibility = Visibility.Hidden;
                 }
                 else
                 {
@@ -75,25 +62,11 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                     btnUbicacionComercial.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#014c6c"));
                     btnUbicacionComercial.Background = new SolidColorBrush(Color.FromArgb(0, color.R, color.G, color.B));
 
-                    grvNotificacion.Visibility = Visibility.Visible;
-                    grvComercial.Visibility = Visibility.Hidden;
+                    grvComercial1.Visibility = Visibility.Hidden;
                     grvComercial2.Visibility = Visibility.Hidden;
-
-                    FormAux = new FormularioPpalAux
-                    {
-                        direccion = transaction.FormularioPpal.datos.dirnot,
-                        municipio = transaction.FormularioPpal.datos.munnotnombre,
-                        barrio = transaction.FormularioPpal.datos.barrionotnombre,
-                        correo = transaction.FormularioPpal.datos.emailnot,
-                        tel1 = transaction.FormularioPpal.datos.telnot,
-                        tel2 = transaction.FormularioPpal.datos.telnot2,
-                        tel3 = string.Empty,
-                        numpredial = transaction.FormularioPpal.datos.numpredial,
-                    };
+                    grvNotificacion1.Visibility = Visibility.Visible;
+                    grvNotificacion2.Visibility = Visibility.Visible;
                 }
-
-                transaction.FormularioPpalAux = FormAux;
-                this.DataContext = transaction;
             }
             catch (Exception ex)
             {
@@ -107,30 +80,28 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             {
                 if (tag == 1)
                 {
-                    transaction.FormularioPpal.datos.dircom = transaction.FormularioPpalAux.direccion;
-                    transaction.FormularioPpal.datos.muncomnombre = transaction.FormularioPpalAux.municipio;
-                    transaction.FormularioPpal.datos.barriocom = transaction.FormularioPpalAux.barrio;
-                    transaction.FormularioPpal.datos.emailcom = transaction.FormularioPpalAux.correo;
-                    transaction.FormularioPpal.datos.telcom1 = transaction.FormularioPpalAux.tel1;
-                    transaction.FormularioPpal.datos.telcom2 = transaction.FormularioPpalAux.tel2;
-                    transaction.FormularioPpal.datos.numpredial = transaction.FormularioPpalAux.numpredial;
+                    transaction.FormularioPpal.datos.dircom = "";
+                    transaction.FormularioPpal.datos.muncomnombre = "";
+                    transaction.FormularioPpal.datos.barriocom = "";
+                    transaction.FormularioPpal.datos.emailcom ="";
+                    transaction.FormularioPpal.datos.telcom1 ="";
+                    transaction.FormularioPpal.datos.telcom2 = "";
+                    transaction.FormularioPpal.datos.numpredial = "";
                 }
                 else
                 {
-                    transaction.FormularioPpal.datos.dirnot = transaction.FormularioPpalAux.direccion;
-                    transaction.FormularioPpal.datos.munnotnombre = transaction.FormularioPpalAux.municipio;
-                    transaction.FormularioPpal.datos.barrionotnombre = transaction.FormularioPpalAux.barrio;
-                    transaction.FormularioPpal.datos.emailnot = transaction.FormularioPpalAux.correo;
-                    transaction.FormularioPpal.datos.telnot = transaction.FormularioPpalAux.tel1;
-                    transaction.FormularioPpal.datos.telnot2 = transaction.FormularioPpalAux.tel2;
-                    transaction.FormularioPpal.datos.numpredial = transaction.FormularioPpalAux.numpredial;
+                    transaction.FormularioPpal.datos.dirnot = "";
+                    transaction.FormularioPpal.datos.munnotnombre ="";
+                    transaction.FormularioPpal.datos.barrionotnombre = "";
+                    transaction.FormularioPpal.datos.emailnot = "";
+                    transaction.FormularioPpal.datos.telnot = "";
+                    transaction.FormularioPpal.datos.telnot2 = "";
                 }
 
                 //cmbxLocal.Text;
                 //cmbxSede.Text;
                 //cmbxZona.Text;
 
-                Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
             }
             catch (Exception ex)
             {
@@ -143,6 +114,24 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
             NextView();
+            Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
+        }
+
+        private void cbxLocal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cbxLocal.SelectedItem;
+
+                if (transaction != null)
+                {
+                    transaction.FormularioPpal.datos.tipopropiedad = ComboItem.Tag.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
         }
 
         private void btnReturn_TouchDown(object sender, TouchEventArgs e)

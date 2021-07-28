@@ -68,6 +68,19 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         #endregion
 
         #region "Eventos"
+        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+                transaction.FormularioPpal.datos.ctrmennot = "S";
+                transaction.FormularioPpal.datos.aportantesegsocial = "N";
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+
         private void cbxAportante_Selected(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -77,6 +90,12 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 if (grvAportante != null)
                 {
                     grvAportante.Visibility = ComboItem.Name.ToUpper() == "SI" ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+                    
+                    if (transaction != null)
+                    {
+                        transaction.FormularioPpal.datos.aportantesegsocial = ComboItem.Tag.ToString() == "SI" ? "S" : "N";
+                        transaction.FormularioPpal.datos.tipoaportantesegsocial = ComboItem.Tag.ToString() == "SI" ? "1" : "0";
+                    }
                 }
             }
             catch (Exception ex)
@@ -84,7 +103,27 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
             }
         }
-        
+
+        private void cbxItemsAportante_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cbxItemsAportante.SelectedItem;
+
+                if (grvAportante != null)
+                {
+                    if (transaction != null)
+                    {
+                        transaction.FormularioPpal.datos.tipoaportantesegsocial = ComboItem.Tag.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+
         private void cbxNotifications_Selected(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -93,7 +132,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
                 if (transaction != null)
                 {
-                    transaction.FormularioPpal.datos.ctrmennot = ComboItem.Name.ToUpper() == "YES" ? "S" : "N";
+                    transaction.FormularioPpal.datos.ctrmennot = ComboItem.Tag.ToString() == "SI" ? "S" : "N";
                 }
             }
             catch (Exception ex)
@@ -117,17 +156,5 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.navigator.Navigate(UserControlView.Main);
         }
         #endregion
-
-        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-            try
-            {
-                transaction.FormularioPpal.datos.ctrmennot = "S";
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
-            }
-        }
     }
 }

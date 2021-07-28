@@ -113,8 +113,8 @@
                 FontSize="25"
                 SelectionChanged="cbxAportante_Selected"
                 >
-                <ComboBoxItem Name="no" IsSelected="True">No</ComboBoxItem>
-                <ComboBoxItem Name="si">Si</ComboBoxItem>
+                <ComboBoxItem Tag="NO" IsSelected="True">No</ComboBoxItem>
+                <ComboBoxItem Tag="SI">Si</ComboBoxItem>
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="110,0,110,0">
@@ -136,8 +136,8 @@
                 FontSize="25"
                 SelectionChanged="cbxNotifications_Selected"
                 >
-                <ComboBoxItem Name="not">No</ComboBoxItem>
-                <ComboBoxItem Name="yes" IsSelected="True">Si</ComboBoxItem>
+                <ComboBoxItem Tag="NO">No</ComboBoxItem>
+                <ComboBoxItem Tag="SI" IsSelected="True">Si</ComboBoxItem>
             </ComboBox>
         </Grid>
         <Grid Grid.Row="4" Margin="110,0,110,0">
@@ -150,6 +150,7 @@
                     Margin="0,30,0,0"
                 />
                 <ComboBox
+                    Name="cbxItemsAportante"
                     Width="450"
                     HorizontalContentAlignment="Right"
                     HorizontalAlignment="Right"
@@ -159,11 +160,12 @@
                     VerticalAlignment="Top"
                     Background="Transparent"
                     FontSize="25"
+                    SelectionChanged="cbxItemsAportante_SelectionChanged"
                     >
-                    <ComboBoxItem IsSelected="True">Aportante con 200 o más cotizantes</ComboBoxItem>
-                    <ComboBoxItem>Cuenta con menos de 200 cotizantes</ComboBoxItem>
-                    <ComboBoxItem>Aportante beneficiario del articulo 5 de la ley 1429 de 2010</ComboBoxItem>
-                    <ComboBoxItem>Aportante independiente</ComboBoxItem>
+                    <ComboBoxItem Tag="1" IsSelected="True">Aportante con 200 o más cotizantes</ComboBoxItem>
+                    <ComboBoxItem Tag="2">Cuenta con menos de 200 cotizantes</ComboBoxItem>
+                    <ComboBoxItem Tag="3">Aportante beneficiario del articulo 5 de la ley 1429 de 2010</ComboBoxItem>
+                    <ComboBoxItem Tag="4">Aportante independiente</ComboBoxItem>
                 </ComboBox>
             </Grid>
             <Image 

@@ -24,40 +24,7 @@ namespace WPFCCPereira.Models
 
         public FormularioResponse FormularioPpal { get; set; }
         
-
-        private FormularioPpalAux _FormularioPpalAux;
-
-        public FormularioPpalAux FormularioPpalAux
-        {
-            get
-            {
-                return _FormularioPpalAux;
-            }
-            set
-            {
-                _FormularioPpalAux = value;
-                OnPropertyRaised("FormularioPpalAux");
-            }
-        }
-
-
         public List<FormularioResponse> FormularioAdd { get; set; }
-
-
-        private List<FormularioPpalAux> _FormularioAddAux;
-
-        public List<FormularioPpalAux> FormularioAddAux
-        {
-            get
-            {
-                return _FormularioAddAux;
-            }
-            set
-            {
-                _FormularioAddAux = value;
-                OnPropertyRaised("FormularioAddAux");
-            }
-        }
 
         public string urlFirmaElectronica { get; set; }
         public string numeroRecuperacion { get; set; }
@@ -65,7 +32,6 @@ namespace WPFCCPereira.Models
 
         public bool isRenovacion { get; set; } = false;
         //END RENOVACION
-
 
         public DetailViewModel detailViewModel { get; set; }
         public string consecutive { get; set; }

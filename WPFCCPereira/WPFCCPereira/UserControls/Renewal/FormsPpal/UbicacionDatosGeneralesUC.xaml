@@ -133,7 +133,7 @@
                 TouchDown="btnUbicacion_TouchDown"
             />
         </Grid>
-        <Grid Grid.Row="3" Margin="110,0,110,0">
+        <Grid Name="grvComercial1" Visibility="Visible" Grid.Row="3" Margin="110,0,110,0">
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top" 
@@ -144,7 +144,7 @@
             <TextBox
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center" 
-                Text="{Binding FormularioPpalAux.direccion, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                Text="{Binding FormularioPpal.datos.dircom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                 FontSize="25" 
                 Margin="0,0,0,0"
                 TouchDown="TextAlfaNumerico_TouchDown"
@@ -157,7 +157,7 @@
                 Margin="0,0,0,20" 
             />
         </Grid>
-        <Grid Grid.Row="4" Margin="110,0,110,0">
+        <Grid Name="grvComercial2" Visibility="Visible" Grid.Row="4" Margin="110,0,110,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -183,7 +183,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    Text="{Binding FormularioPpalAux.municipio, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.muncomnombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     FontSize="30"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
@@ -209,7 +209,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalAlignment="Center" 
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.barrio, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.barriocom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
                 <Image
@@ -259,7 +259,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
-                    Text="{Binding FormularioPpalAux.correo, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.emailcom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     FontSize="30"
                     TouchDown="TextAlfaNumerico_TouchDown"
                 />
@@ -285,7 +285,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.tel1, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.telcom1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -309,7 +309,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30" 
-                    Text="{Binding FormularioPpalAux.tel2, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.telcom2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -333,7 +333,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.tel3, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.telcom3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -344,7 +344,7 @@
                     Margin="0,0,0,3" 
                 />
             </Grid>
-            <Grid x:Name="grvComercial" Grid.Row="7">
+            <Grid Grid.Row="7">
                 <TextBlock
                     TextWrapping="Wrap"
                     HorizontalAlignment="Left"
@@ -358,7 +358,7 @@
                     VerticalAlignment="Center" 
                     HorizontalContentAlignment="Right"
                     FontSize="30"
-                    Text="{Binding FormularioPpalAux.numpredial, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding FormularioPpal.datos.numpredial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     TouchDown="TextNumerico_TouchDown"
                 />
                 <Image
@@ -369,7 +369,253 @@
                     Margin="0,0,0,3" 
                 />
             </Grid>
-            <Grid x:Name="grvNotificacion" Grid.Row="7" Visibility="Hidden">
+            <Grid Grid.Row="8">
+                <TextBlock
+                    VerticalAlignment="Center" 
+                    TextAlignment="Left"
+                    Text="Tipo de propiedad" 
+                    FontSize="25" 
+                />
+                <ComboBox
+                    Name="cbxLocal"
+                    Width="550"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                    SelectionChanged="cbxLocal_SelectionChanged"
+                    >
+                    <ComboBoxItem Tag="0" IsSelected="True">No reporta ubicación</ComboBoxItem>
+                    <ComboBoxItem Tag="1">Local</ComboBoxItem>
+                    <ComboBoxItem Tag="2">Oficina</ComboBoxItem>
+                    <ComboBoxItem Tag="3">Local y Oficina</ComboBoxItem>
+                    <ComboBoxItem Tag="4">Fábrica</ComboBoxItem>
+                    <ComboBoxItem Tag="5">Vivienda</ComboBoxItem>
+                    <ComboBoxItem Tag="6">Finca</ComboBoxItem>
+                </ComboBox>
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            
+        </Grid>
+        <Grid Name="grvNotificacion1" Visibility="Hidden" Grid.Row="3" Margin="110,0,110,0">
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" 
+                Text="Dirección" 
+                FontSize="20" 
+                Margin="0,0,0,0"
+            />
+            <TextBox
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" 
+                Text="{Binding FormularioPpal.datos.dirnot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                FontSize="25" 
+                Margin="0,0,0,0"
+                TouchDown="TextAlfaNumerico_TouchDown"
+            />
+            <Image 
+                Source="/Images/Others/img-split.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="900"
+                Margin="0,0,0,20" 
+            />
+        </Grid>
+        <Grid Name="grvNotificacion2" Visibility="Hidden" Grid.Row="4" Margin="110,0,110,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Municipio" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    Text="{Binding FormularioPpal.datos.munnotnombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    FontSize="30"
+                    TouchDown="TextAlfaNumerico_TouchDown"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,2" 
+                />
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Barrio" 
+                    FontSize="25" 
+                    FontFamily="Arial"
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Right"
+                    VerticalAlignment="Center" 
+                    FontSize="30"
+                    Text="{Binding FormularioPpal.datos.barrionotnombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TouchDown="TextAlfaNumerico_TouchDown"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="2">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Zona" 
+                    FontSize="25" 
+                />
+                <ComboBox
+                    Name="cmbxZona2"
+                    Width="550"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="30" 
+                    >
+                    <ComboBoxItem IsSelected="True">Urbana</ComboBoxItem>
+                    <ComboBoxItem>Rural</ComboBoxItem>
+                </ComboBox>
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,2" 
+                />
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Correo" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    Text="{Binding FormularioPpal.datos.emailnot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    FontSize="30"
+                    TouchDown="TextAlfaNumerico_TouchDown"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="4">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Teléfono 1" 
+                    FontSize="25" 
+                    Margin="0,0,0,0"
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30"
+                    Text="{Binding FormularioPpal.datos.telnot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TouchDown="TextNumerico_TouchDown"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="5">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Teléfono 2" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30" 
+                    Text="{Binding FormularioPpal.datos.telnot2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TouchDown="TextNumerico_TouchDown"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="6">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Teléfono 3" 
+                    FontSize="25" 
+                />
+                <TextBox
+                    Width="550"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Right"
+                    FontSize="30"
+                    Text="{Binding FormularioPpal.datos.telnot3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TouchDown="TextNumerico_TouchDown"
+                />
+                <Image
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Width="900"
+                    Margin="0,0,0,3" 
+                />
+            </Grid>
+            <Grid Grid.Row="7">
                 <TextBlock
                     Grid.Row="8"
                     Grid.Column="0"
@@ -404,37 +650,6 @@
                     Margin="0,0,0,3" 
                 />
             </Grid>
-            <Grid x:Name="grvComercial2" Grid.Row="8">
-                <TextBlock
-                    VerticalAlignment="Center" 
-                    TextAlignment="Left"
-                    Text="Tipo de propiedad" 
-                    FontSize="25" 
-                />
-                <ComboBox
-                    Name="cmbxLocal"
-                    Width="550"
-                    Background="Transparent"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    HorizontalContentAlignment="Right"
-                    FontSize="30" 
-                    >
-                    <ComboBoxItem IsSelected="True">Local</ComboBoxItem>
-                    <ComboBoxItem>No reporta</ComboBoxItem>
-                    <ComboBoxItem>Oficina</ComboBoxItem>
-                    <ComboBoxItem>Local y Oficina</ComboBoxItem>
-                    <ComboBoxItem>Fábrica</ComboBoxItem>
-                </ComboBox>
-                <Image
-                    Source="/Images/Others/img-split.png"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Width="900"
-                    Margin="0,0,0,3" 
-                />
-            </Grid>
-            
         </Grid>
         <Grid Grid.Row="5" Margin="110,0,110,0">
             <Image 

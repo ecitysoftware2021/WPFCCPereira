@@ -152,7 +152,6 @@
     <Compile Include="DataModel\TRANSACTION_DETAILs.cs" />
     <Compile Include="DataModel\TRANSACTION_ERROR_SERVICE.cs" />
     <Compile Include="Models\DenominationMoney.cs" />
-    <Compile Include="Models\FormularioPpalAux.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ModalModel.cs" />
     <Compile Include="Models\Navigation.cs" />
