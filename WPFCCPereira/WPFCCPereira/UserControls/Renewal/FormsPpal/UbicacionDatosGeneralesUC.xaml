@@ -628,7 +628,7 @@
                     FontSize="25" 
                 />
                 <ComboBox
-                    Name="cmbxSede"
+                    Name="cbxSede"
                     Grid.Row="8"
                     Grid.Column="1"
                     Width="550"
@@ -636,13 +636,14 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Right"
-                    FontSize="30" 
+                    FontSize="30"
+                    SelectionChanged="cbxSede_SelectionChanged"
                     >
-                    <ComboBoxItem IsSelected="True">Arriendo</ComboBoxItem>
-                    <ComboBoxItem>Propia</ComboBoxItem>
-                    <ComboBoxItem>No Reporta</ComboBoxItem>
-                    <ComboBoxItem>Comodato</ComboBoxItem>
-                    <ComboBoxItem>Préstamo</ComboBoxItem>
+                    <ComboBoxItem Tag="0" IsSelected="True">No Reporta</ComboBoxItem>
+                    <ComboBoxItem Tag="1">Arriendo</ComboBoxItem>
+                    <ComboBoxItem Tag="2">Propia</ComboBoxItem>
+                    <ComboBoxItem Tag="3">Comodato</ComboBoxItem>
+                    <ComboBoxItem Tag="4">Préstamo</ComboBoxItem>
                 </ComboBox>
                 <Image
                     Source="/Images/Others/img-split.png"

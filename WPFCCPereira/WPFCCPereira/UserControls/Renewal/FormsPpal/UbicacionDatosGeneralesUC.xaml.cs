@@ -94,6 +94,36 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         #endregion
 
         #region "Eventos"
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                transaction.FormularioPpal.datos.tipopropiedad = "0";
+                transaction.FormularioPpal.datos.tiposedeadm = "0";
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+
+        private void cbxSede_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cbxSede.SelectedItem;
+
+                if (transaction != null)
+                {
+                    transaction.FormularioPpal.datos.tiposedeadm = ComboItem.Tag.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
             NextView();
@@ -143,17 +173,5 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             Utilities.OpenKeyboard(true, sender, this, 800);
         }
         #endregion
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                transaction.FormularioPpal.datos.tipopropiedad = "0";
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
-            }
-        }
     }
 }

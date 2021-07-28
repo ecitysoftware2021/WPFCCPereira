@@ -89,7 +89,7 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
                 if (grvAportante != null)
                 {
-                    grvAportante.Visibility = ComboItem.Name.ToUpper() == "SI" ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+                    grvAportante.Visibility = ComboItem.Tag.ToString() == "SI" ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
                     
                     if (transaction != null)
                     {
