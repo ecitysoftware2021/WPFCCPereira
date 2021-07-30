@@ -100,6 +100,42 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
             {
                 transaction.FormularioPpal.datos.tipopropiedad = "0";
                 transaction.FormularioPpal.datos.tiposedeadm = "0";
+                transaction.FormularioPpal.datos.zonapostalcom = "U";
+                transaction.FormularioPpal.datos.zonapostalnot = "U";
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+
+        private void cmbxZona_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cmbxZona.SelectedItem;
+
+                if (transaction != null)
+                {
+                    transaction.FormularioPpal.datos.zonapostalcom = ComboItem.Tag.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
+        
+        private void cmbxZona2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cmbxZona2.SelectedItem;
+
+                if (transaction != null)
+                {
+                    transaction.FormularioPpal.datos.zonapostalnot = ComboItem.Tag.ToString();
+                }
             }
             catch (Exception ex)
             {

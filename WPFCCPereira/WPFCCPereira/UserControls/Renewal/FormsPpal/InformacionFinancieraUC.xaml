@@ -762,12 +762,14 @@
                     FontSize="25" 
                 />
                 <ComboBox
+                    Name="cbxNiif"
                     Width="500"
                     HorizontalContentAlignment="Right"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Background="Transparent"
                     FontSize="30"
+                    SelectionChanged="cbxNiif_SelectionChanged"
                     >
                     <ComboBoxItem Tag="4">RESOLUCIÓN 414/2014</ComboBoxItem>
                     <ComboBoxItem Tag="3">GRUPO III - MICROEMPRESAS</ComboBoxItem>

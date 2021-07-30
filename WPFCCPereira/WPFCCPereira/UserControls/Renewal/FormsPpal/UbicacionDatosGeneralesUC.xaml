@@ -236,10 +236,11 @@
                     HorizontalAlignment="Right"
                     HorizontalContentAlignment="Right"
                     VerticalAlignment="Center"
-                    FontSize="30" 
+                    FontSize="30"
+                    SelectionChanged="cmbxZona_SelectionChanged"
                     >
-                    <ComboBoxItem IsSelected="True">Urbana</ComboBoxItem>
-                    <ComboBoxItem>Rural</ComboBoxItem>
+                    <ComboBoxItem Tag="U" IsSelected="True">Urbana</ComboBoxItem>
+                    <ComboBoxItem Tag="R">Rural</ComboBoxItem>
                 </ComboBox>
                 <Image
                     Source="/Images/Others/img-split.png"
@@ -507,10 +508,11 @@
                     HorizontalAlignment="Right"
                     HorizontalContentAlignment="Right"
                     VerticalAlignment="Center"
-                    FontSize="30" 
+                    FontSize="30"
+                    SelectionChanged="cmbxZona2_SelectionChanged"
                     >
-                    <ComboBoxItem IsSelected="True">Urbana</ComboBoxItem>
-                    <ComboBoxItem>Rural</ComboBoxItem>
+                    <ComboBoxItem Tag="U" IsSelected="True">Urbana</ComboBoxItem>
+                    <ComboBoxItem Tag="R">Rural</ComboBoxItem>
                 </ComboBox>
                 <Image
                     Source="/Images/Others/img-split.png"

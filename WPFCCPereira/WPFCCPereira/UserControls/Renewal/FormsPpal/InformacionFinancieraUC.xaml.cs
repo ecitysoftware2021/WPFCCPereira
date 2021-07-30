@@ -249,6 +249,23 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
         {
             Utilities.OpenKeyboard(true, sender as TextBox, this);
         }
+
+        private void cbxNiif_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem ComboItem = (ComboBoxItem)cbxNiif.SelectedItem;
+
+                if (transaction != null)
+                {
+                    transaction.FormularioPpal.datos.gruponiif = ComboItem.Tag.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, ex.ToString());
+            }
+        }
         #endregion
     }
 }
