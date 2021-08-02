@@ -75,22 +75,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
             }
         }
-
-        private void NextView()
-        {
-            try
-            {
-                
-                //cmbxLocal.Text;
-                //cmbxSede.Text;
-                //cmbxZona.Text;
-
-            }
-            catch (Exception ex)
-            {
-                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
-            }
-        }
         #endregion
 
         #region "Eventos"
@@ -162,7 +146,6 @@ namespace WPFCCPereira.UserControls.Renewal.FormsPpal
 
         private void btnNext_TouchDown(object sender, TouchEventArgs e)
         {
-            NextView();
             Utilities.navigator.Navigate(UserControlView.Ppal_ActividadEconomica, data: transaction);
         }
 
