@@ -11,7 +11,7 @@
             Width="1080" >
     <Grid>
         <Grid.Background>
-            <ImageBrush  ImageSource="/Images/Backgrounds/bg-print-file.png"
+            <ImageBrush  ImageSource="/Images/Backgrounds/bg-success2.png"
                         Stretch="Fill"/>
         </Grid.Background>
 
@@ -22,6 +22,19 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1">
+            <TextBlock 
+                Name="txtTittle"
+                HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,300,0,0"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   FontFamily="Arial"
+                   Width="650"
+                   FontSize="40"
+                   Foreground="#FF706F6F"
+                   Text="" 
+            />
             <Image gif:ImageBehavior.AnimatedSource="../Images/Gif/gif-preload.gif" 
                        gif:ImageBehavior.AnimateInDesignMode="True"
                        gif:ImageBehavior.AutoStart="True" 

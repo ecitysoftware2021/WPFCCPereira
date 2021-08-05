@@ -10,6 +10,7 @@ using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.Services.Object;
+using WPFCCPereira.Services.ObjectIntegration;
 
 namespace WPFCCPereira.Services
 {
@@ -353,26 +354,38 @@ namespace WPFCCPereira.Services
 
                     var requestresponse = JsonConvert.DeserializeObject<Response>(response.ToString());
 
-                    if (requestresponse != null && requestresponse.certificados.Count > 0)
+                    if (transaction.isRenovacion)
                     {
-                        foreach (var certificate in requestresponse.certificados)
+                        if (requestresponse != null && requestresponse.codigoerror == "0000")
                         {
-                            countCertificates += 1;
-                            if (!string.IsNullOrEmpty(certificate.path))
+                            pathCertificates.Add("OK");
+
+                            return pathCertificates;
+                        }
+                    }
+                    else
+                    {
+                        if (requestresponse != null && requestresponse.certificados.Count > 0)
+                        {
+                            foreach (var certificate in requestresponse.certificados)
                             {
-                                var nameFile = $"{transaction.IdTransactionAPi}-{certificate.codigoverificacion}" +
-                                     $"-{transaction.consecutive}-{DateTime.Now.ToString("yyyy-MM-dd")}";
-                                string path = DownloadFile(certificate.path, nameFile);
-                                if (!string.IsNullOrEmpty(path))
+                                countCertificates += 1;
+                                if (!string.IsNullOrEmpty(certificate.path))
                                 {
-                                    pathCertificates.Add(path);
+                                    var nameFile = $"{transaction.IdTransactionAPi}-{certificate.codigoverificacion}" +
+                                         $"-{transaction.consecutive}-{DateTime.Now.ToString("yyyy-MM-dd")}";
+                                    string path = DownloadFile(certificate.path, nameFile);
+                                    if (!string.IsNullOrEmpty(path))
+                                    {
+                                        pathCertificates.Add(path);
+                                    }
                                 }
                             }
-                        }
 
-                        if (pathCertificates.Count == countCertificates)
-                        {
-                            return pathCertificates;
+                            if (pathCertificates.Count == countCertificates)
+                            {
+                                return pathCertificates;
+                            }
                         }
                     }
                 }
@@ -460,5 +473,305 @@ namespace WPFCCPereira.Services
             }
             return 0;
         }
+
+        //BEGIN RENOVACION 
+        public async Task<ResponseLogin> LoginUser(string id, string email, string password, string phone)
+        {
+            try
+            {
+                RequestLogin request = new RequestLogin
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    celularusuario = phone,
+                    claveusuario = password,
+                    emailusuario = email,
+                    identificacionusuario = id
+                };
+
+                var response = await GetData(request, Utilities.GetConfiguration("LoginUser"));
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<ResponseLogin>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<ResponseIntegration> ConsultarExpedienteMercantil(string reference, EtypeConsult etype)
+        {
+            try
+            {
+                RequestFileMercantil request = new RequestFileMercantil
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    identificacion = etype == EtypeConsult.Id ? reference : string.Empty,
+                    matricula = etype == EtypeConsult.Matricula ? reference : string.Empty,
+                    tipo = "T"
+                };
+
+                var response = await GetData(request, Utilities.GetConfiguration("ConsultFileMercantil"));
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<ResponseIntegration>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<LiquidarRenovacionNormalResponse> liquidarRenovacionNormal(RequestLiquidarRenovacionNormal request)
+        {
+            try
+            {
+                RequestLiquidarRenovacionNormal Request = request;
+
+                Request.codigoempresa = code;
+                Request.usuariows = user;
+                Request.token = token;
+
+                var response = await GetData(Request, Utilities.GetConfiguration("RenovacionNormal"));
+
+                if (response != null)
+                {
+                    var data = JsonConvert.DeserializeObject<LiquidarRenovacionNormalResponse>(response.ToString());
+
+                    if (data != null)
+                    {
+                        return data;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<FormularioResponse> GetFormularioRenovacion(GetFormularioRenovacion request)
+        {
+            try
+            {
+                GetFormularioRenovacion Request = request;
+
+                request.codigoempresa = code;
+                request.usuariows = user;
+                request.token = token;
+
+                var response = await GetData(Request, Utilities.GetConfiguration("GetFormularioRenovacion"));
+
+                if (response != null)
+                {
+                    var data = JsonConvert.DeserializeObject<FormularioResponse>(response.ToString());
+
+                    if (data != null && data.codigoerror == "0000")
+                    {
+                        return data;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<FormularioResponse> SetFormularioRenovacion(SetFormularioRenovacion request)
+        {
+            try
+            {
+                SetFormularioRenovacion Request = request;
+
+                request.codigoempresa = code;
+                request.usuariows = user;
+                request.token = token;
+
+                var response = await GetData(Request, Utilities.GetConfiguration("SetFormularioRenovacion"));
+
+                if (response != null)
+                {
+                    var data = JsonConvert.DeserializeObject<FormularioResponse>(response.ToString());
+
+                    if (data != null && data.codigoerror == "0000")
+                    {
+                        return data;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<CIIUS> SearchCiuus(string reference)
+        {
+            try
+            {
+                SearchCiuu request = new SearchCiuu
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    palabras = reference
+                };
+
+                var response = await GetData(request, Utilities.GetConfiguration("SearchCiuus"));
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<CIIUS>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<string> FirmaElectronica(FirmaElectronica firma)
+        {
+            try
+            {
+                FirmaElectronica request = new FirmaElectronica
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idusuario = "USUPUBXX",
+                    idliquidacion = firma.idliquidacion,
+                    identificacioncontrol = firma.identificacioncontrol,
+                    emailcontrol = firma.emailcontrol,
+                    celularcontrol = firma.celularcontrol,
+                    clavefirmado = firma.clavefirmado
+                };
+
+                var response = await GetData(request, Utilities.GetConfiguration("FirmaElectronica"));
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RFirmaElectronica>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse.url;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return string.Empty;
+        }
+
+        public async Task<RConsultarLiquidacion> ConsultarLiquidacion(ConsultarLiquidacion cl)
+        {
+            try
+            {
+                ConsultarLiquidacion request = new ConsultarLiquidacion
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idusuario = "USUPUBXX",
+                    identificacioncontrol = cl.identificacioncontrol,
+                    nombrecontrol = cl.nombrecontrol,
+                    emailcontrol = cl.emailcontrol,
+                    celularcontrol = cl.celularcontrol,
+                    idliquidacion = cl.idliquidacion,
+                    numerorecuperacion = cl.numerorecuperacion
+                };
+
+                var response = await GetData(request, Utilities.GetConfiguration("ConsultarLiquidacion"));
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RConsultarLiquidacion>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+
+        public async Task<RAplicarDescuento> AplicarDescuento1756(int idLiquidacion)
+        {
+            try
+            {
+                AplicarDescuento request = new AplicarDescuento
+                {
+                    codigoempresa = code,
+                    usuariows = user,
+                    token = token,
+                    idliquidacion = idLiquidacion
+                };
+
+                var response = await GetData(request, Utilities.GetConfiguration("AplicarDescuento"));
+
+                if (response != null)
+                {
+                    var requestresponse = JsonConvert.DeserializeObject<RAplicarDescuento>(response.ToString());
+
+                    if (requestresponse != null && requestresponse.codigoerror == "0000")
+                    {
+                        return requestresponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, this.GetType().Name, ex, MessageResource.StandarError);
+            }
+
+            return null;
+        }
+        //END RENOVACION 
     }
 }

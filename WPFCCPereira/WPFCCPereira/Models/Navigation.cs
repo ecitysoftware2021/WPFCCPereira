@@ -43,6 +43,58 @@ namespace WPFCCPereira.Models
                     case UserControlView.Consult:
                         View = new ConsultUserControl((ETransactionType)data);
                         break;
+                    //<------------>BEGIN RENOVACION<-------------->
+                    case UserControlView.LoginUser:
+                        View = new UserControls.Renewal.LoginUC();
+                        break;
+                    case UserControlView.ConsultRenovacion:
+                        View = new UserControls.Renewal.ConsultUC((Transaction)data);
+                        break;
+                    case UserControlView.ActiveCertificate:
+                        View = new UserControls.Renewal.ActiveCertificatesUC((Transaction)data);
+                        break;
+                    case UserControlView.MenuRenovacion:
+                        View = new UserControls.Renewal.MenuFormsUC((Transaction)data);
+                        break;
+                    case UserControlView.ListEstablecimientos:
+                        View = new UserControls.Renewal.ListEstablecimientosUC((Transaction)data);
+                        break;
+                    case UserControlView.DigitalSignature:
+                        View = new UserControls.Renewal.DigitalSignatureUC((Transaction)data);
+                        break;
+                    //<------------>begin Formularios principal<-------------->
+                    case UserControlView.Ppal_Identificacion:
+                        View = new UserControls.Renewal.FormsPpal.IdentificacionUC((Transaction)data);
+                        break;
+                    case UserControlView.Ppal_UbicacionDatosGenerales:
+                        View = new UserControls.Renewal.FormsPpal.UbicacionDatosGeneralesUC((Transaction)data);
+                        break;
+                    case UserControlView.Ppal_ActividadEconomica:
+                        View = new UserControls.Renewal.FormsPpal.ActividadEconomicaUC((Transaction)data);
+                        break;
+                    case UserControlView.Ppal_InformacionFinanciera:
+                        View = new UserControls.Renewal.FormsPpal.InformacionFinancieraUC((Transaction)data);
+                        break;
+                    case UserControlView.Ppal_SistemaSeguridad:
+                        View = new UserControls.Renewal.FormsPpal.SistemaSeguridadUC((Transaction)data);
+                        break;
+                    //<------------>end   Formularios principal<-------------->  
+                    //<------------>begin Formularios secundarios<-------------->
+                    case UserControlView.Add_Identificacion:
+                        View = new UserControls.Renewal.FormsAdd.Identificacion2UC((Transaction)data, (string)complement);
+                        break;
+                    case UserControlView.Add_UbicacionDatosGenerales:
+                        View = new UserControls.Renewal.FormsAdd.UbicacionDatosGenerales2UC((Transaction)data, (string)complement);
+                        break;
+                    case UserControlView.Add_ActividadEconomica:
+                        View = new UserControls.Renewal.FormsAdd.ActividadEconomica2UC((Transaction)data, (string)complement);
+                        break;
+                    case UserControlView.Add_InformacionFinanciera:
+                        View = new UserControls.Renewal.FormsAdd.InformacionFinanciera2UC((Transaction)data, (string)complement);
+                        break;
+                    //<------------>end   Formularios secundarios<-------------->
+                    //<------------->END RENOVACION<--------------->
+
                     case UserControlView.PaySuccess:
                         View = new SussesUserControl((Transaction)data);
                         break;

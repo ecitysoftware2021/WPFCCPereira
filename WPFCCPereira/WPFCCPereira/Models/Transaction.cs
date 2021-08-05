@@ -4,6 +4,7 @@ using System.ComponentModel;
 using WPFCCPereira.Classes;
 using WPFCCPereira.DataModel;
 using WPFCCPereira.Services.Object;
+using WPFCCPereira.Services.ObjectIntegration;
 using WPFCCPereira.ViewModel;
 
 namespace WPFCCPereira.Models
@@ -16,6 +17,24 @@ namespace WPFCCPereira.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
+
+        //BEING RENOVACION
+        public ResponseIntegration ExpedientesMercantil { get; set; }
+
+        public LiquidarRenovacionNormalResponse LiquidarRenovacionNormal { get; set; }
+
+        public FormularioResponse FormularioPpal { get; set; }
+
+        public List<FormularioResponse> FormularioAdd { get; set; }
+
+        public string urlFirmaElectronica { get; set; }
+        public string numeroRecuperacion { get; set; }
+        public string idLiquidacion { get; set; }
+
+        public bool isRenovacion { get; set; } = false;
+
+        public DetailViewModel detailViewModel { get; set; }
+        //END RENOVACION
 
         public string consecutive { get; set; }
 

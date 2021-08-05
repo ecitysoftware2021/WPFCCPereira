@@ -102,7 +102,7 @@ namespace WPFCCPereira.UserControls.DetailFile
             try
             {
                 var position = ((TextBox)sender).PointToScreen(new System.Windows.Point(0d, 0d));
-                Utilities.OpenKeyboard(true, sender as TextBox, this, y: Convert.ToInt32(position.Y + 50));
+                Utilities.OpenKeyboard(true, sender, this, y: Convert.ToInt32(position.Y + 50));
             }
             catch (Exception ex)
             {

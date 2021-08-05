@@ -11,11 +11,41 @@ using WPFCCPereira.Resources;
 
 namespace WPFCCPereira.ViewModel
 {
-    class DetailViewModel : INotifyPropertyChanged
+    public class DetailViewModel : INotifyPropertyChanged
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
+
+        private Visibility _visibleInput;
+
+        public Visibility VisibleInput
+        {
+            get
+            {
+                return _visibleInput;
+            }
+            set
+            {
+                _visibleInput = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VisibleInput)));
+            }
+        }
+
+        private Visibility _visibleId;
+
+        public Visibility VisibleId
+        {
+            get
+            {
+                return _visibleId;
+            }
+            set
+            {
+                _visibleId = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VisibleId)));
+            }
+        }
 
         private string _row1;
 
@@ -411,9 +441,8 @@ namespace WPFCCPereira.ViewModel
         {
             try
             {
-                string ruta = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Mokups", "Mockup_Type_Documents.json");
 
-                var response = Utilities.ConverJson<List<TypeDocument>>(ruta);
+                var response = Utilities.ConverJson<List<TypeDocument>>(Utilities.GetConfiguration("PathTypeDocument"));
                 if (response != null && response.Count > 0)
                 {
                     OptionsList.Clear();

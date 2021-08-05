@@ -1,0 +1,316 @@
+﻿<Window x:Class="WPFCCPereira.Windows.Modals.ModalSearchCiiusW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFCCPereira.Windows.Modals"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ModalSearchCiiusW" 
+        WindowStyle="None"
+        Topmost="False"
+        WindowState="Maximized"
+        Height="1920" 
+        Width="1080"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Opacity="0.5" ImageSource="/images/backgrounds/bg-blanck.jpg" Stretch="Uniform"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="450" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="300" />
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="5">
+            <Border
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Background="#ffffff"
+                Width="900"
+                Height="1300"
+                CornerRadius="60"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,200">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Image 
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="250"
+                Margin="50,0,0,30"
+                Stretch="Uniform"
+                Opacity="0.4"
+                TouchDown="Image_TouchDown"
+            />
+        </Grid>
+        <Grid Grid.Row="1" Margin="110,0,110,0">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="top" 
+                TextAlignment="Center"
+                Text="ACTIVIDAD ECONÓMICA / CLASIFICACIÓN CIIU" 
+                FontSize="45"
+                Opacity="0.5"
+                TextWrapping="Wrap"
+                FontFamily="Arial"
+                Margin="0,50,0,0"
+            />
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                Text="N° Liquidación" 
+                FontSize="25" 
+                Margin="0,0,0,70"
+            />
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}" 
+                FontSize="30" 
+                Margin="0,0,0,30"
+            />
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Right"
+                Text="N° Matrícula" 
+                FontSize="25" 
+                Margin="0,0,0,70"
+            />
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Right"
+                Text="{Binding ExpedientesMercantil.matricula}"
+                FontSize="30" 
+                Margin="0,0,0,30"
+            />
+            <Image
+                Source="/Images/Others/img-split.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="900"
+                Margin="0,0,0,10" 
+            />
+        </Grid>
+        <Grid Grid.Row="2" Margin="110,0,110,0">
+            <Image 
+                Source="/Images/backgrounds/bg-search2.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="650"
+                Margin="50,0,0,0"
+                Stretch="Uniform"
+            />
+            <TextBox 
+                Name="txtCIIU"
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left" 
+                TextAlignment="Center"
+                Margin="50,0,0,0" 
+                Width="520"
+                Height="160" 
+                TextWrapping="Wrap"
+                TabIndex="0"
+                FontSize="48" 
+                Foreground="#FF56C5C8"
+                FontWeight="Medium"
+                md:HintAssist.FloatingScale="0.4"
+                md:HintAssist.IsFloating="True"
+                md:HintAssist.Hint="código o palabras clave"
+                TextChanged="txt_TextChanged"
+                TouchDown="Text_TouchDown" 
+                FontFamily="Arial" 
+            />
+            <TextBlock 
+                Name="txt_error"
+                FontSize="25"
+                TextAlignment="Center"
+                Margin="100,0,0,0"
+                FontFamily="Arial"
+                FontWeight="Bold"
+                Foreground="Red"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"  
+            />
+            <Button
+                x:Name="btn_consult"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Width="240"
+                Height="240" 
+                Margin="0,0,0,0" 
+                TouchDown="BtnConsult_TouchDown" 
+                Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
+                Foreground="{x:Null}"
+            />
+        </Grid>
+        <Grid Grid.Row="3" Margin="110,0,110,0">
+            <Grid x:Name="grvExample">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                    Text="Busqueda de Códigos CIIU" 
+                    FontSize="45" 
+                    Margin="0,200,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    Width="590"
+                    Text="Encuentre el código CIIU que corresponda más a la actividad comercial. Puede buscar por código o ingresando palabras claves." 
+                    FontSize="35" 
+                    Margin="0,0,0,0"
+                />
+            </Grid>
+            <ListView 
+                x:Name="lv_data_list" 
+                Margin="0,20,0,0"
+                Height="800"
+                Visibility="Hidden"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top"
+                ItemsSource="{Binding}" 
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="820" >
+                            <Expander
+                                Header="{Binding ciiu}"
+                                IsExpanded="{Binding expanded}"
+                                >
+                                <ScrollViewer>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70" />
+                                            <RowDefinition Height="100" />
+                                            <RowDefinition Height="40" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" >
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"  
+                                                FontFamily="Arial"
+                                                Margin="20,0,0,0"
+                                                Width="870"
+                                                Height="70"
+                                                Background="#FFAEABAB"
+                                            />
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center" 
+                                                Text="{Binding ciiu}" 
+                                                FontSize="30" 
+                                                FontFamily="Arial"
+                                                FontWeight="Bold"
+                                                Margin="50,0,0,0"
+                                            />
+                                            <Border
+                                                BorderBrush="Black"
+                                                BorderThickness="4"
+                                                Background="Transparent"
+                                                Width="200"
+                                                Height="50"
+                                                CornerRadius="2"
+                                                HorizontalAlignment="Right"
+                                                Margin="0,0,30,0"
+                                                TouchDown="Border_TouchDown">
+                                                <Grid>
+                                                    <TextBlock
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center" 
+                                                        TextAlignment="Center"
+                                                        FontFamily="Arial"
+                                                        FontSize="25" 
+                                                        Margin="0,0,0,0"
+                                                        Text="SELECCIONAR"
+                                                    />  
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                TextAlignment="Justify"
+                                                FontFamily="Arial"
+                                                TextWrapping="Wrap"
+                                                Margin="25,10,25,0"
+                                                Width="750"
+                                                FontSize="20"
+                                                Text="{Binding descripcion}"
+                                            />
+                                        </Grid>
+                                        <Grid Grid.Row="2" >
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top" 
+                                                TextAlignment="Center"
+                                                FontFamily="Arial"
+                                                Margin="50,10,0,0"
+                                                FontSize="20"
+                                                Text="DETALLES"
+                                                FontWeight="{Binding title1}"
+                                                Tag="1"
+                                                TouchDown="TextBlock_TouchDown"
+                                            />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Top" 
+                                                TextAlignment="Center"
+                                                FontFamily="Arial"
+                                                Margin="0,10,0,0"
+                                                FontSize="20"
+                                                Text="INCLUYE"
+                                                FontWeight="{Binding title2}"
+                                                Tag="2"
+                                                TouchDown="TextBlock_TouchDown"
+                                            />
+                                            <TextBlock
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Top" 
+                                                TextAlignment="Center"
+                                                FontFamily="Arial"
+                                                Margin="0,10,50,0"
+                                                FontSize="20"
+                                                Text="EXCLUYE"
+                                                FontWeight="{Binding title3}"
+                                                Tag="3"
+                                                TouchDown="TextBlock_TouchDown"
+                                            />
+                                        </Grid>
+                                        <Grid Grid.Row="3">
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                TextAlignment="Center"
+                                                FontFamily="Arial"
+                                                TextWrapping="Wrap"
+                                                Margin="25,10,25,0"
+                                                Width="755"
+                                                FontSize="20"
+                                                Text="{Binding extraData}"
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Expander>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>

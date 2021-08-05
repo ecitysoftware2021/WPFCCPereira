@@ -270,12 +270,21 @@ namespace WPFCCPereira.Classes
             return null;
         }
 
-        public static decimal RoundValue(decimal Total)
+        public static decimal RoundValue(decimal Total, bool arriba)
         {
             try
             {
                 decimal roundTotal = 0;
-                roundTotal = Math.Floor(Total / 100) * 100;
+
+                if (arriba)
+                {
+                    roundTotal = Math.Ceiling(Total / 100) * 100;
+                }
+                else
+                {
+                    roundTotal = Math.Floor(Total / 100) * 100;
+                }
+
                 return roundTotal;
             }
             catch (Exception ex)
@@ -284,6 +293,7 @@ namespace WPFCCPereira.Classes
                 return Total;
             }
         }
+
 
         public static bool ValidateModule(decimal module, decimal amount)
         {
@@ -353,7 +363,7 @@ namespace WPFCCPereira.Classes
             return string.Empty;
         }
 
-        public static void OpenKeyboard(bool keyBoard_Numeric, TextBox textBox, object thisView, int x = 0, int y = 0)
+        public static void OpenKeyboard(bool keyBoard_Numeric, object textBox, object thisView, int x = 0, int y = 0)
         {
             try
             {

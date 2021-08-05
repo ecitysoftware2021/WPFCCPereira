@@ -24,7 +24,7 @@
                    Width="250"
                    Margin="50,0,0,30"
                    TouchDown="Btn_exit_TouchDown" />
-        </Grid>
+        </Grid> 
 
         <Grid Grid.Row="1">
 
@@ -54,12 +54,25 @@
 
             <Button 
                    Name="btn_search_consecutive"
-                   HorizontalAlignment="Center"
+                   HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
                    Width="250"
                    Tag ="2"
                    Height="300"
-                   Margin="0,0,0,180"
+                   Margin="200,0,0,180"
+                   Background="{x:Null}" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="{x:Null}"
+                   TouchDown="btn_search_TouchDown" />
+
+            <Button 
+                   Name="btn_search_renovacion"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Width="250"
+                   Tag ="31"
+                   Height="300"
+                   Margin="0,0,200,180"
                    Background="{x:Null}" 
                    BorderBrush="{x:Null}" 
                    Foreground="{x:Null}"

@@ -1,0 +1,329 @@
+﻿<UserControl x:Class="WPFCCPereira.UserControls.Renewal.DigitalSignatureUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCCPereira.UserControls.Renewal"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="1920" 
+             Width="1080" >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/backgrounds/bg-blanck.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="300" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="800" />
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="5">
+            <Border
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Background="#ffffff"
+                Width="900"
+                Height="900"
+                CornerRadius="60"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,320,0,0">
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Image 
+                Name="btn_exit"
+                Source="/Images/Buttons/btnsalir.png"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="250"
+                Margin="50,0,0,30"
+                TouchDown="btn_exit_TouchDown"
+            />
+        </Grid>
+        <Grid Grid.Row="1" Margin="110,0,110,0">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="top" 
+                TextAlignment="Center"
+                Text="FIRMAR ELECTRÓNICAMENTE"
+                FontSize="45" 
+                FontFamily="Arial"
+                Margin="0,40,0,0"
+            />
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Justify"
+                Text="N° Liquidación" 
+                FontSize="25" 
+                Margin="0,0,0,70"
+            />
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Justify"
+                Text="{Binding LiquidarRenovacionNormal.idliquidacion}"  
+                FontSize="30" 
+                Margin="0,0,0,30"
+            />
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Right"
+                Text="N° Matrícula" 
+                FontSize="25" 
+                Margin="0,0,0,70"
+            />
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                TextAlignment="Right"
+                Text="{Binding ExpedientesMercantil.matricula}"  
+                FontSize="30" 
+                Margin="0,0,0,30"
+            />
+            <Image 
+                Source="/Images/Others/img-split.png"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Width="800"
+                Margin="0,0,0,10"
+            />
+        </Grid>
+        <Grid Grid.Row="2" Margin="110,0,110,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    FontSize="30" 
+                    Text="⊝ NO FIRMADO" 
+                    Foreground="Black" 
+                    FontWeight="Bold"
+                    Margin="10,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBlock
+                   Text="Por favor confirme los datos del firmante a continuación e ingrese su clave de usuario registrado para completar la firma electrónica." 
+                     FontSize="30" 
+                    TextWrapping="Wrap" 
+                    Width="850"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    TextAlignment="Justify"
+                    Margin="0,0,0,0"
+                />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Nombre" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="{Binding payer.NAME}" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="3">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Identificación" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="{Binding payer.IDENTIFICATION}" 
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="4">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Email" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="{Binding payer.EMAIL}"  
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="5">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" 
+                    Text="Celular" 
+                    FontSize="25" 
+                    Foreground="#FF424242"
+                />
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Text="{Binding payer.PHONE}"  
+                    FontSize="30" 
+                    Foreground="#FF424242"
+                />
+            </Grid>
+            <Grid Grid.Row="6">
+                <Image 
+                    Source="/Images/Others/img-split.png"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="900"
+                    Margin="0,0,0,0"
+                />
+                <TextBlock
+                    VerticalAlignment="Center" 
+                    FontWeight="Bold"
+                    Text="Introduzca la clave:" 
+                    FontSize="30" 
+                    Margin="0,0,0,0"
+                />
+                <Image 
+                    Source="{Binding detailViewModel.Value2}"
+                    Stretch="Uniform"
+                    Height="70"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,180,0"
+                />
+                <Image 
+                    Source="/Images/others/eyes.png"
+                    x:Name="btn_show_id"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Center" 
+                    Margin="0,0,50,0"                  
+                    Width="60"
+                    TouchEnter="Btn_show_id_TouchEnter"
+                    TouchLeave="Btn_show_id_TouchLeave"
+                />
+                <PasswordBox 
+                    x:Name="txtPassword"
+                    md:HintAssist.Hint="Contraseña"
+                    md:HintAssist.IsFloating="True"
+                    md:HintAssist.FloatingScale="0.3"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Height="70" 
+                    Width="300"
+                    Password=""
+                    HorizontalContentAlignment="Center"
+                    Margin="220,0,0,0"
+                    FontSize="35"
+                    Foreground="Black" 
+                    VerticalContentAlignment="Center"
+                    Visibility="{Binding detailViewModel.VisibleId}"
+                    PasswordChanged="txtPassword_PasswordChanged"
+                    TouchDown="txtPassword_TouchDown"
+                    >
+                <PasswordBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </PasswordBox.Resources>
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+                <TextBox 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Height="70" 
+                    Width="300"
+                    Margin="220,0,0,0"
+                    FontSize="35"
+                    HorizontalContentAlignment="Center"
+                    Foreground="Black" 
+                    Visibility="{Binding detailViewModel.VisibleInput}"
+                    Text="{Binding detailViewModel.Value1}"
+                    VerticalContentAlignment="Center"
+                    >
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </TextBox.Resources>
+                <TextBox.Background>
+                    <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                </TextBox.Background>
+            </TextBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" Margin="110,0,110,0">
+            <Image 
+                x:Name="btnNext"
+                Source="/Images/Buttons/btnsiguiente.png"
+                Stretch="Uniform"
+                Height="70"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,0,100,0"
+                TouchDown="btnNext_TouchDown"
+            />
+            <Image 
+                x:Name="btnReturn"
+                Source="/Images/Buttons/btnatras.png"
+                Stretch="Uniform"
+                Height="70"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="100,0,0,0"
+                TouchDown="btnReturn_TouchDown"
+            />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -23,6 +23,15 @@ namespace WPFCCPereira.UserControls
 
             this.transaction = transaction;
 
+            if (transaction.isRenovacion)
+            {
+                txtTittle.Text = "Estamos confirmando tu renovación, regalenos unos segundos...";
+            }
+            else
+            {
+                txtTittle.Text = "Estamos generando e imprimiendo los certificados, regalenos unos segundos...";
+            }
+
             DownloadCertificates();
         }
 
@@ -33,13 +42,30 @@ namespace WPFCCPereira.UserControls
                 Task.Run(async () =>
                 {
                     var pathsCertificates = await AdminPayPlus.ApiIntegration.ReportPayment(transaction);
+
                     if (pathsCertificates != null && pathsCertificates.Count > 0)
                     {
-                        PrintCertificates(pathsCertificates);
+                        if (transaction.isRenovacion)
+                        {
+                            Utilities.ShowModal("Renovación exitosa", EModalType.Error);
+                            FinishTransaction(true);
+                        }
+                        else
+                        {
+                            PrintCertificates(pathsCertificates);
+                        }
                     }
                     else
                     {
-                        FinishTransaction(false);
+                        if (transaction.isRenovacion)
+                        {
+                            Utilities.ShowModal("Renovación fallida", EModalType.Error);
+                            FinishTransaction(false);
+                        }
+                        else
+                        {
+                            FinishTransaction(false);
+                        }
                     }
                 });
             }

@@ -117,7 +117,7 @@
     </Reference>
     <Reference Include="WPKeyboard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\WPFAviancaSanAndres\WPFAviancaSanAndres\bin\Debug\WPKeyboard.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\WPFCCPereira-Renovacion\WPFCCPereira\bin\Debug\WPKeyboard.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +170,8 @@
       <DependentUpon>ImagesUrlResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ApiIntegration.cs" />
+    <Compile Include="Services\ObjectIntegration\RequestIntegration.cs" />
+    <Compile Include="Services\ObjectIntegration\ResponseIntegration.cs" />
     <Compile Include="Services\Object\DataPayPlus.cs" />
     <Compile Include="Services\Object\Log.cs" />
     <Compile Include="Services\Object\Response.cs" />
@@ -204,6 +206,51 @@
     </Compile>
     <Compile Include="UserControls\PrintFileUserControl.xaml.cs">
       <DependentUpon>PrintFileUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\ActiveCertificatesUC.xaml.cs">
+      <DependentUpon>ActiveCertificatesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\ConsultUC.xaml.cs">
+      <DependentUpon>ConsultUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\DigitalSignatureUC.xaml.cs">
+      <DependentUpon>DigitalSignatureUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsAdd\ActividadEconomica2UC.xaml.cs">
+      <DependentUpon>ActividadEconomica2UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsAdd\Identificacion2UC.xaml.cs">
+      <DependentUpon>Identificacion2UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.xaml.cs">
+      <DependentUpon>InformacionFinanciera2UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.xaml.cs">
+      <DependentUpon>UbicacionDatosGenerales2UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml.cs">
+      <DependentUpon>ActividadEconomicaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\IdentificacionUC.xaml.cs">
+      <DependentUpon>IdentificacionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml.cs">
+      <DependentUpon>InformacionFinancieraUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml.cs">
+      <DependentUpon>SistemaSeguridadUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml.cs">
+      <DependentUpon>UbicacionDatosGeneralesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\ListEstablecimientosUC.xaml.cs">
+      <DependentUpon>ListEstablecimientosUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\LoginUC.xaml.cs">
+      <DependentUpon>LoginUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Renewal\MenuFormsUC.xaml.cs">
+      <DependentUpon>MenuFormsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ReturnMonyUserControl.xaml.cs">
       <DependentUpon>ReturnMonyUserControl.xaml</DependentUpon>
@@ -241,6 +288,12 @@
     <Compile Include="Services\Object\RequestApi.cs" />
     <Compile Include="Windows\MasterWindow.xaml.cs">
       <DependentUpon>MasterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Modals\ModalDetailInformationW.xaml.cs">
+      <DependentUpon>ModalDetailInformationW.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Modals\ModalSearchCiiusW.xaml.cs">
+      <DependentUpon>ModalSearchCiiusW.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ModalWindow.xaml.cs">
       <DependentUpon>ModalWindow.xaml</DependentUpon>
@@ -405,6 +458,66 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Renewal\ActiveCertificatesUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\ConsultUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\DigitalSignatureUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsAdd\ActividadEconomica2UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsAdd\Identificacion2UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\IdentificacionUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\ListEstablecimientosUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\LoginUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Renewal\MenuFormsUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\ReturnMonyUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -429,6 +542,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Modals\ModalDetailInformationW.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Modals\ModalSearchCiiusW.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\ModalWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -436,6 +557,60 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\bg-info-payer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\btnSalir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Others\email.png" />
+    <Resource Include="Images\Others\eyes.png" />
+    <Resource Include="Images\Others\passClosed.png" />
+    <Resource Include="Images\Others\passOpen.png" />
+    <Resource Include="Images\Others\phon.png" />
+    <Resource Include="Images\Others\subtract.png" />
+    <Resource Include="Images\Others\sum.png" />
+    <Resource Include="Images\Others\user.png" />
+    <Resource Include="Images\Others\usericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Others\imgDigilenciar.png" />
+    <Resource Include="Images\Others\imgGrabado.png" />
+    <Resource Include="Images\Others\lineGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\btnSiguiente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\avisoDiligenciar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\listBtn.png" />
+    <Resource Include="Images\Backgrounds\opcionesMatricula.png" />
+    <Resource Include="Images\Backgrounds\recuImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\btnGeneric.png" />
+    <Resource Include="Images\Buttons\btnPaso1.png" />
+    <Resource Include="Images\Buttons\btnPaso2.png" />
+    <Resource Include="Images\Buttons\btnPaso3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\btnAtras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\bg-consult2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\bg-Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\bg-Active2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\bg-search2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\bg-success2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />

@@ -164,7 +164,8 @@ namespace WPFCCPereira.UserControls
                                     {
                                         File = response,
                                         State = ETransactionState.Initial,
-                                        Type = viewModel.TypeTransaction
+                                        Type = viewModel.TypeTransaction,
+                                        isRenovacion = false
                                     });
                                 }
                                 else
@@ -345,7 +346,7 @@ namespace WPFCCPereira.UserControls
             {
                 viewModel.DataList.Clear();
                 ConfigureViewList();
-                Utilities.OpenKeyboard(false, sender as TextBox, this);
+                Utilities.OpenKeyboard(false, sender, this);
             }
             catch (Exception ex)
             {
@@ -359,7 +360,7 @@ namespace WPFCCPereira.UserControls
             {
                 viewModel.DataList.Clear();
                 ConfigureViewList();
-                Utilities.OpenKeyboard(true, sender as TextBox, this);
+                Utilities.OpenKeyboard(true, sender, this);
             }
             catch (Exception ex)
             {

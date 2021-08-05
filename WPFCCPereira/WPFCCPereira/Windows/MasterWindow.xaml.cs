@@ -23,7 +23,10 @@ namespace WPFCCPereira.Windows
         {
             try
             {
+                
+
                 WPKeyboard.Keyboard.ConsttrucKeyyboard(WPKeyboard.Keyboard.EStyle.style_2);
+
                 if (Utilities.navigator == null)
                 {
                     Utilities.navigator = new Navigation();

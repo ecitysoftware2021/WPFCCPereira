@@ -179,7 +179,7 @@ namespace WPFCCPereira.UserControls
                             IDENTIFICATION = viewModel.Value1,
                             NAME = viewModel.Value2,
                             LAST_NAME = viewModel.Value4,
-                            PHONE = decimal.Parse(viewModel.Value3),
+                            PHONE = viewModel.Value3,
                             EMAIL = viewModel.Value5,
                             TYPE_PAYER = viewModel.TypePayer == ETypePayer.Person ? "Persona" : "Empresa",
                             TYPE_IDENTIFICATION = typeDocument
@@ -193,7 +193,7 @@ namespace WPFCCPereira.UserControls
 
                         if (response != null && !string.IsNullOrEmpty(response.consecutive) && !string.IsNullOrEmpty(response.reference))
                         {
-                            await AdminPayPlus.SaveTransactions(this.transaction, false);
+                            await AdminPayPlus.SaveTransactions(this.transaction);
 
                             Utilities.CloseModal();
                             readerBarCode.Stop();
@@ -283,7 +283,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Utilities.OpenKeyboard(false, sender as TextBox, this);
+                Utilities.OpenKeyboard(false, sender, this);
             }
             catch (Exception ex)
             {
@@ -295,7 +295,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Utilities.OpenKeyboard(true, sender as TextBox, this);
+                Utilities.OpenKeyboard(true, sender, this);
             }
             catch (Exception ex)
             {
@@ -307,7 +307,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Utilities.OpenKeyboard(true, sender as TextBox, this);
+                Utilities.OpenKeyboard(true, sender, this);
             }
             catch (Exception ex)
             {
@@ -319,7 +319,7 @@ namespace WPFCCPereira.UserControls
         {
             try
             {
-                Utilities.OpenKeyboard(false, sender as TextBox, this);
+                Utilities.OpenKeyboard(false, sender, this);
             }
             catch (Exception ex)
             {

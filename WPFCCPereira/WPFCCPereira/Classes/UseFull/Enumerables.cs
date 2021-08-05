@@ -42,6 +42,39 @@ namespace WPFCCPereira.Classes
         Strong = 1,
     }
 
+    public enum EOrganizacion
+    {
+        Persona_Natural = 01,
+        Establecimiento_de_Comercio = 02,
+        Sociedad_Limitada = 03,
+        Sociedad_Anonima = 04,
+        Sociedad_Colectiva = 05,
+        Sociedad_Comandita_Simple = 06,
+        Sociedad_Comandita_por_Acciones = 07,
+        Sociedad_Extranjera = 08,
+        Empresa_Asociativa_de_Trabajo = 09,
+        Sociedad_Civil = 10,
+        Empresa_Unipersonal = 11,
+        Entidad_Sin_Animo_de_Lucro = 12,
+        Entidad_de_Economia_Solidaria = 14,
+        Empresa_Industrial_y_Comercial_del_Estado = 15,
+        Sociedad_por_Acciones_Simplificada = 16,
+        Agrarias_de_transformacion = 17,
+        OtrasPersonasJuridicas = 99
+    }
+
+    public enum ETypeIdentification
+    {
+        Cedula_de_ciudadania = 1,
+        NIT = 2,
+        Cedula_de_extranjeria = 3,
+        Tarjeta_de_identidad = 4,
+        Pasaporte = 5,
+        Personeria_juridica = 6,
+        Documento_extranjero = 7,
+        Registro_Civil = 8,
+    }
+
     public enum UserControlView
     {
         Main,
@@ -55,7 +88,29 @@ namespace WPFCCPereira.Classes
         Admin,
         Certificates,
         PrintFile,
-        Menu
+        Menu,
+        //Begin-Renovacion
+        LoginUser,
+        ConsultRenovacion,
+        ActiveCertificate,
+        MenuRenovacion,
+        ListEstablecimientos,
+        DigitalSignature,
+            //begin-formsPpal
+            Ppal_Identificacion,
+            Ppal_UbicacionDatosGenerales,
+            Ppal_ActividadEconomica,
+            Ppal_InformacionFinanciera,
+            Ppal_SistemaSeguridad,
+            //end---formsPpal
+            //begin-formsAdd
+            Add_Identificacion,
+            Add_UbicacionDatosGenerales,
+            Add_ActividadEconomica,
+            Add_InformacionFinanciera,
+            Add_SistemaSeguridad,
+            //end---formsAdd
+        //End-Renovacion
     }
 
     public enum ETransactionState
@@ -75,6 +130,7 @@ namespace WPFCCPereira.Classes
         ConsultName = 1,
         ConsultTransact = 2,
         Renewal = 4,
+        Renovacion = 31,
     }
 
     public enum ETypeAdministrator
@@ -90,7 +146,8 @@ namespace WPFCCPereira.Classes
         Id = 2,
         Name = 1,
         Settled = 3,
-        Receipt = 4
+        Receipt = 4,
+        Matricula = 5
     }
 
     public enum EtypeOperation
@@ -115,6 +172,7 @@ namespace WPFCCPereira.Classes
     {
         Existence = 11,
         commercialRegister = 12,
+        renovacion = 31
     }
     
     public enum ETypeEstados
