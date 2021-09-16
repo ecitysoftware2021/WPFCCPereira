@@ -10,6 +10,7 @@ using WPFCCPereira.DataModel;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
 using WPFCCPereira.ViewModel;
+using WPFCCPereira.Windows.Modals;
 
 namespace WPFCCPereira.UserControls
 {
@@ -205,7 +206,18 @@ namespace WPFCCPereira.UserControls
                             }
                             else
                             {
-                                Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
+                                try
+                                {
+                                    Dispatcher.Invoke((Action)delegate
+                                    {
+                                        ModalConfirmation modal = new ModalConfirmation(transaction);
+                                        modal.ShowDialog();
+                                        //Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
+                                    });
+                                }
+                                catch (Exception ex)
+                                {
+                                }
                             }
                         }
                         else

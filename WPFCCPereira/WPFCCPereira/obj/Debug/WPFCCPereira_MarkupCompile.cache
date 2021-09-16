@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\obj\Debug\
 WPFCCPereira
 none
 false
 DEBUG;TRACE
-C:\Users\Jhon.Zapata.LJHPCECITY\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
-34356451749
+C:\Users\H-81\Documents\GitHub\WPFCCPereira\WPFCCPereira\WPFCCPereira\App.xaml
+351487827174
 
-89914435421
-31-653013898
-UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DescriptionUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUserControl.xaml;UserControls\MenuUserControl.xaml;UserControls\PayerUserControl.xaml;UserControls\PrintFileUserControl.xaml;UserControls\Renewal\ActiveCertificatesUC.xaml;UserControls\Renewal\ConsultUC.xaml;UserControls\Renewal\DigitalSignatureUC.xaml;UserControls\Renewal\FormsAdd\ActividadEconomica2UC.xaml;UserControls\Renewal\FormsAdd\Identificacion2UC.xaml;UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.xaml;UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.xaml;UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml;UserControls\Renewal\FormsPpal\IdentificacionUC.xaml;UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml;UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml;UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml;UserControls\Renewal\ListEstablecimientosUC.xaml;UserControls\Renewal\LoginUC.xaml;UserControls\Renewal\MenuFormsUC.xaml;UserControls\ReturnMonyUserControl.xaml;UserControls\ConsultUserControl.xaml;UserControls\MainUserControl.xaml;UserControls\PaymentUserControl.xaml;UserControls\SussesUserControl.xaml;Windows\MasterWindow.xaml;Windows\Modals\ModalDetailInformationW.xaml;Windows\Modals\ModalSearchCiiusW.xaml;Windows\ModalWindow.xaml;
+90-270065298
+321358152680
+UserControls\Administrator\AdministratorUserControl.xaml;UserControls\Administrator\ConfigurateUserControl.xaml;UserControls\Administrator\LoginAdministratorUserControl.xaml;UserControls\DetailFile\CertificatesUserControl.xaml;UserControls\DetailFile\DescriptionUserControl.xaml;UserControls\DetailFile\DetailUserControl.xaml;UserControls\FileUserControl.xaml;UserControls\MenuUserControl.xaml;UserControls\PayerUserControl.xaml;UserControls\PrintFileUserControl.xaml;UserControls\Renewal\ActiveCertificatesUC.xaml;UserControls\Renewal\ConsultUC.xaml;UserControls\Renewal\DigitalSignatureUC.xaml;UserControls\Renewal\FormsAdd\ActividadEconomica2UC.xaml;UserControls\Renewal\FormsAdd\Identificacion2UC.xaml;UserControls\Renewal\FormsAdd\InformacionFinanciera2UC.xaml;UserControls\Renewal\FormsAdd\UbicacionDatosGenerales2UC.xaml;UserControls\Renewal\FormsPpal\ActividadEconomicaUC.xaml;UserControls\Renewal\FormsPpal\IdentificacionUC.xaml;UserControls\Renewal\FormsPpal\InformacionFinancieraUC.xaml;UserControls\Renewal\FormsPpal\SistemaSeguridadUC.xaml;UserControls\Renewal\FormsPpal\UbicacionDatosGeneralesUC.xaml;UserControls\Renewal\ListEstablecimientosUC.xaml;UserControls\Renewal\LoginUC.xaml;UserControls\Renewal\MenuFormsUC.xaml;UserControls\ReturnMonyUserControl.xaml;UserControls\ConsultUserControl.xaml;UserControls\MainUserControl.xaml;UserControls\PaymentUserControl.xaml;UserControls\SussesUserControl.xaml;Windows\MasterWindow.xaml;Windows\Modals\ModalConfirmation.xaml;Windows\Modals\ModalDetailInformationW.xaml;Windows\Modals\ModalSearchCiiusW.xaml;Windows\ModalWindow.xaml;
 
 False
 

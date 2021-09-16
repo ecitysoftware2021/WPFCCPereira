@@ -7,6 +7,7 @@ using WPFCCPereira.Classes;
 using WPFCCPereira.Services.Object;
 using WPFCCPereira.UserControls;
 using WPFCCPereira.UserControls.Administrator;
+using WPFCCPereira.Windows.Modals;
 
 namespace WPFCCPereira.Models
 {

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Speech.Synthesis;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,7 @@ namespace WPFCCPereira.Classes
     public class Utilities
     {
         #region "Referencias"
+        public static SpeechSynthesizer speech;
 
         public static Navigation navigator { get; set; }
 
@@ -400,6 +402,33 @@ namespace WPFCCPereira.Classes
             catch (Exception ex)
             { }
             return false;
+        }
+
+        /// <summary>
+        /// Metodo que invoca el audio
+        /// </summary>
+        /// <param name="text"></param>
+        public static void Speack(string text)
+        {
+            try
+            {
+                //TODO: dataPaypad.PaypadConfiguration.ExtrA_DATA.Speack -- Poner el speack desde el extra data
+                if (true)
+                {
+                    if (speech == null)
+                    {
+                        speech = new SpeechSynthesizer();
+                    }
+                    speech.SpeakAsyncCancelAll();
+                    speech.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Child);
+                    speech.SpeakAsync(text);
+                }
+            }
+            catch (Exception ex)
+            {
+                //TODO: Save log
+                //LogService.SaveRequestResponse("Utilities>Speack", JsonConvert.SerializeObject(ex), 1);
+            }
         }
 
     }
