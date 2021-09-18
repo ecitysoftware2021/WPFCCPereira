@@ -88,6 +88,7 @@ namespace WPFCCPereira.Classes
         Admin,
         Certificates,
         PrintFile,
+        CardPay,
         Menu,
         //Begin-Renovacion
         LoginUser,

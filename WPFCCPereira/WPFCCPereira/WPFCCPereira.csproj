@@ -78,6 +78,9 @@
     <Reference Include="Ghostscript.NET, Version=1.2.1.0, Culture=neutral, PublicKeyToken=f85051de34525b59, processorArchitecture=MSIL">
       <HintPath>..\packages\Ghostscript.NET.1.2.1\lib\net40\Ghostscript.NET.dll</HintPath>
     </Reference>
+    <Reference Include="KioskosLib">
+      <HintPath>..\..\..\..\..\Desktop\Dll_Datafono\KioskosLib.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -152,12 +155,14 @@
     <Compile Include="DataModel\TRANSACTION_DESCRIPTIONs.cs" />
     <Compile Include="DataModel\TRANSACTION_DETAILs.cs" />
     <Compile Include="DataModel\TRANSACTION_ERROR_SERVICE.cs" />
+    <Compile Include="Models\DataCardTransaction.cs" />
     <Compile Include="Models\DenominationMoney.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ModalModel.cs" />
     <Compile Include="Models\Navigation.cs" />
     <Compile Include="Models\Payer.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\TPVOperation.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TypeDocument.cs" />
     <Compile Include="Resources\ConstantsResource.Designer.cs">
@@ -186,6 +191,9 @@
     </Compile>
     <Compile Include="UserControls\Administrator\LoginAdministratorUserControl.xaml.cs">
       <DependentUpon>LoginAdministratorUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CardPayment.xaml.cs">
+      <DependentUpon>CardPayment.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DetailFile\CertificatesUserControl.xaml.cs">
       <DependentUpon>CertificatesUserControl.xaml</DependentUpon>
@@ -295,6 +303,9 @@
     </Compile>
     <Compile Include="Windows\Modals\ModalDetailInformationW.xaml.cs">
       <DependentUpon>ModalDetailInformationW.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Modals\ModalOpcions.xaml.cs">
+      <DependentUpon>ModalOpcions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Modals\ModalSearchCiiusW.xaml.cs">
       <DependentUpon>ModalSearchCiiusW.xaml</DependentUpon>
@@ -434,6 +445,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\CardPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\DetailFile\CertificatesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -554,6 +569,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Windows\Modals\ModalOpcions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Modals\ModalSearchCiiusW.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -631,6 +650,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\btnSalir2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\ACERCAR.png" />
+    <Resource Include="Images\Buttons\AHORROS.png" />
+    <Resource Include="Images\Buttons\CORRIENTE.png" />
+    <Resource Include="Images\Buttons\CREDITO.png" />
+    <Resource Include="Images\Buttons\DESLIZAR.png" />
+    <Resource Include="Images\Buttons\INSERTAR.png" />
+    <Resource Include="Images\Buttons\PAGO MOVIL.png" />
+    <Resource Include="Images\Buttons\QR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Others\cancelar-pago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\imgEye.png" />
+    <Resource Include="Images\Buttons\img_show.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.2\build\net40\System.Data.SQLite.Core.targets')" />

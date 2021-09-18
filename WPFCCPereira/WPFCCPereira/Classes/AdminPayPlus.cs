@@ -142,7 +142,7 @@ namespace WPFCCPereira.Classes
                     if (await ValidatePaypad())
                     {
                         DescriptionStatusPayPlus = MessageResource.ValidatePeripherals;
-
+                            
                         if (_dataPayPlus.PayPadConfiguration.enablE_VALIDATE_PERIPHERALS)
                         {
                             ValidatePeripherals();

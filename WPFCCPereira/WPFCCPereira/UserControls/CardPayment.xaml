@@ -1,0 +1,120 @@
+﻿<UserControl
+    x:Class="WPFCCPereira.UserControls.CardPayment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:WPFCCPereira.UserControls"
+    mc:Ignorable="d" 
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Height="1920"
+    Width="1080" 
+    Loaded="UserControl_Loaded">
+
+    <Grid Name="PaymentGrid">
+        <Grid.Background>
+            <ImageBrush
+                x:Name="imgBg"
+                ImageSource="/Images/backgrounds/bg-pay.png"
+                Stretch="UniformToFill"
+            />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="380" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="750" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label 
+            Content="$ 0.00"
+            FontFamily="Gotham"
+            Foreground="#FF104B6D"
+            Name="lblValorPagar"
+            FontWeight="Bold"
+            FontSize="40"      
+             HorizontalAlignment="Center"
+            VerticalAlignment="Center" 
+            Margin="0,120,0,0"   
+            Grid.Row="1"
+        />
+        <TextBlock
+            Name="txtOpcion" 
+            Text="{Binding MensajePrincipal}" 
+            FontSize="50"
+            FontFamily="Gotham"
+            Foreground="#FF606060"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"
+            Margin="0,50,0,0"
+            Grid.Row="2"
+        />
+        <ListView
+            x:Name="lvOpciones" 
+            Grid.Row="2"
+            ItemsSource="{Binding}"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            Background="Transparent"
+            VerticalAlignment="Center"
+            Margin="0,0,0,0"
+        >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid
+                        Columns="3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                    />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <EventSetter
+                        Event="PreviewStylusDown"
+                        Handler="ListViewItem_PreviewStylusDown"
+                    />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <ContentPresenter>
+                                </ContentPresenter>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel >
+                        <Grid>
+                            <md:Card
+                                Margin="10" 
+                                Height="210"
+                                Width="250"
+                            >
+                                <Grid>
+                                    <Image
+                                        Width="200" 
+                                        Height="200"
+                                        Source="{Binding Imagen}"
+                                    />
+                                </Grid>
+                            </md:Card>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Image 
+            Name="btnCancelar"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom" 
+            Margin="100,0,0,50" 
+            Width="400"  
+            Source="/Images/Buttons/btn-cancel.png"
+            Grid.Row="3"
+            TouchDown="BtnCancelar_TouchDown"
+        />
+    </Grid>
+</UserControl>

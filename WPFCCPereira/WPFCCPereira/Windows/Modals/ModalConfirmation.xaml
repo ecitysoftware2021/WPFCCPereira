@@ -11,10 +11,13 @@
         Background="Transparent"
         AllowsTransparency="True"
         Title="Confirmación" 
-        Height="1000"
+        Height="800"
         Width="761.433">
     <Border
-        BorderThickness="3,3,3,3">
+        CornerRadius="49"
+        BorderBrush="Black"
+        BorderThickness="3,3,3,3"
+    >
         <Grid>
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/Backgrounds/bg-metodo-pago.png"/>
@@ -24,33 +27,34 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="229" />
-                <RowDefinition />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="300"/>
             </Grid.RowDefinitions>
             <!--Titulo-->
             <Border  
+                Grid.Row="0"
                 Grid.ColumnSpan="2"
                 BorderThickness="3,3,3,.5"
                 CornerRadius="0,0,0,0">
                 <Grid>
                     <TextBlock 
+                        x:Name="TxtTitle"
                         HorizontalAlignment="Center"
-                        FontSize="40"
+                        FontSize="35"
                         TextAlignment="Center"
                         FontFamily="Gotham"
                         Foreground="White"
                         TextWrapping="Wrap" 
-                        Text="Completa tu orden con nuestros productos de confiteria" 
                         FontWeight="Bold"
-                        Margin="0,10,0,0"
+                        Margin="0,25,0,0"
                         VerticalAlignment="Top"/>
                 </Grid>
             </Border>
             <Border
-                Grid.Column="0" 
+                Grid.Row="0"
                 Grid.ColumnSpan="2"
                 BorderThickness="3,0,3,0"
-                Margin="0,112,0,217" 
+                Margin="0,100,0,0" 
                 Grid.RowSpan="2">
                 <Grid>
                     <Grid Grid.ColumnSpan="2" Grid.Row="1">
@@ -59,12 +63,10 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="50" />
+                            <RowDefinition Height="130" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
 
                         <TextBlock
@@ -72,164 +74,18 @@
                             FontSize="20"
                             FontFamily="Gotham"
                             TextWrapping="Wrap" 
-                            Text="PELÍCULA:" 
-                            FontWeight="Bold"
-                            Grid.Row="2"
-                            VerticalAlignment="Top"/>
-                        <TextBlock 
-                            HorizontalAlignment="Left"
-                            FontSize="20"
-                            FontFamily="Gotham"
-                            TextWrapping="Wrap" 
-                            Text="WONDER WOMAN" 
-                            Grid.Column="1"
-                            Grid.Row="2"
-                            Name="TxtTitle"
-                            FontWeight="Bold"
-                            VerticalAlignment="Top"/>
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            Grid.Row="3"
-                            FontSize="20"
-                            FontFamily="Gotham"
-                            TextWrapping="Wrap" 
-                            Text="SALA:" 
-                            FontWeight="Bold"
-                            VerticalAlignment="Top"/>
-                        <TextBlock HorizontalAlignment="Left"
-                            Grid.Row="3"
-                            Grid.Column="1"
-                            FontSize="20"
-                            FontFamily="Gotham"
-                            Name="TxtRoom"
-                            TextWrapping="Wrap" 
-                            Text="SALA 1" 
-                            FontWeight="Bold"
-                            VerticalAlignment="Top"/>
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            FontSize="20"
-                            FontFamily="Gotham"
-                            TextWrapping="Wrap" 
-                            Grid.Row="3"
-                            Grid.Column="0"
                             Text="FECHA:" 
                             FontWeight="Bold"
-                            VerticalAlignment="Bottom"/>
-                        <TextBlock
+                            Grid.Row="1"
+                            VerticalAlignment="Center"/>
+                        <TextBlock 
                             HorizontalAlignment="Left"
                             FontSize="20"
                             FontFamily="Gotham"
                             TextWrapping="Wrap" 
-                            Grid.Row="3"
                             Grid.Column="1"
+                            Grid.Row="1"
                             Name="TxtDate"
-                            Text="Sábado 24 de Mayo a las 4:30Pm" 
-                            FontWeight="Bold"
-                            VerticalAlignment="Bottom"/>
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            FontSize="20"
-                            FontFamily="Gotham"
-                            TextWrapping="Wrap" 
-                            Grid.Row="4"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Text="Detalle Compra" 
-                            FontWeight="Bold"
-                            VerticalAlignment="Top"
-                        />
-                        <ListView Grid.Row="4" Margin="0,20,0,0" Grid.ColumnSpan="2" FontSize="15">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Width="100"/>
-                                    <GridViewColumn Header="Item" Width="200"  />
-                                    <GridViewColumn Header="Cantidad" Width="200"  />
-                                    <GridViewColumn Header="Precio" Width="200" />
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                        <ListView 
-                            Grid.Row="4"
-                            Grid.ColumnSpan="2"
-                            x:Name="lvListSeats" 
-                            Margin="0,80,0,0"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Top"
-                            ItemsSource="{Binding}"
-                        >
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <UniformGrid 
-                                        Columns="1"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Top"
-                                     />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid
-                                        Name="gridData"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Top" 
-                                        Background="White"
-                                        Margin="0,0,0,0"
-                                        Width="600"
-                                        Height="40"
-                                        >
-                                        <TextBlock
-                                            FontSize="17"
-                                            Text="{Binding Name}"
-                                            Foreground="Black"
-                                            HorizontalAlignment="Left"
-                                            VerticalAlignment="Center"
-                                            Margin="0,0,0,0"
-                                            TextWrapping="Wrap"
-                                            Width="150"
-                                        />
-                                        <TextBlock
-                                            FontSize="20"
-                                            Text="{Binding Quantity}"
-                                            Foreground="Black"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Margin="0,0,40,0"
-                                        />
-                                        <TextBlock
-                                            FontSize="20"
-                                            Text="{Binding Price, StringFormat='$ 0,0'}"
-                                            Foreground="Black"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Center"
-                                            Margin="0,0,50,0"
-                                        />
-                                        <Image 
-                                            Visibility="{Binding Visible}"
-                                            x:Name="BtnDelete"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Center"
-                                            Height="30"
-                                            Stretch="Uniform"
-                                            Margin="0,0,0,0" 
-                                            Source="/Images/Others/x.png"
-                                            TouchDown="BtnDelete_TouchDown"    
-                                        />
-                                    </Grid>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                        <TextBlock 
-                            HorizontalAlignment="Center"
-                            FontSize="20"
-                            FontFamily="Gotham"
-                            TextWrapping="Wrap" 
-                            Grid.Row="5"
-                            Grid.Column="0"
-                            Text="TOTAL:" 
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
                         <TextBlock
@@ -237,10 +93,39 @@
                             FontSize="20"
                             FontFamily="Gotham"
                             TextWrapping="Wrap" 
-                            Grid.Row="5"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Text="Hora:" 
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"/>
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            FontSize="20"
+                            FontFamily="Gotham"
+                            TextWrapping="Wrap" 
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Name="TxtHora"
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"/>
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontFamily="Gotham"
+                            TextWrapping="Wrap" 
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Text="TOTAL:" 
+                            FontWeight="Bold"
+                            VerticalAlignment="Center"/>
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            FontSize="20"
+                            FontFamily="Gotham"
+                            TextWrapping="Wrap" 
+                            Grid.Row="3"
                             Grid.Column="1"
                             Name="TxtTotal"
-                            Text="$ 15.000" 
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
                     </Grid>
@@ -250,24 +135,27 @@
                 Grid.ColumnSpan="2" 
                 Grid.Row="1"
                 BorderThickness="3,3,3,3"
-                CornerRadius="0,0,0,0" Margin="0,565,0,0">
+                CornerRadius="0,0,0,0"
+                Margin="0,0,0,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="572*"/>
                         <ColumnDefinition Width="177*"/>
                     </Grid.ColumnDefinitions>
                     <Image
+                        VerticalAlignment="Center"
                         x:Name="BtnCash"                        
-                        Margin="50,-26,0,0"
+                        Margin="50,0,0,0"
                         TouchDown="BtnCash_TouchDown"
                         Width="200"
                         HorizontalAlignment="Left"
                         Height="200"
                         Source="/Images/Buttons/btnEfectivo.png" />
                     <Image
+                        VerticalAlignment="Center"
                         x:Name="BtnCard"     
                         Visibility="Visible"
-                        Margin="0,-26,50,0"
+                        Margin="0,0,50,0"
                         TouchDown="BtnCard_TouchDown"
                         Width="200"
                         HorizontalAlignment="Right"
@@ -275,7 +163,7 @@
                         Grid.ColumnSpan="2"
                         Source="/Images/Buttons/btnTarjeta.png"/>
                     <Image
-                        x:Name="BtnNo"
+                        x:Name="BtnExit"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Width="200" 

@@ -102,6 +102,9 @@ namespace WPFCCPereira.Models
                     case UserControlView.Pay:
                         View = new PaymentUserControl((Transaction)data);
                         break;
+                    case UserControlView.CardPay:
+                        View = new CardPayment((Transaction)data);
+                        break;
                     case UserControlView.ReturnMony:
                         View = new ReturnMonyUserControl((Transaction)data);
                         break;

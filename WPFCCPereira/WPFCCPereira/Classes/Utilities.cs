@@ -31,6 +31,8 @@ namespace WPFCCPereira.Classes
 
         private static ModalWindow modal { get; set; }
 
+        //public static DataTransaction dataTransaction;
+
         #endregion
 
         public static string GetConfiguration(string key, bool decodeString = false)

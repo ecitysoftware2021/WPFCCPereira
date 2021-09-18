@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,9 @@ namespace WPFCCPereira.Windows.Modals
     {
         #region "Referencias"
         Transaction ts;
+        string Amount;
         #endregion
+
         #region "Constructor"
         public ModalConfirmation(Transaction ts)
         {
@@ -37,6 +40,10 @@ namespace WPFCCPereira.Windows.Modals
 
         private void ConfigureView()
         {
+            TxtTitle.Text = "Elige un modo de pago.";
+            TxtDate.Text = DateTime.Now.Date.ToLongDateString();
+            TxtHora.Text = DateTime.Now.ToShortTimeString();
+            TxtTotal.Text = string.Format("{0:C0}", ts.Amount);
             HideOrShowButtons();
             Utilities.Speack("Elige el modo como deseas realizar el pago.");
         }
@@ -44,7 +51,7 @@ namespace WPFCCPereira.Windows.Modals
         /// <summary>
         /// Oculta o mustra los botones segun la configuracion
         /// </summary>
-        private void HideOrShowButtons()
+        public void HideOrShowButtons()
         {
             try
             {
@@ -70,7 +77,11 @@ namespace WPFCCPereira.Windows.Modals
         }
         private void BtnCard_TouchDown(object sender, TouchEventArgs e)
         {
-
+            this.Close();
+            Utilities.navigator.Navigate(UserControlView.CardPay, false, ts);
+            //this.IsEnabled = false;
+            //Utilities.dataTransaction.MedioPago = EPaymentType.Card;
+            //DialogResult = true;
         }
 
         private void BtnDelete_TouchDown(object sender, TouchEventArgs e)
@@ -79,7 +90,8 @@ namespace WPFCCPereira.Windows.Modals
         }
         private void BtnNo_TouchDown(object sender, TouchEventArgs e)
         {
-
+            this.Close();
+            Utilities.navigator.Navigate(UserControlView.Main);
         }
         #endregion
     }

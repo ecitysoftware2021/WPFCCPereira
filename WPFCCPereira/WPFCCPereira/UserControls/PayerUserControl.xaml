@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Height="1920" 
         Width="1080" >
-    <Grid>
+    <Grid x:Name="GrdMain">
         <Grid.Background>
             <ImageBrush ImageSource="/Images/Backgrounds/bg-alert-blanck.png"/>
         </Grid.Background>
