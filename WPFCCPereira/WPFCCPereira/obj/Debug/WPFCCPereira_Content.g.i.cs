@@ -8,7 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/buttons/imgeye.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/buttons/img_show.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gif/acercar.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gif/clave.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gif/deslizar.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gif/insertar.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gif/pago%20movil.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gif/qr.gif")]
 
 

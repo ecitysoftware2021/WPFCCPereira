@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="WPFCCPereira.exe.manifest" size="10812">
+    <dependentAssembly dependencyType="install" codebase="WPFCCPereira.exe.manifest" size="10813">
       <assemblyIdentity name="WPFCCPereira.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>x6PXXHzaOt9ngoYxoo4NyTPniO0knLRDO05D7N0KC2Y=</dsig:DigestValue>
+        <dsig:DigestValue>FhNJbEJuiXK5MbYhMC71aZa+w6GA93DlASgfIVtOrzg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

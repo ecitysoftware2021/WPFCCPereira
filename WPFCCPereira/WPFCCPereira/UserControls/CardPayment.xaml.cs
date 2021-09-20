@@ -34,6 +34,12 @@ namespace WPFCCPereira.UserControls
 
         private int num = 1;
 
+        string _peticion = string.Empty;
+
+        bool _isCredit = false;
+
+        DataCardTransaction _dataCard;
+
         TPVOperation TPV;
 
         private Transaction transaction;
@@ -186,32 +192,30 @@ namespace WPFCCPereira.UserControls
                             OptionSelected(datos, LRCPeticion, dataCard, "Acerca tu tarjeta al datáfono");
 
                             break;
-                        //case "QR":
-                        //    //OptionSelected(datos, LRCPeticion, dataCard, "Lee el QR en el datáfono");
+                        case "QR":
+                            OptionSelected(datos, LRCPeticion, dataCard, "Lee el QR en el datáfono");
 
-                        //    break;
-                        //case "PAGO MOVIL":
-                        //    //OptionSelected(datos, LRCPeticion, dataCard, "Acerca el teléfono al datáfono");
+                            break;
+                        case "PAGO MOVIL":
+                            OptionSelected(datos, LRCPeticion, dataCard, "Acerca el teléfono al datáfono");
 
-                        //    break;
+                            break;
                         //case "NFC":
-                        //    //opciones = new Opciones("Acerca el dispositivo NFC al datáfono", peticion: LRCPeticion);
-                        //    //opciones.ShowDialog();
-                        //    break;
+                            //opciones = new Opciones("Acerca el dispositivo NFC al datáfono", peticion: LRCPeticion);
+                            //opciones.ShowDialog();
+                            //break;
                         case "AHORROS":
                             dataCard.imagen = string.Empty;
                             ActionTPV(LRCPeticion, dataCard, MensajeDebito, "Hidden");
                             break;
                         case "CORRIENTE":
-                            //dataCard.imagen = "/Images/NewDesing/Gif/clave.Gif";
+                            dataCard.imagen = "/Images/Gif/clave.Gif";
                             ActionTPV(LRCPeticion, dataCard, MensajeDebito, "Hidden");
-
                             break;
-                        case "CREDITO":
+                        //case "CREDITO":
                             //dataCard.imagen = "/Images/NewDesing/Gif/clave.Gif";
-                            ActionTPV(LRCPeticion, dataCard, "Cuatro últimos dígitos de la tarjeta", "Visible");
-
-                            break;
+                            //ActionTPV(LRCPeticion, dataCard, "Cuatro últimos dígitos de la tarjeta", "Visible");
+                            //break;
                         default:
                             break;
                     }
@@ -387,8 +391,9 @@ namespace WPFCCPereira.UserControls
                             peticion = Trama,
                             visible = "Visible"
                         };
-                        ModalOpcions = new ModalOpcions(dataCard);
-                        ModalOpcions.ShowDialog();
+                        Opcions(dataCard);
+                        //ModalOpcions = new ModalOpcions(dataCard);
+                        //ModalOpcions.ShowDialog();
                     }
                     else if (response[3].Contains("Cuotas"))//Si contiene Cuotas entonces se trata de la solicitud del número de cueotas para la compra al usuario
                     {
@@ -408,8 +413,9 @@ namespace WPFCCPereira.UserControls
                             peticion = Trama,
                             visible = "Visible"
                         };
-                        ModalOpcions = new ModalOpcions(dataCard);
-                        ModalOpcions.ShowDialog();
+                        Opcions(dataCard);
+                        //ModalOpcions = new ModalOpcions(dataCard);
+                        //ModalOpcions.ShowDialog();
                     }
                 }
             }
@@ -432,7 +438,7 @@ namespace WPFCCPereira.UserControls
             lvOpciones.Visibility = Visibility.Hidden;
             DataCardTransaction dataCard = new DataCardTransaction
             {
-                imagen = "/Images/Gif/clave.Gif",
+                imagen = "/Images/Gif/clave.gif",
                 isCredit = false,
                 maxlen = 1,
                 mensaje = message,
@@ -440,9 +446,9 @@ namespace WPFCCPereira.UserControls
                 peticion = null,
                 visible = "Visible"
             };
-
-            ModalOpcions = new ModalOpcions(dataCard);
-            ModalOpcions.ShowDialog();
+            Opcions(dataCard);
+            //ModalOpcions = new ModalOpcions(dataCard);
+            //ModalOpcions.ShowDialog();
             Dispatcher.BeginInvoke((Action)delegate
             {
                 this.Opacity = 1;
@@ -580,7 +586,6 @@ namespace WPFCCPereira.UserControls
 
         void ProcesarFinalError(string message)
         {
-            UnlockTPV();
             SetMessageAndPutVisibility(message);
         }
 
@@ -634,8 +639,9 @@ namespace WPFCCPereira.UserControls
             dataCard.peticion = LRCPeticion;
             dataCard.imagen = string.Empty;
             dataCard.visible = visible;
-            ModalOpcions = new ModalOpcions(dataCard);
-            ModalOpcions.ShowDialog();
+            Opcions(dataCard);
+            //ModalOpcions = new ModalOpcions(dataCard);
+            //ModalOpcions.ShowDialog();
         }
 
         private void OptionSelected(FormaPago datos, string LRCPeticion, DataCardTransaction dataCard, string message)
@@ -644,8 +650,9 @@ namespace WPFCCPereira.UserControls
             dataCard.peticion = LRCPeticion;
             dataCard.imagen = string.Concat("/Images/Gif/", datos.Forma, ".Gif");
             this.Opacity = 0.3;
-            ModalOpcions = new ModalOpcions(dataCard);
-            ModalOpcions.ShowDialog();
+            Opcions(dataCard);
+            //ModalOpcions = new ModalOpcions(dataCard);
+            //ModalOpcions.ShowDialog();
             this.Opacity = 1;
         }
 
@@ -653,6 +660,7 @@ namespace WPFCCPereira.UserControls
         {
             //TODO: Cambiar a pagar con efectivo
             this.Opacity = 0.3;
+            Cancelled();
             ModalConfirmation modal = new ModalConfirmation(transaction);
             modal.BtnCard.Visibility = Visibility.Hidden;
             modal.ShowDialog();
@@ -692,7 +700,46 @@ namespace WPFCCPereira.UserControls
             {
                 error = "El pin es incorrecto, intente nuevamente por favor.";
             }
+            error = error.Replace(";" , " ").ToLower();
             return error;
+        }
+
+        private void Opcions(DataCardTransaction dataCard)
+        {
+            _dataCard = dataCard;
+            TPV = new TPVOperation();
+            _peticion = dataCard.peticion;
+            _isCredit = dataCard.isCredit;
+            txtOpcion.Text = dataCard.mensaje;
+            lvOpciones.Visibility = Visibility.Hidden;
+            GifLoad.DataContext = _dataCard;
+
+            if (!_isCredit)
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        if (_peticion != null)
+                        {
+                            //LogService.SaveRequestResponse("Petición al datáfono", _peticion, 1);
+                            var respuestaPeticion = TPV.EnviarPeticion(_peticion);
+                            TPVOperation.CallBackRespuesta?.Invoke(respuestaPeticion);
+                        }
+                        else
+                        {
+                            var respuestaPeticion = TPV.EnviarPeticionEspera();
+                            TPVOperation.CallBackRespuesta?.Invoke(respuestaPeticion);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //LogService.SaveRequestResponse("Opciones>Window_Loaded", JsonConvert.SerializeObject(ex), 1);
+                    }
+                });
+
+            }
+
         }
 
         #endregion
