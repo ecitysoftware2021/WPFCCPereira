@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WPFCCPereira.Classes;
 using WPFCCPereira.Models;
 using WPFCCPereira.Resources;
+using WPFCCPereira.ViewModel;
 using WPFCCPereira.Windows.Modals;
 
 namespace WPFCCPereira.UserControls
@@ -37,6 +38,10 @@ namespace WPFCCPereira.UserControls
         string _peticion = string.Empty;
 
         bool _isCredit = false;
+
+        ModalConfirmation modal;
+
+        private PaymentViewModel paymentViewModel;
 
         DataCardTransaction _dataCard;
 
@@ -81,6 +86,8 @@ namespace WPFCCPereira.UserControls
             InitializeComponent();
 
             this.transaction = transaction;
+
+            modal = new ModalConfirmation(this.transaction);
 
             TPV = new TPVOperation();
 
@@ -201,9 +208,9 @@ namespace WPFCCPereira.UserControls
 
                             break;
                         //case "NFC":
-                            //opciones = new Opciones("Acerca el dispositivo NFC al datáfono", peticion: LRCPeticion);
-                            //opciones.ShowDialog();
-                            //break;
+                        //opciones = new Opciones("Acerca el dispositivo NFC al datáfono", peticion: LRCPeticion);
+                        //opciones.ShowDialog();
+                        //break;
                         case "AHORROS":
                             dataCard.imagen = string.Empty;
                             ActionTPV(LRCPeticion, dataCard, MensajeDebito, "Hidden");
@@ -213,9 +220,9 @@ namespace WPFCCPereira.UserControls
                             ActionTPV(LRCPeticion, dataCard, MensajeDebito, "Hidden");
                             break;
                         //case "CREDITO":
-                            //dataCard.imagen = "/Images/NewDesing/Gif/clave.Gif";
-                            //ActionTPV(LRCPeticion, dataCard, "Cuatro últimos dígitos de la tarjeta", "Visible");
-                            //break;
+                        //dataCard.imagen = "/Images/NewDesing/Gif/clave.Gif";
+                        //ActionTPV(LRCPeticion, dataCard, "Cuatro últimos dígitos de la tarjeta", "Visible");
+                        //break;
                         default:
                             break;
                     }
@@ -259,7 +266,7 @@ namespace WPFCCPereira.UserControls
         /// </summary>
         private void SavePay()
         {
-            Utilities.navigator.Navigate(UserControlView.PaySuccess, false, transaction);
+            Utilities.navigator.Navigate(UserControlView.PrintFile, false, transaction);
             //notificar al ws del client
         }
 
@@ -563,7 +570,7 @@ namespace WPFCCPereira.UserControls
                     _AutorizationCode = response[3];
                     _ReceiptNumber = response[7];
                     _RRN = response[8];
-                    SavePay();
+                    OrganizeValues();
                 }
                 else
                 {
@@ -664,11 +671,7 @@ namespace WPFCCPereira.UserControls
 
         private void RetryPayment()
         {
-            //TODO: Cambiar a pagar con efectivo
             this.Opacity = 0.3;
-            Cancelled();
-            ModalConfirmation modal = new ModalConfirmation(transaction);
-            modal.BtnCard.Visibility = Visibility.Hidden;
             modal.ShowDialog();
         }
 
@@ -681,6 +684,9 @@ namespace WPFCCPereira.UserControls
             else if (error.ToLower().Contains("comunicacion"))
             {
                 error = "Señor usuario, No hay comunicación con el datáfono.";
+                modal.BtnCard.Visibility = Visibility.Hidden;
+                Cancelled();
+
             }
             else if (error.ToLower().Contains("declinada"))
             {
@@ -689,6 +695,8 @@ namespace WPFCCPereira.UserControls
             else if (error.ToLower().Contains("soportada"))
             {
                 error = "Señor usuario, transacción no soportada, intente de otro modo.";
+                modal.BtnCard.Visibility = Visibility.Hidden;
+                Cancelled();
             }
             else if (error.ToLower().Contains("invalida"))
             {
@@ -701,12 +709,14 @@ namespace WPFCCPereira.UserControls
             else if (error.ToLower().Contains("host"))
             {
                 error = "Señor usuario, No hay comunicación con el datáfono.";
+                modal.BtnCard.Visibility = Visibility.Hidden;
+                Cancelled();
             }
             else if (error.ToLower().Contains("PIN Incorrecto"))
             {
                 error = "El pin es incorrecto, intente nuevamente por favor.";
             }
-            error = error.Replace(";" , " ").ToLower();
+            error = error.Replace(";", " ").ToLower();
             return error;
         }
 
@@ -747,6 +757,27 @@ namespace WPFCCPereira.UserControls
 
             }
 
+        }
+
+        private void OrganizeValues()
+        {
+            this.paymentViewModel = new PaymentViewModel
+            {
+                PayValue = transaction.Amount,
+                ValorFaltante = 0,
+                ImgContinue = Visibility.Hidden,
+                ImgCancel = Visibility.Hidden,
+                ImgCambio = Visibility.Hidden,
+                ValorSobrante = 0,
+                ValorIngresado = transaction.Amount,
+                viewList = new CollectionViewSource(),
+                Denominations = new List<DenominationMoney>(),
+                ValorDispensado = 0,
+                StatePay = true
+            };
+            transaction.Payment = paymentViewModel;
+
+            SavePay();
         }
 
         #endregion
