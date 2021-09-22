@@ -124,6 +124,12 @@ namespace WPFCCPereira.Classes
         ErrorService = 4
     }
 
+    public enum ETypePay
+    {
+        Card = 1,
+        Cash = 2
+    }
+
     public enum ETransactionType
     {
         Withdrawal = 15,

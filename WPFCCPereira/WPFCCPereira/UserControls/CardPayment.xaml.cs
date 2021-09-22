@@ -257,8 +257,9 @@ namespace WPFCCPereira.UserControls
         /// <summary>
         /// Finalizar el pago ante score
         /// </summary>
-        private void NotificateBuy()
+        private void SavePay()
         {
+            Utilities.navigator.Navigate(UserControlView.PaySuccess, false, transaction);
             //notificar al ws del client
         }
 
@@ -468,9 +469,14 @@ namespace WPFCCPereira.UserControls
                 var opcionesTransaccionales = positiveResponse[3].Split(';');
                 if (opcionesTransaccionales.Length > 1)
                 {
+
                     lvOpciones.Visibility = Visibility.Visible;
                     //Asigno el título de la operación actual para el usuario
                     txtOpcion.Text = positiveResponse[2];
+                    if (positiveResponse[2].Equals("Tipo de Cuenta?"))
+                    {
+                        GifLoad.Visibility = Visibility.Hidden;
+                    }
 
                     //En esta lista se almanecarán las opciones que se le presentaran en la vista al usuario
                     List<FormaPago> formas = new List<FormaPago>();
@@ -557,7 +563,7 @@ namespace WPFCCPereira.UserControls
                     _AutorizationCode = response[3];
                     _ReceiptNumber = response[7];
                     _RRN = response[8];
-                    NotificateBuy();
+                    SavePay();
                 }
                 else
                 {
@@ -711,6 +717,7 @@ namespace WPFCCPereira.UserControls
             _peticion = dataCard.peticion;
             _isCredit = dataCard.isCredit;
             txtOpcion.Text = dataCard.mensaje;
+            GifLoad.Visibility = Visibility.Visible;
             lvOpciones.Visibility = Visibility.Hidden;
             GifLoad.DataContext = _dataCard;
 

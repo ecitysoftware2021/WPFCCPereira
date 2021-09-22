@@ -36,27 +36,46 @@ namespace WPFCCPereira.UserControls
             {
                 Task.Run(() =>
                 {
-                    AdminPayPlus.UpdateTransaction(this.transaction);
-
-                    Thread.Sleep(2000);
-
-                    Utilities.PrintVoucher(this.transaction);
-
-                    Thread.Sleep(6000);
-
-                    Dispatcher.BeginInvoke((Action)delegate
+                    if (transaction.PaymentType == ETypePay.Cash)
                     {
-                        if (transaction.State == ETransactionState.Error)
+                        AdminPayPlus.UpdateTransaction(this.transaction);
+
+                        Thread.Sleep(2000);
+
+                        Utilities.PrintVoucher(this.transaction);
+
+                        Thread.Sleep(6000);
+
+                        Dispatcher.BeginInvoke((Action)delegate
                         {
-                            Utilities.RestartApp();
-                        }
-                        else
+                            if (transaction.State == ETransactionState.Error)
+                            {
+                                Utilities.RestartApp();
+                            }
+                            else
+                            {
+                                Utilities.navigator.Navigate(UserControlView.Main);
+                            }
+
+                        });
+                        GC.Collect();
+                    }
+                    else
+                    {
+                        AdminPayPlus.UpdateTransaction(this.transaction);
+
+                        Thread.Sleep(2000);
+
+                        Utilities.PrintVoucher(this.transaction);
+
+                        Thread.Sleep(6000);
+
+                        Dispatcher.BeginInvoke((Action)delegate
                         {
                             Utilities.navigator.Navigate(UserControlView.Main);
-                        }
-
-                    });
-                    GC.Collect();
+                        });
+                        GC.Collect();
+                    }
                 });
             }
             catch (Exception ex)

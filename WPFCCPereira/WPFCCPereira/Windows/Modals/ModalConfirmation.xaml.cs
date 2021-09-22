@@ -72,12 +72,14 @@ namespace WPFCCPereira.Windows.Modals
         #region "Events"
         private void BtnCash_TouchDown(object sender, TouchEventArgs e)
         {
-            Utilities.navigator.Navigate(UserControlView.Pay, false, ts);
             this.Close();
+            ts.PaymentType = ETypePay.Cash;
+            Utilities.navigator.Navigate(UserControlView.Pay, false, ts);
         }
         private void BtnCard_TouchDown(object sender, TouchEventArgs e)
         {
             this.Close();
+            ts.PaymentType = ETypePay.Card;
             Utilities.navigator.Navigate(UserControlView.CardPay, false, ts);
             //this.IsEnabled = false;
             //Utilities.dataTransaction.MedioPago = EPaymentType.Card;

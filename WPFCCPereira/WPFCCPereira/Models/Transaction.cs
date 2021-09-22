@@ -36,6 +36,7 @@ namespace WPFCCPereira.Models
         public DetailViewModel detailViewModel { get; set; }
         //END RENOVACION
 
+        public ETypePay PaymentType { get; set; }
         public string consecutive { get; set; }
 
         public string reference { get; set; }
