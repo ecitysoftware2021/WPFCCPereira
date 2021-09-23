@@ -103,17 +103,15 @@ namespace WPFCCPereira.UserControls
             {
                 if (ValidateFields())
                 {
-                    SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Type);
-                    //TODO: DESCOMENTARIAR
-                    //if (AdminPayPlus.DataPayPlus.PayPadConfiguration.enablE_VALIDATE_PERIPHERALS)
-                    //{
-                    //    SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Type);
-                    //}
-                    //else
-                    //{
-                    //    Utilities.ShowModal(string.Format("Estimado, los dispositivos no estan habilitados."), EModalType.Error);
-                    //    Utilities.RestartApp();
-                    //}
+                    if (AdminPayPlus.DataPayPlus.PayPadConfiguration.enablE_VALIDATE_PERIPHERALS)
+                    {
+                        SaveTransaction(((TypeDocument)cmb_type_id.SelectedItem).Type);
+                    }
+                    else
+                    {
+                        Utilities.ShowModal(string.Format("Estimado, los dispositivos no estan habilitados."), EModalType.Error);
+                        Utilities.RestartApp();
+                    }
                 }
                 else
                 {

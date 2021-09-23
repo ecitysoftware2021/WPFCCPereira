@@ -428,8 +428,7 @@ namespace WPFCCPereira.Classes
             }
             catch (Exception ex)
             {
-                //TODO: Save log
-                //LogService.SaveRequestResponse("Utilities>Speack", JsonConvert.SerializeObject(ex), 1);
+                Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Utilities", ex, MessageResource.StandarError);
             }
         }
 

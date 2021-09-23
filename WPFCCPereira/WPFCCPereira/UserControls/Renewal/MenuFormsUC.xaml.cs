@@ -196,7 +196,9 @@ namespace WPFCCPereira.UserControls.Renewal
                 }
                 else
                 {
-                    Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
+                    ModalConfirmation modal = new ModalConfirmation(transaction);
+                    modal.ShowDialog();
+                    //Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
                 }
             }
             catch (Exception ex)

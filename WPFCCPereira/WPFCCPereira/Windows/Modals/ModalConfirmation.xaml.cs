@@ -58,10 +58,16 @@ namespace WPFCCPereira.Windows.Modals
                 //TODO: Cambiar la configuracion del config cuando se cambie a config y poner en el extra data si se muestra los 2 botones o solo 1
                 //BtnCard.Visibility = Utilities.dataPaypad.PaypadConfiguration.enablE_CARD ? Visibility.Visible : Visibility.Hidden;
                 //BtnCash.Visibility = Utilities.dataPaypad.PaypadConfiguration.enablE_VALIDATE_PERIPHERALS ? Visibility.Visible : Visibility.Hidden;
-
-                BtnCard.Visibility = Visibility.Visible;
-                BtnCash.Visibility = Visibility.Visible;
-
+                if (AdminPayPlus.DataPayPlus.PayPadConfiguration.enablE_CARD)
+                {
+                    BtnCard.Visibility = Visibility.Visible;
+                    BtnCash.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    BtnCard.Visibility = Visibility.Hidden;
+                    BtnCash.Visibility = Visibility.Visible;
+                }
             }
             catch (Exception ex)
             {
