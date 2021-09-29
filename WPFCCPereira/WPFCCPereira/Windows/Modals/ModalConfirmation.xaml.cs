@@ -55,7 +55,6 @@ namespace WPFCCPereira.Windows.Modals
         {
             try
             {
-                //TODO: Cambiar la configuracion del config cuando se cambie a config y poner en el extra data si se muestra los 2 botones o solo 1
                 //BtnCard.Visibility = Utilities.dataPaypad.PaypadConfiguration.enablE_CARD ? Visibility.Visible : Visibility.Hidden;
                 //BtnCash.Visibility = Utilities.dataPaypad.PaypadConfiguration.enablE_VALIDATE_PERIPHERALS ? Visibility.Visible : Visibility.Hidden;
                 if (AdminPayPlus.DataPayPlus.PayPadConfiguration.enablE_CARD)
@@ -78,15 +77,15 @@ namespace WPFCCPereira.Windows.Modals
         #region "Events"
         private void BtnCash_TouchDown(object sender, TouchEventArgs e)
         {
-            this.Close();
             ts.PaymentType = ETypePay.Cash;
             Utilities.navigator.Navigate(UserControlView.Pay, false, ts);
+            this.Close();
         }
         private void BtnCard_TouchDown(object sender, TouchEventArgs e)
         {
-            this.Close();
             ts.PaymentType = ETypePay.Card;
             Utilities.navigator.Navigate(UserControlView.CardPay, false, ts);
+            this.Close();
             //this.IsEnabled = false;
             //Utilities.dataTransaction.MedioPago = EPaymentType.Card;
             //DialogResult = true;

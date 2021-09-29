@@ -80,6 +80,8 @@ namespace WPFCCPereira.Services.Object
 
     public class DataComplementary
     {
+        public string TipoOperacion { get; set; }
+        public string CodigoUnico { get; set; }
         public string DurationAlert { get; set; }
         public string NAME_PAYPAD { get; set; }
         public string LAST_NAME_PAYPAD { get; set; }

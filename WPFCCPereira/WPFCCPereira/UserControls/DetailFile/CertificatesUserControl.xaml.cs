@@ -74,17 +74,6 @@ namespace WPFCCPereira.UserControls.DetailFile
         {
             try
             {
-                //TODO: Ojo
-                //transaction = viewModel.GetListFiles(transaction);
-                //if (transaction.Products != null && transaction.Products.Count > 0)
-                //{
-                //    Utilities.navigator.Navigate(UserControlView.Payer, true, transaction);
-                //}
-                //else
-                //{
-                //    Utilities.ShowModal(MessageResource.ErrorCertificate, EModalType.Error);
-                //}
-
                 if (AdminPayPlus.PrinterFile.GetStatus())
                 {
                     transaction = viewModel.GetListFiles(transaction);

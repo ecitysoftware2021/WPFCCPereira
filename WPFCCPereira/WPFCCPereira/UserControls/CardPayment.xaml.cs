@@ -100,11 +100,14 @@ namespace WPFCCPereira.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            //============ORIGINAL PROCINAL=================
+            //============ORIGINAL PROCINAL================================================================================
+
             //ValorTotal = Utilities.dataTransaction.PayVal.ToString().Split(',')[0];
             //NumeroTransaccion = Utilities.IDTransactionDB.ToString();
             //string Delimitador = Utilities.dataPaypad.PaypadConfiguration.ExtrA_DATA.DataDatafono.Delimitador;
-            //TramaInicial = string.Concat(Utilities.dataPaypad.PaypadConfiguration.ExtrA_DATA.DataDatafono.IdentificadorInicio, Delimitador,
+
+            //TramaInicial =
+            //   string.Concat(Utilities.dataPaypad.PaypadConfiguration.ExtrA_DATA.DataDatafono.IdentificadorInicio, Delimitador,
             //    Utilities.dataPaypad.PaypadConfiguration.ExtrA_DATA.DataDatafono.TipoOperacion, Delimitador,
             //    ValorTotal, Delimitador,
             //    ValorIVA, Delimitador,
@@ -116,24 +119,23 @@ namespace WPFCCPereira.UserControls
             //    ValorIAC, Delimitador,
             //    Utilities.CorrespondentId, "]");
 
-            ValorTotal = "1";
-            NumeroTransaccion = "1";
+            //===================================================================================================================
+            ValorTotal = "01";
+            NumeroTransaccion = transaction.TransactionId.ToString();
             string Delimitador = ",";
 
             TramaInicial =
-                string.Concat("I",
-                Delimitador,
-                "01",
-                Delimitador,
-                ValorTotal, Delimitador,
+                string.Concat("I",Delimitador,
+                AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.TipoOperacion,Delimitador,
+                ValorTotal,Delimitador,
                 ValorIVA, Delimitador,
-                "1", Delimitador,
-                "1", Delimitador,
+                AdminPayPlus.DataConfiguration.ID_PAYPAD, Delimitador,
+                AdminPayPlus.DataConfiguration.ID_PAYPAD, Delimitador,
                 NumeroTransaccion, Delimitador,
                 ValorPropina, Delimitador,
-                "010601557", Delimitador,
+                AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.CodigoUnico, Delimitador,
                 ValorIAC, Delimitador,
-                "1", "]");
+                AdminPayPlus.DataConfiguration.ID_PAYPAD, "]");
 
             //Creo el LCR de la peticion a partir de la trama de inicialización del datáfono
             lblValorPagar.Content = string.Format("{0:C0}", transaction.Amount);
@@ -506,34 +508,6 @@ namespace WPFCCPereira.UserControls
                                     Trama = string.Concat("R,", positiveResponse[1], ",", indiceForma, "]"),
                                 });
                             }
-                            //TODO: mirar bien esto
-                            //else if (item.ToLower().Equals("pago movil"))
-                            //{
-                            //    formas.Add(new FormaPago
-                            //    {
-                            //        Forma = item,
-                            //        Imagen = string.Concat("/Images/NewDesing/Buttons/", item, ".png"),
-                            //        Trama = string.Concat("R,", positiveResponse[1], ",9]"),
-                            //    });
-                            //}
-                            //else if (item.ToLower().Equals("nfc"))
-                            //{
-                            //    formas.Add(new FormaPago
-                            //    {
-                            //        Forma = item,
-                            //        Imagen = string.Concat("/Images/NewDesing/Buttons/", item, ".png"),
-                            //        Trama = string.Concat("R,", positiveResponse[1], ",1]"),
-                            //    });
-                            //}
-                            //else
-                            //{
-                            //    formas.Add(new FormaPago
-                            //    {
-                            //        Forma = item,
-                            //        Imagen = string.Concat("/Images/NewDesing/Buttons/", item, ".png"),
-                            //        Trama = string.Concat("R,", positiveResponse[1], ",", indiceForma, "]"),
-                            //    });
-                            //}
                         }
                         indiceForma++;
                     }
