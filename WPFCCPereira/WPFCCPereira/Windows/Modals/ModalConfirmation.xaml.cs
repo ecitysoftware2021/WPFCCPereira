@@ -83,9 +83,10 @@ namespace WPFCCPereira.Windows.Modals
         }
         private void BtnCard_TouchDown(object sender, TouchEventArgs e)
         {
+            this.IsEnabled = false;
+            BrdMain.Opacity = 0.3;
             ts.PaymentType = ETypePay.Card;
-            Utilities.navigator.Navigate(UserControlView.CardPay, false, ts);
-            this.Close();
+            Utilities.navigator.Navigate(UserControlView.CardPay, false, ts, this);
             //this.IsEnabled = false;
             //Utilities.dataTransaction.MedioPago = EPaymentType.Card;
             //DialogResult = true;

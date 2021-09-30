@@ -73,7 +73,6 @@ namespace WPFCCPereira.UserControls
 
         string _RRN;
 
-        ModalOpcions ModalOpcions;
 
         #endregion
 
@@ -81,13 +80,13 @@ namespace WPFCCPereira.UserControls
 
         #region "Constructor"
 
-        public CardPayment(Transaction transaction)
+        public CardPayment(Transaction transaction, ModalConfirmation modal)
         {
             InitializeComponent();
 
             this.transaction = transaction;
 
-            modal = new ModalConfirmation(this.transaction);
+            this.modal = modal;
 
             TPV = new TPVOperation();
 
@@ -145,8 +144,12 @@ namespace WPFCCPereira.UserControls
             //Envío la trama que intentará activar el datáfono
             var datos = TPV.EnviarPeticion(LCRPeticion);
 
-            TPVOperation.CallBackRespuesta?.Invoke(datos);
 
+            modal.Close();
+            modal.IsEnabled = true;
+            modal.Opacity = 1;
+
+            TPVOperation.CallBackRespuesta?.Invoke(datos);
         }
         private void BtnCancelar_TouchDown(object sender, TouchEventArgs e)
         {
@@ -590,6 +593,7 @@ namespace WPFCCPereira.UserControls
             {
                 GC.Collect();
                 Opacity = 0.3;
+                modal = new ModalConfirmation(transaction);
                 message = GetMessageError(message);
                 Utilities.ShowModal(message, EModalType.Error);
                 lvOpciones.Visibility = Visibility.Hidden;

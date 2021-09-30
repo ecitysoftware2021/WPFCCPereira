@@ -103,7 +103,7 @@ namespace WPFCCPereira.Models
                         View = new PaymentUserControl((Transaction)data);
                         break;
                     case UserControlView.CardPay:
-                        View = new CardPayment((Transaction)data);
+                        View = new CardPayment((Transaction)data,(ModalConfirmation)complement);
                         break;
                     case UserControlView.ReturnMony:
                         View = new ReturnMonyUserControl((Transaction)data);
