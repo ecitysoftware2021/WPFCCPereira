@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:WPFCCPereira.Windows.Modals"
         mc:Ignorable="d"
         WindowStyle="None"
@@ -20,57 +21,70 @@
         BorderThickness="3,3,3,3"
     >
         <Grid>
-            <Grid.Background>
-                <ImageBrush ImageSource="/Images/Backgrounds/bg-metodo-pago.png"/>
-            </Grid.Background>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="300"/>
-            </Grid.RowDefinitions>
-            <!--Titulo-->
-            <Border  
+            <Grid>
+                <Image
+                    gif:ImageBehavior.AnimatedSource="/Images/Gif/gif-preload.gif" 
+                    gif:ImageBehavior.AnimateInDesignMode="True"
+                    gif:ImageBehavior.AutoStart="True" 
+                    x:Name="GifLoad" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="300" 
+                    Visibility="Hidden"
+                    Height="300"
+                />
+            </Grid>
+            <Grid x:Name="GrdData" Visibility="Visible">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Images/Backgrounds/bg-metodo-pago.png"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="300"/>
+                </Grid.RowDefinitions>
+                <!--Titulo-->
+                <Border  
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 BorderThickness="3,3,3,.5"
                 CornerRadius="0,0,0,0">
-                <Grid>
-                    <TextBlock 
-                        x:Name="TxtTitle"
-                        HorizontalAlignment="Center"
-                        FontSize="35"
-                        TextAlignment="Center"
-                        FontFamily="Gotham"
-                        Foreground="White"
-                        TextWrapping="Wrap" 
-                        FontWeight="Bold"
-                        Margin="0,25,0,0"
-                        VerticalAlignment="Top"/>
-                </Grid>
-            </Border>
-            <Border
+                    <Grid>
+                        <TextBlock 
+                            x:Name="TxtTitle"
+                            HorizontalAlignment="Center"
+                            FontSize="35"
+                            TextAlignment="Center"
+                            FontFamily="Gotham"
+                            Foreground="White"
+                            TextWrapping="Wrap" 
+                            FontWeight="Bold"
+                            Margin="0,25,0,0"
+                            VerticalAlignment="Top"/>
+                    </Grid>
+                </Border>
+                <Border
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 BorderThickness="3,0,3,0"
                 Margin="0,100,0,0" 
                 Grid.RowSpan="2">
-                <Grid>
-                    <Grid Grid.ColumnSpan="2" Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="130" />
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="60" />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock
+                    <Grid>
+                        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="130" />
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+                            <TextBlock
                             HorizontalAlignment="Center"
                             FontSize="20"
                             FontFamily="Gotham"
@@ -79,7 +93,7 @@
                             FontWeight="Bold"
                             Grid.Row="1"
                             VerticalAlignment="Center"/>
-                        <TextBlock 
+                            <TextBlock 
                             HorizontalAlignment="Left"
                             FontSize="20"
                             FontFamily="Gotham"
@@ -89,7 +103,7 @@
                             Name="TxtDate"
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
-                        <TextBlock
+                            <TextBlock
                             HorizontalAlignment="Center"
                             FontSize="20"
                             FontFamily="Gotham"
@@ -99,7 +113,7 @@
                             Text="Hora:" 
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
-                        <TextBlock
+                            <TextBlock
                             HorizontalAlignment="Left"
                             FontSize="20"
                             FontFamily="Gotham"
@@ -109,7 +123,7 @@
                             Name="TxtHora"
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
-                        <TextBlock 
+                            <TextBlock 
                             HorizontalAlignment="Center"
                             FontSize="20"
                             FontFamily="Gotham"
@@ -119,7 +133,7 @@
                             Text="TOTAL:" 
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
-                        <TextBlock
+                            <TextBlock
                             HorizontalAlignment="Left"
                             FontSize="20"
                             FontFamily="Gotham"
@@ -129,21 +143,21 @@
                             Name="TxtTotal"
                             FontWeight="Bold"
                             VerticalAlignment="Center"/>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Border>
-            <Border 
+                </Border>
+                <Border 
                 Grid.ColumnSpan="2" 
                 Grid.Row="1"
                 BorderThickness="3,3,3,3"
                 CornerRadius="0,0,0,0"
                 Margin="0,0,0,0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="572*"/>
-                        <ColumnDefinition Width="177*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="572*"/>
+                            <ColumnDefinition Width="177*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image
                         VerticalAlignment="Center"
                         x:Name="BtnCash"                        
                         Margin="50,0,0,0"
@@ -152,7 +166,7 @@
                         HorizontalAlignment="Left"
                         Height="200"
                         Source="/Images/Buttons/btnEfectivo.png" />
-                    <Image
+                        <Image
                         VerticalAlignment="Center"
                         x:Name="BtnCard"     
                         Visibility="Visible"
@@ -163,7 +177,7 @@
                         Height="200"
                         Grid.ColumnSpan="2"
                         Source="/Images/Buttons/btnTarjeta.png"/>
-                    <Image
+                        <Image
                         x:Name="BtnExit"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
@@ -171,8 +185,9 @@
                         TouchDown="BtnNo_TouchDown"
                         Margin="230,0,48,0" 
                         Source="/Images/Buttons/btnSalir2.png"/>
-                </Grid>
-            </Border>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
     </Border>
 </Window>

@@ -355,7 +355,7 @@ namespace WPFCCPereira.UserControls
                     else
                     {
                         this.IsEnabled = true;
-                        SetMessageAndPutVisibility("Datáfono sin conexión, intente de nuevo.");
+                        SetMessageAndPutVisibility("Respuesta del datafono: " + dataResponse[0]);
                     }
                 }
             }
