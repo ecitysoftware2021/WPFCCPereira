@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,7 +98,7 @@ namespace WPFCCPereira.UserControls
 
         #region "Events"
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             //============ORIGINAL PROCINAL================================================================================
 
@@ -124,9 +125,9 @@ namespace WPFCCPereira.UserControls
             string Delimitador = ",";
 
             TramaInicial =
-                string.Concat("I",Delimitador,
-                AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.TipoOperacion,Delimitador,
-                ValorTotal,Delimitador,
+                string.Concat("I", Delimitador,
+                AdminPayPlus.DataPayPlus.PayPadConfiguration.ExtrA_DATA.dataComplementary.TipoOperacion, Delimitador,
+                ValorTotal, Delimitador,
                 ValorIVA, Delimitador,
                 AdminPayPlus.DataConfiguration.ID_PAYPAD, Delimitador,
                 AdminPayPlus.DataConfiguration.ID_PAYPAD, Delimitador,
@@ -137,19 +138,22 @@ namespace WPFCCPereira.UserControls
                 AdminPayPlus.DataConfiguration.ID_PAYPAD, "]");
 
             //Creo el LCR de la peticion a partir de la trama de inicialización del datáfono
-            lblValorPagar.Content = string.Format("{0:C0}", transaction.Amount);
+            Dispatcher.Invoke((Action)delegate
+            {
+                lblValorPagar.Content = string.Format("{0:C0}", transaction.Amount);
+            });
 
             var LCRPeticion = TPV.CalculateLRC(TramaInicial);
 
             //Envío la trama que intentará activar el datáfono
             var datos = TPV.EnviarPeticion(LCRPeticion);
 
-
-            modal.Close();
-            modal.IsEnabled = true;
-            modal.Opacity = 1;
-
             TPVOperation.CallBackRespuesta?.Invoke(datos);
+
+            Dispatcher.Invoke((Action)delegate
+            {
+                modal.Close();
+            });
         }
         private void BtnCancelar_TouchDown(object sender, TouchEventArgs e)
         {
@@ -163,6 +167,7 @@ namespace WPFCCPereira.UserControls
             }
             catch (Exception ex)
             {
+
             }
         }
         private void ListViewItem_PreviewStylusDown(object sender, StylusDownEventArgs e)
@@ -174,6 +179,7 @@ namespace WPFCCPereira.UserControls
             try
             {
                 this.IsEnabled = false;
+                btnCancelar.Visibility = Visibility.Hidden;
                 //Optengo la data contenida en el elemento seleccionado
                 var data = (sender as ListBoxItem).DataContext;
 
@@ -210,7 +216,6 @@ namespace WPFCCPereira.UserControls
                             break;
                         case "PAGO MOVIL":
                             OptionSelected(datos, LRCPeticion, dataCard, "Acerca el teléfono al datáfono");
-
                             break;
                         //case "NFC":
                         //opciones = new Opciones("Acerca el dispositivo NFC al datáfono", peticion: LRCPeticion);
@@ -286,11 +291,14 @@ namespace WPFCCPereira.UserControls
             try
             {
                 //LogService.SaveRequestResponse("Respuesta del datáfono", responseTPV, 1);
-
                 //Todas las respuestas correctas tienen mas de 4 caracteres
 
                 if (responseTPV.Length < 4)
                 {
+                    //Cancelled();
+
+                    var x = TPV;
+
                     SetMessageAndPutVisibility("Datáfono sin conexión, intente de nuevo.");
                 }
                 else
@@ -355,6 +363,7 @@ namespace WPFCCPereira.UserControls
                     else
                     {
                         this.IsEnabled = true;
+                        btnCancelar.Visibility = Visibility.Visible;
                         SetMessageAndPutVisibility("Respuesta del datafono: " + dataResponse[0]);
                     }
                 }

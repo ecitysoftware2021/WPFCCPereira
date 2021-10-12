@@ -21,19 +21,6 @@
         BorderThickness="3,3,3,3"
     >
         <Grid>
-            <Grid>
-                <Image
-                    gif:ImageBehavior.AnimatedSource="/Images/Gif/gif-preload.gif" 
-                    gif:ImageBehavior.AnimateInDesignMode="True"
-                    gif:ImageBehavior.AutoStart="True" 
-                    x:Name="GifLoad" 
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="300" 
-                    Visibility="Hidden"
-                    Height="300"
-                />
-            </Grid>
             <Grid x:Name="GrdData" Visibility="Visible">
                 <Grid.Background>
                     <ImageBrush ImageSource="/Images/Backgrounds/bg-metodo-pago.png"/>
@@ -157,6 +144,32 @@
                             <ColumnDefinition Width="572*"/>
                             <ColumnDefinition Width="177*"/>
                         </Grid.ColumnDefinitions>
+                        <Image
+                            x:Name="GifLoadder" 
+                            Width="240" 
+                            Height="240"
+                            Margin="0,0,0,50"
+                            Visibility="Hidden"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center" 
+                            Stretch="Fill"
+                            gif:ImageBehavior.AnimatedSource="/Images/Gif/gif-preload.gif" 
+                            gif:ImageBehavior.AnimateInDesignMode="True"
+                            gif:ImageBehavior.AutoStart="True"
+                        />
+                        <TextBlock
+                            x:Name="TxtWait"
+                            Visibility="Hidden"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Grid.ColumnSpan="2"
+                            Text="Iniciando Transacción..."
+                            FontWeight="SemiBold"
+                            FontSize="25"
+                            FontFamily="Gotham"
+                            Margin="0,0,0,20"
+                        />
                         <Image
                         VerticalAlignment="Center"
                         x:Name="BtnCash"                        

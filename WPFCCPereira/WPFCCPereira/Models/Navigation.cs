@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using WPFCCPereira.Classes;
@@ -36,6 +37,7 @@ namespace WPFCCPereira.Models
         {
             try
             {
+
                 switch (newWindow)
                 {
                     case UserControlView.Main:
@@ -149,10 +151,14 @@ namespace WPFCCPereira.Models
                     TimerService.Start(int.Parse(AdminPayPlus.DataPayPlus.PayPadConfiguration.generiC_TIMER));
                 }
             }
+
             catch (Exception ex)
             {
                 Error.SaveLogError(MethodBase.GetCurrentMethod().Name, "Navigate", ex);
+  
             }
+
+
             GC.Collect();
         });
     }

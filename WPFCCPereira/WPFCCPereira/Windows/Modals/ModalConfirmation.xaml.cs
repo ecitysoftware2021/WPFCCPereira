@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -72,24 +73,47 @@ namespace WPFCCPereira.Windows.Modals
             {
             }
         }
+
+        private void HiddenButtons()
+        {
+            Dispatcher.BeginInvoke((Action)delegate
+            {
+                this.IsEnabled = false;
+                BtnCard.Visibility = Visibility.Hidden;
+                BtnCash.Visibility = Visibility.Hidden;
+                BtnExit.Visibility = Visibility.Hidden;
+                TxtWait.Visibility = Visibility.Visible;
+                GifLoadder.Visibility = Visibility.Visible;
+            });
+        }
         #endregion
 
         #region "Events"
         private void BtnCash_TouchDown(object sender, TouchEventArgs e)
         {
-            ts.PaymentType = ETypePay.Cash;
-            Utilities.navigator.Navigate(UserControlView.Pay, false, ts);
-            this.Close();
+            HiddenButtons();
+
+            Task.Run(() =>
+            {
+                Thread.Sleep(3000);
+                ts.PaymentType = ETypePay.Cash;
+                Utilities.navigator.Navigate(UserControlView.Pay, false, ts);
+                Dispatcher.BeginInvoke((Action)delegate
+                {
+                    this.Close();
+                });
+            });
         }
         private void BtnCard_TouchDown(object sender, TouchEventArgs e)
         {
-            this.IsEnabled = false;
-            BrdMain.Opacity = 0.3;
-            ts.PaymentType = ETypePay.Card;
-            Utilities.navigator.Navigate(UserControlView.CardPay, false, ts, this);
-            //this.IsEnabled = false;
-            //Utilities.dataTransaction.MedioPago = EPaymentType.Card;
-            //DialogResult = true;
+            HiddenButtons();
+
+            Task.Run(() =>
+            {
+                Thread.Sleep(3000);
+                ts.PaymentType = ETypePay.Card;
+                Utilities.navigator.Navigate(UserControlView.CardPay, false, ts, this);
+            });
         }
 
         private void BtnDelete_TouchDown(object sender, TouchEventArgs e)
