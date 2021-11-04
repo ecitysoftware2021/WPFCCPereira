@@ -186,7 +186,6 @@ namespace WPFCCPereira.Classes
                         config.ID_PAYPAD = Convert.ToInt32(result.User);
                         config.ID_SESSION = Convert.ToInt32(result.Session);
                         config.TOKEN_API = result.Token;
-
                         _dataConfiguration = config;
 
                         return true;

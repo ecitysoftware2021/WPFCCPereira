@@ -174,7 +174,11 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
+
+
                 TimerService.Stop();
+
+                var data = transaction;
 
                 Task.Run(async () =>
                 {

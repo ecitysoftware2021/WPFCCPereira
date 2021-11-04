@@ -181,25 +181,32 @@ namespace WPFCCPereira.UserControls.Renewal
         {
             try
             {
-                transaction.Type = ETransactionType.PaymentFile;
-                transaction.State = ETransactionState.Initial;
-                transaction.consecutive = transaction.idLiquidacion;
-                transaction.reference = transaction.numeroRecuperacion;
-
-                await AdminPayPlus.SaveTransactions(this.transaction);
-
-                Utilities.CloseModal();
-
-                if (this.transaction.IdTransactionAPi == 0)
+                await Task.Run(async () =>
                 {
-                    Utilities.ShowModal("No se pudo crear la transacción. Por favor intenta de nuevo.", EModalType.Error);
-                }
-                else
-                {
-                    ModalConfirmation modal = new ModalConfirmation(transaction);
-                    modal.ShowDialog();
-                    //Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
-                }
+                    transaction.Type = ETransactionType.PaymentFile;
+                    transaction.State = ETransactionState.Initial;
+                    transaction.consecutive = transaction.idLiquidacion;
+                    transaction.reference = transaction.numeroRecuperacion;
+
+                    await AdminPayPlus.SaveTransactions(this.transaction);
+                   
+                    Utilities.CloseModal();
+
+                    if (this.transaction.IdTransactionAPi == 0)
+                    {
+                        Utilities.ShowModal("No se pudo crear la transacción. Por favor intenta de nuevo.", EModalType.Error);
+                    }
+                    else
+                    {
+                        Dispatcher.BeginInvoke((Action)delegate
+                        {
+                            GrdMain.Opacity = 0.3;
+                            ModalConfirmation modal = new ModalConfirmation(transaction);
+                            modal.ShowDialog();
+                        });
+                        //Utilities.navigator.Navigate(UserControlView.Pay, false, transaction);
+                    }
+                });
             }
             catch (Exception ex)
             {
