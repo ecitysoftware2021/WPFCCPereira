@@ -120,7 +120,8 @@ namespace WPFCCPereira.UserControls
             //    Utilities.CorrespondentId, "]");
 
             //===================================================================================================================
-            ValorTotal = "01";
+            ValorTotal = transaction.Amount.ToString();
+            
             NumeroTransaccion = transaction.TransactionId.ToString();
             string Delimitador = ",";
 

@@ -448,7 +448,6 @@ namespace WPFCCPereira.Classes
             {
                 if (payer == null)
                 {
-
                     payer = new PAYER
                     {
                         IDENTIFICATION = _dataConfiguration.ID_PAYPAD.ToString(),
